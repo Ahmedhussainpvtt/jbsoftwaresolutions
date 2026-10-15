@@ -21,7 +21,8 @@ Contact: info@jbsoftwaresolutions.com
 - [Home](https://jbsoftwaresolutions.com/): Custom software development company in India for web, mobile, desktop, SEO, AEO, GEO and AI automation.
 - [About](https://jbsoftwaresolutions.com/about/): About JB Software Solutions - product engineering plus AI-era discovery under one roof.
 - [Blog index](https://jbsoftwaresolutions.com/blog/): Guides on GEO, AEO, custom software cost in India, and Flutter vs React Native.
-- [Contact](https://jbsoftwaresolutions.com/contact/): Contact form for software, apps and SEO/GEO project quotes.
+- [Contact](https://jbsoftwaresolutions.com/contact/): Contact form for software, apps and SEO/GEO project quotes. Reply within 24 hours on business days.
+- [Pricing](https://jbsoftwaresolutions.com/pricing/): Starting prices for websites, apps, custom software, SEO retainers and AI automation in India.
 
 ## Services
 

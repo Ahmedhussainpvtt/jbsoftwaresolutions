@@ -71,7 +71,7 @@
         "@id": "https://jbsoftwaresolutions.com/contact/#webpage",
         "url": "https://jbsoftwaresolutions.com/contact/",
         "name": "Contact JB Software Solutions | Get a Software or SEO Quote",
-        "description": "Contact JB Software Solutions for custom software, mobile apps, websites, SEO, GEO and AI automation. Free strategy discussion.",
+        "description": "Contact JB Software Solutions for custom software, mobile apps, websites, SEO, GEO and AI automation. Reply within 24 hours on business days.",
         "isPartOf": { "@id": "https://jbsoftwaresolutions.com/#website" },
         "publisher": { "@id": "https://jbsoftwaresolutions.com/#organization" },
         "inLanguage": "en-IN"
@@ -80,7 +80,7 @@
   }
   </script>
   
-    <script type="application/ld+json" id="seo-jsonld">
+  <script type="application/ld+json" id="seo-jsonld">
 {
     "@context": "https://schema.org",
     "@graph": [
@@ -127,6 +127,7 @@
       <li><a href="../services/web-development/">Services</a></li>
       <li><a href="../services/seo-aeo-geo/">SEO / GEO</a></li>
       <li><a href="../services/ai-automation/">AI</a></li>
+      <li><a href="../pricing/">Pricing</a></li>
       <li><a href="../blog/">Blog</a></li>
       <li><a href="../about/">About</a></li>
       <li><a href="../contact/" class="is-active">Contact</a></li>
@@ -138,13 +139,19 @@
 <main>
   <section class="page-hero"><div class="container">
     <div class="section-kicker">Contact</div>
-    <h1>Tell us what you want shipped</h1>
-    <p>Share a short brief in the form. We reply with fit, rough timeline and next steps. Email works too if you prefer.</p>
+    <h1>Get a scoped quote</h1>
+    <p>Send a short brief. We reply within 24 hours on business days with fit, rough timeline and next steps. No phone tag. No spam.</p>
   </div></section>
   <section class="section" style="padding-top:0"><div class="container contact-grid">
-    <form class="form" action="mailto:info@jbsoftwaresolutions.com" method="post" enctype="text/plain">
+    <form class="form" action="https://formsubmit.co/info@jbsoftwaresolutions.com" method="POST">
+      <input type="hidden" name="_next" value="https://jbsoftwaresolutions.com/thank-you/" />
+      <input type="hidden" name="_subject" value="New lead - JB Software Solutions" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
       <label>Name<input name="name" required placeholder="Your name" /></label>
       <label>Email<input type="email" name="email" required placeholder="you@company.com" /></label>
+      <label>Company / project name<input name="company" placeholder="Optional" /></label>
       <label>Service
         <select name="service">
           <option>Web development</option>
@@ -156,19 +163,29 @@
           <option>Not sure yet</option>
         </select>
       </label>
-      <label>Project details<textarea name="message" required placeholder="Goals, timeline, links, budget range"></textarea></label>
-      <button class="btn btn-primary btn-magnet" type="submit">Send message</button>
+      <label>Budget range
+        <select name="budget">
+          <option>Under ₹1 lakh</option>
+          <option>₹1-5 lakh</option>
+          <option>₹5-15 lakh</option>
+          <option>₹15 lakh+</option>
+          <option>Not sure yet</option>
+        </select>
+      </label>
+      <label>Project details<textarea name="message" required placeholder="Goals, timeline, links, must-haves"></textarea></label>
+      <button class="btn btn-primary btn-magnet" type="submit">Get my quote</button>
     </form>
     <div class="prose">
-      <h2>How to reach us</h2>
-      <p>Use this contact form first. It is the fastest way to get a scoped reply from the build team.</p>
-      <p>Email: <a href="mailto:info@jbsoftwaresolutions.com">info@jbsoftwaresolutions.com</a></p>
+      <h2>Why this form exists</h2>
+      <p>Serious buyers want a written reply, not a dead mailto popup. This form emails the JB team directly and sends you to a confirmation page.</p>
+      <p>Prefer email? Write <a href="mailto:info@jbsoftwaresolutions.com">info@jbsoftwaresolutions.com</a> with your brief.</p>
       <h2>What happens next</h2>
       <ul>
-        <li>We confirm we are the right fit (or say who would be better)</li>
+        <li>We confirm fit within 24 hours on business days</li>
         <li>You get a written scope outline</li>
         <li>We agree fixed or phased pricing before build starts</li>
       </ul>
+      <p><a href="../pricing/">See starting prices</a> if you want ballpark numbers first.</p>
     </div>
   </div></section>
 </main>
@@ -190,6 +207,7 @@
       <strong>Grow</strong>
       <a href="../services/seo-aeo-geo/">SEO, AEO and GEO</a>
       <a href="../services/ai-automation/">AI automation</a>
+      <a href="../pricing/">Pricing</a>
       <a href="../blog/">Blog</a>
     </div>
     <div>

@@ -59,7 +59,7 @@ module.exports = {
     ].join('\n'),
   },
 
-  excludeFromSitemap: ['/404.html'],
+  excludeFromSitemap: ['/404.html', '/thank-you/'],
 
   skipPaths: [],
 
@@ -97,6 +97,21 @@ module.exports = {
         'Guides from JB Software Solutions on GEO, AEO, custom software cost in India, Flutter vs React Native, and AI-era product building.',
       priority: 0.8,
       changefreq: 'weekly',
+    },
+    '/pricing/': {
+      title: 'Pricing | Software, Apps and SEO Starting Costs | JB Software Solutions',
+      description:
+        'Transparent starting prices for websites, mobile apps, custom software, SEO, AEO, GEO and AI automation from JB Software Solutions in India.',
+      priority: 0.9,
+      changefreq: 'weekly',
+    },
+    '/thank-you/': {
+      title: 'Thank you | JB Software Solutions',
+      description: 'Thanks for contacting JB Software Solutions. We will reply within 24 hours on business days.',
+      priority: 0.1,
+      changefreq: 'yearly',
+      sitemap: false,
+      noindex: true,
     },
     '/services/web-development/': {
       title: 'Web Development Company India | Next.js and React | JB Software Solutions',

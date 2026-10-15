@@ -109,6 +109,7 @@ def nav(depth, active=""):
       {a("services", "services/web-development/", "Services")}
       {a("seo", "services/seo-aeo-geo/", "SEO / GEO")}
       {a("ai", "services/ai-automation/", "AI")}
+      {a("pricing", "pricing/", "Pricing")}
       {a("blog", "blog/", "Blog")}
       {a("about", "about/", "About")}
       {a("contact", "contact/", "Contact")}
@@ -148,6 +149,7 @@ def footer(depth):
       <strong>Grow</strong>
       <a href="{p}services/seo-aeo-geo/">SEO, AEO and GEO</a>
       <a href="{p}services/ai-automation/">AI automation</a>
+      <a href="{p}pricing/">Pricing</a>
       <a href="{p}blog/">Blog</a>
     </div>
     <div>
@@ -292,6 +294,81 @@ home = head(
       <span>ChatGPT citations</span><span>Perplexity SEO</span><span>LLM SEO</span>
     </div>
   </div>
+
+  <section class="section" id="trust" style="padding-top:2.5rem;padding-bottom:1rem">
+    <div class="container">
+      <div class="trust-strip reveal">
+        <article><strong>Reply within 24 hours</strong><span>Human response on every serious brief, usually faster on business days.</span></article>
+        <article><strong>You own the IP</strong><span>Source code and assets stay with you. No hostage licensing.</span></article>
+        <article><strong>Fixed or phased quotes</strong><span>Written scope before build. No surprise invoices mid-sprint.</span></article>
+        <article><strong>Build + SEO together</strong><span>Launch day is not day zero of discoverability.</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="engagements">
+    <div class="container">
+      <div class="section-kicker reveal">How buyers usually hire us</div>
+      <h2 class="section-title reveal">Three briefs we close again and again</h2>
+      <p class="section-sub reveal">No fake logos. Real engagement shapes founders bring us, with outcomes that matter for revenue.</p>
+      <div class="engage-grid">
+        <article class="engage-card reveal">
+          <h3>Launch site that generates enquiries</h3>
+          <p>Service or B2B brand needs a fast website, clear offers, schema, and SEO/GEO so Google and ChatGPT can recommend them.</p>
+          <p><strong style="color:var(--text)">Typical outcome:</strong> indexed service pages, contact form lead flow, and a content cluster that compounds.</p>
+        </article>
+        <article class="engage-card reveal">
+          <h3>MVP app without burning runway</h3>
+          <p>Startup needs Android + iOS or a web product slice in weeks, not a six-month theatre production.</p>
+          <p><strong style="color:var(--text)">Typical outcome:</strong> scoped Flutter or Next.js MVP, store or staging launch, and a written plan for v1.1.</p>
+        </article>
+        <article class="engage-card reveal">
+          <h3>Replace spreadsheet chaos</h3>
+          <p>Ops team is drowning in sheets, WhatsApp threads and manual follow-ups. They need a custom tool their staff will actually use.</p>
+          <p><strong style="color:var(--text)">Typical outcome:</strong> role-based internal system, handover docs, and optional AI automation on the boring parts.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="promises">
+    <div class="container">
+      <div class="section-kicker reveal">Risk reverse</div>
+      <h2 class="section-title reveal">Promises that make booking us safer</h2>
+      <ul class="promise-list reveal">
+        <li><strong>Honest fit check</strong>If we are wrong for you, we say so before you pay.</li>
+        <li><strong>Scope in writing</strong>Deliverables, timeline and price before the first sprint.</li>
+        <li><strong>Weekly visible progress</strong>Working builds, not radio silence until the deadline.</li>
+        <li><strong>Small-team attention</strong>You talk to people who ship, not a ticket queue that forgets your name.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="pricing-teaser">
+    <div class="container">
+      <div class="section-kicker reveal">Transparent starting points</div>
+      <h2 class="section-title reveal">Pricing ranges buyers can plan around</h2>
+      <p class="section-sub reveal">Agencies that hide every number lose serious buyers to shops that show a floor. Here is ours. Exact quotes still depend on scope.</p>
+      <div class="price-grid">
+        <article class="price-card reveal">
+          <h3>Websites</h3>
+          <div class="from">From ₹50,000</div>
+          <p>Marketing sites and landing systems with SEO foundations.</p>
+        </article>
+        <article class="price-card is-featured reveal">
+          <h3>Apps and custom software</h3>
+          <div class="from">From ₹3,00,000</div>
+          <p>Focused web MVPs, Flutter apps and internal tools with clear milestones.</p>
+        </article>
+        <article class="price-card reveal">
+          <h3>SEO / AEO / GEO</h3>
+          <div class="from">From ₹25,000/mo</div>
+          <p>Technical SEO plus AI-search citation work on a monthly retainer.</p>
+        </article>
+      </div>
+      <p style="margin-top:1.5rem" class="reveal"><a class="btn btn-primary btn-magnet" href="pricing/">See full pricing</a> <a class="btn btn-ghost btn-magnet" href="contact/">Request a fixed quote</a></p>
+    </div>
+  </section>
 
   <section class="section" id="why-jb">
     <div class="container">
@@ -841,7 +918,7 @@ write(ROOT / "about" / "index.html", about)
 # ---------- CONTACT ----------
 contact = head(
     f"Contact {BRAND} | Get a Software or SEO Quote",
-    "Contact JB Software Solutions for custom software, mobile apps, websites, SEO, GEO and AI automation. Free strategy discussion.",
+    "Contact JB Software Solutions for custom software, mobile apps, websites, SEO, GEO and AI automation. Reply within 24 hours on business days.",
     "contact JB Software Solutions, software development quote, hire Flutter developer, SEO agency contact",
     "/contact/",
     1,
@@ -851,13 +928,19 @@ contact = head(
 <main>
   <section class="page-hero"><div class="container">
     <div class="section-kicker">Contact</div>
-    <h1>Tell us what you want shipped</h1>
-    <p>Share a short brief in the form. We reply with fit, rough timeline and next steps. Email works too if you prefer.</p>
+    <h1>Get a scoped quote</h1>
+    <p>Send a short brief. We reply within 24 hours on business days with fit, rough timeline and next steps. No phone tag. No spam.</p>
   </div></section>
   <section class="section" style="padding-top:0"><div class="container contact-grid">
-    <form class="form" action="mailto:{EMAIL}" method="post" enctype="text/plain">
+    <form class="form" action="https://formsubmit.co/{EMAIL}" method="POST">
+      <input type="hidden" name="_next" value="{SITE}/thank-you/" />
+      <input type="hidden" name="_subject" value="New lead - JB Software Solutions" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
       <label>Name<input name="name" required placeholder="Your name" /></label>
       <label>Email<input type="email" name="email" required placeholder="you@company.com" /></label>
+      <label>Company / project name<input name="company" placeholder="Optional" /></label>
       <label>Service
         <select name="service">
           <option>Web development</option>
@@ -869,25 +952,149 @@ contact = head(
           <option>Not sure yet</option>
         </select>
       </label>
-      <label>Project details<textarea name="message" required placeholder="Goals, timeline, links, budget range"></textarea></label>
-      <button class="btn btn-primary btn-magnet" type="submit">Send message</button>
+      <label>Budget range
+        <select name="budget">
+          <option>Under ₹1 lakh</option>
+          <option>₹1-5 lakh</option>
+          <option>₹5-15 lakh</option>
+          <option>₹15 lakh+</option>
+          <option>Not sure yet</option>
+        </select>
+      </label>
+      <label>Project details<textarea name="message" required placeholder="Goals, timeline, links, must-haves"></textarea></label>
+      <button class="btn btn-primary btn-magnet" type="submit">Get my quote</button>
     </form>
     <div class="prose">
-      <h2>How to reach us</h2>
-      <p>Use this contact form first. It is the fastest way to get a scoped reply from the build team.</p>
-      <p>Email: <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+      <h2>Why this form exists</h2>
+      <p>Serious buyers want a written reply, not a dead mailto popup. This form emails the JB team directly and sends you to a confirmation page.</p>
+      <p>Prefer email? Write <a href="mailto:{EMAIL}">{EMAIL}</a> with your brief.</p>
       <h2>What happens next</h2>
       <ul>
-        <li>We confirm we are the right fit (or say who would be better)</li>
+        <li>We confirm fit within 24 hours on business days</li>
         <li>You get a written scope outline</li>
         <li>We agree fixed or phased pricing before build starts</li>
       </ul>
+      <p><a href="{rel(1)}pricing/">See starting prices</a> if you want ballpark numbers first.</p>
     </div>
   </div></section>
 </main>
 {footer(1)}
 """
 write(ROOT / "contact" / "index.html", contact)
+
+pricing = head(
+    f"Pricing | Software, Apps and SEO Starting Costs | {BRAND}",
+    "Transparent starting prices for websites, mobile apps, custom software, SEO, AEO, GEO and AI automation from JB Software Solutions in India.",
+    "software development cost India, website development price, Flutter app cost, SEO retainer India, custom software pricing",
+    "/pricing/",
+    1,
+) + f"""
+<body>
+{nav(1, "pricing")}
+<main>
+  <section class="page-hero"><div class="container">
+    <div class="section-kicker">Pricing</div>
+    <h1>Starting prices, not mystery quotes</h1>
+    <p>Buyers compare India agencies on clarity. These floors help you budget. Final quotes are fixed or phased after discovery.</p>
+  </div></section>
+  <section class="section" style="padding-top:0"><div class="container">
+    <div class="price-grid">
+      <article class="price-card reveal">
+        <h3>Business website</h3>
+        <div class="from">From ₹50,000</div>
+        <ul>
+          <li>5-12 pages, mobile-first</li>
+          <li>SEO basics, schema, sitemap</li>
+          <li>Contact lead capture</li>
+        </ul>
+        <a class="btn btn-ghost btn-magnet" href="{rel(1)}contact/">Request quote</a>
+      </article>
+      <article class="price-card is-featured reveal">
+        <h3>Web MVP / SaaS slice</h3>
+        <div class="from">From ₹3,00,000</div>
+        <ul>
+          <li>Core user journey only</li>
+          <li>Auth, dashboard or workflows</li>
+          <li>Deployed staging + docs</li>
+        </ul>
+        <a class="btn btn-primary btn-magnet" href="{rel(1)}contact/">Request quote</a>
+      </article>
+      <article class="price-card reveal">
+        <h3>Mobile app MVP</h3>
+        <div class="from">From ₹5,00,000</div>
+        <ul>
+          <li>Flutter or React Native</li>
+          <li>Android first, iOS as scoped</li>
+          <li>Store submission support</li>
+        </ul>
+        <a class="btn btn-ghost btn-magnet" href="{rel(1)}contact/">Request quote</a>
+      </article>
+      <article class="price-card reveal">
+        <h3>Custom internal tool</h3>
+        <div class="from">From ₹4,00,000</div>
+        <ul>
+          <li>Roles, workflows, reporting</li>
+          <li>Integrations as needed</li>
+          <li>Full IP handover</li>
+        </ul>
+        <a class="btn btn-ghost btn-magnet" href="{rel(1)}contact/">Request quote</a>
+      </article>
+      <article class="price-card reveal">
+        <h3>SEO + AEO + GEO</h3>
+        <div class="from">From ₹25,000/mo</div>
+        <ul>
+          <li>Technical and on-page SEO</li>
+          <li>Content clusters</li>
+          <li>AI citation checks</li>
+        </ul>
+        <a class="btn btn-ghost btn-magnet" href="{rel(1)}contact/">Request quote</a>
+      </article>
+      <article class="price-card reveal">
+        <h3>AI automation</h3>
+        <div class="from">From ₹75,000</div>
+        <ul>
+          <li>Lead or support agent</li>
+          <li>RAG over your docs</li>
+          <li>Human approval controls</li>
+        </ul>
+        <a class="btn btn-ghost btn-magnet" href="{rel(1)}contact/">Request quote</a>
+      </article>
+    </div>
+    <div class="prose" style="margin-top:2.5rem">
+      <h2>What changes the number</h2>
+      <p>Integrations, compliance, bilingual content, offline/desktop needs, and how finished your requirements already are. We would rather quote honestly than win a fake low bid.</p>
+      <p><a class="btn btn-primary btn-magnet" href="{rel(1)}contact/">Get a fixed or phased quote</a></p>
+    </div>
+  </div></section>
+</main>
+{footer(1)}
+"""
+write(ROOT / "pricing" / "index.html", pricing)
+
+thanks = head(
+    f"Thank you | {BRAND}",
+    "Thanks for contacting JB Software Solutions. We will reply within 24 hours on business days.",
+    BRAND,
+    "/thank-you/",
+    1,
+) + f"""
+<body>
+{nav(1)}
+<main>
+  <section class="page-hero"><div class="container">
+    <div class="section-kicker">Received</div>
+    <h1>Thanks. Your brief is with us.</h1>
+    <p>We reply within 24 hours on business days with fit, next steps and a path to a written quote. Meanwhile, skim pricing or the blog.</p>
+    <div class="hero-cta" style="margin-top:1.5rem">
+      <a class="btn btn-primary btn-magnet" href="{rel(1)}pricing/">View pricing</a>
+      <a class="btn btn-ghost btn-magnet" href="{rel(1)}blog/">Read the blog</a>
+    </div>
+  </div></section>
+</main>
+{footer(1)}
+"""
+# thank-you should stay indexable lightly or noindex - keep indexable for honesty but low priority via seo.config
+write(ROOT / "thank-you" / "index.html", thanks)
 
 # ---------- BLOG INDEX + POSTS ----------
 posts = [
