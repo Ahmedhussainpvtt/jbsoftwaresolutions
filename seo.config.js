@@ -13,7 +13,7 @@ module.exports = {
     defaultTitle: 'JB Software Solutions | Custom Software, Mobile Apps, Websites, SEO and AI',
     titleTemplate: '%s | JB Software Solutions',
     defaultDescription:
-      'JB Software Solutions builds custom software, mobile apps, websites, desktop apps, SEO, AEO, GEO and AI automation for businesses in India and worldwide.',
+      'JB Software Solutions builds custom software, mobile apps, websites, desktop apps, SEO, AEO, GEO and workflow automation for businesses in India and worldwide.',
     defaultOgImage: 'https://jbsoftwaresolutions.com/assets/og-image.jpg',
     favicon: 'https://jbsoftwaresolutions.com/assets/favicon.jpg',
     twitterCard: 'summary_large_image',
@@ -73,7 +73,7 @@ module.exports = {
     '/': {
       title: 'JB Software Solutions | Custom Software Development, Mobile Apps, Websites, SEO, AEO, GEO and AI',
       description:
-        'JB Software Solutions is a custom software development company in India for web apps, Flutter mobile apps, desktop software, SEO, AEO, GEO and AI automation. Get found on Google and cited in ChatGPT.',
+        'JB Software Solutions is a custom software development company in India for web apps, Flutter mobile apps, desktop software, SEO, AEO, GEO and workflow automation. Get found on Google and cited in ChatGPT.',
       changefreq: 'weekly',
       priority: 1.0,
       schemaType: 'WebSite',
@@ -81,13 +81,13 @@ module.exports = {
     '/about/': {
       title: 'About JB Software Solutions',
       description:
-        'JB Software Solutions is a software and digital growth studio building custom products and growing them with SEO, AEO, GEO and AI automation.',
+        'JB Software Solutions is a software and digital growth studio building custom products and growing them with SEO, AEO, GEO and workflow automation.',
       priority: 0.7,
     },
     '/contact/': {
       title: 'Contact JB Software Solutions | Get a Software or SEO Quote',
       description:
-        'Contact JB Software Solutions for custom software, mobile apps, websites, SEO, GEO and AI automation. Send a brief through the contact form.',
+        'Contact JB Software Solutions for custom software, mobile apps, websites, SEO, GEO and workflow automation. Send a brief through the contact form.',
       priority: 0.8,
       changefreq: 'yearly',
     },
@@ -101,7 +101,7 @@ module.exports = {
     '/pricing/': {
       title: 'Pricing | Software, Apps and SEO Starting Costs | JB Software Solutions',
       description:
-        'Transparent starting prices for websites, mobile apps, custom software, SEO, AEO, GEO and AI automation from JB Software Solutions in India.',
+        'Transparent starting prices for websites, mobile apps, custom software, SEO, AEO, GEO and workflow automation from JB Software Solutions in India.',
       priority: 0.9,
       changefreq: 'weekly',
     },
@@ -142,7 +142,7 @@ module.exports = {
       changefreq: 'weekly',
     },
     '/services/ai-automation/': {
-      title: 'Business Workflow and AI Automation | JB Software Solutions',
+      title: 'Business Workflow and workflow automation | JB Software Solutions',
       description:
         'JB Software Solutions builds business workflows and automations that connect your tools, cut repetitive work, and keep leads, follow-ups and ops moving.',
       priority: 0.85,

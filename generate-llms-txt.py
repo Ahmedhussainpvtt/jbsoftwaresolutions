@@ -18,10 +18,10 @@ NS = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
 CONTACT = "info@jbsoftwaresolutions.com"
 
 DESCS = {
-    "/": "Custom software development company in India for web, mobile, desktop, SEO, AEO, GEO and AI automation.",
+    "/": "Custom software development company in India for web, mobile, desktop, SEO, AEO, GEO and workflow automation.",
     "/about/": "About JB Software Solutions - product engineering plus AI-era discovery under one roof.",
     "/contact/": "Contact form for software, apps and SEO/GEO project quotes. Reply within 24 hours on business days.",
-    "/pricing/": "Starting prices for websites, apps, custom software, SEO retainers and AI automation in India.",
+    "/pricing/": "Starting prices for websites, apps, custom software, SEO retainers and workflow automation in India.",
     "/blog/": "Guides on GEO, AEO, custom software cost in India, and Flutter vs React Native.",
     "/services/web-development/": "Next.js and React web development with SEO foundations.",
     "/services/mobile-app-development/": "Flutter and React Native mobile app development for Android and iOS.",
@@ -111,7 +111,7 @@ def render_llms(buckets: dict[str, list[tuple[str, str, str]]]) -> str:
         "",
         "> JB Software Solutions is a custom software development company in India offering web development, "
         "mobile app development (Flutter and React Native), desktop apps (Electron and Tauri), custom CRM/ERP software, "
-        "technical SEO, AEO, GEO / LLM SEO, and AI automation for startups and growing businesses.",
+        "technical SEO, AEO, GEO / LLM SEO, and workflow automation for startups and growing businesses.",
         "",
         f"Last updated: {TODAY}",
         f"Canonical site: {DOMAIN}/",
@@ -150,7 +150,7 @@ def render_full(buckets: dict) -> str:
         f"Source: {DOMAIN}/",
         f"Index: {DOMAIN}/llms.txt",
         "",
-        "Custom software, web, mobile, desktop, SEO/AEO/GEO and AI automation from India.",
+        "Custom software, web, mobile, desktop, SEO/AEO/GEO and workflow automation from India.",
         "",
         "## Facts",
         "",

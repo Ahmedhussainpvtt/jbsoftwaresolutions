@@ -136,7 +136,7 @@ def footer(depth):
   <div class="container footer-grid">
     <div>
       <strong>{BRAND}</strong>
-      <p>Custom software, mobile apps, websites, desktop apps, SEO, AEO, GEO, and AI automation for startups and growing businesses in India and worldwide.</p>
+      <p>Custom software, mobile apps, websites, desktop apps, SEO, AEO, GEO, and workflow automation for startups and growing businesses in India and worldwide.</p>
     </div>
     <div>
       <strong>Build</strong>
@@ -181,7 +181,7 @@ KW_HOME = (
     "custom software development company India, web development company India, "
     "mobile app development company, Flutter app development, React Native development, "
     "SEO company India, AEO services, GEO services, generative engine optimization, "
-    "LLM SEO, ChatGPT SEO, AI Overviews SEO, AI automation agency India, "
+    "LLM SEO, ChatGPT SEO, AI Overviews SEO, workflow automation agency India, "
     "desktop app Electron, Next.js development, SaaS development, ERP software, "
     "hire software developers India, digital agency India, JB Software Solutions"
 )
@@ -197,7 +197,7 @@ home_lines = [
 ]
 home = head(
     f"{BRAND} | Custom Software Development, Mobile Apps, Websites, SEO, AEO, GEO and AI",
-    "JB Software Solutions is a custom software development company in India for web apps, Flutter mobile apps, desktop software, SEO, AEO, GEO and AI automation. Get found on Google and cited in ChatGPT.",
+    "JB Software Solutions is a custom software development company in India for web apps, Flutter mobile apps, desktop software, SEO, AEO, GEO and workflow automation. Get found on Google and cited in ChatGPT.",
     KW_HOME,
     "/",
     0,
@@ -209,7 +209,7 @@ home = head(
     "name": "{BRAND}",
     "url": "{SITE}/",
     "image": "{SITE}/assets/logo-full.png",
-    "description": "Custom software development company in India offering web development, mobile app development, desktop apps, SEO, AEO, GEO and AI automation.",
+    "description": "Custom software development company in India offering web development, mobile app development, desktop apps, SEO, AEO, GEO and workflow automation.",
     "priceRange": "$$",
     "areaServed": ["IN", "AE", "SA", "US", "GB", "AU"],
     "email": "{EMAIL}",
@@ -226,7 +226,7 @@ home = head(
         "name": "What does JB Software Solutions do?",
         "acceptedAnswer": {{
           "@type": "Answer",
-          "text": "JB Software Solutions builds custom software, websites, mobile apps and desktop apps, and grows them with SEO, AEO, GEO and AI automation for clients in India and internationally."
+          "text": "JB Software Solutions builds custom software, websites, mobile apps and desktop apps, and grows them with SEO, AEO, GEO and workflow automation for clients in India and internationally."
         }}
       }},
       {{
@@ -268,7 +268,7 @@ home = head(
         <img src="assets/logo-full.png" alt="{BRAND} custom software logo" width="220" height="120" />
       </div>
       <h1 class="hero-title">Custom software that <span class="grad">gets found</span></h1>
-      <p class="hero-sub">JB Software Solutions is a custom software development company in India for websites, Flutter and React Native mobile apps, desktop tools, SEO, AEO, GEO and AI automation. We build products that convert, then make sure buyers find you on Google and inside ChatGPT, Gemini and Perplexity.</p>
+      <p class="hero-sub">JB Software Solutions is a custom software development company in India for websites, Flutter and React Native mobile apps, desktop tools, SEO, AEO, GEO and workflow automation. We build products that convert, then make sure buyers find you on Google and inside ChatGPT, Gemini and Perplexity.</p>
       <div class="hero-cta">
         <a class="btn btn-primary btn-magnet" href="contact/">Get a free strategy call</a>
         <a class="btn btn-ghost btn-magnet" href="contact/">Contact us</a>
@@ -516,7 +516,7 @@ home = head(
 
       <article class="service-band">
         <div>
-          <h3>AI and business workflow automation</h3>
+          <h3>Business workflow automation</h3>
           <p>We design and build workflows that automate how your business runs day to day: leads, follow-ups, approvals, notifications, CRM updates and repetitive ops. Practical automation that saves hours, not experimental AI labs.</p>
           <div class="tags"><span class="tag">Workflows</span><span class="tag">CRM automation</span><span class="tag">Integrations</span><span class="tag">Ops</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/ai-automation/">Automation services</a></p>
@@ -669,7 +669,7 @@ home = head(
       <div class="faq">
         <details open>
           <summary>What does JB Software Solutions do?</summary>
-          <p>We are a custom software development company in India offering web development, mobile app development, desktop apps, custom CRMs and ERPs, SEO, AEO, GEO and AI automation for startups and growing businesses in India and internationally.</p>
+          <p>We are a custom software development company in India offering web development, mobile app development, desktop apps, custom CRMs and ERPs, SEO, AEO, GEO and workflow automation for startups and growing businesses in India and internationally.</p>
         </details>
         <details>
           <summary>Do you offer SEO, AEO and GEO?</summary>
@@ -838,7 +838,7 @@ service_page(
 
 service_page(
     "ai-automation",
-    f"Business Workflow and AI Automation | {BRAND}",
+    f"Business Workflow and workflow automation | {BRAND}",
     "Automate how your business actually runs",
     "JB Software Solutions builds workflows and automations that connect your tools, cut repetitive work, and keep leads, follow-ups and ops moving without manual copy-paste.",
     "business workflow automation, AI business automation India, CRM automation, process automation, Zapier Make n8n workflows, lead automation, ops automation",
@@ -880,7 +880,7 @@ service_page(
 # ---------- ABOUT ----------
 about = head(
     f"About {BRAND} | Software, Apps and AI Search",
-    "JB Software Solutions is a small, hardworking software agency that loves its customers. Custom products, SEO, AEO, GEO and AI automation with real human support.",
+    "JB Software Solutions is a small, hardworking software agency that loves its customers. Custom products, SEO, AEO, GEO and workflow automation with real human support.",
     "about JB Software Solutions, small software agency India, customer first digital agency, software development studio",
     "/about/",
     1,
@@ -919,7 +919,7 @@ write(ROOT / "about" / "index.html", about)
 # ---------- CONTACT ----------
 contact = head(
     f"Contact {BRAND} | Get a Software or SEO Quote",
-    "Contact JB Software Solutions for custom software, mobile apps, websites, SEO, GEO and AI automation. Reply within 24 hours on business days.",
+    "Contact JB Software Solutions for custom software, mobile apps, websites, SEO, GEO and workflow automation. Reply within 24 hours on business days.",
     "contact JB Software Solutions, software development quote, hire Flutter developer, SEO agency contact",
     "/contact/",
     1,
@@ -985,7 +985,7 @@ write(ROOT / "contact" / "index.html", contact)
 
 pricing = head(
     f"Pricing | Software, Apps and SEO Starting Costs | {BRAND}",
-    "Transparent starting prices for websites, mobile apps, custom software, SEO, AEO, GEO and AI automation from JB Software Solutions in India.",
+    "Transparent starting prices for websites, mobile apps, custom software, SEO, AEO, GEO and workflow automation from JB Software Solutions in India.",
     "software development cost India, website development price, Flutter app cost, SEO retainer India, custom software pricing",
     "/pricing/",
     1,
