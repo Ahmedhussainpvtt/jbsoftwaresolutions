@@ -98,6 +98,17 @@ select {
   width: 44px;
   height: 44px;
   object-fit: contain;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 4px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.hero-brand img {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
 }
 
 .logo span {

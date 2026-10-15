@@ -18,6 +18,7 @@ module.exports = {
     favicon: 'https://jbsoftwaresolutions.com/assets/favicon.jpg',
     twitterCard: 'summary_large_image',
     author: 'JB Software Solutions',
+    gtagId: 'G-RMGPE314SF',
   },
 
   organization: {
