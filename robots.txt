@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/sitemap.xml

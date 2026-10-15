@@ -1,0 +1,14 @@
+# JB Software Solutions
+
+> Custom software, mobile apps, websites, desktop apps, SEO, AEO, GEO and AI automation.
+
+- Home: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/
+- Web development: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/services/web-development/
+- Mobile apps: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/services/mobile-app-development/
+- Custom software: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/services/custom-software/
+- SEO AEO GEO: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/services/seo-aeo-geo/
+- AI automation: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/services/ai-automation/
+- Desktop apps: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/services/desktop-apps/
+- Blog: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/blog/
+- Contact: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/contact/
+- Email: contact@jbsoftwaresolutions.com
