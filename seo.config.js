@@ -10,7 +10,7 @@ module.exports = {
     locale: 'en_IN',
     language: 'en-IN',
     themeColor: '#05070f',
-    defaultTitle: 'JB Software Solutions | Custom Software, Mobile Apps, Websites, SEO and AI',
+    defaultTitle: 'JB Software Solutions | Custom Software, Mobile Apps, Websites, SEO and Automation',
     titleTemplate: '%s | JB Software Solutions',
     defaultDescription:
       'JB Software Solutions builds custom software, mobile apps, websites, desktop apps, SEO, AEO, GEO and workflow automation for businesses in India and worldwide.',
@@ -71,7 +71,7 @@ module.exports = {
 
   pages: {
     '/': {
-      title: 'JB Software Solutions | Custom Software Development, Mobile Apps, Websites, SEO, AEO, GEO and AI',
+      title: 'JB Software Solutions | Custom Software Development, Mobile Apps, Websites, SEO, AEO, GEO',
       description:
         'JB Software Solutions is a custom software development company in India for web apps, Flutter mobile apps, desktop software, SEO, AEO, GEO and workflow automation. Get found on Google and cited in ChatGPT.',
       changefreq: 'weekly',

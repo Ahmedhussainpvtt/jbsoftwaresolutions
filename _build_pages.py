@@ -161,7 +161,7 @@ def footer(depth):
   </div>
   <div class="container footer-bottom">
     <span>&copy; 2026 {BRAND}. All rights reserved.</span>
-    <span>Custom software | Mobile apps | Websites | SEO | AI</span>
+    <span>Custom software | Mobile apps | Websites | SEO | Automation</span>
   </div>
 </footer>
 {dock(depth)}
@@ -196,7 +196,7 @@ home_lines = [
     "> ready. tell us what you want shipped.",
 ]
 home = head(
-    f"{BRAND} | Custom Software Development, Mobile Apps, Websites, SEO, AEO, GEO and AI",
+    f"{BRAND} | Custom Software Development, Mobile Apps, Websites, SEO, AEO, GEO",
     "JB Software Solutions is a custom software development company in India for web apps, Flutter mobile apps, desktop software, SEO, AEO, GEO and workflow automation. Get found on Google and cited in ChatGPT.",
     KW_HOME,
     "/",
@@ -262,25 +262,41 @@ home = head(
 {nav(0, "home")}
 <main>
   <section class="hero">
-    <canvas id="ai-field" aria-hidden="true"></canvas>
-    <div class="container">
-      <div class="hero-brand">
-        <img src="assets/logo-full.png" alt="{BRAND} custom software logo" width="220" height="120" />
-      </div>
-      <h1 class="hero-title">Custom software that <span class="grad">gets found</span></h1>
-      <p class="hero-sub">JB Software Solutions is a custom software development company in India for websites, Flutter and React Native mobile apps, desktop tools, SEO, AEO, GEO and workflow automation. We build products that convert, then make sure buyers find you on Google and inside ChatGPT, Gemini and Perplexity.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary btn-magnet" href="contact/">Get a free strategy call</a>
-        <a class="btn btn-ghost btn-magnet" href="contact/">Contact us</a>
-      </div>
-      <div class="ai-proof">
-        <div class="ai-terminal" data-lines='{__import__("json").dumps(home_lines)}'>
-          <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-          <div class="term-out"></div>
+    <div class="hero-bg" aria-hidden="true">
+      <canvas id="ai-field"></canvas>
+      <div class="hero-mesh"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-orb hero-orb-a"></div>
+      <div class="hero-orb hero-orb-b"></div>
+    </div>
+    <div class="container hero-inner">
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <p class="hero-eyebrow">{BRAND}</p>
+          <h1 class="hero-title">Custom software that <span class="grad">gets found</span></h1>
+          <p class="hero-sub">Websites, Flutter apps, custom software, desktop tools, SEO, AEO, GEO and workflow automation. We build products that convert, then make sure buyers find you on Google and inside ChatGPT, Gemini and Perplexity.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary btn-magnet" href="contact/">Get a free strategy call</a>
+            <a class="btn btn-ghost btn-magnet" href="pricing/">See pricing</a>
+          </div>
         </div>
-        <div class="pixel-row" aria-hidden="true">
-          <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
-          <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+        <div class="hero-stage">
+          <div class="hero-float" aria-hidden="true">
+            <span class="hero-chip">Next.js</span>
+            <span class="hero-chip">Flutter</span>
+            <span class="hero-chip">SEO + GEO</span>
+            <span class="hero-chip">Automation</span>
+          </div>
+          <div class="ai-proof">
+            <div class="ai-terminal" data-lines='{__import__("json").dumps(home_lines)}'>
+              <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+              <div class="term-out"></div>
+            </div>
+            <div class="pixel-row" aria-hidden="true">
+              <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+              <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -720,9 +736,9 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
       <div class="section-kicker">Services</div>
       <h1>{h1}</h1>
       <p>{desc}</p>
-      <div class="hero-cta" style="margin-top:1.5rem">
+      <div class="hero-cta" style="margin-top:1.75rem">
         <a class="btn btn-primary btn-magnet" href="{rel(depth)}contact/">Get a project quote</a>
-        <a class="btn btn-ghost btn-magnet" href="{rel(depth)}blog/">Read the blog</a>
+        <a class="btn btn-ghost btn-magnet" href="{rel(depth)}pricing/">View pricing</a>
       </div>
     </div>
   </section>
@@ -889,7 +905,7 @@ service_page(
 
 # ---------- ABOUT ----------
 about = head(
-    f"About {BRAND} | Software, Apps and AI Search",
+    f"About {BRAND} | Software, Apps and Search",
     "JB Software Solutions is a small, hardworking software agency that loves its customers. Custom products, SEO, AEO, GEO and workflow automation with real human support.",
     "about JB Software Solutions, small software agency India, customer first digital agency, software development studio",
     "/about/",
@@ -902,6 +918,10 @@ about = head(
     <div class="section-kicker">About</div>
     <h1>A small agency that fights for your outcome</h1>
     <p>We are not a factory floor of tickets. We are a tight team that works hard, stays close to the people who hire us, and actually loves seeing customers win.</p>
+    <div class="hero-cta" style="margin-top:1.75rem">
+      <a class="btn btn-primary btn-magnet" href="{rel(1)}contact/">Work with us</a>
+      <a class="btn btn-ghost btn-magnet" href="{rel(1)}pricing/">See pricing</a>
+    </div>
   </div></section>
   <section class="section" style="padding-top:0"><div class="container prose">
     <h2>We are small on purpose</h2>
@@ -1007,6 +1027,10 @@ pricing = head(
     <div class="section-kicker">Pricing</div>
     <h1>Starting prices, not mystery quotes</h1>
     <p>Buyers compare India agencies on clarity. These floors help you budget. Final quotes are fixed or phased after discovery.</p>
+    <div class="hero-cta" style="margin-top:1.75rem">
+      <a class="btn btn-primary btn-magnet" href="{rel(1)}contact/">Get a scoped quote</a>
+      <a class="btn btn-ghost btn-magnet" href="{rel(1)}services/web-development/">Browse services</a>
+    </div>
   </div></section>
   <section class="section" style="padding-top:0"><div class="container">
     <div class="price-grid">
@@ -1227,6 +1251,10 @@ blog_index = head(
     <div class="section-kicker">Blog</div>
     <h1>Notes from shipping software in the AI search era</h1>
     <p>Practical writing for founders and operators. No recycled listicles.</p>
+    <div class="hero-cta" style="margin-top:1.75rem">
+      <a class="btn btn-primary btn-magnet" href="{rel(1)}contact/">Talk to us</a>
+      <a class="btn btn-ghost btn-magnet" href="{rel(1)}pricing/">Pricing</a>
+    </div>
   </div></section>
   <section class="section" style="padding-top:0"><div class="container">
     <div class="blog-grid">{''.join(blog_index_cards)}</div>
@@ -1267,11 +1295,20 @@ for post in posts:
 <body>
 {nav(2, "blog")}
 <main>
-  <article class="section">
-    <div class="container prose">
-      <p class="post-meta"><time datetime="{post['date']}">15 October 2026</time> · {BRAND}</p>
+  <section class="page-hero">
+    <div class="container">
+      <div class="section-kicker">Blog</div>
       <h1>{post['title']}</h1>
       <p>{post['desc']}</p>
+      <div class="hero-cta" style="margin-top:1.5rem">
+        <a class="btn btn-primary btn-magnet" href="{rel(2)}contact/">Talk to us</a>
+        <a class="btn btn-ghost btn-magnet" href="{rel(2)}blog/">All posts</a>
+      </div>
+    </div>
+  </section>
+  <article class="section" style="padding-top:0">
+    <div class="container prose">
+      <p class="post-meta"><time datetime="{post['date']}">15 October 2026</time> · {BRAND}</p>
       <div class="post-cover"><img src="{rel(2)}assets/blog/{Path(post['image']).name}" alt="{post['title']}" width="1200" height="675" /></div>
       {post['body']}
       <p><a href="{rel(2)}blog/">Back to blog</a> · <a href="{rel(2)}contact/">Talk to us</a></p>
@@ -1313,11 +1350,17 @@ not_found = head(
 ) + f"""
 <body>
 {nav(0)}
-<main class="page-hero"><div class="container">
-  <h1>404</h1>
-  <p>That route is not in the sitemap. Head home or browse services.</p>
-  <p><a class="btn btn-primary" href="{SITE}/">Go home</a></p>
-</div></main>
+<main>
+  <section class="page-hero"><div class="container">
+    <div class="section-kicker">Error</div>
+    <h1>Page not found</h1>
+    <p>That route is not in the sitemap. Head home or browse services.</p>
+    <div class="hero-cta" style="margin-top:1.5rem">
+      <a class="btn btn-primary btn-magnet" href="{SITE}/">Go home</a>
+      <a class="btn btn-ghost btn-magnet" href="{SITE}/contact/">Contact</a>
+    </div>
+  </div></section>
+</main>
 {footer(0)}
 """
 write(ROOT / "404.html", not_found)
