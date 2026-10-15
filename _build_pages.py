@@ -5,9 +5,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 SITE = "https://ahmedhussainpvtt.github.io/jbsoftwaresolutions"
 BRAND = "JB Software Solutions"
-EMAIL = "contact@jbsoftwaresolutions.com"
-PHONE = "+91 98765 43210"
-WA = "919876543210"
+EMAIL = "info@jbsoftwaresolutions.com"
+PHONE = "+91 93811 07468"
+WA = "919381107468"
 
 
 def rel(depth: int) -> str:
