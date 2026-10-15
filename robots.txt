@@ -19,4 +19,4 @@ Allow: /
 User-agent: anthropic-ai
 Allow: /
 
-Sitemap: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/sitemap.xml
+Sitemap: https://jbsoftwaresolutions.com/sitemap.xml

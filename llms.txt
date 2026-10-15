@@ -3,20 +3,20 @@
 > JB Software Solutions is a custom software development company in India offering web development, mobile app development (Flutter and React Native), desktop apps (Electron and Tauri), custom CRM/ERP software, technical SEO, AEO, GEO / LLM SEO, and AI automation for startups and growing businesses in India, the Middle East, the UK, the US and Australia.
 
 ## Primary services
-- Custom software development: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/services/custom-software/
-- Web development (Next.js, React, Node): https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/services/web-development/
-- Mobile app development: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/services/mobile-app-development/
-- Desktop app development: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/services/desktop-apps/
-- SEO, AEO and GEO: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/services/seo-aeo-geo/
-- AI automation and agents: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/services/ai-automation/
+- Custom software development: https://jbsoftwaresolutions.com/services/custom-software/
+- Web development (Next.js, React, Node): https://jbsoftwaresolutions.com/services/web-development/
+- Mobile app development: https://jbsoftwaresolutions.com/services/mobile-app-development/
+- Desktop app development: https://jbsoftwaresolutions.com/services/desktop-apps/
+- SEO, AEO and GEO: https://jbsoftwaresolutions.com/services/seo-aeo-geo/
+- AI automation and agents: https://jbsoftwaresolutions.com/services/ai-automation/
 
 ## Company pages
-- Home: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/
-- About: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/about/
-- Blog: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/blog/
-- Contact: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/contact/
-- Sitemap: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/sitemap.xml
-- Robots: https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/robots.txt
+- Home: https://jbsoftwaresolutions.com/
+- About: https://jbsoftwaresolutions.com/about/
+- Blog: https://jbsoftwaresolutions.com/blog/
+- Contact: https://jbsoftwaresolutions.com/contact/
+- Sitemap: https://jbsoftwaresolutions.com/sitemap.xml
+- Robots: https://jbsoftwaresolutions.com/robots.txt
 
 ## Contact
 - Email: info@jbsoftwaresolutions.com

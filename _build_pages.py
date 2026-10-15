@@ -3,7 +3,7 @@
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-SITE = "https://ahmedhussainpvtt.github.io/jbsoftwaresolutions"
+SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
 PHONE = "+91 93811 07468"
