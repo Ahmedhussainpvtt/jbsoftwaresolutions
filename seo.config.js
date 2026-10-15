@@ -27,7 +27,6 @@ module.exports = {
     url: 'https://jbsoftwaresolutions.com/',
     logo: 'https://jbsoftwaresolutions.com/assets/logo-mark.png',
     email: 'info@jbsoftwaresolutions.com',
-    telephone: '+919381107468',
     sameAs: ['https://github.com/Ahmedhussainpvtt/jbsoftwaresolutions'],
   },
 
@@ -87,7 +86,7 @@ module.exports = {
     '/contact/': {
       title: 'Contact JB Software Solutions | Get a Software or SEO Quote',
       description:
-        'Contact JB Software Solutions for custom software, mobile apps, websites, SEO, GEO and AI automation. Call or WhatsApp +91 93811 07468.',
+        'Contact JB Software Solutions for custom software, mobile apps, websites, SEO, GEO and AI automation. Send a brief through the contact form.',
       priority: 0.8,
       changefreq: 'yearly',
     },

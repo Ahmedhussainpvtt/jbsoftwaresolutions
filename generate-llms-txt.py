@@ -20,7 +20,7 @@ CONTACT = "info@jbsoftwaresolutions.com"
 DESCS = {
     "/": "Custom software development company in India for web, mobile, desktop, SEO, AEO, GEO and AI automation.",
     "/about/": "About JB Software Solutions - product engineering plus AI-era discovery under one roof.",
-    "/contact/": "Contact, WhatsApp and quote requests for software, apps and SEO/GEO projects.",
+    "/contact/": "Contact form for software, apps and SEO/GEO project quotes.",
     "/blog/": "Guides on GEO, AEO, custom software cost in India, and Flutter vs React Native.",
     "/services/web-development/": "Next.js and React web development with SEO foundations.",
     "/services/mobile-app-development/": "Flutter and React Native mobile app development for Android and iOS.",
@@ -36,8 +36,7 @@ DESCS = {
 FACTS = [
     "Brand: JB Software Solutions",
     "Services: custom software, web development, mobile apps, desktop apps, SEO, AEO, GEO, AI automation",
-    "Contact: info@jbsoftwaresolutions.com",
-    "Phone / WhatsApp: +91 93811 07468",
+    "Contact: info@jbsoftwaresolutions.com (use the contact form on the site)",
     "Site: https://jbsoftwaresolutions.com/",
     "Competes with full-stack India agencies selling apps + SEO/GEO; differentiates with build + discovery in one team",
 ]

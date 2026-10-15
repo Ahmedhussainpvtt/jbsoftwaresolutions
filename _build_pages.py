@@ -6,8 +6,6 @@ ROOT = Path(__file__).resolve().parent
 SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
-PHONE = "+91 93811 07468"
-WA = "919381107468"
 
 
 def rel(depth: int) -> str:
@@ -65,7 +63,6 @@ def head(title, desc, keywords, path, depth, og_type="website", image="/assets/o
         "url": "{SITE}/",
         "logo": "{SITE}/assets/logo-mark.png",
         "email": "{EMAIL}",
-        "telephone": "{PHONE}",
         "areaServed": "IN",
         "sameAs": ["https://github.com/Ahmedhussainpvtt/jbsoftwaresolutions"]
       }},
@@ -126,9 +123,7 @@ def dock(depth):
     p = rel(depth)
     return f"""
 <div class="sticky-dock" aria-label="Quick contact">
-  <a class="dock-btn wa" href="https://wa.me/{WA}" target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
-  <a class="dock-btn call" href="tel:{PHONE.replace(' ', '')}" aria-label="Call">Call</a>
-  <a class="dock-btn quote" href="{p}contact/" aria-label="Get quote">Quote</a>
+  <a class="dock-btn quote" href="{p}contact/" aria-label="Contact us">Contact</a>
 </div>
 """
 
@@ -158,9 +153,8 @@ def footer(depth):
     <div>
       <strong>Company</strong>
       <a href="{p}about/">About</a>
-      <a href="{p}contact/">Contact</a>
+      <a href="{p}contact/">Contact us</a>
       <a href="mailto:{EMAIL}">{EMAIL}</a>
-      <a href="tel:{PHONE.replace(' ', '')}">{PHONE}</a>
     </div>
   </div>
   <div class="container footer-bottom">
@@ -216,7 +210,6 @@ home = head(
     "description": "Custom software development company in India offering web development, mobile app development, desktop apps, SEO, AEO, GEO and AI automation.",
     "priceRange": "$$",
     "areaServed": ["IN", "AE", "SA", "US", "GB", "AU"],
-    "telephone": "{PHONE}",
     "email": "{EMAIL}",
     "knowsAbout": ["Custom software development", "Web development", "Mobile app development", "SEO", "AEO", "GEO", "AI automation", "Electron desktop apps"]
   }}
@@ -276,7 +269,7 @@ home = head(
       <p class="hero-sub">JB Software Solutions is a custom software development company in India for websites, Flutter and React Native mobile apps, desktop tools, SEO, AEO, GEO and AI automation. We build products that convert, then make sure buyers find you on Google and inside ChatGPT, Gemini and Perplexity.</p>
       <div class="hero-cta">
         <a class="btn btn-primary btn-magnet" href="contact/">Get a free strategy call</a>
-        <a class="btn btn-ghost btn-magnet" href="https://wa.me/{WA}" target="_blank" rel="noopener">WhatsApp {PHONE}</a>
+        <a class="btn btn-ghost btn-magnet" href="contact/">Contact us</a>
       </div>
       <div class="ai-proof">
         <div class="ai-terminal" data-lines='{__import__("json").dumps(home_lines)}'>
@@ -304,7 +297,7 @@ home = head(
     <div class="container">
       <div class="section-kicker reveal">Revenue, not vanity</div>
       <h2 class="section-title reveal">How this site is designed to bring work in</h2>
-      <p class="section-sub reveal">If this were only a portfolio, it would lose money. Every section below targets a commercial search or AI shortlist question, then routes to WhatsApp, call or quote. Build projects pay once. SEO and GEO retainers compound. The win is owning both.</p>
+      <p class="section-sub reveal">If this were only a portfolio, it would lose money. Every section below targets a commercial search or AI shortlist question, then routes to the contact form. Build projects pay once. SEO and GEO retainers compound. The win is owning both.</p>
       <div class="outcome-grid">
         <article class="outcome reveal">
           <h3>Project revenue</h3>
@@ -354,7 +347,7 @@ home = head(
               <td>Who do I talk to?</td>
               <td>Account layers and slow feedback</td>
               <td>Campaign managers front the relationship</td>
-              <td>Direct path to the build team via WhatsApp, call and scoped quotes</td>
+              <td>Direct path to the build team via the contact form and scoped quotes</td>
             </tr>
             <tr>
               <td>Desktop and offline tools?</td>
@@ -411,7 +404,7 @@ home = head(
           <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">SEO-ready</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/web-development/">Web development services</a></p>
         </div>
-        <div class="band-visual" style="--i:1"></div>
+        <div class="band-visual"><img src="assets/services/web.jpg" alt="Web development - modern websites and web apps" width="640" height="360" loading="lazy" /></div>
       </article>
 
       <article class="service-band">
@@ -421,7 +414,7 @@ home = head(
           <div class="tags"><span class="tag">Flutter</span><span class="tag">React Native</span><span class="tag">iOS</span><span class="tag">Android</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/mobile-app-development/">Mobile app services</a></p>
         </div>
-        <div class="band-visual"></div>
+        <div class="band-visual"><img src="assets/services/mobile.jpg" alt="Mobile app development for Android and iOS" width="640" height="360" loading="lazy" /></div>
       </article>
 
       <article class="service-band">
@@ -431,7 +424,7 @@ home = head(
           <div class="tags"><span class="tag">SaaS</span><span class="tag">ERP</span><span class="tag">APIs</span><span class="tag">Automation</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/custom-software/">Custom software services</a></p>
         </div>
-        <div class="band-visual"></div>
+        <div class="band-visual"><img src="assets/services/custom.jpg" alt="Custom software and business dashboards" width="640" height="360" loading="lazy" /></div>
       </article>
 
       <article class="service-band">
@@ -441,7 +434,7 @@ home = head(
           <div class="tags"><span class="tag">Technical SEO</span><span class="tag">AEO</span><span class="tag">GEO</span><span class="tag">LLM SEO</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/seo-aeo-geo/">SEO and GEO services</a></p>
         </div>
-        <div class="band-visual"></div>
+        <div class="band-visual"><img src="assets/services/seo.jpg" alt="SEO AEO and GEO search visibility" width="640" height="360" loading="lazy" /></div>
       </article>
 
       <article class="service-band">
@@ -451,7 +444,7 @@ home = head(
           <div class="tags"><span class="tag">AI agents</span><span class="tag">RAG</span><span class="tag">LLM</span><span class="tag">Automation</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/ai-automation/">AI automation services</a></p>
         </div>
-        <div class="band-visual"></div>
+        <div class="band-visual"><img src="assets/services/ai.jpg" alt="AI automation and intelligent agents" width="640" height="360" loading="lazy" /></div>
       </article>
 
       <article class="service-band">
@@ -461,7 +454,7 @@ home = head(
           <div class="tags"><span class="tag">Electron</span><span class="tag">Tauri</span><span class="tag">Offline</span><span class="tag">Windows</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/desktop-apps/">Desktop app services</a></p>
         </div>
-        <div class="band-visual"></div>
+        <div class="band-visual"><img src="assets/services/desktop.jpg" alt="Desktop application development" width="640" height="360" loading="lazy" /></div>
       </article>
     </div>
   </section>
@@ -571,7 +564,7 @@ home = head(
         </div>
         <div>
           <p>If you only need a one-page brochure with no leads plan, we will say so. Revenue comes from products people use and pages people find. That is the filter we apply before we accept work.</p>
-          <p>Start on <a href="contact/">contact</a>, WhatsApp <a href="https://wa.me/{WA}">+91 93811 07468</a>, or email <a href="mailto:{EMAIL}">{EMAIL}</a>. Bring goals, links and a budget range. We return fit, timeline and a clear commercial path.</p>
+          <p>Start on the <a href="contact/">contact form</a> or email <a href="mailto:{EMAIL}">{EMAIL}</a>. Bring goals, links and a budget range. We return fit, timeline and a clear commercial path.</p>
         </div>
       </div>
     </div>
@@ -582,11 +575,11 @@ home = head(
       <div class="cta-band reveal">
         <div>
           <h2>Ready to outrun the default agency shortlist?</h2>
-          <p>Tell us what you are building. We reply with scope, timeline and a fixed or phased plan. Call or WhatsApp {PHONE} anytime.</p>
+          <p>Tell us what you are building. We reply with scope, timeline and a fixed or phased plan through the contact form.</p>
         </div>
         <div class="cta-actions">
           <a class="btn btn-primary btn-magnet" href="contact/">Book a strategy call</a>
-          <a class="btn btn-ghost btn-magnet" href="https://wa.me/{WA}" target="_blank" rel="noopener">WhatsApp now</a>
+          <a class="btn btn-ghost btn-magnet" href="contact/">Contact us</a>
         </div>
       </div>
     </div>
@@ -809,8 +802,8 @@ service_page(
 # ---------- ABOUT ----------
 about = head(
     f"About {BRAND} | Software, Apps and AI Search",
-    "JB Software Solutions is a software and digital growth studio building custom products and growing them with SEO, AEO, GEO and AI automation.",
-    "about JB Software Solutions, software development studio India, digital agency software SEO AI",
+    "JB Software Solutions is a small, hardworking software agency that loves its customers. Custom products, SEO, AEO, GEO and AI automation with real human support.",
+    "about JB Software Solutions, small software agency India, customer first digital agency, software development studio",
     "/about/",
     1,
 ) + f"""
@@ -819,18 +812,22 @@ about = head(
 <main>
   <section class="page-hero"><div class="container">
     <div class="section-kicker">About</div>
-    <h1>Built to prove the pitch</h1>
-    <p>If we sell software craft and AI-era discovery, our own site has to move, load and earn trust. That is the bar we hold for client work too.</p>
+    <h1>A small agency that fights for your outcome</h1>
+    <p>We are not a factory floor of tickets. We are a tight team that works hard, stays close to the people who hire us, and actually loves seeing customers win.</p>
   </div></section>
   <section class="section" style="padding-top:0"><div class="container prose">
+    <h2>We are small on purpose</h2>
+    <p>{BRAND} is a small agency by choice. That means you are not lost behind layers of account managers. When you message us, the people building your product are in the loop. We sweat the details, we answer fast, and we stay supportive long after the launch party ends.</p>
+    <p>We really love our customers. Not as a slogan on a wall. As a working rule: clear communication, honest scope, patient hand-holding when something is new, and zero ego when feedback arrives. Your success is the only scoreboard that matters to us.</p>
     <h2>Who we are</h2>
-    <p>{BRAND} helps founders and operators ship digital products: websites, mobile apps, custom software, desktop tools, and the SEO / AEO / GEO layer that makes those products discoverable on Google and inside AI assistants.</p>
+    <p>We help founders and operators ship digital products: websites, mobile apps, custom software, desktop tools, and the SEO / AEO / GEO layer that makes those products discoverable on Google and inside AI assistants.</p>
     <h2>How we think</h2>
     <ul>
       <li>Ship systems, not slide decks</li>
       <li>Measure outcomes: leads, retention, citations, not vanity screenshots</li>
       <li>Keep IP with the client</li>
-      <li>Use AI for velocity. Keep humans on taste and accountability</li>
+      <li>Use AI for velocity. Keep humans on taste, care and accountability</li>
+      <li>Treat every customer like the reason we get to do this work</li>
     </ul>
     <h2>Where we work</h2>
     <p>India-first delivery with remote collaboration for clients across India, the Middle East, the UK, the US and beyond.</p>
@@ -855,7 +852,7 @@ contact = head(
   <section class="page-hero"><div class="container">
     <div class="section-kicker">Contact</div>
     <h1>Tell us what you want shipped</h1>
-    <p>Share a short brief. We reply with fit, rough timeline and next steps. Prefer WhatsApp or a call? Use the sticky buttons.</p>
+    <p>Share a short brief in the form. We reply with fit, rough timeline and next steps. Email works too if you prefer.</p>
   </div></section>
   <section class="section" style="padding-top:0"><div class="container contact-grid">
     <form class="form" action="mailto:{EMAIL}" method="post" enctype="text/plain">
@@ -876,10 +873,9 @@ contact = head(
       <button class="btn btn-primary btn-magnet" type="submit">Send message</button>
     </form>
     <div class="prose">
-      <h2>Direct lines</h2>
+      <h2>How to reach us</h2>
+      <p>Use this contact form first. It is the fastest way to get a scoped reply from the build team.</p>
       <p>Email: <a href="mailto:{EMAIL}">{EMAIL}</a></p>
-      <p>Phone: <a href="tel:{PHONE.replace(' ', '')}">{PHONE}</a></p>
-      <p>WhatsApp: <a href="https://wa.me/{WA}" target="_blank" rel="noopener">Chat on WhatsApp</a></p>
       <h2>What happens next</h2>
       <ul>
         <li>We confirm we are the right fit (or say who would be better)</li>

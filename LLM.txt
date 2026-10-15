@@ -12,8 +12,7 @@ Contact: info@jbsoftwaresolutions.com
 
 - Brand: JB Software Solutions
 - Services: custom software, web development, mobile apps, desktop apps, SEO, AEO, GEO, AI automation
-- Contact: info@jbsoftwaresolutions.com
-- Phone / WhatsApp: +91 93811 07468
+- Contact: info@jbsoftwaresolutions.com (use the contact form on the site)
 - Site: https://jbsoftwaresolutions.com/
 - Competes with full-stack India agencies selling apps + SEO/GEO; differentiates with build + discovery in one team
 
@@ -22,7 +21,7 @@ Contact: info@jbsoftwaresolutions.com
 - [Home](https://jbsoftwaresolutions.com/): Custom software development company in India for web, mobile, desktop, SEO, AEO, GEO and AI automation.
 - [About](https://jbsoftwaresolutions.com/about/): About JB Software Solutions - product engineering plus AI-era discovery under one roof.
 - [Blog index](https://jbsoftwaresolutions.com/blog/): Guides on GEO, AEO, custom software cost in India, and Flutter vs React Native.
-- [Contact](https://jbsoftwaresolutions.com/contact/): Contact, WhatsApp and quote requests for software, apps and SEO/GEO projects.
+- [Contact](https://jbsoftwaresolutions.com/contact/): Contact form for software, apps and SEO/GEO project quotes.
 
 ## Services
 

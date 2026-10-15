@@ -25,7 +25,7 @@ Or:
 ## Contact
 
 - Email: info@jbsoftwaresolutions.com
-- Phone / WhatsApp: +91 93811 07468
+- Public site routes visitors to the contact form (no phone listed)
 
 ## Local preview
 
