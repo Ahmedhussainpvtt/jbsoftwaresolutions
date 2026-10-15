@@ -1,0 +1,13 @@
+{
+  "name": "jbsoftwaresolutions-website",
+  "private": true,
+  "description": "JB Software Solutions static site - SEO pipeline matches Easy Peeze / Kharch Log",
+  "scripts": {
+    "seo": "node seo-build.js",
+    "seo:dry": "node seo-build.js --dry-run",
+    "llms": "py -3 generate-llms-txt.py",
+    "pages": "py -3 _build_pages.py",
+    "build": "py -3 _build_pages.py && node seo-build.js && py -3 generate-llms-txt.py",
+    "push": "powershell -NoProfile -ExecutionPolicy Bypass -File ./push-jb-website.ps1"
+  }
+}

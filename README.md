@@ -1,27 +1,34 @@
 ﻿# JB Software Solutions
 
-Static marketing site for [JB Software Solutions](https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/).
+Static marketing site for [jbsoftwaresolutions.com](https://jbsoftwaresolutions.com/).
 
-## Deploy (GitHub Pages)
+## SEO pipeline (same as Easy Peeze / Kharch Log)
 
-1. Repo Settings â†’ Pages â†’ Source: **Deploy from a branch**
-2. Branch: `main` / folder: `/ (root)`
-3. Site URL: `https://ahmedhussainpvtt.github.io/jbsoftwaresolutions/`
+Every push regenerates crawl artifacts before git:
 
-## Update contact
-
-Edit phone, WhatsApp and email in `_build_pages.py`, then run:
+1. `seo-build.js` + `seo.config.js` → page meta / canonical / OG / JSON-LD + `sitemap.xml` + `robots.txt` (+ `sitemaps.xml` / `robot.txt` aliases)
+2. `generate-llms-txt.py` → `llms.txt` + `llms-full.txt` + `LLM.txt`
 
 ```bash
-py -3 _build_pages.py
+npm run seo          # meta + sitemap + robots
+npm run llms         # llms.txt corpus from sitemap
+npm run build        # pages + seo + llms
+npm run push         # full gate then git push to main / Pages
 ```
 
-Or search-replace across HTML for `info@jbsoftwaresolutions.com` and `+91 93811 07468`.
+Or:
+
+```powershell
+.\push-jb-website.ps1 -Message "Your message"
+```
+
+## Contact
+
+- Email: info@jbsoftwaresolutions.com
+- Phone / WhatsApp: +91 93811 07468
 
 ## Local preview
 
 ```bash
 npx --yes serve .
 ```
-
-Open the printed localhost URL (use the `/jbsoftwaresolutions` path only after Pages deploy; locally serve from this folder root).

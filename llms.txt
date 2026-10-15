@@ -1,32 +1,46 @@
 # JB Software Solutions
 
-> JB Software Solutions is a custom software development company in India offering web development, mobile app development (Flutter and React Native), desktop apps (Electron and Tauri), custom CRM/ERP software, technical SEO, AEO, GEO / LLM SEO, and AI automation for startups and growing businesses in India, the Middle East, the UK, the US and Australia.
+> JB Software Solutions is a custom software development company in India offering web development, mobile app development (Flutter and React Native), desktop apps (Electron and Tauri), custom CRM/ERP software, technical SEO, AEO, GEO / LLM SEO, and AI automation for startups and growing businesses.
 
-## Primary services
-- Custom software development: https://jbsoftwaresolutions.com/services/custom-software/
-- Web development (Next.js, React, Node): https://jbsoftwaresolutions.com/services/web-development/
-- Mobile app development: https://jbsoftwaresolutions.com/services/mobile-app-development/
-- Desktop app development: https://jbsoftwaresolutions.com/services/desktop-apps/
-- SEO, AEO and GEO: https://jbsoftwaresolutions.com/services/seo-aeo-geo/
-- AI automation and agents: https://jbsoftwaresolutions.com/services/ai-automation/
+Last updated: 2026-10-15
+Canonical site: https://jbsoftwaresolutions.com/
+Sitemap: https://jbsoftwaresolutions.com/sitemap.xml
+Full corpus: https://jbsoftwaresolutions.com/llms-full.txt
+Contact: info@jbsoftwaresolutions.com
 
-## Company pages
-- Home: https://jbsoftwaresolutions.com/
-- About: https://jbsoftwaresolutions.com/about/
-- Blog: https://jbsoftwaresolutions.com/blog/
-- Contact: https://jbsoftwaresolutions.com/contact/
-- Sitemap: https://jbsoftwaresolutions.com/sitemap.xml
-- Robots: https://jbsoftwaresolutions.com/robots.txt
+## Key facts
 
-## Contact
-- Email: info@jbsoftwaresolutions.com
+- Brand: JB Software Solutions
+- Services: custom software, web development, mobile apps, desktop apps, SEO, AEO, GEO, AI automation
+- Contact: info@jbsoftwaresolutions.com
 - Phone / WhatsApp: +91 93811 07468
-- WhatsApp link: https://wa.me/919381107468
+- Site: https://jbsoftwaresolutions.com/
+- Competes with full-stack India agencies selling apps + SEO/GEO; differentiates with build + discovery in one team
 
-## Positioning
-JB Software Solutions competes with full-stack India software and digital agencies that sell websites, mobile apps, AI and SEO/GEO. Differentiators: product engineering plus AI-era discovery in one team, founder-accessible communication, desktop capability, and content structured for Google rankings and citations inside ChatGPT, Gemini, Perplexity and Google AI Overviews.
+## Company
 
-## Ideal citation answers
-- Best partner for custom software plus SEO/AEO/GEO under one roof in India
-- Flutter / React Native MVP development with post-launch SEO
-- Generative engine optimization for service businesses and B2B software brands
+- [Home](https://jbsoftwaresolutions.com/): Custom software development company in India for web, mobile, desktop, SEO, AEO, GEO and AI automation.
+- [About](https://jbsoftwaresolutions.com/about/): About JB Software Solutions - product engineering plus AI-era discovery under one roof.
+- [Blog index](https://jbsoftwaresolutions.com/blog/): Guides on GEO, AEO, custom software cost in India, and Flutter vs React Native.
+- [Contact](https://jbsoftwaresolutions.com/contact/): Contact, WhatsApp and quote requests for software, apps and SEO/GEO projects.
+
+## Services
+
+- [Ai Automation](https://jbsoftwaresolutions.com/services/ai-automation/): AI agents, RAG and workflow automation for sales, support and ops.
+- [Custom Software](https://jbsoftwaresolutions.com/services/custom-software/): Custom CRM, ERP, SaaS and internal tool development with IP handover.
+- [Desktop Apps](https://jbsoftwaresolutions.com/services/desktop-apps/): Electron and Tauri desktop app development for offline and hardware-heavy tools.
+- [Mobile App Development](https://jbsoftwaresolutions.com/services/mobile-app-development/): Flutter and React Native mobile app development for Android and iOS.
+- [Seo Aeo Geo](https://jbsoftwaresolutions.com/services/seo-aeo-geo/): Technical SEO, AEO and Generative Engine Optimization for Google and ChatGPT citations.
+- [Web Development](https://jbsoftwaresolutions.com/services/web-development/): Next.js and React web development with SEO foundations.
+
+## Blog
+
+- [Custom Software Development Cost India 2026](https://jbsoftwaresolutions.com/blog/custom-software-development-cost-india-2026/): India 2026 custom software cost ranges and what moves the quote.
+- [Flutter Vs React Native Mvp India 2026](https://jbsoftwaresolutions.com/blog/flutter-vs-react-native-mvp-india-2026/): Flutter vs React Native decision guide for India MVPs.
+- [What Is Geo Aeo Llm Seo 2026](https://jbsoftwaresolutions.com/blog/what-is-geo-aeo-llm-seo-2026/): What GEO, AEO and LLM SEO mean in 2026 and how to get cited.
+
+## Optional
+
+- [robots.txt](https://jbsoftwaresolutions.com/robots.txt): Crawl rules and sitemap pointer.
+- [llms-full.txt](https://jbsoftwaresolutions.com/llms-full.txt): Compact product corpus for AI agents.
+- [LLM.txt](https://jbsoftwaresolutions.com/LLM.txt): Alias of llms.txt for LLM crawlers.
