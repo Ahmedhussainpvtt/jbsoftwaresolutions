@@ -6,6 +6,7 @@ ROOT = Path(__file__).resolve().parent
 SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
+ASSET_V = "20261016a"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
 
 
 def rel(depth: int) -> str:
@@ -38,7 +39,7 @@ def head(title, desc, keywords, path, depth, og_type="website", image="/assets/o
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="{p}styles.css" />
+  <link rel="stylesheet" href="{p}styles.css?v={ASSET_V}" />
   <link rel="icon" href="{p}assets/favicon.jpg" type="image/jpeg" />
   <link rel="apple-touch-icon" href="{p}assets/logo-mark.png" />
   <meta property="og:type" content="{og_type}" />
@@ -165,7 +166,7 @@ def footer(depth):
   </div>
 </footer>
 {dock(depth)}
-<script src="{p}main.js" defer></script>
+<script src="{p}main.js?v={ASSET_V}" defer></script>
 </body>
 </html>
 """
