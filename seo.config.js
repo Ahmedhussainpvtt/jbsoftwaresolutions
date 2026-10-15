@@ -142,7 +142,7 @@ module.exports = {
       changefreq: 'weekly',
     },
     '/services/ai-automation/': {
-      title: 'Business Workflow and workflow automation | JB Software Solutions',
+      title: 'Business Workflow Automation | JB Software Solutions',
       description:
         'JB Software Solutions builds business workflows and automations that connect your tools, cut repetitive work, and keep leads, follow-ups and ops moving.',
       priority: 0.85,

@@ -704,8 +704,13 @@ home = head(
 write(ROOT / "index.html", home)
 
 
-def service_page(slug, title, h1, desc, keywords, bullets, faqs, active):
+def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=None):
     depth = 2
+    why_text = why or (
+        "Buyers shortlist vendors on Google and inside AI assistants. "
+        "A pretty UI without crawlable structure, schema, speed and proof pages will not get found. "
+        "We build products and the discovery layer together."
+    )
     body = head(title, desc, keywords, f"/services/{slug}/", depth) + f"""
 <body>
 {nav(depth, active)}
@@ -728,7 +733,7 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active):
         {''.join(f'<li>{b}</li>' for b in bullets)}
       </ul>
       <h2>Why this matters in 2026</h2>
-      <p>Buyers shortlist vendors on Google and inside AI assistants. A pretty UI without crawlable structure, schema, speed and proof pages will not get found. We build products and the discovery layer together.</p>
+      <p>{why_text}</p>
       <h2>Engagement models</h2>
       <ul>
         <li>Fixed-scope projects with milestones</li>
@@ -838,7 +843,7 @@ service_page(
 
 service_page(
     "ai-automation",
-    f"Business Workflow and workflow automation | {BRAND}",
+    f"Business Workflow Automation | {BRAND}",
     "Automate how your business actually runs",
     "JB Software Solutions builds workflows and automations that connect your tools, cut repetitive work, and keep leads, follow-ups and ops moving without manual copy-paste.",
     "business workflow automation, AI business automation India, CRM automation, process automation, Zapier Make n8n workflows, lead automation, ops automation",
@@ -855,6 +860,11 @@ service_page(
         ("What tools can you connect?", "Common CRMs, forms, email, sheets, chat tools, payment notifications and custom webhooks. We map your stack in discovery and automate the boring path between systems."),
     ],
     "ai",
+    why=(
+        "Most businesses lose hours every week to copy-paste between forms, CRMs, WhatsApp and sheets. "
+        "We map those paths and automate them so leads get followed up, ops stay visible, and your team stops chasing status. "
+        "This is business process automation, not a custom AI research project."
+    ),
 )
 
 service_page(
