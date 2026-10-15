@@ -629,6 +629,131 @@ select {
   max-width: 34rem;
 }
 
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.outcome-grid,
+.industry-grid,
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.outcome,
+.industry,
+.stack-grid > div {
+  padding: 1.25rem 1.3rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.outcome h3,
+.industry h3,
+.stack-grid h3 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+}
+
+.outcome p,
+.industry p,
+.stack-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.industry-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.seo-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.seo-chip {
+  display: inline-flex;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(46, 203, 255, 0.06);
+  color: var(--text);
+  font-size: 0.82rem;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+
+.seo-chip:hover {
+  border-color: rgba(61, 255, 122, 0.55);
+  background: rgba(61, 255, 122, 0.1);
+}
+
+.compare-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.compare {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 720px;
+  font-size: 0.92rem;
+}
+
+.compare th,
+.compare td {
+  padding: 0.95rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.compare th {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  background: rgba(46, 203, 255, 0.08);
+}
+
+.compare td:first-child,
+.compare th:first-child {
+  color: var(--green);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.compare tr:last-child td {
+  border-bottom: none;
+}
+
+.section-note {
+  margin-top: 1.25rem;
+  color: var(--muted);
+  max-width: 52rem;
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.prose-wide p {
+  color: var(--muted);
+}
+
+.prose-wide a {
+  color: var(--blue);
+}
+
 .footer {
   border-top: 1px solid var(--line);
   padding: 3rem 0 6.5rem;
@@ -880,7 +1005,11 @@ select {
   .process-steps,
   .blog-grid,
   .footer-grid,
-  .contact-grid {
+  .contact-grid,
+  .outcome-grid,
+  .industry-grid,
+  .stack-grid,
+  .two-col {
     grid-template-columns: 1fr;
   }
   .pixel-row { justify-content: start; }
