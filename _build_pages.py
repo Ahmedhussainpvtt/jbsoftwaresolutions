@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parent
 SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
-ASSET_V = "20261016a"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+ASSET_V = "20261016b"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
 
 
 def rel(depth: int) -> str:
@@ -271,33 +271,24 @@ home = head(
       <div class="hero-orb hero-orb-b"></div>
     </div>
     <div class="container hero-inner">
-      <div class="hero-layout">
-        <div class="hero-copy">
-          <p class="hero-eyebrow">{BRAND}</p>
-          <h1 class="hero-title">Custom software that <span class="grad">gets found</span></h1>
-          <p class="hero-sub">Websites, Flutter apps, custom software, desktop tools, SEO, AEO, GEO and workflow automation. We build products that convert, then make sure buyers find you on Google and inside ChatGPT, Gemini and Perplexity.</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary btn-magnet" href="contact/">Get a free strategy call</a>
-            <a class="btn btn-ghost btn-magnet" href="pricing/">See pricing</a>
-          </div>
+      <div class="hero-brand">
+        <img src="assets/logo-full.png" alt="{BRAND} custom software logo" width="200" height="110" />
+      </div>
+      <p class="hero-eyebrow">{BRAND}</p>
+      <h1 class="hero-title">Custom software that <span class="grad">gets found</span></h1>
+      <p class="hero-sub">JB Software Solutions builds websites, Flutter and React Native apps, desktop tools, SEO, AEO, GEO and workflow automation. Products that convert, then get found on Google and inside ChatGPT, Gemini and Perplexity.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-magnet" href="contact/">Get a free strategy call</a>
+        <a class="btn btn-ghost btn-magnet" href="pricing/">See pricing</a>
+      </div>
+      <div class="ai-proof">
+        <div class="ai-terminal" data-lines='{__import__("json").dumps(home_lines)}'>
+          <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="term-out"></div>
         </div>
-        <div class="hero-stage">
-          <div class="hero-float" aria-hidden="true">
-            <span class="hero-chip">Next.js</span>
-            <span class="hero-chip">Flutter</span>
-            <span class="hero-chip">SEO + GEO</span>
-            <span class="hero-chip">Automation</span>
-          </div>
-          <div class="ai-proof">
-            <div class="ai-terminal" data-lines='{__import__("json").dumps(home_lines)}'>
-              <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
-              <div class="term-out"></div>
-            </div>
-            <div class="pixel-row" aria-hidden="true">
-              <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
-              <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
-            </div>
-          </div>
+        <div class="pixel-row" aria-hidden="true">
+          <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
+          <span class="pixel"></span><span class="pixel"></span><span class="pixel"></span>
         </div>
       </div>
     </div>
