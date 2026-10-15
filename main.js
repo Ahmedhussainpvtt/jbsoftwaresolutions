@@ -68,6 +68,8 @@
       initDockPulse();
       initLinkLift();
       initImageZoomHover();
+      initWorkRail();
+      initManifesto();
       if (finePointer) {
         initCursorSystem();
       }
@@ -431,7 +433,7 @@
   function initTiltCards() {
     if (!finePointer || !window.gsap) return;
     const cards = document.querySelectorAll(
-      ".engage-card, .price-card, .blog-card, .stat, .process-steps article, .outcome, .industry"
+      ".engage-card, .price-card, .blog-card, .stat, .process-steps article, .outcome, .industry, .work-card"
     );
     cards.forEach((card) => {
       card.classList.add("tilt-card");
@@ -984,6 +986,59 @@
       parent.addEventListener("pointerleave", () => {
         if (window.gsap) gsap.to(img, { scale: 1, duration: 0.8, ease: "power3.out" });
       });
+    });
+  }
+
+  function initWorkRail() {
+    const rail = document.getElementById("work-rail");
+    if (!rail || !window.gsap || !window.ScrollTrigger) return;
+    const cards = rail.querySelectorAll(".work-card");
+    gsap.set(cards, { autoAlpha: 0, y: 40, rotate: 1.5 });
+    gsap.to(cards, {
+      autoAlpha: 1,
+      y: 0,
+      rotate: 0,
+      duration: 0.85,
+      stagger: 0.12,
+      ease: "power3.out",
+      scrollTrigger: { trigger: rail, start: "top 85%" },
+    });
+
+    // Drag-to-scroll feel on desktop
+    if (!finePointer) return;
+    let isDown = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    rail.addEventListener("pointerdown", (e) => {
+      if (e.target.closest("a, button")) return;
+      isDown = true;
+      rail.classList.add("is-dragging");
+      startX = e.pageX - rail.offsetLeft;
+      scrollLeft = rail.scrollLeft;
+    });
+    window.addEventListener("pointerup", () => {
+      isDown = false;
+      rail.classList.remove("is-dragging");
+    });
+    rail.addEventListener("pointermove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - rail.offsetLeft;
+      rail.scrollLeft = scrollLeft - (x - startX) * 1.15;
+    });
+  }
+
+  function initManifesto() {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    const title = document.querySelector(".manifesto-title");
+    if (!title) return;
+    gsap.from(".manifesto-metrics > div", {
+      autoAlpha: 0,
+      y: 24,
+      stagger: 0.1,
+      duration: 0.7,
+      ease: "power3.out",
+      scrollTrigger: { trigger: ".manifesto-metrics", start: "top 90%" },
     });
   }
 

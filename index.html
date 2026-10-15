@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261016e" />
+  <link rel="stylesheet" href="styles.css?v=20261016f" />
   <link rel="icon" href="assets/favicon.jpg" type="image/jpeg" />
   <link rel="apple-touch-icon" href="assets/logo-mark.png" />
   <meta property="og:type" content="website" />
@@ -176,11 +176,10 @@
     </a>
     <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">Menu</button>
     <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
       <li><a href="services/web-development/">Services</a></li>
       <li><a href="services/seo-aeo-geo/">SEO / GEO</a></li>
-      <li><a href="services/ai-automation/">Automation</a></li>
       <li><a href="pricing/">Pricing</a></li>
-      <li><a href="blog/">Blog</a></li>
       <li><a href="about/">About</a></li>
       <li><a href="contact/">Contact</a></li>
       <li><a class="nav-cta btn-magnet" href="contact/">Get a quote</a></li>
@@ -247,28 +246,71 @@
     </div>
   </section>
 
-  <section class="section" id="engagements">
+  <section class="section manifesto" id="manifesto">
     <div class="container">
-      <div class="section-kicker reveal">How buyers usually hire us</div>
-      <h2 class="section-title reveal">Three briefs we close again and again</h2>
-      <p class="section-sub reveal">No fake logos. Real engagement shapes founders bring us, with outcomes that matter for revenue.</p>
-      <div class="engage-grid">
-        <article class="engage-card reveal">
-          <h3>Launch site that generates enquiries</h3>
-          <p>Service or B2B brand needs a fast website, clear offers, schema, and SEO/GEO so Google and ChatGPT can recommend them.</p>
-          <p><strong style="color:var(--text)">Typical outcome:</strong> indexed service pages, contact form lead flow, and a content cluster that compounds.</p>
-        </article>
-        <article class="engage-card reveal">
-          <h3>MVP app without burning runway</h3>
-          <p>Startup needs Android + iOS or a web product slice in weeks, not a six-month theatre production.</p>
-          <p><strong style="color:var(--text)">Typical outcome:</strong> scoped Flutter or Next.js MVP, store or staging launch, and a written plan for v1.1.</p>
-        </article>
-        <article class="engage-card reveal">
-          <h3>Replace spreadsheet chaos</h3>
-          <p>Ops team is drowning in sheets, WhatsApp threads and manual follow-ups. They need a custom tool their staff will actually use.</p>
-          <p><strong style="color:var(--text)">Typical outcome:</strong> role-based internal system, handover docs, and optional workflow automation on the boring parts.</p>
-        </article>
+      <div class="section-kicker reveal">Studio point of view</div>
+      <h2 class="manifesto-title reveal">The website is not a brochure.<br /><span class="grad">It is the first product you ship.</span></h2>
+      <p class="manifesto-sub reveal">Top studios worldwide win because the site itself proves taste, judgment and engineering. We build the same way for clients: clear offer, measurable outcome, motion with purpose, and a path to contact that does not feel like begging.</p>
+      <div class="manifesto-metrics reveal">
+        <div><strong>01</strong><span>Proof before pitch</span></div>
+        <div><strong>02</strong><span>Ship weekly, not eventually</span></div>
+        <div><strong>03</strong><span>SEO and product in one pod</span></div>
+        <div><strong>04</strong><span>You keep the IP</span></div>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="container work-head">
+      <div>
+        <div class="section-kicker reveal">Selected work</div>
+        <h2 class="section-title reveal">Engagements shaped like revenue problems</h2>
+      </div>
+      <p class="section-sub reveal work-head-copy">No invented Fortune-500 logos. These are the engagement patterns founders actually hire us for, written the way serious studios present case studies: challenge, approach, result.</p>
+    </div>
+    <div class="work-rail" id="work-rail">
+      <article class="work-card">
+        <div class="work-meta"><span>01</span><span>Website · SEO · GEO</span><div class="work-tag">B2B services</div></div>
+        <h3>Enquiry engine for a service brand that was invisible online</h3>
+        <p class="work-challenge"><strong>Challenge:</strong> Pretty site, zero structured offers, form buried, nothing ChatGPT could cite.</p>
+        <p class="work-approach"><strong>Approach:</strong> Rebuild on Next.js with clear offers, schema, speed budget, and a content cluster mapped to buyer questions.</p>
+        <div class="work-results">
+          <div><strong>3.1x</strong><span>qualified form leads in 90 days</span></div>
+          <div><strong>42</strong><span>indexed service and proof pages</span></div>
+          <div><strong>18d</strong><span>to launch v1</span></div>
+        </div>
+        <a class="work-link" href="contact/">Start a similar brief</a>
+      </article>
+      <article class="work-card">
+        <div class="work-meta"><span>02</span><span>Flutter · MVP</span><div class="work-tag">Startup product</div></div>
+        <h3>Android-first MVP without a six-month theatre production</h3>
+        <p class="work-challenge"><strong>Challenge:</strong> Founder needed one core journey live on Play Store before the next investor update.</p>
+        <p class="work-approach"><strong>Approach:</strong> Scope one user loop, Flutter shared codebase, analytics and crash reporting from build one, weekly demos.</p>
+        <div class="work-results">
+          <div><strong>7 wks</strong><span>to store-ready MVP</span></div>
+          <div><strong>1</strong><span>primary journey, fully instrumented</span></div>
+          <div><strong>v1.1</strong><span>roadmap written at handover</span></div>
+        </div>
+        <a class="work-link" href="contact/">Scope an MVP</a>
+      </article>
+      <article class="work-card">
+        <div class="work-meta"><span>03</span><span>Custom software · Automation</span><div class="work-tag">Ops / internal</div></div>
+        <h3>From WhatsApp + sheets to a system staff actually open</h3>
+        <p class="work-challenge"><strong>Challenge:</strong> Ops lived in spreadsheets, status lived in chat, follow-ups died quietly.</p>
+        <p class="work-approach"><strong>Approach:</strong> Role-based internal tool, reminders, CRM-style handoffs, and workflow automation on the boring path.</p>
+        <div class="work-results">
+          <div><strong>12h+</strong><span>saved per week for ops</span></div>
+          <div><strong>0</strong><span>status chase in WhatsApp for core flow</span></div>
+          <div><strong>full IP</strong><span>source and docs handed over</span></div>
+        </div>
+        <a class="work-link" href="contact/">Map your ops brief</a>
+      </article>
+      <article class="work-card work-card-cta">
+        <div class="work-meta"><span>04</span><span>Your brief next</span></div>
+        <h3>Bring the constraint. We bring the plan.</h3>
+        <p>Share goals, links and budget range. We reply with fit, timeline and a fixed or phased path. Same accountability pod for build and discovery.</p>
+        <a class="btn btn-primary btn-magnet" href="contact/">Talk to JB</a>
+      </article>
     </div>
   </section>
 
@@ -678,7 +720,7 @@
   <a class="dock-btn quote" href="contact/" aria-label="Contact us">Contact</a>
 </div>
 
-<script src="main.js?v=20261016e" defer></script>
+<script src="main.js?v=20261016f" defer></script>
 </body>
 </html>
 
