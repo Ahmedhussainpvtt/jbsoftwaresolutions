@@ -182,19 +182,19 @@
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
     gsap.set(words, { yPercent: 115 });
-    gsap.set([".hero-brand", ".hero-eyebrow", ".hero-sub", ".hero-cta .btn", ".ai-proof"], {
+    gsap.set([".hero-brand", ".hero-eyebrow", ".hero-sub", ".hero-cta .btn", ".hero-stage"], {
       autoAlpha: 0,
       y: 28,
     });
     gsap.set(pixels, { y: 18, autoAlpha: 0 });
 
-    tl.to(".hero-brand", { autoAlpha: 1, y: 0, duration: 0.7 })
-      .to(".hero-eyebrow", { autoAlpha: 1, y: 0, duration: 0.5 }, "-=0.35")
-      .to(words, { yPercent: 0, duration: 0.9, stagger: 0.07 }, "-=0.2")
-      .to(".hero-sub", { autoAlpha: 1, y: 0, duration: 0.65 }, "-=0.45")
-      .to(".hero-cta .btn", { autoAlpha: 1, y: 0, stagger: 0.1, duration: 0.5 }, "-=0.35")
-      .to(".ai-proof", { autoAlpha: 1, y: 0, duration: 0.9, ease: "power4.out" }, "-=0.25")
-      .to(pixels, { autoAlpha: 1, y: 0, stagger: 0.06, duration: 0.45 }, "-=0.5");
+    tl.to(".hero-brand", { autoAlpha: 1, y: 0, duration: 0.65 })
+      .to(".hero-eyebrow", { autoAlpha: 1, y: 0, duration: 0.45 }, "-=0.3")
+      .to(words, { yPercent: 0, duration: 0.8, stagger: 0.06 }, "-=0.2")
+      .to(".hero-sub", { autoAlpha: 1, y: 0, duration: 0.55 }, "-=0.4")
+      .to(".hero-cta .btn", { autoAlpha: 1, y: 0, stagger: 0.08, duration: 0.45 }, "-=0.3")
+      .to(".hero-stage", { autoAlpha: 1, y: 0, duration: 0.85, ease: "power4.out" }, "-=0.55")
+      .to(pixels, { autoAlpha: 1, y: 0, stagger: 0.05, duration: 0.4 }, "-=0.45");
 
     if (window.ScrollTrigger) {
       gsap.to(hero.querySelector(".hero-inner"), {
