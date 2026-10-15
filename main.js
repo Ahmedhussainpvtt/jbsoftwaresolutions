@@ -51,7 +51,11 @@
       /* CSS fallbacks still work */
     }
 
+    initWorkFilters();
+    initSectionSpy();
+
     if (!reduced && window.gsap) {
+      initPageIntro();
       initNavIntro();
       initHero();
       initPageHero();
@@ -70,6 +74,7 @@
       initImageZoomHover();
       initWorkRail();
       initManifesto();
+      initBento();
       if (finePointer) {
         initCursorSystem();
       }
@@ -1040,6 +1045,100 @@
       ease: "power3.out",
       scrollTrigger: { trigger: ".manifesto-metrics", start: "top 90%" },
     });
+  }
+
+  function initPageIntro() {
+    if (sessionStorage.getItem("jb-intro") === "1") return;
+    const wrap = document.createElement("div");
+    wrap.className = "page-intro";
+    wrap.setAttribute("aria-hidden", "true");
+    wrap.innerHTML =
+      '<div class="page-intro-mark">JB Software Solutions</div><div class="page-intro-bar"><span></span></div>';
+    document.body.appendChild(wrap);
+    const bar = wrap.querySelector(".page-intro-bar > span");
+    const mark = wrap.querySelector(".page-intro-mark");
+    const tl = gsap.timeline({
+      onComplete: () => {
+        sessionStorage.setItem("jb-intro", "1");
+        wrap.remove();
+      },
+    });
+    tl.from(mark, { autoAlpha: 0, y: 18, duration: 0.45, ease: "power3.out" })
+      .to(bar, { width: "100%", duration: 0.7, ease: "power2.inOut" }, "-=0.1")
+      .to(wrap, { autoAlpha: 0, duration: 0.45, ease: "power2.inOut" }, "+=0.15");
+  }
+
+  function initBento() {
+    const bento = document.getElementById("bento");
+    if (!bento || !window.gsap || !window.ScrollTrigger) return;
+    const tiles = bento.querySelectorAll(".bento-tile");
+    gsap.set(tiles, { autoAlpha: 0, y: 36 });
+    gsap.to(tiles, {
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.8,
+      stagger: 0.08,
+      ease: "power3.out",
+      scrollTrigger: { trigger: bento, start: "top 82%" },
+    });
+  }
+
+  function initWorkFilters() {
+    const filters = document.querySelectorAll(".work-filter");
+    const rail = document.getElementById("work-rail");
+    if (!filters.length || !rail) return;
+    filters.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const key = btn.dataset.filter || "all";
+        filters.forEach((b) => {
+          b.classList.toggle("is-active", b === btn);
+          b.setAttribute("aria-selected", b === btn ? "true" : "false");
+        });
+        rail.querySelectorAll(".work-card").forEach((card) => {
+          const cat = card.dataset.cat || "all";
+          const show = key === "all" || cat === "all" || cat === key;
+          card.classList.toggle("is-filtered-out", !show);
+        });
+      });
+    });
+  }
+
+  function initSectionSpy() {
+    const ids = ["work", "capabilities", "services", "pricing-teaser", "market"];
+    const present = ids.filter((id) => document.getElementById(id));
+    if (present.length < 2) return;
+    const spy = document.createElement("nav");
+    spy.className = "section-spy";
+    spy.setAttribute("aria-label", "Section navigation");
+    present.forEach((id) => {
+      const a = document.createElement("a");
+      a.href = `#${id}`;
+      a.title = id;
+      a.dataset.spy = id;
+      spy.appendChild(a);
+    });
+    document.body.appendChild(spy);
+
+    const links = [...spy.querySelectorAll("a")];
+    const setActive = (id) => {
+      links.forEach((a) => a.classList.toggle("is-active", a.dataset.spy === id));
+    };
+    setActive(present[0]);
+
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) setActive(entry.target.id);
+          });
+        },
+        { rootMargin: "-40% 0px -50% 0px", threshold: 0.01 }
+      );
+      present.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) io.observe(el);
+      });
+    }
   }
 
   if (document.readyState === "loading") {

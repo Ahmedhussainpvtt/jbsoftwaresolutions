@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parent
 SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
-ASSET_V = "20261016f"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+ASSET_V = "20261016g"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
 
 
 def rel(depth: int) -> str:
@@ -341,8 +341,14 @@ home = head(
       </div>
       <p class="section-sub reveal work-head-copy">No invented Fortune-500 logos. These are the engagement patterns founders actually hire us for, written the way serious studios present case studies: challenge, approach, result.</p>
     </div>
+    <div class="work-filters reveal" role="tablist" aria-label="Filter work">
+      <button type="button" class="work-filter is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button type="button" class="work-filter" data-filter="web" role="tab" aria-selected="false">Web + SEO</button>
+      <button type="button" class="work-filter" data-filter="mobile" role="tab" aria-selected="false">Mobile</button>
+      <button type="button" class="work-filter" data-filter="ops" role="tab" aria-selected="false">Ops</button>
+    </div>
     <div class="work-rail" id="work-rail">
-      <article class="work-card">
+      <article class="work-card" data-cat="web">
         <div class="work-meta"><span>01</span><span>Website · SEO · GEO</span><div class="work-tag">B2B services</div></div>
         <h3>Enquiry engine for a service brand that was invisible online</h3>
         <p class="work-challenge"><strong>Challenge:</strong> Pretty site, zero structured offers, form buried, nothing ChatGPT could cite.</p>
@@ -354,7 +360,7 @@ home = head(
         </div>
         <a class="work-link" href="contact/">Start a similar brief</a>
       </article>
-      <article class="work-card">
+      <article class="work-card" data-cat="mobile">
         <div class="work-meta"><span>02</span><span>Flutter · MVP</span><div class="work-tag">Startup product</div></div>
         <h3>Android-first MVP without a six-month theatre production</h3>
         <p class="work-challenge"><strong>Challenge:</strong> Founder needed one core journey live on Play Store before the next investor update.</p>
@@ -366,7 +372,7 @@ home = head(
         </div>
         <a class="work-link" href="contact/">Scope an MVP</a>
       </article>
-      <article class="work-card">
+      <article class="work-card" data-cat="ops">
         <div class="work-meta"><span>03</span><span>Custom software · Automation</span><div class="work-tag">Ops / internal</div></div>
         <h3>From WhatsApp + sheets to a system staff actually open</h3>
         <p class="work-challenge"><strong>Challenge:</strong> Ops lived in spreadsheets, status lived in chat, follow-ups died quietly.</p>
@@ -378,7 +384,7 @@ home = head(
         </div>
         <a class="work-link" href="contact/">Map your ops brief</a>
       </article>
-      <article class="work-card work-card-cta">
+      <article class="work-card work-card-cta" data-cat="all">
         <div class="work-meta"><span>04</span><span>Your brief next</span></div>
         <h3>Bring the constraint. We bring the plan.</h3>
         <p>Share goals, links and budget range. We reply with fit, timeline and a fixed or phased path. Same accountability pod for build and discovery.</p>
@@ -520,6 +526,52 @@ home = head(
         <a class="seo-chip" href="blog/custom-software-development-cost-india-2026/">software development cost India</a>
         <a class="seo-chip" href="blog/what-is-geo-aeo-llm-seo-2026/">what is GEO</a>
         <a class="seo-chip" href="contact/">hire developers India</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="capabilities">
+    <div class="container">
+      <div class="section-kicker reveal">Capabilities</div>
+      <h2 class="section-title reveal">Built like a product studio, priced for India</h2>
+      <p class="section-sub reveal">Asymmetric layout, clear offers, motion with intent. Same craft language as the sites founders bookmark, without the vanity WebGL tax.</p>
+      <div class="bento" id="bento">
+        <a class="bento-tile bento-lg reveal" href="services/web-development/">
+          <span class="bento-num">01</span>
+          <h3>Websites that convert and get cited</h3>
+          <p>Next.js / React builds with Core Web Vitals, schema and conversion paths from sprint one.</p>
+          <span class="bento-go">Explore web</span>
+        </a>
+        <a class="bento-tile reveal" href="services/mobile-app-development/">
+          <span class="bento-num">02</span>
+          <h3>Flutter &amp; React Native</h3>
+          <p>One codebase, store-ready MVPs, weekly demos.</p>
+          <span class="bento-go">Explore apps</span>
+        </a>
+        <a class="bento-tile reveal" href="services/seo-aeo-geo/">
+          <span class="bento-num">03</span>
+          <h3>SEO · AEO · GEO</h3>
+          <p>Google plus ChatGPT, Gemini and Perplexity citations.</p>
+          <span class="bento-go">Explore search</span>
+        </a>
+        <a class="bento-tile reveal" href="services/custom-software/">
+          <span class="bento-num">04</span>
+          <h3>Custom software</h3>
+          <p>CRMs, dashboards, ERPs. Full IP handover.</p>
+          <span class="bento-go">Explore software</span>
+        </a>
+        <a class="bento-tile bento-wide reveal" href="services/ai-automation/">
+          <span class="bento-num">05</span>
+          <h3>Workflow automation that saves hours</h3>
+          <p>Leads, approvals, CRM updates and ops glue. Practical automation, not lab demos.</p>
+          <span class="bento-go">Explore automation</span>
+        </a>
+        <a class="bento-tile reveal" href="services/desktop-apps/">
+          <span class="bento-num">06</span>
+          <h3>Desktop apps</h3>
+          <p>Electron / Tauri when the browser is not enough.</p>
+          <span class="bento-go">Explore desktop</span>
+        </a>
       </div>
     </div>
   </section>
