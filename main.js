@@ -2,29 +2,37 @@
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-  const loadScript = (src) =>
+  const loadScript = (src, ms = 4000) =>
     new Promise((resolve, reject) => {
+      if (window.gsap && src.includes("gsap.min.js")) {
+        resolve();
+        return;
+      }
+      if (window.ScrollTrigger && src.includes("ScrollTrigger")) {
+        resolve();
+        return;
+      }
       if ([...document.scripts].some((s) => s.src.includes(src.split("/").pop()))) {
         resolve();
         return;
       }
       const el = document.createElement("script");
       el.src = src;
-      el.onload = resolve;
-      el.onerror = reject;
+      const timer = window.setTimeout(() => reject(new Error("timeout " + src)), ms);
+      el.onload = () => {
+        window.clearTimeout(timer);
+        resolve();
+      };
+      el.onerror = () => {
+        window.clearTimeout(timer);
+        reject(new Error("fail " + src));
+      };
       document.head.appendChild(el);
     });
 
   async function boot() {
     ensureProgress();
-    try {
-      await loadScript("https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js");
-      await loadScript("https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js");
-      if (window.gsap && window.ScrollTrigger) window.gsap.registerPlugin(window.ScrollTrigger);
-    } catch (_) {
-      /* CSS fallbacks still work */
-    }
-
+    // Never block first paint / copy on CDN. Split + chrome first.
     splitTitles();
     initNav();
     initHeaderScroll();
@@ -33,8 +41,17 @@
     initTerminal();
     initMarquee();
     initMagnet();
+    document.documentElement.classList.add("js-ready");
 
-    if (!reduced) {
+    try {
+      await loadScript("https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js");
+      await loadScript("https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js");
+      if (window.gsap && window.ScrollTrigger) window.gsap.registerPlugin(window.ScrollTrigger);
+    } catch (_) {
+      /* CSS fallbacks still work */
+    }
+
+    if (!reduced && window.gsap) {
       initHero();
       initPageHero();
       initReveal();

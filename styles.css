@@ -225,6 +225,13 @@ select {
   overflow: clip;
 }
 
+@media (max-height: 760px) {
+  .hero {
+    min-height: auto;
+    padding: 3rem 0 3.5rem;
+  }
+}
+
 .hero-bg {
   position: absolute;
   inset: 0;
@@ -1408,14 +1415,20 @@ select {
   z-index: 1;
 }
 
-.reveal {
+html.js-ready .reveal {
   opacity: 0;
   transform: translateY(32px);
 }
 
-.reveal-child {
+html.js-ready .reveal-child {
   opacity: 0;
   transform: translateY(24px);
+}
+
+.reveal,
+.reveal-child {
+  opacity: 1;
+  transform: none;
 }
 
 .cursor-pixel {
