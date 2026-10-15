@@ -11,7 +11,7 @@ Contact: info@jbsoftwaresolutions.com
 ## Key facts
 
 - Brand: JB Software Solutions
-- Services: custom software, web development, mobile apps, desktop apps, SEO, AEO, GEO, AI automation
+- Services: custom software, web development, mobile apps, desktop apps, SEO, AEO, GEO, business workflow automation
 - Contact: info@jbsoftwaresolutions.com (use the contact form on the site)
 - Site: https://jbsoftwaresolutions.com/
 - Competes with full-stack India agencies selling apps + SEO/GEO; differentiates with build + discovery in one team
@@ -26,7 +26,7 @@ Contact: info@jbsoftwaresolutions.com
 
 ## Services
 
-- [Ai Automation](https://jbsoftwaresolutions.com/services/ai-automation/): AI agents, RAG and workflow automation for sales, support and ops.
+- [Ai Automation](https://jbsoftwaresolutions.com/services/ai-automation/): Business workflow and process automation across CRM, leads, follow-ups and ops tools.
 - [Custom Software](https://jbsoftwaresolutions.com/services/custom-software/): Custom CRM, ERP, SaaS and internal tool development with IP handover.
 - [Desktop Apps](https://jbsoftwaresolutions.com/services/desktop-apps/): Electron and Tauri desktop app development for offline and hardware-heavy tools.
 - [Mobile App Development](https://jbsoftwaresolutions.com/services/mobile-app-development/): Flutter and React Native mobile app development for Android and iOS.

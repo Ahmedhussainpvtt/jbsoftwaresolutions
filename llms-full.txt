@@ -9,7 +9,7 @@ Custom software, web, mobile, desktop, SEO/AEO/GEO and AI automation from India.
 ## Facts
 
 - Brand: JB Software Solutions
-- Services: custom software, web development, mobile apps, desktop apps, SEO, AEO, GEO, AI automation
+- Services: custom software, web development, mobile apps, desktop apps, SEO, AEO, GEO, business workflow automation
 - Contact: info@jbsoftwaresolutions.com (use the contact form on the site)
 - Site: https://jbsoftwaresolutions.com/
 - Competes with full-stack India agencies selling apps + SEO/GEO; differentiates with build + discovery in one team
@@ -40,7 +40,7 @@ Starting prices for websites, apps, custom software, SEO retainers and AI automa
 
 ### Ai Automation
 URL: https://jbsoftwaresolutions.com/services/ai-automation/
-AI agents, RAG and workflow automation for sales, support and ops.
+Business workflow and process automation across CRM, leads, follow-ups and ops tools.
 
 ### Custom Software
 URL: https://jbsoftwaresolutions.com/services/custom-software/

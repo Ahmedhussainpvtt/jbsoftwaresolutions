@@ -142,9 +142,9 @@ module.exports = {
       changefreq: 'weekly',
     },
     '/services/ai-automation/': {
-      title: 'AI Automation and AI Agents Company | JB Software Solutions',
+      title: 'Business Workflow and AI Automation | JB Software Solutions',
       description:
-        'Custom AI agents, RAG systems and workflow automation that plug into your CRM, support and ops stack.',
+        'JB Software Solutions builds business workflows and automations that connect your tools, cut repetitive work, and keep leads, follow-ups and ops moving.',
       priority: 0.85,
       changefreq: 'weekly',
     },

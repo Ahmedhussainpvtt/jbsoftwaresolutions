@@ -27,7 +27,7 @@ DESCS = {
     "/services/mobile-app-development/": "Flutter and React Native mobile app development for Android and iOS.",
     "/services/custom-software/": "Custom CRM, ERP, SaaS and internal tool development with IP handover.",
     "/services/seo-aeo-geo/": "Technical SEO, AEO and Generative Engine Optimization for Google and ChatGPT citations.",
-    "/services/ai-automation/": "AI agents, RAG and workflow automation for sales, support and ops.",
+    "/services/ai-automation/": "Business workflow and process automation across CRM, leads, follow-ups and ops tools.",
     "/services/desktop-apps/": "Electron and Tauri desktop app development for offline and hardware-heavy tools.",
     "/blog/what-is-geo-aeo-llm-seo-2026/": "What GEO, AEO and LLM SEO mean in 2026 and how to get cited.",
     "/blog/custom-software-development-cost-india-2026/": "India 2026 custom software cost ranges and what moves the quote.",
@@ -36,7 +36,7 @@ DESCS = {
 
 FACTS = [
     "Brand: JB Software Solutions",
-    "Services: custom software, web development, mobile apps, desktop apps, SEO, AEO, GEO, AI automation",
+    "Services: custom software, web development, mobile apps, desktop apps, SEO, AEO, GEO, business workflow automation",
     "Contact: info@jbsoftwaresolutions.com (use the contact form on the site)",
     "Site: https://jbsoftwaresolutions.com/",
     "Competes with full-stack India agencies selling apps + SEO/GEO; differentiates with build + discovery in one team",

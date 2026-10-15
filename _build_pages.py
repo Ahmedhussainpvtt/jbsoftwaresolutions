@@ -108,7 +108,7 @@ def nav(depth, active=""):
     <ul class="nav-links">
       {a("services", "services/web-development/", "Services")}
       {a("seo", "services/seo-aeo-geo/", "SEO / GEO")}
-      {a("ai", "services/ai-automation/", "AI")}
+      {a("ai", "services/ai-automation/", "Automation")}
       {a("pricing", "pricing/", "Pricing")}
       {a("blog", "blog/", "Blog")}
       {a("about", "about/", "About")}
@@ -148,7 +148,7 @@ def footer(depth):
     <div>
       <strong>Grow</strong>
       <a href="{p}services/seo-aeo-geo/">SEO, AEO and GEO</a>
-      <a href="{p}services/ai-automation/">AI automation</a>
+      <a href="{p}services/ai-automation/">Workflow automation</a>
       <a href="{p}pricing/">Pricing</a>
       <a href="{p}blog/">Blog</a>
     </div>
@@ -191,7 +191,7 @@ home_lines = [
     "> boot sequence: jb-agent v2.6",
     "> scanning market signals: SEO · AEO · GEO · apps · custom software",
     "> intent detected: **build products that rank and convert**",
-    "> stacking: Next.js · Flutter · Node · AI agents · schema markup",
+    "> stacking: Next.js · Flutter · Node · business workflows · schema markup",
     "> proof mode: this page is not a brochure. it is a live system.",
     "> ready. tell us what you want shipped.",
 ]
@@ -213,7 +213,7 @@ home = head(
     "priceRange": "$$",
     "areaServed": ["IN", "AE", "SA", "US", "GB", "AU"],
     "email": "{EMAIL}",
-    "knowsAbout": ["Custom software development", "Web development", "Mobile app development", "SEO", "AEO", "GEO", "AI automation", "Electron desktop apps"]
+    "knowsAbout": ["Custom software development", "Web development", "Mobile app development", "SEO", "AEO", "GEO", "Business workflow automation", "Electron desktop apps"]
   }}
   </script>
   <script type="application/ld+json">
@@ -290,7 +290,7 @@ home = head(
     <div class="marquee-track">
       <span>Custom software India</span><span>Flutter apps</span><span>Next.js websites</span>
       <span>Electron desktop</span><span>Technical SEO</span><span>AEO</span><span>GEO</span>
-      <span>AI agents</span><span>SaaS MVP</span><span>ERP tools</span>
+      <span>Workflow automation</span><span>SaaS MVP</span><span>ERP tools</span>
       <span>ChatGPT citations</span><span>Perplexity SEO</span><span>LLM SEO</span>
     </div>
   </div>
@@ -325,7 +325,7 @@ home = head(
         <article class="engage-card reveal">
           <h3>Replace spreadsheet chaos</h3>
           <p>Ops team is drowning in sheets, WhatsApp threads and manual follow-ups. They need a custom tool their staff will actually use.</p>
-          <p><strong style="color:var(--text)">Typical outcome:</strong> role-based internal system, handover docs, and optional AI automation on the boring parts.</p>
+          <p><strong style="color:var(--text)">Typical outcome:</strong> role-based internal system, handover docs, and optional workflow automation on the boring parts.</p>
         </article>
       </div>
     </div>
@@ -396,7 +396,7 @@ home = head(
     <div class="container">
       <div class="section-kicker reveal">Competitive reality</div>
       <h2 class="section-title reveal">The India market we compete in every week</h2>
-      <p class="section-sub reveal">Buyers comparing full-stack India agencies for custom software, mobile apps, websites, digital marketing, SEO and AI search see a crowded field. Firms in Chennai, Hyderabad, Ahmedabad, Indore, Mohali and beyond now sell the same menu: React/Next web, Flutter apps, AI agents, SEO, AEO and GEO. JB Software Solutions is built to win that shortlist with sharper proof, faster founder access and discovery engineered into the build.</p>
+      <p class="section-sub reveal">Buyers comparing full-stack India agencies for custom software, mobile apps, websites, digital marketing, SEO and AI search see a crowded field. Firms in Chennai, Hyderabad, Ahmedabad, Indore, Mohali and beyond now sell the same menu: React/Next web, Flutter apps, automation, SEO, AEO and GEO. JB Software Solutions is built to win that shortlist with sharper proof, faster founder access and discovery engineered into the build.</p>
       <div class="compare-wrap reveal">
         <table class="compare">
           <thead>
@@ -455,8 +455,8 @@ home = head(
         <a class="seo-chip" href="services/seo-aeo-geo/">AEO answer engine optimization</a>
         <a class="seo-chip" href="services/seo-aeo-geo/">ChatGPT SEO</a>
         <a class="seo-chip" href="services/seo-aeo-geo/">LLM SEO</a>
-        <a class="seo-chip" href="services/ai-automation/">AI automation agency</a>
-        <a class="seo-chip" href="services/ai-automation/">AI agents development</a>
+        <a class="seo-chip" href="services/ai-automation/">business workflow automation</a>
+        <a class="seo-chip" href="services/ai-automation/">AI business automation</a>
         <a class="seo-chip" href="services/desktop-apps/">Electron desktop app development</a>
         <a class="seo-chip" href="services/web-development/">Next.js development</a>
         <a class="seo-chip" href="services/custom-software/">SaaS MVP development</a>
@@ -516,12 +516,12 @@ home = head(
 
       <article class="service-band">
         <div>
-          <h3>AI automation and agents</h3>
-          <p>Lead qualification bots, document AI, RAG over your data, and agent workflows that remove manual ops without turning your brand into a generic chatbot.</p>
-          <div class="tags"><span class="tag">AI agents</span><span class="tag">RAG</span><span class="tag">LLM</span><span class="tag">Automation</span></div>
-          <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/ai-automation/">AI automation services</a></p>
+          <h3>AI and business workflow automation</h3>
+          <p>We design and build workflows that automate how your business runs day to day: leads, follow-ups, approvals, notifications, CRM updates and repetitive ops. Practical automation that saves hours, not experimental AI labs.</p>
+          <div class="tags"><span class="tag">Workflows</span><span class="tag">CRM automation</span><span class="tag">Integrations</span><span class="tag">Ops</span></div>
+          <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/ai-automation/">Automation services</a></p>
         </div>
-        <div class="band-visual"><img src="assets/services/ai.jpg" alt="AI automation and intelligent agents" width="640" height="360" loading="lazy" /></div>
+        <div class="band-visual"><img src="assets/services/ai.jpg" alt="Business workflow and process automation" width="640" height="360" loading="lazy" /></div>
       </article>
 
       <article class="service-band">
@@ -576,7 +576,7 @@ home = head(
         <div><h3>Web</h3><p>Next.js, React, Node.js, TypeScript, WordPress when editorial speed matters, headless CMS when scale matters.</p></div>
         <div><h3>Mobile</h3><p>Flutter, React Native, native modules for camera, maps, payments and push.</p></div>
         <div><h3>Desktop</h3><p>Electron, Tauri, installers, code signing, auto-update and offline storage.</p></div>
-        <div><h3>AI and data</h3><p>LLM agents, RAG over your documents, workflow automation, analytics dashboards.</p></div>
+        <div><h3>Automation</h3><p>Business workflows, CRM and ops automation, integrations between the tools you already use, dashboards.</p></div>
         <div><h3>Cloud</h3><p>AWS, GCP, Azure, CI/CD, monitoring and cost-aware architecture.</p></div>
         <div><h3>Search</h3><p>Technical SEO, schema, content clusters, AEO, GEO, LLM SEO and citation tracking.</p></div>
       </div>
@@ -590,7 +590,7 @@ home = head(
       <div class="process-steps">
         <article class="reveal"><h3>Discover</h3><p>Goals, users, constraints, competitor landscape and the exact Google and ChatGPT questions your buyers already ask.</p></article>
         <article class="reveal"><h3>Design</h3><p>Architecture, UX and content structure for humans and crawlers. Prototypes before heavy code spend.</p></article>
-        <article class="reveal"><h3>Build</h3><p>Agile sprints with demos every week. Web, mobile, desktop or AI agents, same accountable pod.</p></article>
+        <article class="reveal"><h3>Build</h3><p>Agile sprints with demos every week. Web, mobile, desktop or workflow automation, same accountable pod.</p></article>
         <article class="reveal"><h3>Grow</h3><p>Launch, measure leads, SEO/AEO/GEO iterations and feature updates so the product keeps compounding.</p></article>
       </div>
     </div>
@@ -636,7 +636,7 @@ home = head(
       <h2 class="section-title reveal">Built for founders who refuse a pretty dead site</h2>
       <div class="two-col reveal">
         <div>
-          <p>Hire JB Software Solutions when you need a <strong>custom software development company in India</strong> that can also compete with modern digital agencies on SEO, AEO and GEO. Ideal briefs include SaaS MVPs, service-business websites that must generate enquiries, Flutter or React Native apps for Android and iOS, internal tools that replace spreadsheet chaos, and AI automation that removes repetitive sales or support work.</p>
+          <p>Hire JB Software Solutions when you need a <strong>custom software development company in India</strong> that can also compete with modern digital agencies on SEO, AEO and GEO. Ideal briefs include SaaS MVPs, service-business websites that must generate enquiries, Flutter or React Native apps for Android and iOS, internal tools that replace spreadsheet chaos, and workflow automation that removes repetitive sales or support work.</p>
           <p>We also suit export-facing and GCC-facing brands that want India delivery costs with bilingual or multi-market sites, plus teams that already talked to large full-stack shops and felt the pitch was generic.</p>
         </div>
         <div>
@@ -838,20 +838,21 @@ service_page(
 
 service_page(
     "ai-automation",
-    f"AI Automation and AI Agents Company | {BRAND}",
-    "AI automation that does real work",
-    "Custom AI agents, RAG systems and workflow automation that plug into your CRM, support and ops stack.",
-    "AI automation agency India, AI agents development, RAG chatbot, LLM workflow, custom AI software, business process automation",
+    f"Business Workflow and AI Automation | {BRAND}",
+    "Automate how your business actually runs",
+    "JB Software Solutions builds workflows and automations that connect your tools, cut repetitive work, and keep leads, follow-ups and ops moving without manual copy-paste.",
+    "business workflow automation, AI business automation India, CRM automation, process automation, Zapier Make n8n workflows, lead automation, ops automation",
     [
-        "AI agents for lead qualification, support triage and internal ops",
-        "RAG over your documents with permission-aware retrieval",
-        "Human-in-the-loop controls so taste and brand stay intact",
-        "Integrations with WhatsApp, email, Slack and CRMs",
-        "Evaluation harnesses so quality does not silently drift",
+        "End-to-end business workflows: lead capture to CRM to follow-up to notification",
+        "Automation across the tools you already use (CRM, email, sheets, forms, chat, payment alerts)",
+        "Approval flows, reminders, status updates and handoffs between teams",
+        "Internal process automation that replaces spreadsheet and WhatsApp chaos",
+        "Practical use of AI inside workflows where it helps (drafting, tagging, routing), not building custom RAG labs",
     ],
     [
-        ("Will this replace my team?", "No. We remove repetitive work so your team focuses on decisions and relationships."),
-        ("Is my data safe?", "We design with least privilege, NDAs and deployment options that keep sensitive data in your cloud when required."),
+        ("Do you build custom RAG or AI model products?", "No. We focus on workflow and business process automation. If a step benefits from AI assistance inside a workflow, we can wire that in. We do not sell custom RAG platforms or model training as a product."),
+        ("Will this replace my team?", "No. Automation removes repetitive work so your team focuses on decisions, sales and customer care."),
+        ("What tools can you connect?", "Common CRMs, forms, email, sheets, chat tools, payment notifications and custom webhooks. We map your stack in discovery and automate the boring path between systems."),
     ],
     "ai",
 )
@@ -947,7 +948,7 @@ contact = head(
           <option>Mobile app</option>
           <option>Custom software</option>
           <option>SEO / AEO / GEO</option>
-          <option>AI automation</option>
+          <option>Workflow / business automation</option>
           <option>Desktop app</option>
           <option>Not sure yet</option>
         </select>
@@ -1050,12 +1051,12 @@ pricing = head(
         <a class="btn btn-ghost btn-magnet" href="{rel(1)}contact/">Request quote</a>
       </article>
       <article class="price-card reveal">
-        <h3>AI automation</h3>
+        <h3>Workflow automation</h3>
         <div class="from">From ₹75,000</div>
         <ul>
-          <li>Lead or support agent</li>
-          <li>RAG over your docs</li>
-          <li>Human approval controls</li>
+          <li>Lead and follow-up flows</li>
+          <li>CRM / ops integrations</li>
+          <li>Approvals and reminders</li>
         </ul>
         <a class="btn btn-ghost btn-magnet" href="{rel(1)}contact/">Request quote</a>
       </article>
