@@ -62,9 +62,14 @@
       initMarqueeGlow();
       initTiltCards();
       initFooter();
+      initButtonShine();
+      initHeroFloaters();
+      initTitleUnderlines();
+      initDockPulse();
+      initLinkLift();
+      initImageZoomHover();
       if (finePointer) {
-        initCursorRing();
-        initCursorTrail();
+        initCursorSystem();
       }
     } else {
       document.querySelectorAll(".reveal, .reveal-child, .band-visual").forEach((el) => {
@@ -750,20 +755,78 @@
     );
   }
 
-  function initCursorRing() {
+  function initCursorSystem() {
+    document.documentElement.classList.add("has-cursor");
+
+    const wrap = document.createElement("div");
+    wrap.className = "cursor-system";
+    wrap.setAttribute("aria-hidden", "true");
+
     const ring = document.createElement("div");
     ring.className = "cursor-ring";
-    document.body.appendChild(ring);
-    let x = window.innerWidth / 2;
-    let y = window.innerHeight / 2;
-    let tx = x;
-    let ty = y;
+    const core = document.createElement("div");
+    core.className = "cursor-core";
+    wrap.appendChild(ring);
+    wrap.appendChild(core);
+
+    // Lagging circle chain = the "tail"
+    const TAIL_N = 10;
+    const tails = Array.from({ length: TAIL_N }, (_, i) => {
+      const d = document.createElement("div");
+      d.className = "cursor-tail";
+      d.style.setProperty("--i", String(i));
+      wrap.appendChild(d);
+      return { el: d, x: window.innerWidth / 2, y: window.innerHeight / 2 };
+    });
+
+    // Extra spark particles for speed bursts
+    const sparkColors = ["#3dff7a", "#3ad0ff", "#ffe566", "#ff9a1f"];
+    const sparks = sparkColors.map((c) => {
+      const d = document.createElement("div");
+      d.className = "cursor-pixel";
+      d.style.background = c;
+      wrap.appendChild(d);
+      return d;
+    });
+
+    document.body.appendChild(wrap);
+
+    let mx = window.innerWidth / 2;
+    let my = window.innerHeight / 2;
+    let rx = mx;
+    let ry = my;
+    let cx = mx;
+    let cy = my;
+    let lastSpark = 0;
+    let sparkI = 0;
+    let lastX = mx;
+    let lastY = my;
+    let visible = false;
 
     const loop = () => {
-      x += (tx - x) * 0.18;
-      y += (ty - y) * 0.18;
-      ring.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-      ring.style.opacity = "0.85";
+      // Core snaps fastest, ring lags a touch, tail lags more (premium feel)
+      cx += (mx - cx) * 0.42;
+      cy += (my - cy) * 0.42;
+      rx += (mx - rx) * 0.18;
+      ry += (my - ry) * 0.18;
+      core.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+      ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`;
+
+      let px = rx;
+      let py = ry;
+      tails.forEach((node, i) => {
+        const ease = 0.28 - i * 0.018;
+        node.x += (px - node.x) * ease;
+        node.y += (py - node.y) * ease;
+        node.el.style.transform = `translate3d(${node.x}px, ${node.y}px, 0)`;
+        px = node.x;
+        py = node.y;
+      });
+
+      if (visible) {
+        ring.style.opacity = "1";
+        core.style.opacity = "1";
+      }
       requestAnimationFrame(loop);
     };
     loop();
@@ -771,43 +834,157 @@
     window.addEventListener(
       "pointermove",
       (e) => {
-        tx = e.clientX;
-        ty = e.clientY;
+        mx = e.clientX;
+        my = e.clientY;
+        visible = true;
+
+        const dist = Math.hypot(mx - lastX, my - lastY);
+        const now = performance.now();
+        if (dist > 28 && now - lastSpark > 28) {
+          lastSpark = now;
+          lastX = mx;
+          lastY = my;
+          const spark = sparks[sparkI % sparks.length];
+          sparkI += 1;
+          spark.style.transform = `translate3d(${mx}px, ${my}px, 0) scale(1)`;
+          spark.style.opacity = "0.85";
+          if (window.gsap) {
+            gsap.to(spark, {
+              opacity: 0,
+              scale: 0.2,
+              duration: 0.55,
+              ease: "power2.out",
+              overwrite: true,
+            });
+          }
+        }
       },
       { passive: true }
     );
 
-    document.querySelectorAll("a, button, .btn, .dock-btn, summary").forEach((el) => {
-      el.addEventListener("pointerenter", () => ring.classList.add("is-hot"));
-      el.addEventListener("pointerleave", () => ring.classList.remove("is-hot"));
+    window.addEventListener("pointerleave", () => {
+      visible = false;
+      ring.style.opacity = "0";
+      core.style.opacity = "0";
+      tails.forEach((n) => {
+        n.el.style.opacity = "0";
+      });
+    });
+    window.addEventListener("pointerenter", () => {
+      visible = true;
+      tails.forEach((n) => {
+        n.el.style.opacity = "";
+      });
+    });
+
+    const hotSel = "a, button, .btn, .dock-btn, summary, .blog-card, .seo-chip, .nav-links a";
+    document.querySelectorAll(hotSel).forEach((el) => {
+      el.addEventListener("pointerenter", () => {
+        wrap.classList.add("is-hot");
+        ring.classList.add("is-hot");
+      });
+      el.addEventListener("pointerleave", () => {
+        wrap.classList.remove("is-hot");
+        ring.classList.remove("is-hot");
+      });
+    });
+
+    // Keep native cursor on form fields for usability
+    document.querySelectorAll("input, textarea, select").forEach((el) => {
+      el.addEventListener("pointerenter", () => document.documentElement.classList.add("cursor-form"));
+      el.addEventListener("pointerleave", () => document.documentElement.classList.remove("cursor-form"));
+      el.addEventListener("focus", () => document.documentElement.classList.add("cursor-form"));
+      el.addEventListener("blur", () => document.documentElement.classList.remove("cursor-form"));
     });
   }
 
-  function initCursorTrail() {
-    const colors = ["#3dff7a", "#3ad0ff", "#ffe566", "#ff9a1f"];
-    const pool = colors.map((c) => {
-      const d = document.createElement("div");
-      d.className = "cursor-pixel";
-      d.style.background = c;
-      document.body.appendChild(d);
-      return d;
+  function initButtonShine() {
+    document.querySelectorAll(".btn-primary, .dock-btn.quote, .nav-cta").forEach((btn) => {
+      btn.classList.add("has-shine");
     });
-    let i = 0;
-    let last = 0;
-    window.addEventListener(
-      "pointermove",
-      (e) => {
-        const now = performance.now();
-        if (now - last < 40) return;
-        last = now;
-        const el = pool[i % pool.length];
-        i += 1;
-        el.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-        el.style.opacity = "0.7";
-        if (window.gsap) gsap.to(el, { opacity: 0, duration: 0.4, overwrite: true });
-      },
-      { passive: true }
-    );
+  }
+
+  function initHeroFloaters() {
+    const bg = document.querySelector(".hero-bg");
+    if (!bg || bg.querySelector(".hero-floater")) return;
+    for (let i = 0; i < 6; i++) {
+      const f = document.createElement("span");
+      f.className = "hero-floater";
+      f.style.setProperty("--x", `${10 + i * 14}%`);
+      f.style.setProperty("--y", `${18 + ((i * 17) % 60)}%`);
+      f.style.setProperty("--d", `${6 + i * 1.4}s`);
+      f.style.setProperty("--s", `${8 + (i % 3) * 6}px`);
+      f.style.background = ["#3dff7a", "#3ad0ff", "#ffe566", "#ff9a1f", "#1a5cff", "#3dff7a"][i];
+      bg.appendChild(f);
+    }
+    if (!window.gsap || !window.ScrollTrigger) return;
+    gsap.to(".hero-floater", {
+      y: "random(-40, 40)",
+      x: "random(-30, 30)",
+      duration: "random(4, 8)",
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      stagger: { each: 0.3, from: "random" },
+    });
+  }
+
+  function initTitleUnderlines() {
+    if (!window.gsap || !window.ScrollTrigger) return;
+    document.querySelectorAll(".section-title").forEach((title) => {
+      if (title.querySelector(".title-line")) return;
+      const line = document.createElement("span");
+      line.className = "title-line";
+      title.appendChild(line);
+      gsap.fromTo(
+        line,
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          duration: 0.9,
+          ease: "power3.out",
+          scrollTrigger: { trigger: title, start: "top 85%" },
+        }
+      );
+    });
+  }
+
+  function initDockPulse() {
+    const dock = document.querySelector(".dock-btn.quote");
+    if (!dock || !window.gsap) return;
+    gsap.to(dock, {
+      boxShadow: "0 14px 40px rgba(61,255,122,0.55)",
+      duration: 1.4,
+      yoyo: true,
+      repeat: -1,
+      ease: "sine.inOut",
+    });
+  }
+
+  function initLinkLift() {
+    if (!window.gsap || !finePointer) return;
+    document.querySelectorAll(".nav-links a:not(.nav-cta), .footer a, .seo-chip").forEach((a) => {
+      a.addEventListener("pointerenter", () => {
+        gsap.to(a, { y: -2, duration: 0.25, ease: "power2.out", overwrite: "auto" });
+      });
+      a.addEventListener("pointerleave", () => {
+        gsap.to(a, { y: 0, duration: 0.35, ease: "power3.out", overwrite: "auto" });
+      });
+    });
+  }
+
+  function initImageZoomHover() {
+    if (!finePointer) return;
+    document.querySelectorAll(".blog-card img, .post-cover img").forEach((img) => {
+      const parent = img.parentElement;
+      if (!parent) return;
+      parent.addEventListener("pointerenter", () => {
+        if (window.gsap) gsap.to(img, { scale: 1.06, duration: 0.7, ease: "power2.out" });
+      });
+      parent.addEventListener("pointerleave", () => {
+        if (window.gsap) gsap.to(img, { scale: 1, duration: 0.8, ease: "power3.out" });
+      });
+    });
   }
 
   if (document.readyState === "loading") {
