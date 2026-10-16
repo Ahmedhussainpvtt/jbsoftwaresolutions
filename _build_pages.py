@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parent
 SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
-ASSET_V = "20261016h"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+ASSET_V = "20261016i"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
 
 
 def rel(depth: int) -> str:

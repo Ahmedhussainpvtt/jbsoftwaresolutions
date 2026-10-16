@@ -2,21 +2,22 @@
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-  // Always land at top on refresh / hard load (ignore browser scroll restore + hash jump)
+  // Refresh always lands at top; deep-link hashes still work on first visit
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  const navType = performance.getEntriesByType("navigation")[0]?.type || "navigate";
+  const isReload = navType === "reload";
   const forceTop = () => {
-    if (location.hash) {
-      history.replaceState(null, "", location.pathname + location.search);
-    }
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
   };
-  forceTop();
-  window.addEventListener("pageshow", (e) => {
-    if (e.persisted) forceTop();
-  });
-  window.addEventListener("load", forceTop);
+  if (isReload) {
+    if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+    forceTop();
+    window.addEventListener("load", forceTop);
+  } else if (!location.hash) {
+    forceTop();
+  }
 
   const loadScript = (src, ms = 4000) =>
     new Promise((resolve, reject) => {
@@ -47,7 +48,7 @@
     });
 
   async function boot() {
-    forceTop();
+    if (isReload) forceTop();
     ensureProgress();
     initBackToTop();
     splitTitles(document.querySelectorAll(".hero-title, .page-hero h1, .section-title"));
