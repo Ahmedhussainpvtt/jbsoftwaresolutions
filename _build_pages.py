@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parent
 SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
-ASSET_V = "20261016m"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+ASSET_V = "20261016n"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
 
 SERVICES = [
     ("web-development", "Website development", "Business sites that get enquiries", "web.jpg"),
@@ -305,9 +305,6 @@ home = head(
     <div class="container hero-inner">
       <div class="hero-layout">
         <div class="hero-copy">
-          <div class="hero-brand">
-            <img src="assets/logo-full.png" alt="{BRAND} custom software logo" width="180" height="100" />
-          </div>
           <p class="hero-eyebrow">{BRAND}</p>
           <h1 class="hero-title">Custom software that <span class="grad">gets found</span></h1>
           <p class="hero-sub">JB Software Solutions builds websites, mobile apps, custom software, desktop tools, SEO and workflow automation. Products that bring enquiries, then get found on Google and inside ChatGPT, Gemini and Perplexity.</p>

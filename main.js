@@ -144,22 +144,64 @@
   function initDockObscure(dock) {
     if (!dock || dock.dataset.obscureReady) return;
     dock.dataset.obscureReady = "1";
-    const interactive =
-      "a, button, input, textarea, select, summary, label, .btn, .work-filter, .nav-drop-toggle, .seo-chip, .service-chip";
-    document.addEventListener(
-      "pointerover",
-      (e) => {
-        const t = e.target;
-        if (!(t instanceof Element)) return;
-        if (t.closest(".sticky-dock")) {
-          dock.classList.remove("is-obscured");
-          return;
+
+    const CONTENT =
+      "a, button, p, h1, h2, h3, h4, li, label, summary, input, textarea, select, img, .btn, .work-card, .price-card, .bento-tile, .blog-card, .term-card, .faq-topic-card, .seo-chip, .service-chip, .nav-links, .nav-drop-toggle, table, td, th";
+
+    const samplePoints = (rect) => [
+      [rect.left + 12, rect.top + 12],
+      [rect.left + rect.width / 2, rect.top + rect.height / 2],
+      [rect.right - 12, rect.bottom - 12],
+      [rect.left + 12, rect.bottom - 12],
+      [rect.right - 12, rect.top + 12],
+    ];
+
+    const contentUnderDock = () => {
+      const rect = dock.getBoundingClientRect();
+      const prev = dock.style.pointerEvents;
+      dock.style.pointerEvents = "none";
+      let blocked = false;
+      for (const [x, y] of samplePoints(rect)) {
+        const el = document.elementFromPoint(x, y);
+        if (el && el.closest(CONTENT)) {
+          blocked = true;
+          break;
         }
-        if (t.closest(interactive)) dock.classList.add("is-obscured");
-        else dock.classList.remove("is-obscured");
-      },
-      { passive: true }
-    );
+      }
+      dock.style.pointerEvents = prev;
+      return blocked;
+    };
+
+    const refresh = (e) => {
+      const nearCorner =
+        e &&
+        e.clientX > window.innerWidth - 140 &&
+        e.clientY > window.innerHeight - 180;
+
+      if (e && e.target instanceof Element && e.target.closest(".sticky-dock")) {
+        dock.classList.remove("is-obscured");
+        return;
+      }
+
+      // Hovering real page content away from the dock corner → hide
+      if (e && e.target instanceof Element && e.target.closest(CONTENT) && !nearCorner) {
+        dock.classList.add("is-obscured");
+        return;
+      }
+
+      // Content physically sitting under the dock buttons → hide
+      if (contentUnderDock() && !nearCorner) {
+        dock.classList.add("is-obscured");
+        return;
+      }
+
+      dock.classList.remove("is-obscured");
+    };
+
+    window.addEventListener("pointermove", refresh, { passive: true });
+    window.addEventListener("scroll", () => refresh(), { passive: true });
+    window.addEventListener("resize", () => refresh());
+    refresh();
   }
 
   function splitTitles(list) {
@@ -753,7 +795,8 @@
 
   function initMagnet() {
     if (!finePointer || reduced) return;
-    const buttons = [...document.querySelectorAll(".dock-btn, .btn-magnet")];
+    // Never magnet sticky dock buttons - they fight Top/Contact and stick to the cursor
+    const buttons = [...document.querySelectorAll(".btn-magnet")];
     if (!buttons.length) return;
 
     const CATCH = 90;

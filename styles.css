@@ -462,22 +462,6 @@ a.nav-cta {
   background: linear-gradient(90deg, var(--green), var(--blue));
 }
 
-.hero-brand {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 0.95rem;
-}
-
-.hero-brand img {
-  width: min(168px, 46vw);
-  height: auto;
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 0.55rem 0.75rem;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
-}
-
 .hero-title {
   font-family: var(--font-display);
   font-size: clamp(1.85rem, 3.6vw, 2.85rem);
