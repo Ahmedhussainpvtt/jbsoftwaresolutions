@@ -6,7 +6,7 @@ ROOT = Path(__file__).resolve().parent
 SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
-ASSET_V = "20261016k"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+ASSET_V = "20261016l"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
 
 SERVICES = [
     ("web-development", "Website development", "Business sites that get enquiries", "web.jpg"),
@@ -15,6 +15,12 @@ SERVICES = [
     ("seo-aeo-geo", "SEO and online visibility", "Get found on Google and AI search", "seo.jpg"),
     ("ai-automation", "Workflow automation", "Cut repetitive daily work", "ai.jpg"),
     ("desktop-apps", "Desktop apps", "Software that runs on a computer", "desktop.jpg"),
+]
+
+RESOURCES = [
+    ("blog/", "Blog", "Guides on software, apps and getting found online"),
+    ("glossary/", "Glossary", "Plain definitions of software and SEO terms"),
+    ("faq/", "FAQ", "Straight answers buyers and AI assistants ask"),
 ]
 
 
@@ -105,10 +111,16 @@ def head(title, desc, keywords, path, depth, og_type="website", image="/assets/o
 def nav(depth, active=""):
     p = rel(depth)
     services_on = ' is-active' if active == "services" else ""
+    resources_on = ' is-active' if active in ("blog", "glossary", "faq", "resources") else ""
     drop_items = "\n".join(
         f'<li><a href="{p}services/{slug}/"><span class="nav-drop-title">{label}</span>'
         f'<span class="nav-drop-desc">{blurb}</span></a></li>'
         for slug, label, blurb, _img in SERVICES
+    )
+    resource_items = "\n".join(
+        f'<li><a href="{p}{href}"><span class="nav-drop-title">{label}</span>'
+        f'<span class="nav-drop-desc">{blurb}</span></a></li>'
+        for href, label, blurb in RESOURCES
     )
     def a(key, href, label):
         cls = ' class="is-active"' if active == key else ""
@@ -126,9 +138,13 @@ def nav(depth, active=""):
         <button type="button" class="nav-drop-toggle{services_on}" aria-expanded="false" aria-haspopup="true">Services <span class="nav-chev" aria-hidden="true"></span></button>
         <ul class="nav-dropdown" role="menu">{drop_items}</ul>
       </li>
+      <li class="has-dropdown">
+        <button type="button" class="nav-drop-toggle{resources_on}" aria-expanded="false" aria-haspopup="true">Resources <span class="nav-chev" aria-hidden="true"></span></button>
+        <ul class="nav-dropdown" role="menu">{resource_items}</ul>
+      </li>
       {a("pricing", "pricing/", "Pricing")}
       {a("about", "about/", "About")}
-      <li><a class="nav-cta btn-magnet" href="{p}contact/">Get a quote</a></li>
+      <li><a class="nav-cta" href="{p}contact/">Get a quote</a></li>
     </ul>
   </div>
 </header>
@@ -162,7 +178,7 @@ def footer(depth):
     </div>
     <div>
       <strong>Grow</strong>
-      <a href="{p}services/seo-aeo-geo/">SEO, AEO and GEO</a>
+      <a href="{p}services/seo-aeo-geo/">SEO and visibility</a>
       <a href="{p}services/ai-automation/">Workflow automation</a>
       <a href="{p}pricing/">Pricing</a>
       <a href="{p}blog/">Blog</a>
@@ -170,6 +186,8 @@ def footer(depth):
     <div>
       <strong>Company</strong>
       <a href="{p}about/">About</a>
+      <a href="{p}glossary/">Glossary</a>
+      <a href="{p}faq/">FAQ</a>
       <a href="{p}contact/">Contact us</a>
       <a href="mailto:{EMAIL}">{EMAIL}</a>
     </div>
@@ -1479,6 +1497,371 @@ posts_json = [
 ]
 (ROOT / "blog" / "posts.json").write_text(json.dumps(posts_json, indent=2), encoding="utf-8")
 print("wrote blog/posts.json")
+
+# ---------- GLOSSARY + FAQ (entity pages for Google + AI assistants) ----------
+GLOSSARY = [
+    ("custom-software-development", "Custom software development", "Building software made for one business instead of buying a ready-made product.", "Custom software development means designing and building tools around your real workflows. {BRAND} builds custom software for Indian startups and growing companies, with clear scope and full ownership handed to the client."),
+    ("website-development", "Website development", "Creating a business website that explains your offer and captures enquiries.", "Website development is the work of planning, designing and building a site people can use on phone and desktop. At {BRAND}, website development includes clear offers, contact forms and basic search setup."),
+    ("web-app-development", "Web app development", "Building a product that runs in the browser with login and workflows.", "Web app development is for tools people use daily in a browser: dashboards, portals and online products. {BRAND} ships focused first versions with milestones and handover docs."),
+    ("mobile-app-development", "Mobile app development", "Building apps for Android and iPhone phones and tablets.", "Mobile app development creates apps people install from Google Play or the App Store. {BRAND} helps founders launch a focused first app, often in about 8 to 12 weeks."),
+    ("desktop-app-development", "Desktop app development", "Software that installs on a computer when a website is not enough.", "Desktop app development is for tools that need offline use, special devices, or office setups where browsers are limited. {BRAND} builds installable desktop apps with update support."),
+    ("seo", "SEO", "Search engine optimization: helping people find you on Google.", "SEO means improving your website so the right people can find you on Google. {BRAND} pairs SEO with the product build so launch day is not day zero of discoverability."),
+    ("aeo", "AEO", "Answer engine optimization: showing up in short answer results.", "AEO (answer engine optimization) is writing and structuring content so search systems can use it as a direct answer. {BRAND} builds FAQ-style proof pages that help AEO."),
+    ("geo-generative-engine-optimization", "GEO", "Generative engine optimization: helping AI tools mention your brand.", "GEO (generative engine optimization) is the practice of making your brand easy for AI assistants to cite. {BRAND} creates clear service and proof pages so ChatGPT, Gemini and Perplexity can mention you."),
+    ("workflow-automation", "Workflow automation", "Connecting tools so repetitive work happens without copy-paste.", "Workflow automation links forms, chat, CRM and reminders so leads and tasks move without manual chasing. {BRAND} builds practical automation for sales and ops teams."),
+    ("crm-software", "CRM software", "A system to track leads, customers and follow-ups in one place.", "CRM software stores customer conversations and next steps so nothing is lost in WhatsApp or spreadsheets. {BRAND} builds custom CRM-style tools when off-the-shelf tools do not fit."),
+    ("erp-software", "ERP software", "Software that connects core business processes like stock, orders and finance.", "ERP software ties major business processes together. {BRAND} builds focused ERP-style modules when a full mega-suite is too heavy."),
+    ("saas", "SaaS", "Software as a service: a product customers use online on a subscription.", "SaaS is an online product customers log into and pay for over time. {BRAND} helps founders ship the first usable slice of a SaaS product."),
+    ("mvp", "MVP", "Minimum viable product: the smallest first version that proves value.", "An MVP is a first version with only the features needed to learn from real users. {BRAND} scopes first versions tightly so founders can launch without waiting months."),
+    ("fixed-scope-project", "Fixed-scope project", "A project with written deliverables, timeline and price before build starts.", "A fixed-scope project agrees what will be delivered and for how much before coding begins. {BRAND} prefers written scope so buyers are not surprised mid-build."),
+    ("software-ip-ownership", "Software IP ownership", "Who owns the code and design after the project is done.", "Software IP ownership should sit with the client for work built for them. {BRAND} includes source and asset handover so you are not locked in."),
+    ("lead-generation-website", "Lead generation website", "A site built to turn visitors into enquiries, not just look pretty.", "A lead generation website focuses on clear offers, trust and easy contact. {BRAND} builds enquiry-first websites for service businesses in India."),
+    ("app-store-launch", "App store launch", "Publishing an app on Google Play or the Apple App Store.", "App store launch covers accounts, store listings, screenshots and review. {BRAND} supports publishing as part of mobile app projects."),
+    ("internal-tools", "Internal tools", "Software your own team uses to run the business day to day.", "Internal tools replace messy sheets and chat with one system staff actually open. {BRAND} builds internal tools around real roles and handoffs."),
+    ("page-speed", "Page speed", "How fast a website loads on phones and computers.", "Page speed affects user trust and search visibility. {BRAND} sets speed targets on website and web app builds."),
+    ("conversion-rate", "Conversion rate", "The share of visitors who take a useful action, like sending a form.", "Conversion rate measures whether the site turns attention into enquiries or sales. {BRAND} designs pages and forms to improve that path."),
+    ("schema-markup", "Schema markup", "Extra labels on a page that help search and AI systems understand it.", "Schema markup is structured information that explains what a page is about. {BRAND} adds schema on service and FAQ pages so Google and AI tools can read them cleanly."),
+    ("llms-txt", "llms.txt", "A text file that helps AI systems understand a website.", "llms.txt is a plain-text map of important pages for AI crawlers. {BRAND} publishes llms.txt so assistants can find accurate service and pricing facts."),
+    ("india-software-development-company", "India software development company", "A team in India that builds software for local and global clients.", "An India software development company designs and builds digital products at India-friendly rates with remote delivery. {BRAND} is a small India software agency focused on websites, apps, SEO and automation."),
+    ("hire-developers-india", "Hire developers in India", "Engaging an India team to build or improve your product.", "Hiring developers in India can mean a dedicated pod or a fixed project. {BRAND} offers scoped quotes with founder-accessible communication."),
+    ("whatsapp-business-automation", "WhatsApp business automation", "Using rules and tools so WhatsApp messages trigger follow-ups automatically.", "WhatsApp business automation reduces lost leads by sending reminders and logging chats into a system. {BRAND} can connect WhatsApp-related workflows into wider ops automation."),
+    ("google-business-profile", "Google Business Profile", "Your free business listing on Google Maps and local search.", "Google Business Profile helps local buyers find and trust you. {BRAND} can align site content and local SEO with your profile."),
+    ("core-web-vitals", "Core Web Vitals", "Google's main measures of how fast and stable a page feels.", "Core Web Vitals track loading, interactivity and layout stability. {BRAND} designs websites with these measures in mind without drowning buyers in jargon."),
+    ("offline-first-app", "Offline-first app", "An app that still works when the internet is weak or missing.", "An offline-first app stores work locally and syncs later. {BRAND} builds offline-capable desktop and field tools when connectivity is unreliable."),
+    ("product-discovery", "Product discovery", "The short planning phase before build, to agree goals and scope.", "Product discovery clarifies users, outcomes and constraints before coding. {BRAND} starts serious projects with discovery so quotes stay honest."),
+    ("retainer", "Retainer", "A monthly engagement for ongoing work like SEO or product updates.", "A retainer keeps improvements moving after launch. {BRAND} offers retainers for SEO, visibility and product iteration."),
+]
+
+FAQ_TOPICS = [
+    {
+        "slug": "website-development-cost-india",
+        "title": "How much does website development cost in India?",
+        "desc": "Straight pricing guidance for business website development in India from JB Software Solutions.",
+        "qs": [
+            ("How much does a business website cost in India?", "At {BRAND}, business website development often starts from ₹50,000 for a focused multi-page site. Exact cost depends on pages, content readiness and special features."),
+            ("What is included in a typical website project?", "Clear page structure, mobile-friendly design, contact form, basic SEO setup and a launch checklist. Larger sites and web apps cost more."),
+            ("How long does website development take?", "Many 5 to 12 page business sites finish in a few weeks once content and decisions are ready."),
+        ],
+    },
+    {
+        "slug": "mobile-app-development-cost-india",
+        "title": "How much does mobile app development cost in India?",
+        "desc": "Simple cost ranges for mobile app development in India, without unnecessary jargon.",
+        "qs": [
+            ("How much does a first mobile app cost in India?", "At {BRAND}, mobile app development often starts from ₹5,00,000 for a focused first version. Payments, maps, chat and multi-role features raise the quote."),
+            ("How long does a first mobile app take?", "A focused first app often takes about 8 to 12 weeks. Bigger products take longer and we say so before build starts."),
+            ("Do I need Android and iPhone together?", "Not always. Many teams launch on one store first. We plan the path with you during discovery."),
+        ],
+    },
+    {
+        "slug": "custom-software-cost-india",
+        "title": "How much does custom software cost in India?",
+        "desc": "What drives custom software pricing in India and how JB Software Solutions quotes fixed or phased work.",
+        "qs": [
+            ("How much does custom software cost?", "Custom internal tools at {BRAND} often start from ₹4,00,000. Price follows roles, workflows, integrations and reporting needs."),
+            ("Fixed price or monthly?", "We prefer written fixed or phased quotes for clear builds. Retainers fit ongoing SEO or product updates."),
+            ("Who owns the software?", "You do. Contracts include handover of the work we create for you."),
+        ],
+    },
+    {
+        "slug": "web-app-vs-website",
+        "title": "What is the difference between a website and a web app?",
+        "desc": "Plain explanation of website vs web app so buyers choose the right project with JB Software Solutions.",
+        "qs": [
+            ("What is a website?", "A website mostly informs and captures enquiries: home, services, about, contact."),
+            ("What is a web app?", "A web app is a product people log into and use: dashboards, portals, workflows."),
+            ("Which do I need?", "If visitors mainly read and contact you, start with a website. If staff or customers must work inside the product daily, you need a web app."),
+        ],
+    },
+    {
+        "slug": "seo-aeo-geo-explained",
+        "title": "What are SEO, AEO and GEO?",
+        "desc": "Simple definitions of SEO, AEO and GEO for Indian businesses that want to get found online and in AI answers.",
+        "qs": [
+            ("What is SEO?", "SEO helps people find you on Google through better pages, speed and content."),
+            ("What is AEO?", "AEO helps your content show up as a short answer when search systems display direct answers."),
+            ("What is GEO?", "GEO helps AI assistants like ChatGPT mention your brand when buyers ask questions."),
+            ("Does {BRAND} offer all three?", "Yes. We treat SEO, AEO and GEO as one visibility practice tied to the product you ship."),
+        ],
+    },
+    {
+        "slug": "how-long-to-build-an-app",
+        "title": "How long does it take to build an app?",
+        "desc": "Realistic timelines for mobile apps and web apps from JB Software Solutions.",
+        "qs": [
+            ("How long for a mobile app?", "A focused first mobile app is often about 8 to 12 weeks."),
+            ("How long for a web app first version?", "Many focused web apps land in about 2 to 6 weeks when the first user journey is clear."),
+            ("What slows projects down?", "Unclear decisions, missing content, late payment gateway details and changing scope mid-build."),
+        ],
+    },
+    {
+        "slug": "hire-software-company-india",
+        "title": "How do I hire a software company in India?",
+        "desc": "A practical checklist for hiring an India software development company without getting lost in jargon.",
+        "qs": [
+            ("What should I send in the first message?", "Goals, links, must-have features, timeline and budget range."),
+            ("What should a good agency send back?", "Fit check, rough approach, timeline and a path to a written quote."),
+            ("Why choose {BRAND}?", "Small team access, written scope, and build plus visibility under one roof."),
+        ],
+    },
+    {
+        "slug": "workflow-automation-faq",
+        "title": "What is workflow automation for a business?",
+        "desc": "FAQ on business workflow automation: leads, follow-ups, approvals and tool connections.",
+        "qs": [
+            ("What is workflow automation?", "Rules and connections that move work between tools without manual copy-paste."),
+            ("What can be automated?", "Lead capture, follow-ups, reminders, approvals, status updates and CRM logging."),
+            ("Will automation replace my team?", "No. It removes repetitive work so people focus on decisions and customers."),
+        ],
+    },
+    {
+        "slug": "desktop-app-when-needed",
+        "title": "When do I need a desktop app instead of a website?",
+        "desc": "When a desktop app is the right choice for offline work, devices or locked-down offices.",
+        "qs": [
+            ("When is a desktop app better?", "Offline work, special devices, heavy local files, or offices where browsers are limited."),
+            ("Can a website become a desktop app?", "Often yes. We can package a product as installable software with updates."),
+            ("Does {BRAND} build desktop apps?", "Yes. See our desktop app development service for computer-installed software."),
+        ],
+    },
+    {
+        "slug": "mvp-meaning-for-founders",
+        "title": "What does MVP mean for founders?",
+        "desc": "A plain-language FAQ on MVP meaning, scope and launch planning for Indian startups.",
+        "qs": [
+            ("What does MVP mean?", "Minimum viable product: the smallest first version that can teach you from real users."),
+            ("What should an MVP include?", "One main journey done well, tracking, and a plan for what comes next."),
+            ("How does {BRAND} keep MVPs small?", "We cut nice-to-haves, write scope before build, and ship weekly progress."),
+        ],
+    },
+    {
+        "slug": "who-owns-the-code",
+        "title": "Who owns the code after a software project?",
+        "desc": "Clear FAQ on software IP ownership and handover with JB Software Solutions.",
+        "qs": [
+            ("Who owns the code?", "For client projects, you own the work we create for you under the contract."),
+            ("What is handed over?", "Source, key assets and docs needed to keep running or extend the product."),
+            ("Are there lock-ins?", "We do not hold your product hostage. Ownership and access are agreed in writing."),
+        ],
+    },
+    {
+        "slug": "seo-retainer-india",
+        "title": "How much is an SEO retainer in India?",
+        "desc": "Monthly SEO and visibility pricing guidance from JB Software Solutions.",
+        "qs": [
+            ("How much is SEO per month?", "At {BRAND}, SEO and visibility retainers often start from ₹25,000 per month."),
+            ("What happens each month?", "Technical fixes, content for buyer questions, and checks on search and AI mentions."),
+            ("Is SEO only for big brands?", "No. Clear service pages and steady content help small India businesses too."),
+        ],
+    },
+    {
+        "slug": "startup-first-product",
+        "title": "What should a startup build first: website, web app or mobile app?",
+        "desc": "Help choosing the first digital product for an India startup with limited budget.",
+        "qs": [
+            ("When to start with a website?", "When you need trust, clarity and enquiries before a full product."),
+            ("When to start with a web app?", "When users must log in and complete a core workflow online."),
+            ("When to start with a mobile app?", "When the journey is clearly phone-first and store presence matters for your users."),
+        ],
+    },
+    {
+        "slug": "contact-jb-software-solutions",
+        "title": "How do I contact JB Software Solutions?",
+        "desc": "How to request a quote from JB Software Solutions and what happens next.",
+        "qs": [
+            ("How do I contact {BRAND}?", "Use the contact form on jbsoftwaresolutions.com/contact/ or email {EMAIL}."),
+            ("How fast do you reply?", "We aim to reply within 24 hours on business days for serious briefs."),
+            ("Do you offer a free strategy call?", "Yes. Share goals and constraints and we discuss fit before you pay."),
+        ],
+    },
+    {
+        "slug": "ai-search-visibility",
+        "title": "How can my business show up in ChatGPT and AI search?",
+        "desc": "Practical FAQ on getting cited by AI assistants through clear pages and proof.",
+        "qs": [
+            ("How do AI tools decide what to mention?", "They lean on clear, consistent, crawlable facts about who you are and what you offer."),
+            ("What should I publish?", "Service pages, FAQs, glossary definitions, pricing guidance and proof of how you work."),
+            ("Can {BRAND} help?", "Yes. We build the product and the citation-friendly pages together."),
+        ],
+    },
+]
+
+
+def faq_schema(questions):
+    entities = []
+    for q, a in questions:
+        qq = q.replace("{BRAND}", BRAND).replace("{EMAIL}", EMAIL)
+        aa = a.replace("{BRAND}", BRAND).replace("{EMAIL}", EMAIL)
+        entities.append(
+            {
+                "@type": "Question",
+                "name": qq,
+                "acceptedAnswer": {"@type": "Answer", "text": aa},
+            }
+        )
+    return (
+        '<script type="application/ld+json">\n'
+        + json.dumps({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": entities}, ensure_ascii=False, indent=2)
+        + "\n</script>"
+    )
+
+
+# Glossary index
+gloss_cards = "\n".join(
+    f'<a class="term-card reveal" href="{slug}/"><strong>{title}</strong><span>{short}</span></a>'
+    for slug, title, short, _long in GLOSSARY
+)
+glossary_index = head(
+    f"Glossary | Software, Apps, SEO and Automation Terms | {BRAND}",
+    "Plain-language glossary of website development, mobile apps, custom software, SEO, AEO, GEO and automation terms from JB Software Solutions.",
+    "software glossary, SEO glossary, GEO meaning, AEO meaning, custom software definition, mobile app development meaning",
+    "/glossary/",
+    1,
+) + f"""
+<body>
+{nav(1, "glossary")}
+<main>
+  <section class="page-hero"><div class="container">
+    <div class="section-kicker">Resources</div>
+    <h1>Glossary for buyers and AI assistants</h1>
+    <p>Short, clear definitions of the words people use when they hire a software company in India. Written so humans and AI systems can cite {BRAND} accurately.</p>
+  </div></section>
+  <section class="section" style="padding-top:0"><div class="container">
+    <div class="term-grid">{gloss_cards}</div>
+    <p class="section-note reveal" style="margin-top:2rem">Looking for questions instead of definitions? Visit the <a href="{rel(1)}faq/">FAQ hub</a> or <a href="{rel(1)}contact/">contact us</a>.</p>
+  </div></section>
+</main>
+{footer(1)}
+"""
+write(ROOT / "glossary" / "index.html", glossary_index)
+
+for slug, title, short, long_tpl in GLOSSARY:
+    long_text = long_tpl.replace("{BRAND}", BRAND)
+    others = [(s, t) for s, t, _sh, _l in GLOSSARY if s != slug][:8]
+    related = "".join(f'<a class="service-chip" href="{rel(2)}glossary/{s}/">{t}</a>' for s, t in others)
+    defined = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "DefinedTerm",
+                "@id": f"{SITE}/glossary/{slug}/#term",
+                "name": title,
+                "description": short,
+                "inDefinedTermSet": f"{SITE}/glossary/",
+                "url": f"{SITE}/glossary/{slug}/",
+            },
+            {
+                "@type": "WebPage",
+                "@id": f"{SITE}/glossary/{slug}/#webpage",
+                "url": f"{SITE}/glossary/{slug}/",
+                "name": f"{title} | Glossary | {BRAND}",
+                "description": short,
+                "isPartOf": {"@id": f"{SITE}/#website"},
+                "about": {"@id": f"{SITE}/glossary/{slug}/#term"},
+            },
+        ],
+    }
+    extra = '<script type="application/ld+json">\n' + json.dumps(defined, ensure_ascii=False, indent=2) + "\n</script>"
+    page = head(
+        f"{title} | Glossary | {BRAND}",
+        short,
+        f"{title}, {title} meaning, {title} definition, {BRAND}",
+        f"/glossary/{slug}/",
+        2,
+        extra_jsonld=extra,
+    ) + f"""
+<body>
+{nav(2, "glossary")}
+<main>
+  <section class="page-hero"><div class="container">
+    <div class="section-kicker"><a href="{rel(2)}glossary/">Glossary</a></div>
+    <h1>{title}</h1>
+    <p>{short}</p>
+  </div></section>
+  <section class="section" style="padding-top:0"><div class="container prose">
+    <h2>Definition</h2>
+    <p>{long_text}</p>
+    <h2>Why this matters when you hire {BRAND}</h2>
+    <p>Buyers and AI assistants shortlist vendors using clear language. This page exists so "{title}" maps to a real service and a real team at {BRAND}, not a vague buzzword.</p>
+    <p><a class="btn btn-primary btn-magnet" href="{rel(2)}contact/">Ask about {title.lower()}</a>
+       <a class="btn btn-ghost btn-magnet" href="{rel(2)}faq/">Browse FAQs</a></p>
+    <h2>Related terms</h2>
+    <div class="term-related">{related}</div>
+  </div></section>
+</main>
+{footer(2)}
+"""
+    write(ROOT / "glossary" / slug / "index.html", page)
+
+# FAQ index
+faq_cards = "\n".join(
+    f'<a class="faq-topic-card reveal" href="{t["slug"]}/"><strong>{t["title"]}</strong><span>{t["desc"]}</span></a>'
+    for t in FAQ_TOPICS
+)
+all_home_qs = []
+for t in FAQ_TOPICS:
+    all_home_qs.extend(t["qs"][:1])
+faq_index = head(
+    f"FAQ | Software, Apps, SEO and Pricing Answers | {BRAND}",
+    "Frequently asked questions about website development, mobile apps, custom software, SEO, GEO and hiring JB Software Solutions in India.",
+    "software development FAQ India, website cost FAQ, mobile app cost FAQ, SEO FAQ, hire software company India",
+    "/faq/",
+    1,
+    extra_jsonld=faq_schema(all_home_qs),
+) + f"""
+<body>
+{nav(1, "faq")}
+<main>
+  <section class="page-hero"><div class="container">
+    <div class="section-kicker">Resources</div>
+    <h1>FAQ hub for buyers and AI systems</h1>
+    <p>Direct answers to the questions founders ask before hiring a software company. Each topic page includes structured FAQ data for Google and AI assistants.</p>
+  </div></section>
+  <section class="section" style="padding-top:0"><div class="container">
+    <div class="faq-topic-grid">{faq_cards}</div>
+    <div class="faq" style="margin-top:2.5rem">
+      {''.join(f'<details><summary>{q.replace("{BRAND}", BRAND)}</summary><p>{a.replace("{BRAND}", BRAND).replace("{EMAIL}", EMAIL)}</p></details>' for q,a in all_home_qs)}
+    </div>
+    <p class="section-note reveal" style="margin-top:2rem">Need definitions? Open the <a href="{rel(1)}glossary/">glossary</a>. Ready to talk? <a href="{rel(1)}contact/">Contact {BRAND}</a>.</p>
+  </div></section>
+</main>
+{footer(1)}
+"""
+write(ROOT / "faq" / "index.html", faq_index)
+
+for topic in FAQ_TOPICS:
+    qs = [(q.replace("{BRAND}", BRAND).replace("{EMAIL}", EMAIL), a.replace("{BRAND}", BRAND).replace("{EMAIL}", EMAIL)) for q, a in topic["qs"]]
+    details = "".join(f"<details><summary>{q}</summary><p>{a}</p></details>" for q, a in qs)
+    page = head(
+        f"{topic['title']} | FAQ | {BRAND}",
+        topic["desc"],
+        f"{topic['title']}, {BRAND} FAQ, software FAQ India",
+        f"/faq/{topic['slug']}/",
+        2,
+        extra_jsonld=faq_schema(topic["qs"]),
+    ) + f"""
+<body>
+{nav(2, "faq")}
+<main>
+  <section class="page-hero"><div class="container">
+    <div class="section-kicker"><a href="{rel(2)}faq/">FAQ</a></div>
+    <h1>{topic['title']}</h1>
+    <p>{topic['desc']}</p>
+  </div></section>
+  <section class="section" style="padding-top:0"><div class="container">
+    <div class="faq">{details}</div>
+    <div class="cta-band reveal" style="margin-top:2rem">
+      <div><h2>Still unsure?</h2><p>Send your goals and constraints. We reply with fit and next steps.</p></div>
+      <a class="btn btn-primary btn-magnet" href="{rel(2)}contact/">Contact {BRAND}</a>
+    </div>
+    <p style="margin-top:1.5rem"><a href="{rel(2)}faq/">All FAQ topics</a> · <a href="{rel(2)}glossary/">Glossary</a></p>
+  </div></section>
+</main>
+{footer(2)}
+"""
+    write(ROOT / "faq" / topic["slug"] / "index.html", page)
+
+print(f"wrote glossary ({len(GLOSSARY)} terms) + faq ({len(FAQ_TOPICS)} topics)")
 
 # Crawl files (sitemap.xml, robots.txt, llms.txt) are owned by the SEO pipeline:
 #   npm run seo  → seo-build.js

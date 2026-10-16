@@ -22,6 +22,53 @@ Contact: info@jbsoftwaresolutions.com
 - [About](https://jbsoftwaresolutions.com/about/): About JB Software Solutions - product engineering plus AI-era discovery under one roof.
 - [Blog index](https://jbsoftwaresolutions.com/blog/): Guides on GEO, AEO, custom software cost in India, and Flutter vs React Native.
 - [Contact](https://jbsoftwaresolutions.com/contact/): Contact form for software, apps and SEO/GEO project quotes. Reply within 24 hours on business days.
+- [Faq](https://jbsoftwaresolutions.com/faq/): Faq.
+- [Faq/Ai Search Visibility](https://jbsoftwaresolutions.com/faq/ai-search-visibility/): Ai Search Visibility.
+- [Faq/Contact Jb Software Solutions](https://jbsoftwaresolutions.com/faq/contact-jb-software-solutions/): Contact Jb Software Solutions.
+- [Faq/Custom Software Cost India](https://jbsoftwaresolutions.com/faq/custom-software-cost-india/): Custom Software Cost India.
+- [Faq/Desktop App When Needed](https://jbsoftwaresolutions.com/faq/desktop-app-when-needed/): Desktop App When Needed.
+- [Faq/Hire Software Company India](https://jbsoftwaresolutions.com/faq/hire-software-company-india/): Hire Software Company India.
+- [Faq/How Long To Build An App](https://jbsoftwaresolutions.com/faq/how-long-to-build-an-app/): How Long To Build An App.
+- [Faq/Mobile App Development Cost India](https://jbsoftwaresolutions.com/faq/mobile-app-development-cost-india/): Mobile App Development Cost India.
+- [Faq/Mvp Meaning For Founders](https://jbsoftwaresolutions.com/faq/mvp-meaning-for-founders/): Mvp Meaning For Founders.
+- [Faq/Seo Aeo Geo Explained](https://jbsoftwaresolutions.com/faq/seo-aeo-geo-explained/): Seo Aeo Geo Explained.
+- [Faq/Seo Retainer India](https://jbsoftwaresolutions.com/faq/seo-retainer-india/): Seo Retainer India.
+- [Faq/Startup First Product](https://jbsoftwaresolutions.com/faq/startup-first-product/): Startup First Product.
+- [Faq/Web App Vs Website](https://jbsoftwaresolutions.com/faq/web-app-vs-website/): Web App Vs Website.
+- [Faq/Website Development Cost India](https://jbsoftwaresolutions.com/faq/website-development-cost-india/): Website Development Cost India.
+- [Faq/Who Owns The Code](https://jbsoftwaresolutions.com/faq/who-owns-the-code/): Who Owns The Code.
+- [Faq/Workflow Automation Faq](https://jbsoftwaresolutions.com/faq/workflow-automation-faq/): Workflow Automation Faq.
+- [Glossary](https://jbsoftwaresolutions.com/glossary/): Glossary.
+- [Glossary/Aeo](https://jbsoftwaresolutions.com/glossary/aeo/): Aeo.
+- [Glossary/App Store Launch](https://jbsoftwaresolutions.com/glossary/app-store-launch/): App Store Launch.
+- [Glossary/Conversion Rate](https://jbsoftwaresolutions.com/glossary/conversion-rate/): Conversion Rate.
+- [Glossary/Core Web Vitals](https://jbsoftwaresolutions.com/glossary/core-web-vitals/): Core Web Vitals.
+- [Glossary/Crm Software](https://jbsoftwaresolutions.com/glossary/crm-software/): Crm Software.
+- [Glossary/Custom Software Development](https://jbsoftwaresolutions.com/glossary/custom-software-development/): Custom Software Development.
+- [Glossary/Desktop App Development](https://jbsoftwaresolutions.com/glossary/desktop-app-development/): Desktop App Development.
+- [Glossary/Erp Software](https://jbsoftwaresolutions.com/glossary/erp-software/): Erp Software.
+- [Glossary/Fixed Scope Project](https://jbsoftwaresolutions.com/glossary/fixed-scope-project/): Fixed Scope Project.
+- [Glossary/Geo Generative Engine Optimization](https://jbsoftwaresolutions.com/glossary/geo-generative-engine-optimization/): Geo Generative Engine Optimization.
+- [Glossary/Google Business Profile](https://jbsoftwaresolutions.com/glossary/google-business-profile/): Google Business Profile.
+- [Glossary/Hire Developers India](https://jbsoftwaresolutions.com/glossary/hire-developers-india/): Hire Developers India.
+- [Glossary/India Software Development Company](https://jbsoftwaresolutions.com/glossary/india-software-development-company/): India Software Development Company.
+- [Glossary/Internal Tools](https://jbsoftwaresolutions.com/glossary/internal-tools/): Internal Tools.
+- [Glossary/Lead Generation Website](https://jbsoftwaresolutions.com/glossary/lead-generation-website/): Lead Generation Website.
+- [Glossary/Llms Txt](https://jbsoftwaresolutions.com/glossary/llms-txt/): Llms Txt.
+- [Glossary/Mobile App Development](https://jbsoftwaresolutions.com/glossary/mobile-app-development/): Mobile App Development.
+- [Glossary/Mvp](https://jbsoftwaresolutions.com/glossary/mvp/): Mvp.
+- [Glossary/Offline First App](https://jbsoftwaresolutions.com/glossary/offline-first-app/): Offline First App.
+- [Glossary/Page Speed](https://jbsoftwaresolutions.com/glossary/page-speed/): Page Speed.
+- [Glossary/Product Discovery](https://jbsoftwaresolutions.com/glossary/product-discovery/): Product Discovery.
+- [Glossary/Retainer](https://jbsoftwaresolutions.com/glossary/retainer/): Retainer.
+- [Glossary/Saas](https://jbsoftwaresolutions.com/glossary/saas/): Saas.
+- [Glossary/Schema Markup](https://jbsoftwaresolutions.com/glossary/schema-markup/): Schema Markup.
+- [Glossary/Seo](https://jbsoftwaresolutions.com/glossary/seo/): Seo.
+- [Glossary/Software Ip Ownership](https://jbsoftwaresolutions.com/glossary/software-ip-ownership/): Software Ip Ownership.
+- [Glossary/Web App Development](https://jbsoftwaresolutions.com/glossary/web-app-development/): Web App Development.
+- [Glossary/Website Development](https://jbsoftwaresolutions.com/glossary/website-development/): Website Development.
+- [Glossary/Whatsapp Business Automation](https://jbsoftwaresolutions.com/glossary/whatsapp-business-automation/): Whatsapp Business Automation.
+- [Glossary/Workflow Automation](https://jbsoftwaresolutions.com/glossary/workflow-automation/): Workflow Automation.
 - [Pricing](https://jbsoftwaresolutions.com/pricing/): Starting prices for websites, apps, custom software, SEO retainers and workflow automation in India.
 
 ## Services

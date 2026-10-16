@@ -138,6 +138,28 @@
     btn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
     });
+    initDockObscure(dock);
+  }
+
+  function initDockObscure(dock) {
+    if (!dock || dock.dataset.obscureReady) return;
+    dock.dataset.obscureReady = "1";
+    const interactive =
+      "a, button, input, textarea, select, summary, label, .btn, .work-filter, .nav-drop-toggle, .seo-chip, .service-chip";
+    document.addEventListener(
+      "pointerover",
+      (e) => {
+        const t = e.target;
+        if (!(t instanceof Element)) return;
+        if (t.closest(".sticky-dock")) {
+          dock.classList.remove("is-obscured");
+          return;
+        }
+        if (t.closest(interactive)) dock.classList.add("is-obscured");
+        else dock.classList.remove("is-obscured");
+      },
+      { passive: true }
+    );
   }
 
   function splitTitles(list) {
@@ -197,32 +219,46 @@
       })
     );
 
+    const closeDrops = (except) => {
+      links.querySelectorAll(".has-dropdown").forEach((el) => {
+        if (except && el === except) return;
+        el.classList.remove("is-open", "is-hover");
+        const b = el.querySelector(".nav-drop-toggle");
+        if (b) b.setAttribute("aria-expanded", "false");
+      });
+    };
+
     links.querySelectorAll(".has-dropdown").forEach((item) => {
       const btn = item.querySelector(".nav-drop-toggle");
       if (!btn) return;
+
+      // Desktop: open on hover without losing the menu in the gap
+      item.addEventListener("pointerenter", () => {
+        if (window.matchMedia("(max-width: 960px)").matches) return;
+        closeDrops(item);
+        item.classList.add("is-hover");
+        btn.setAttribute("aria-expanded", "true");
+      });
+      item.addEventListener("pointerleave", () => {
+        if (window.matchMedia("(max-width: 960px)").matches) return;
+        item.classList.remove("is-hover");
+        if (!item.classList.contains("is-open")) btn.setAttribute("aria-expanded", "false");
+      });
+
       btn.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
         const willOpen = !item.classList.contains("is-open");
-        links.querySelectorAll(".has-dropdown.is-open").forEach((el) => {
-          if (el !== item) {
-            el.classList.remove("is-open");
-            const b = el.querySelector(".nav-drop-toggle");
-            if (b) b.setAttribute("aria-expanded", "false");
-          }
-        });
+        closeDrops(item);
         item.classList.toggle("is-open", willOpen);
+        item.classList.toggle("is-hover", willOpen);
         btn.setAttribute("aria-expanded", willOpen ? "true" : "false");
       });
     });
 
     document.addEventListener("click", (e) => {
       if (e.target.closest(".has-dropdown") || e.target.closest(".nav-toggle")) return;
-      links.querySelectorAll(".has-dropdown.is-open").forEach((el) => {
-        el.classList.remove("is-open");
-        const btn = el.querySelector(".nav-drop-toggle");
-        if (btn) btn.setAttribute("aria-expanded", "false");
-      });
+      closeDrops();
     });
   }
 
@@ -987,7 +1023,7 @@
   }
 
   function initButtonShine() {
-    document.querySelectorAll(".btn-primary, .dock-btn.quote, .nav-cta").forEach((btn) => {
+    document.querySelectorAll(".btn-primary, .dock-btn.quote").forEach((btn) => {
       btn.classList.add("has-shine");
     });
   }
