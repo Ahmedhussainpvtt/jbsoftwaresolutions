@@ -13,7 +13,7 @@ SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
 WHATSAPP_PHONE = "919381107468"  # E.164 without +
-ASSET_V = "20261016w"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+ASSET_V = "20261016x"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
 SERVICE_BODIES = service_bodies()
 SERVICE_FEATURES = service_features()
 WA_TEXT = "Hi%20JB%20Software%20Solutions%2C%20I%20want%20to%20discuss%20a%20project."
@@ -47,7 +47,7 @@ SERVICE_IMG = {
 RESOURCES = [
     ("blog/", "Blog", "Guides on software, apps and getting found online"),
     ("glossary/", "Glossary", "Plain definitions of software and SEO terms"),
-    ("faq/", "FAQ", "Straight answers buyers and AI assistants ask"),
+    ("faq/", "FAQs", "Straight answers about software, apps, SEO and pricing"),
 ]
 
 
@@ -220,14 +220,16 @@ def footer(depth):
       <strong>Company</strong>
       <a href="{p}about/">About</a>
       <a href="{p}glossary/">Glossary</a>
-      <a href="{p}faq/">FAQ</a>
+      <a href="{p}faq/">FAQs</a>
       <a href="{p}contact/">Contact us</a>
+      <a href="{p}privacy/">Privacy policy</a>
+      <a href="{p}terms/">Terms</a>
       <a href="mailto:{EMAIL}">{EMAIL}</a>
     </div>
   </div>
   <div class="container footer-bottom">
     <span>&copy; 2026 {BRAND}. All rights reserved.</span>
-    <span>Custom software | Mobile apps | Websites | SEO | Automation</span>
+    <span><a href="{p}privacy/">Privacy</a> · <a href="{p}terms/">Terms</a> · Custom software | Mobile apps | Websites | SEO | Automation</span>
   </div>
 </footer>
 {dock(depth)}
@@ -256,12 +258,12 @@ KW_HOME = (
 
 # ---------- HOME ----------
 home_lines = [
-    "> boot sequence: jb-agent v2.6",
-    "> scanning market signals: SEO · AEO · GEO · apps · custom software",
-    "> intent detected: **build products that rank and convert**",
-    "> stacking: Next.js · Flutter · Node · business workflows · schema markup",
-    "> proof mode: this page is not a brochure. it is a live system.",
-    "> ready. tell us what you want shipped.",
+    "> JB Software Solutions",
+    "> Custom software · websites · mobile apps · SEO",
+    "> Build products people find and use",
+    "> Next.js · Flutter · Node · workflow automation",
+    "> Clear scope. Written quotes. You own the work.",
+    "> Ready when you are.",
 ]
 home = head(
     f"{BRAND} | Custom Software Development Company India | Websites, Mobile Apps, SEO",
@@ -388,9 +390,9 @@ home = head(
 
   <section class="section manifesto" id="manifesto">
     <div class="container">
-      <div class="section-kicker reveal">Studio point of view</div>
+      <div class="section-kicker reveal">How we build</div>
       <h2 class="manifesto-title reveal">The website is not a brochure.<br /><span class="grad">It is the first product you ship.</span></h2>
-      <p class="manifesto-sub reveal">Top studios worldwide win because the site itself proves taste, judgment and engineering. We build the same way for clients: clear offer, measurable outcome, motion with purpose, and a path to contact that does not feel like begging.</p>
+      <p class="manifesto-sub reveal">We treat your site like a product: clear offer, measurable outcome, motion with purpose, and a contact path that feels easy. Same bar for apps, custom tools and search work.</p>
       <div class="manifesto-metrics reveal">
         <div><strong>01</strong><span>Proof before pitch</span></div>
         <div><strong>02</strong><span>Ship weekly, not eventually</span></div>
@@ -406,7 +408,7 @@ home = head(
         <div class="section-kicker reveal">Selected work</div>
         <h2 class="section-title reveal">Engagements shaped like revenue problems</h2>
       </div>
-      <p class="section-sub reveal work-head-copy">No invented Fortune-500 logos. These are the engagement patterns founders actually hire us for, written the way serious studios present case studies: challenge, approach, result.</p>
+      <p class="section-sub reveal work-head-copy">No invented Fortune-500 logos. These are the engagement patterns founders actually hire us for: challenge, approach, result.</p>
     </div>
     <div class="work-filters reveal" role="tablist" aria-label="Filter work">
       <button type="button" class="work-filter is-active" data-filter="all" role="tab" aria-selected="true">All</button>
@@ -462,7 +464,7 @@ home = head(
 
   <section class="section" id="promises">
     <div class="container">
-      <div class="section-kicker reveal">Risk reverse</div>
+      <div class="section-kicker reveal">What you can count on</div>
       <h2 class="section-title reveal">Promises that make booking us safer</h2>
       <ul class="promise-list reveal">
         <li><strong>Honest fit check</strong>If we are wrong for you, we say so before you pay.</li>
@@ -501,9 +503,9 @@ home = head(
 
   <section class="section" id="why-jb">
     <div class="container">
-      <div class="section-kicker reveal">Revenue, not vanity</div>
-      <h2 class="section-title reveal">How this site is designed to bring work in</h2>
-      <p class="section-sub reveal">If this were only a portfolio, it would lose money. Every section below targets a commercial search or AI shortlist question, then routes to the contact form. Build projects pay once. SEO and GEO retainers compound. The win is owning both.</p>
+      <div class="section-kicker reveal">Built for results</div>
+      <h2 class="section-title reveal">How we help you get found and get work</h2>
+      <p class="section-sub reveal">Every section on this site answers a real buying question, then points to contact. Build projects ship once. SEO and visibility retainers keep compounding. We own both so product and discovery do not fight each other.</p>
       <div class="outcome-grid">
         <article class="outcome reveal">
           <h3>Project revenue</h3>
@@ -515,7 +517,7 @@ home = head(
         </article>
         <article class="outcome reveal">
           <h3>Inbound that compounds</h3>
-          <p>Keyword pages, FAQs, schema and blog clusters so Google and LLMs keep sending qualified founders our way.</p>
+          <p>Keyword pages, FAQs, schema and blog clusters so Google and answer surfaces keep sending qualified founders our way.</p>
         </article>
       </div>
     </div>
@@ -523,7 +525,7 @@ home = head(
 
   <section class="section" id="market">
     <div class="container">
-      <div class="section-kicker reveal">Competitive reality</div>
+      <div class="section-kicker reveal">How we compare</div>
       <h2 class="section-title reveal">The India market we compete in every week</h2>
       <p class="section-sub reveal">Buyers comparing full-stack India agencies for custom software, mobile apps, websites, digital marketing, SEO and AI search see a crowded field. Firms in Chennai, Hyderabad, Ahmedabad, Indore, Mohali and beyond now sell the same menu: React/Next web, Flutter apps, automation, SEO, AEO and GEO. JB Software Solutions is built to win that shortlist with sharper proof, faster founder access and discovery engineered into the build.</p>
       <div class="compare-wrap reveal">
@@ -570,9 +572,9 @@ home = head(
 
   <section class="section" id="keywords">
     <div class="container">
-      <div class="section-kicker reveal">Search demand we serve</div>
+      <div class="section-kicker reveal">Services people hire us for</div>
       <h2 class="section-title reveal">Commercial keywords mapped to real services</h2>
-      <p class="section-sub reveal">These are the queries founders and operators actually type, and the pages we built to answer them without doorway spam.</p>
+      <p class="section-sub reveal">These are the queries founders and operators actually type, and the pages we built to answer them clearly.</p>
       <div class="seo-cloud reveal">
         <a class="seo-chip" href="services/custom-software/">custom software development company India</a>
         <a class="seo-chip" href="services/custom-software/">custom software development services</a>
@@ -816,8 +818,8 @@ home = head(
 
   <section class="section" id="faq">
     <div class="container">
-      <div class="section-kicker">FAQ</div>
-      <h2 class="section-title">Straight answers buyers and AI assistants both need</h2>
+      <div class="section-kicker">FAQs</div>
+      <h2 class="section-title">Frequently asked questions</h2>
       <div class="faq">
         <details open>
           <summary>What does JB Software Solutions do?</summary>
@@ -853,7 +855,7 @@ home = head(
         </details>
         <details>
           <summary>Is the website indexed for search and AI crawlers?</summary>
-          <p>Yes. Pages include canonical URLs, sitemap.xml, robots.txt, llms.txt, structured data and crawlable HTML so Google and AI systems can discover and cite our services. Browse the full <a href="faq/">FAQ hub</a> for 300+ indexed answers.</p>
+          <p>Yes. Pages include canonical URLs, sitemap.xml, robots.txt, structured data and crawlable HTML so search engines can discover our services. Browse the full <a href="faq/">FAQ hub</a> for 300+ indexed answers.</p>
         </details>
       </div>
     </div>
@@ -1254,8 +1256,8 @@ about = head(
     <p>{BRAND} is a small agency by choice. That means you are not lost behind layers of account managers. When you message us, the people building your product are in the loop. We sweat the details, we answer fast, and we stay supportive long after the launch party ends.</p>
     <p>We really love our customers. Not as a slogan on a wall. As a working rule: clear communication, honest scope, patient hand-holding when something is new, and zero ego when feedback arrives. Your success is the only scoreboard that matters to us.</p>
     <h2>Who we are</h2>
-    <p>We help founders and operators ship digital products: websites, mobile apps, custom software, desktop tools, and the SEO / AEO / GEO layer that makes those products discoverable on Google and inside AI assistants.</p>
-    <h2>How we think</h2>
+    <p>We help founders and operators ship digital products: websites, mobile apps, custom software, desktop tools, and the SEO / AEO / GEO layer that makes those products easier to find on Google and in answer-style results.</p>
+    <h2>How we work</h2>
     <ul>
       <li>Ship systems, not slide decks</li>
       <li>Measure outcomes: leads, retention, citations, not vanity screenshots</li>
@@ -1319,12 +1321,12 @@ contact = head(
         </select>
       </label>
       <label>Project details<textarea name="message" required placeholder="Goals, timeline, links, must-haves"></textarea></label>
+      <p class="form-legal">By sending this form you agree to our <a href="{rel(1)}privacy/">privacy policy</a> and <a href="{rel(1)}terms/">terms</a>.</p>
       <button class="btn btn-primary btn-magnet" type="submit">Get my quote</button>
     </form>
     <div class="prose">
-      <h2>Why this form exists</h2>
-      <p>Serious buyers want a written reply, not a dead mailto popup. This form emails the JB team directly and sends you to a confirmation page.</p>
-      <p>Prefer email? Write <a href="mailto:{EMAIL}">{EMAIL}</a> with your brief.</p>
+      <h2>How we reply</h2>
+      <p>This form emails the JB team directly and sends you to a confirmation page. Prefer email? Write <a href="mailto:{EMAIL}">{EMAIL}</a> with your brief.</p>
       <h2>What happens next</h2>
       <ul>
         <li>We confirm fit within 24 hours on business days</li>
@@ -1332,6 +1334,7 @@ contact = head(
         <li>We agree fixed or phased pricing before build starts</li>
       </ul>
       <p><a href="{rel(1)}pricing/">See starting prices</a> if you want ballpark numbers first.</p>
+      <p class="section-note">By submitting, you agree we may contact you about your enquiry. See our <a href="{rel(1)}privacy/">privacy policy</a> and <a href="{rel(1)}terms/">terms</a>.</p>
     </div>
   </div></section>
 </main>
@@ -1733,8 +1736,8 @@ glossary_index = head(
 <main>
   <section class="page-hero"><div class="container">
     <div class="section-kicker">Resources</div>
-    <h1>Glossary for buyers and AI assistants</h1>
-    <p>Short, clear definitions of the words people use when they hire a software company in India. Written so humans and AI systems can cite {BRAND} accurately.</p>
+    <h1>Glossary</h1>
+    <p>Short, clear definitions of the words people use when they hire a software company in India.</p>
   </div></section>
   <section class="section" style="padding-top:0"><div class="container">
     <div class="term-grid">{gloss_cards}</div>
@@ -1792,7 +1795,7 @@ for slug, title, short, long_tpl in GLOSSARY:
     <h2>Definition</h2>
     <p>{long_text}</p>
     <h2>Why this matters when you hire {BRAND}</h2>
-    <p>Buyers and AI assistants shortlist vendors using clear language. This page exists so "{title}" maps to a real service and a real team at {BRAND}, not a vague buzzword.</p>
+    <p>Clear language helps you shortlist the right vendor. This page exists so "{title}" maps to a real service and a real team at {BRAND}, not a vague buzzword.</p>
     <p><a class="btn btn-primary btn-magnet" href="{rel(2)}contact/">Ask about {title.lower()}</a>
        <a class="btn btn-ghost btn-magnet" href="{rel(2)}faq/">Browse FAQs</a></p>
     <h2>Related terms</h2>
@@ -1825,8 +1828,8 @@ faq_index = head(
 <main>
   <section class="page-hero"><div class="container">
     <div class="section-kicker">Resources</div>
-    <h1>FAQ hub for buyers and AI systems</h1>
-    <p>{FAQ_Q_COUNT}+ direct answers across {len(FAQ_TOPICS)} indexed topic pages. Each page includes FAQPage schema so Google and AI assistants can cite {BRAND} accurately.</p>
+    <h1>FAQs</h1>
+    <p>{FAQ_Q_COUNT}+ direct answers across {len(FAQ_TOPICS)} topic pages covering software, apps, SEO, pricing and how we work.</p>
   </div></section>
   <section class="section" style="padding-top:0"><div class="container">
     <div class="faq-topic-grid">{faq_cards}</div>
@@ -1873,6 +1876,284 @@ for topic in FAQ_TOPICS:
     write(ROOT / "faq" / topic["slug"] / "index.html", page)
 
 print(f"wrote glossary ({len(GLOSSARY)} terms) + faq ({len(FAQ_TOPICS)} topics, {FAQ_Q_COUNT} Q&As)")
+
+# ---------- PRIVACY + TERMS ----------
+privacy = head(
+    f"Privacy Policy | {BRAND}",
+    "How JB Software Solutions collects, uses, stores and protects personal information from our website, contact form, WhatsApp and project work under Indian law including the IT Act and DPDP Act.",
+    "JB Software Solutions privacy policy, data protection, DPDP, contact form privacy India, website cookies Google Analytics",
+    "/privacy/",
+    1,
+) + f"""
+<body>
+{nav(1)}
+<main>
+  <section class="page-hero"><div class="container">
+    <div class="section-kicker">Legal</div>
+    <h1>Privacy policy</h1>
+    <p>Last updated: 15 October 2026. This notice explains what personal information {BRAND} collects through jbsoftwaresolutions.com and related project work, why we use it, and the choices you have.</p>
+  </div></section>
+  <section class="section" style="padding-top:0"><div class="container prose prose-wide">
+    <h2>1. Who we are</h2>
+    <p>{BRAND} ("we", "us", "our") provides website development, mobile app development, custom software, desktop apps, SEO, AEO, GEO and workflow automation services. Our public website is <a href="{SITE}/">{SITE}/</a>. For privacy questions, email <a href="mailto:{EMAIL}">{EMAIL}</a> or use the <a href="{rel(1)}contact/">contact form</a>.</p>
+    <p>This policy covers visitors and enquirers on our marketing site, people who message us on WhatsApp or email, and (at a high level) how we handle personal data shared with us during a client engagement. A signed statement of work, master services agreement or non-disclosure agreement may add stricter rules for a specific project. Where those documents conflict with this page on project data, the signed document controls for that project.</p>
+
+    <h2>2. Scope</h2>
+    <p>This policy applies to:</p>
+    <ul>
+      <li>jbsoftwaresolutions.com and pages we publish under that domain</li>
+      <li>Our contact form, email and WhatsApp business conversations about enquiries</li>
+      <li>Analytics and technical logs created when you browse the site</li>
+      <li>Personal data you share so we can quote, contract, invoice or deliver services</li>
+    </ul>
+    <p>It does not govern third-party sites we link to, app stores, payment gateways you use with your own customers, or products we build for you once those products are live under your accounts. Those systems have their own operators and policies.</p>
+
+    <h2>3. Information we collect</h2>
+    <h3>3.1 Information you give us</h3>
+    <ul>
+      <li><strong>Contact and enquiry data:</strong> name, email address, company or project name, service interest, budget range, message text, and any files or links you choose to share</li>
+      <li><strong>Communication records:</strong> emails, WhatsApp messages, call notes and meeting notes related to your enquiry or project</li>
+      <li><strong>Business and billing data for clients:</strong> billing name, address, GSTIN where needed, bank or UPI details for receiving or sending invoices, and payment references. We do not store full card numbers on our website. Card payments, if used, are handled by the payment partner named in your invoice or agreement</li>
+      <li><strong>Project materials:</strong> credentials, content, customer lists, designs, source access and other materials you provide so we can deliver the work. We treat these as confidential under our engagement terms</li>
+    </ul>
+    <h3>3.2 Information collected automatically</h3>
+    <ul>
+      <li><strong>Device and browser data:</strong> IP address, browser type, device type, operating system, language and approximate location derived from IP</li>
+      <li><strong>Usage data:</strong> pages viewed, referrer, time on page, clicks and similar interaction events</li>
+      <li><strong>Cookies and similar technologies:</strong> see section 6</li>
+    </ul>
+    <h3>3.3 Sensitive personal data</h3>
+    <p>We do not ask website visitors for sensitive personal data (for example health, biometrics, caste, religion or political opinions). If a project requires handling such data for your users, we will agree purpose, security and processing roles in writing before that work starts.</p>
+
+    <h2>4. How we use personal information</h2>
+    <ul>
+      <li>To respond to enquiries, assess fit and prepare quotes</li>
+      <li>To enter into and perform contracts, deliver services, support you and provide handover</li>
+      <li>To invoice, collect payment, maintain accounting and meet tax or statutory duties in India</li>
+      <li>To improve the website, measure traffic and fix technical issues</li>
+      <li>To send project updates and, only where appropriate, limited service announcements. You can ask us to stop marketing messages at any time</li>
+      <li>To detect abuse, spam, fraud or security incidents</li>
+      <li>To establish, exercise or defend legal claims</li>
+    </ul>
+    <p>We do not sell your personal information. We do not rent enquiry lists to advertisers.</p>
+
+    <h2>5. Legal bases and Indian law</h2>
+    <p>We process personal data in line with applicable Indian law, including the Information Technology Act, 2000 and the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Data or Information) Rules, 2011, and we are preparing practices for the Digital Personal Data Protection Act, 2023 (DPDP Act) and its rules as they apply to our business.</p>
+    <p>Depending on the context, processing rests on your consent (for example submitting the contact form), performance of a contract or steps prior to a contract, our legitimate interests in running and securing an agency website, and legal obligations such as tax retention.</p>
+
+    <h2>6. Cookies, analytics and similar tools</h2>
+    <p>Our site uses:</p>
+    <ul>
+      <li><strong>Essential technical storage</strong> needed for the site to load and function</li>
+      <li><strong>Google Analytics 4</strong> (measurement ID G-RMGPE314SF) to understand aggregate traffic and page performance. Google may process data according to its own terms and privacy policy</li>
+      <li><strong>Fonts and CDN assets</strong> loaded from Google Fonts / Google hosts when you visit pages that request them</li>
+    </ul>
+    <p>You can block or delete cookies in your browser. Blocking some cookies may affect analytics accuracy but should not block the core marketing pages. We do not currently run advertising pixels for retargeting on this site. If that changes, we will update this policy.</p>
+
+    <h2>7. Who we share data with</h2>
+    <p>We share personal data only when needed to operate the business or when the law requires it:</p>
+    <ul>
+      <li><strong>FormSubmit</strong> (formsubmit.co) receives contact-form submissions and emails them to {EMAIL}. Their processing is governed by FormSubmit's terms and privacy practices</li>
+      <li><strong>Email providers</strong> that deliver and store business email</li>
+      <li><strong>WhatsApp / Meta</strong> when you choose to message us on WhatsApp. Your chat is also subject to WhatsApp's terms</li>
+      <li><strong>Google Analytics / Google</strong> for site analytics as described above</li>
+      <li><strong>Hosting and infrastructure</strong> such as GitHub Pages (or a successor host) that serves this static website</li>
+      <li><strong>Professional advisers</strong> (for example accountants or lawyers) under confidentiality where needed</li>
+      <li><strong>Authorities</strong> when required by Indian law, court order or a lawful request</li>
+      <li><strong>Subcontractors or specialists</strong> we engage for a project, only as needed, under confidentiality and instructions that match the engagement</li>
+    </ul>
+    <p>If we use additional tools (project boards, cloud repos, design tools), access is limited to people working on your project.</p>
+
+    <h2>8. International transfers</h2>
+    <p>Our team primarily works from India. Some processors (for example form delivery, analytics or hosting) may store or process data on servers outside India. By using the site or submitting an enquiry, you understand that your information may be processed in other countries with different data-protection rules. We take reasonable steps to work with reputable providers and to limit what we send them to what is needed.</p>
+
+    <h2>9. Retention</h2>
+    <ul>
+      <li><strong>Website enquiries:</strong> typically up to 24 months from last meaningful contact, unless a project starts or you ask us to delete sooner where we can</li>
+      <li><strong>Client and project records:</strong> for the life of the engagement and a reasonable period after, often 3 years or longer where needed for support, IP proof or disputes</li>
+      <li><strong>Financial and tax records:</strong> as required under Indian tax and company law (often 8 years or more for certain records)</li>
+      <li><strong>Analytics data:</strong> according to Google Analytics retention settings (commonly up to 26 months unless changed)</li>
+    </ul>
+    <p>When retention ends, we delete or anonymise data where practical, except where the law requires us to keep it.</p>
+
+    <h2>10. Security</h2>
+    <p>We use reasonable technical and organisational measures appropriate to a small software agency: HTTPS on the public site, access limited to people who need it, careful handling of credentials, and private repositories for client code where we control the repo. No method of transmission or storage is perfectly secure. Please do not send passwords or production secrets over public forms or unencrypted chat unless we agree a safer channel.</p>
+    <p>If we become aware of a personal data breach that is likely to cause significant harm, we will take steps required by applicable law, which may include notifying affected people and relevant authorities where mandatory.</p>
+
+    <h2>11. Your choices and rights</h2>
+    <p>Subject to Indian law and reasonable verification, you may ask us to:</p>
+    <ul>
+      <li>Confirm whether we hold personal data about you and receive a copy</li>
+      <li>Correct inaccurate or incomplete data</li>
+      <li>Withdraw consent where processing is based on consent</li>
+      <li>Request deletion where the law allows and retention is no longer required</li>
+      <li>Object to or restrict certain processing where applicable</li>
+      <li>Nominate another person to exercise rights in limited circumstances under the DPDP Act once those provisions apply to us in practice</li>
+    </ul>
+    <p>Email <a href="mailto:{EMAIL}">{EMAIL}</a> with the subject "Privacy request". We aim to respond within 15 working days. We may keep limited records of the request itself. If you are unhappy with our response, you may escalate under the grievance process below and, where available, to the Data Protection Board of India or other competent authority.</p>
+
+    <h2>12. Children</h2>
+    <p>Our services and website are aimed at businesses and adults 18 years or older. We do not knowingly collect personal data from children. If you believe a minor has submitted information, contact us and we will delete it where appropriate.</p>
+
+    <h2>13. Client products and end-user data</h2>
+    <p>When we build software for you, you are typically the controller (or equivalent) of your end users' data. You must have a lawful basis and your own privacy notices for that product. We process such data only as needed to deliver the project, under your instructions and our confidentiality terms, unless a separate data processing agreement says otherwise.</p>
+
+    <h2>14. Third-party links</h2>
+    <p>Our site may link to GitHub, WhatsApp, Google, FormSubmit and other services. Their privacy practices are their own. Read their policies before sharing data with them.</p>
+
+    <h2>15. Changes to this policy</h2>
+    <p>We may update this page when our practices, tools or the law change. The "Last updated" date at the top will change. Continued use of the site after an update means you have read the revised notice. For material changes that affect existing clients, we may also notify the primary contact by email where practical.</p>
+
+    <h2>16. Grievance officer / contact</h2>
+    <p>For privacy or data-protection complaints related to this website or our services:</p>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a></li>
+      <li><strong>Contact form:</strong> <a href="{rel(1)}contact/">{SITE}/contact/</a></li>
+      <li><strong>WhatsApp:</strong> the number linked from this website (same business line used for project chats)</li>
+    </ul>
+    <p>We aim to acknowledge and resolve grievances within 15 working days where reasonably possible. See also our <a href="{rel(1)}terms/">terms and conditions</a>.</p>
+  </div></section>
+</main>
+{footer(1)}
+"""
+write(ROOT / "privacy" / "index.html", privacy)
+
+terms = head(
+    f"Terms and Conditions | {BRAND}",
+    "Terms of use for jbsoftwaresolutions.com and engagement terms overview for software, app, website, SEO and automation services from JB Software Solutions in India.",
+    "JB Software Solutions terms, terms of service India, website terms, software development agreement overview, IP ownership",
+    "/terms/",
+    1,
+) + f"""
+<body>
+{nav(1)}
+<main>
+  <section class="page-hero"><div class="container">
+    <div class="section-kicker">Legal</div>
+    <h1>Terms and conditions</h1>
+    <p>Last updated: 15 October 2026. These terms cover use of jbsoftwaresolutions.com and the general rules for hiring {BRAND}. Paid work is always confirmed in a written quote, statement of work or agreement.</p>
+  </div></section>
+  <section class="section" style="padding-top:0"><div class="container prose prose-wide">
+    <h2>1. Agreement to these terms</h2>
+    <p>By browsing this website, submitting the contact form, messaging us on WhatsApp or email, or engaging {BRAND} for services, you agree to these terms and our <a href="{rel(1)}privacy/">privacy policy</a>. If you do not agree, do not use the site or request services.</p>
+    <p>If you act for a company, you confirm you are authorised to bind that company. "You" means the individual or the organisation you represent.</p>
+
+    <h2>2. Who we are</h2>
+    <p>{BRAND} provides software and digital services including website development, web applications, mobile apps, desktop apps, custom business software, SEO, AEO, GEO and workflow automation. Contact: <a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="{SITE}/contact/">{SITE}/contact/</a>.</p>
+
+    <h2>3. Website use</h2>
+    <ul>
+      <li>The site is for information about our services and to receive business enquiries</li>
+      <li>Content is provided for general guidance. It is not legal, tax, accounting or investment advice</li>
+      <li>We may change, pause or remove pages, prices shown as starting ranges, or features without notice</li>
+      <li>You may not scrape the site in a way that harms availability, attempt unauthorised access, upload malware, or use the site for unlawful, harassing or fraudulent activity</li>
+      <li>You may not copy substantial site content for commercial reuse without our written permission, except fair dealing or other rights Indian law allows</li>
+    </ul>
+
+    <h2>4. Enquiries, quotes and when a contract starts</h2>
+    <p>Sending a form, chat or email is a request for information, not a binding order. Ballpark prices on the <a href="{rel(1)}pricing/">pricing page</a> and elsewhere are illustrative starting ranges, not fixed offers.</p>
+    <p>A paid engagement starts only when we issue a written quote or statement of work (SOW) and you accept it in writing (email is enough) and, where required, pay the agreed advance. The SOW, invoice terms and any master agreement sit above these website terms for that project. If documents conflict, the order of control is: signed MSA (if any), then SOW / accepted quote, then these website terms, then marketing pages.</p>
+
+    <h2>5. Scope of services</h2>
+    <p>Services may include discovery, design, development, testing, deployment support, SEO / AEO / GEO work, automation setup, documentation and support windows as written in the SOW. Unless the SOW says otherwise:</p>
+    <ul>
+      <li>Work outside the written scope needs a change request and may change price and timeline</li>
+      <li>Third-party fees (hosting, domains, app store accounts, SMS, paid APIs, stock assets, ads) are yours unless we clearly include them</li>
+      <li>App store approval, Google ranking, AI citation, lead volume and revenue outcomes depend on many factors outside our sole control. We commit to professional effort against the agreed scope, not to guaranteed rankings, traffic numbers or sales figures unless a written guarantee says so</li>
+    </ul>
+
+    <h2>6. Client responsibilities</h2>
+    <p>You agree to:</p>
+    <ul>
+      <li>Provide timely access, content, feedback and decisions so we can meet the schedule</li>
+      <li>Ensure you have rights to materials you supply (logos, copy, data, credentials)</li>
+      <li>Keep login secrets safe and rotate anything shared after handover when appropriate</li>
+      <li>Use deliverables lawfully and in line with app-store, payment and platform rules that apply to your product</li>
+      <li>Pay invoices on the dates in the SOW or invoice</li>
+    </ul>
+    <p>Delays on your side may push timelines. We are not responsible for losses caused by late feedback, missing assets or third-party outages.</p>
+
+    <h2>7. Fees, taxes, advances and refunds</h2>
+    <ul>
+      <li>Fees are usually in Indian rupees unless we agree another currency in writing</li>
+      <li>GST and other taxes apply as required by law and will appear on invoices where applicable</li>
+      <li>Many projects need an advance before build starts. Remaining amounts follow milestones in the SOW</li>
+      <li>Late payment may pause work and may attract reasonable recovery costs</li>
+      <li>Advances for work already started are generally non-refundable, except where Indian law requires a refund, where we cancel for our convenience without delivering agreed work, or where a signed SOW expressly allows a refund</li>
+      <li>Retainers are billed as stated in the retainer agreement and may renew until either side cancels on the notice period written there</li>
+    </ul>
+
+    <h2>8. Intellectual property</h2>
+    <p>Unless the SOW says otherwise:</p>
+    <ul>
+      <li><strong>Your materials</strong> remain yours</li>
+      <li><strong>Custom work we create for you</strong> under a paid SOW (code, designs and content made specifically for your project) is assigned to you after full payment of all amounts due for that scope, subject to the licence carve-outs below</li>
+      <li><strong>Our pre-existing tools, templates, libraries, know-how and internal frameworks</strong> stay ours. We grant you a non-exclusive licence to use them as embedded in the deliverables for your business</li>
+      <li><strong>Open-source and third-party components</strong> keep their own licences. You must follow those licences</li>
+      <li>Until invoices for a scope are paid in full, we may withhold final source handover or production credentials for that unpaid scope</li>
+    </ul>
+    <p>We may showcase non-confidential project names, screenshots or case summaries in our portfolio and proposals unless you ask us in writing to keep a project private. We will not publish secrets, private credentials or confidential business data.</p>
+
+    <h2>9. Confidentiality</h2>
+    <p>Each party must protect the other's non-public business information and use it only for the engagement, except information that is public, independently developed, or required to be disclosed by law. This duty continues for a reasonable period after the project ends (at least 3 years unless a signed NDA sets another period).</p>
+
+    <h2>10. Acceptable use of deliverables</h2>
+    <p>You must not use our work to break the law, infringe others' rights, distribute malware, process data unlawfully, or misrepresent affiliation with {BRAND}. We may suspend work if we reasonably believe continued delivery would cause us to violate law or platform rules.</p>
+
+    <h2>11. Warranties and disclaimers</h2>
+    <p>We warrant that we will perform services with reasonable skill and care consistent with a professional software services firm in India. Except for that and any express written warranty in an SOW, the website and services are provided on an "as available" basis.</p>
+    <p>To the fullest extent Indian law allows, we disclaim implied warranties of merchantability, fitness for a particular purpose and non-infringement for marketing-site content and for outcomes that depend on third parties (hosting, stores, search engines, payment networks, WhatsApp, client-supplied data quality).</p>
+    <p>Browser and device differences, third-party API changes and platform policy changes can affect software after delivery. Support after the warranty or support window in the SOW is chargeable unless included.</p>
+
+    <h2>12. Limitation of liability</h2>
+    <p>To the fullest extent permitted by Indian law:</p>
+    <ul>
+      <li>We are not liable for indirect, incidental, special, consequential, punitive or exemplary damages, or for lost profits, lost revenue, lost data, business interruption or reputational harm, even if advised of the possibility</li>
+      <li>Our total aggregate liability arising out of or related to a project is limited to the fees you actually paid us for that project's scope in the 12 months before the claim</li>
+      <li>For website visitors who have not paid us, our aggregate liability related to site use is limited to INR 1,000</li>
+    </ul>
+    <p>Nothing in these terms excludes liability that Indian law does not allow us to exclude, including liability for fraud or for death or personal injury caused by negligence where such exclusion is prohibited.</p>
+
+    <h2>13. Indemnity</h2>
+    <p>You agree to indemnify and hold {BRAND} and its team harmless from claims, losses and reasonable costs arising from: materials you supply; your product's compliance with law and platform rules; your end users' data and content; and your misuse of deliverables, except to the extent caused by our wilful misconduct.</p>
+
+    <h2>14. Termination</h2>
+    <p>Either party may end an engagement as the SOW describes. We may suspend or end work for non-payment, illegal instructions, abusive conduct, or material breach not cured within a reasonable time after notice. On termination you pay for work performed and approved expenses. Sections on IP, confidentiality, liability, indemnity and governing law survive termination.</p>
+
+    <h2>15. Non-solicitation</h2>
+    <p>During an engagement and for 12 months after, you agree not to solicit our employees or exclusive contractors who worked on your project to leave us for a competing role, except with our written consent or via a general public job ad not aimed at them. Reasonable recruitment fees may be due if this clause is breached, as a genuine pre-estimate of disruption.</p>
+
+    <h2>16. Force majeure</h2>
+    <p>Neither party is liable for delay or failure caused by events beyond reasonable control, including natural disasters, war, epidemics, major infrastructure failure, or changes in law. Obligations resume when the event ends. Either party may end a long-blocked engagement if the event continues beyond 60 days.</p>
+
+    <h2>17. Third-party services</h2>
+    <p>The site uses FormSubmit for form delivery, Google Analytics for traffic measurement, Google Fonts for typography, GitHub Pages (or successor hosting) for hosting, and may deep-link to WhatsApp. Your use of those services is also subject to their terms. We are not responsible for outages or policy changes by those providers.</p>
+
+    <h2>18. Electronic communications</h2>
+    <p>You agree that quotes, acceptances, notices and invoices may be sent by email or other electronic means and that such records can form a binding record of agreement under Indian law.</p>
+
+    <h2>19. Governing law and disputes</h2>
+    <p>These terms and any dispute arising from the website or our services are governed by the laws of India, without regard to conflict-of-law rules. Courts in India shall have exclusive jurisdiction, subject to the city or forum named in a signed SOW or MSA if different.</p>
+    <p>Before filing a claim, email <a href="mailto:{EMAIL}">{EMAIL}</a> and allow 15 working days for good-faith resolution. Nothing prevents either party from seeking urgent injunctive relief for IP or confidentiality breaches.</p>
+
+    <h2>20. Grievance contact</h2>
+    <p>For complaints about the website or our services: <a href="mailto:{EMAIL}">{EMAIL}</a> or the <a href="{rel(1)}contact/">contact form</a>. We aim to respond within 15 working days.</p>
+
+    <h2>21. Changes</h2>
+    <p>We may update these website terms by posting a new version with a new "Last updated" date. Changes do not retroactively rewrite a signed SOW unless both parties agree. For ongoing retainers, material term changes will be communicated to the billing contact where practical.</p>
+
+    <h2>22. Severability and entire agreement (website)</h2>
+    <p>If a clause is held unenforceable, the rest remains in force. These website terms plus the privacy policy are the entire agreement for site use. They do not cancel a signed project agreement, which controls for that engagement.</p>
+
+    <h2>23. Contact</h2>
+    <p>{BRAND}<br />Email: <a href="mailto:{EMAIL}">{EMAIL}</a><br />Web: <a href="{SITE}/contact/">{SITE}/contact/</a></p>
+    <p>Related: <a href="{rel(1)}privacy/">Privacy policy</a> · <a href="{rel(1)}faq/">FAQs</a></p>
+  </div></section>
+</main>
+{footer(1)}
+"""
+write(ROOT / "terms" / "index.html", terms)
+print("wrote privacy + terms")
 
 # Crawl files (sitemap.xml, robots.txt, llms.txt) are owned by the SEO pipeline:
 #   npm run seo  → seo-build.js

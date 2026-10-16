@@ -2412,6 +2412,17 @@ html.js-ready .band-visual.is-in {
   box-shadow: 0 0 0 3px rgba(58, 208, 255, 0.12);
 }
 
+.form-legal {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.form-legal a {
+  color: var(--blue);
+}
+
 .form textarea {
   min-height: 140px;
   resize: vertical;

@@ -128,6 +128,8 @@ Contact: info@jbsoftwaresolutions.com
 
 ## Optional
 
+- [Privacy](https://jbsoftwaresolutions.com/privacy/): Privacy.
+- [Terms](https://jbsoftwaresolutions.com/terms/): Terms.
 - [robots.txt](https://jbsoftwaresolutions.com/robots.txt): Crawl rules and sitemap pointer.
 - [llms-full.txt](https://jbsoftwaresolutions.com/llms-full.txt): Compact product corpus for AI agents.
 - [LLM.txt](https://jbsoftwaresolutions.com/LLM.txt): Alias of llms.txt for LLM crawlers.
