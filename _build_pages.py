@@ -6,15 +6,15 @@ ROOT = Path(__file__).resolve().parent
 SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
-ASSET_V = "20261016j"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+ASSET_V = "20261016k"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
 
 SERVICES = [
-    ("web-development", "Web development", "Next.js sites and web apps", "web.jpg"),
-    ("mobile-app-development", "Mobile apps", "Flutter and React Native", "mobile.jpg"),
-    ("custom-software", "Custom software", "CRMs, ERPs, internal tools", "custom.jpg"),
-    ("seo-aeo-geo", "SEO, AEO and GEO", "Google plus AI citations", "seo.jpg"),
-    ("ai-automation", "Workflow automation", "Ops, CRM and lead flows", "ai.jpg"),
-    ("desktop-apps", "Desktop apps", "Electron and Tauri", "desktop.jpg"),
+    ("web-development", "Website development", "Business sites that get enquiries", "web.jpg"),
+    ("mobile-app-development", "Mobile app development", "Apps for phones and tablets", "mobile.jpg"),
+    ("custom-software", "Custom software", "Tools built for your team", "custom.jpg"),
+    ("seo-aeo-geo", "SEO and online visibility", "Get found on Google and AI search", "seo.jpg"),
+    ("ai-automation", "Workflow automation", "Cut repetitive daily work", "ai.jpg"),
+    ("desktop-apps", "Desktop apps", "Software that runs on a computer", "desktop.jpg"),
 ]
 
 
@@ -292,7 +292,7 @@ home = head(
           </div>
           <p class="hero-eyebrow">{BRAND}</p>
           <h1 class="hero-title">Custom software that <span class="grad">gets found</span></h1>
-          <p class="hero-sub">JB Software Solutions builds websites, Flutter and React Native apps, desktop tools, SEO, AEO, GEO and workflow automation. Products that convert, then get found on Google and inside ChatGPT, Gemini and Perplexity.</p>
+          <p class="hero-sub">JB Software Solutions builds websites, mobile apps, custom software, desktop tools, SEO and workflow automation. Products that bring enquiries, then get found on Google and inside ChatGPT, Gemini and Perplexity.</p>
           <div class="hero-cta">
             <a class="btn btn-primary btn-magnet" href="contact/">Get a free strategy call</a>
             <a class="btn btn-ghost btn-magnet" href="pricing/">See pricing</a>
@@ -316,10 +316,10 @@ home = head(
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Custom software India</span><span>Flutter apps</span><span>Next.js websites</span>
-      <span>Electron desktop</span><span>Technical SEO</span><span>AEO</span><span>GEO</span>
-      <span>Workflow automation</span><span>SaaS MVP</span><span>ERP tools</span>
-      <span>ChatGPT citations</span><span>Perplexity SEO</span><span>LLM SEO</span>
+      <span>Website development</span><span>Mobile app development</span><span>Custom software</span>
+      <span>Desktop apps</span><span>SEO</span><span>Online visibility</span>
+      <span>Workflow automation</span><span>Business tools</span><span>India teams</span>
+      <span>Google search</span><span>ChatGPT citations</span><span>Clear pricing</span>
     </div>
   </div>
 
@@ -364,38 +364,38 @@ home = head(
     </div>
     <div class="work-rail" id="work-rail">
       <article class="work-card" data-cat="web">
-        <div class="work-meta"><span>01</span><span>Website · SEO · GEO</span><div class="work-tag">B2B services</div></div>
-        <h3>Enquiry engine for a service brand that was invisible online</h3>
-        <p class="work-challenge"><strong>Challenge:</strong> Pretty site, zero structured offers, form buried, nothing ChatGPT could cite.</p>
-        <p class="work-approach"><strong>Approach:</strong> Rebuild on Next.js with clear offers, schema, speed budget, and a content cluster mapped to buyer questions.</p>
+        <div class="work-meta"><span>01</span><span>Website development</span><div class="work-tag">Service business</div></div>
+        <h3>A service brand that was invisible online starts getting enquiries</h3>
+        <p class="work-challenge"><strong>Challenge:</strong> Nice-looking site, unclear offers, hard-to-find contact form, almost no search visibility.</p>
+        <p class="work-approach"><strong>Approach:</strong> Rebuild the website with clear offers, faster pages, and content that answers what buyers actually search for.</p>
         <div class="work-results">
           <div><strong>3.1x</strong><span>qualified form leads in 90 days</span></div>
-          <div><strong>42</strong><span>indexed service and proof pages</span></div>
-          <div><strong>18d</strong><span>to launch v1</span></div>
+          <div><strong>42</strong><span>pages live for search</span></div>
+          <div><strong>18 days</strong><span>to first launch</span></div>
         </div>
         <a class="work-link" href="contact/">Start a similar brief</a>
       </article>
       <article class="work-card" data-cat="mobile">
-        <div class="work-meta"><span>02</span><span>Flutter · MVP</span><div class="work-tag">Startup product</div></div>
-        <h3>Android-first MVP without a six-month theatre production</h3>
-        <p class="work-challenge"><strong>Challenge:</strong> Founder needed one core journey live on Play Store before the next investor update.</p>
-        <p class="work-approach"><strong>Approach:</strong> Scope one user loop, Flutter shared codebase, analytics and crash reporting from build one, weekly demos.</p>
+        <div class="work-meta"><span>02</span><span>Mobile app development</span><div class="work-tag">Startup product</div></div>
+        <h3>A first mobile app in about 10 weeks, not six months of waiting</h3>
+        <p class="work-challenge"><strong>Challenge:</strong> Founder needed one clear user journey live on phone stores before the next investor update.</p>
+        <p class="work-approach"><strong>Approach:</strong> Keep the first version small, show progress every week, and launch to the app stores with support included.</p>
         <div class="work-results">
-          <div><strong>7 wks</strong><span>to store-ready MVP</span></div>
-          <div><strong>1</strong><span>primary journey, fully instrumented</span></div>
-          <div><strong>v1.1</strong><span>roadmap written at handover</span></div>
+          <div><strong>10 wks</strong><span>typical first-app timeline</span></div>
+          <div><strong>1</strong><span>main user journey, done well</span></div>
+          <div><strong>Clear plan</strong><span>for what comes after launch</span></div>
         </div>
-        <a class="work-link" href="contact/">Scope an MVP</a>
+        <a class="work-link" href="contact/">Scope a mobile app</a>
       </article>
       <article class="work-card" data-cat="ops">
-        <div class="work-meta"><span>03</span><span>Custom software · Automation</span><div class="work-tag">Ops / internal</div></div>
-        <h3>From WhatsApp + sheets to a system staff actually open</h3>
-        <p class="work-challenge"><strong>Challenge:</strong> Ops lived in spreadsheets, status lived in chat, follow-ups died quietly.</p>
-        <p class="work-approach"><strong>Approach:</strong> Role-based internal tool, reminders, CRM-style handoffs, and workflow automation on the boring path.</p>
+        <div class="work-meta"><span>03</span><span>Custom software</span><div class="work-tag">Internal tools</div></div>
+        <h3>From WhatsApp and spreadsheets to a system staff actually use</h3>
+        <p class="work-challenge"><strong>Challenge:</strong> Day-to-day work lived in sheets and chat. Follow-ups got lost.</p>
+        <p class="work-approach"><strong>Approach:</strong> Build a simple internal tool with reminders, handoffs and the workflows the team already follows.</p>
         <div class="work-results">
           <div><strong>12h+</strong><span>saved per week for ops</span></div>
-          <div><strong>0</strong><span>status chase in WhatsApp for core flow</span></div>
-          <div><strong>full IP</strong><span>source and docs handed over</span></div>
+          <div><strong>Less chase</strong><span>for status in WhatsApp</span></div>
+          <div><strong>You own it</strong><span>files and docs handed over</span></div>
         </div>
         <a class="work-link" href="contact/">Map your ops brief</a>
       </article>
@@ -428,19 +428,19 @@ home = head(
       <p class="section-sub reveal">Agencies that hide every number lose serious buyers to shops that show a floor. Here is ours. Exact quotes still depend on scope.</p>
       <div class="price-grid">
         <article class="price-card reveal">
-          <h3>Websites</h3>
+          <h3>Website development</h3>
           <div class="from">From ₹50,000</div>
-          <p>Marketing sites and landing systems with SEO foundations.</p>
+          <p>Business websites built to get enquiries and show up on Google.</p>
         </article>
         <article class="price-card is-featured reveal">
-          <h3>Apps and custom software</h3>
+          <h3>Web apps and mobile apps</h3>
           <div class="from">From ₹3,00,000</div>
-          <p>Focused web MVPs, Flutter apps and internal tools with clear milestones.</p>
+          <p>Web app development, mobile app development and internal business tools with clear milestones.</p>
         </article>
         <article class="price-card reveal">
-          <h3>SEO / AEO / GEO</h3>
+          <h3>SEO and visibility</h3>
           <div class="from">From ₹25,000/mo</div>
-          <p>Technical SEO plus AI-search citation work on a monthly retainer.</p>
+          <p>Monthly work so people can find you on Google and AI search tools.</p>
         </article>
       </div>
       <p style="margin-top:1.5rem" class="reveal"><a class="btn btn-primary btn-magnet" href="pricing/">See full pricing</a> <a class="btn btn-ghost btn-magnet" href="contact/">Request a fixed quote</a></p>
@@ -455,7 +455,7 @@ home = head(
       <div class="outcome-grid">
         <article class="outcome reveal">
           <h3>Project revenue</h3>
-          <p>Websites, mobile MVPs, custom CRMs and desktop apps sold as clear fixed or phased scopes with IP handover.</p>
+          <p>Websites, mobile apps, custom business tools and desktop apps sold as clear fixed or phased scopes. You own the work.</p>
         </article>
         <article class="outcome reveal">
           <h3>Recurring revenue</h3>
@@ -507,7 +507,7 @@ home = head(
               <td>Desktop and offline tools?</td>
               <td>Rarely a first-class offer</td>
               <td>Usually out of scope</td>
-              <td>Electron and Tauri desktop when the browser is not enough</td>
+              <td>Desktop apps when a website is not enough</td>
             </tr>
           </tbody>
         </table>
@@ -548,43 +548,43 @@ home = head(
   <section class="section" id="capabilities">
     <div class="container">
       <div class="section-kicker reveal">Capabilities</div>
-      <h2 class="section-title reveal">Built like a product studio, priced for India</h2>
-      <p class="section-sub reveal">Asymmetric layout, clear offers, motion with intent. Same craft language as the sites founders bookmark, without the vanity WebGL tax.</p>
+      <h2 class="section-title reveal">What we can build for you</h2>
+      <p class="section-sub reveal">Simple offers. Clear outcomes. Priced for Indian startups and growing businesses.</p>
       <div class="bento" id="bento">
         <a class="bento-tile bento-lg reveal" href="services/web-development/">
           <span class="bento-num">01</span>
-          <h3>Websites that convert and get cited</h3>
-          <p>Next.js / React builds with Core Web Vitals, schema and conversion paths from sprint one.</p>
-          <span class="bento-go">Explore web</span>
+          <h3>Website development</h3>
+          <p>Business websites that look good, load fast, and turn visitors into enquiries.</p>
+          <span class="bento-go">Explore websites</span>
         </a>
         <a class="bento-tile reveal" href="services/mobile-app-development/">
           <span class="bento-num">02</span>
-          <h3>Flutter &amp; React Native</h3>
-          <p>One codebase, store-ready MVPs, weekly demos.</p>
+          <h3>Mobile app development</h3>
+          <p>Phone apps for Android and iOS. First version often around 8 to 12 weeks.</p>
           <span class="bento-go">Explore apps</span>
         </a>
         <a class="bento-tile reveal" href="services/seo-aeo-geo/">
           <span class="bento-num">03</span>
-          <h3>SEO · AEO · GEO</h3>
-          <p>Google plus ChatGPT, Gemini and Perplexity citations.</p>
-          <span class="bento-go">Explore search</span>
+          <h3>SEO and visibility</h3>
+          <p>Get found on Google and mentioned in AI search tools.</p>
+          <span class="bento-go">Explore SEO</span>
         </a>
         <a class="bento-tile reveal" href="services/custom-software/">
           <span class="bento-num">04</span>
           <h3>Custom software</h3>
-          <p>CRMs, dashboards, ERPs. Full IP handover.</p>
+          <p>Business tools built around how your team already works. You own everything.</p>
           <span class="bento-go">Explore software</span>
         </a>
         <a class="bento-tile bento-wide reveal" href="services/ai-automation/">
           <span class="bento-num">05</span>
-          <h3>Workflow automation that saves hours</h3>
-          <p>Leads, approvals, CRM updates and ops glue. Practical automation, not lab demos.</p>
+          <h3>Workflow automation</h3>
+          <p>Connect your tools so leads, follow-ups and approvals happen without copy-paste.</p>
           <span class="bento-go">Explore automation</span>
         </a>
         <a class="bento-tile reveal" href="services/desktop-apps/">
           <span class="bento-num">06</span>
           <h3>Desktop apps</h3>
-          <p>Electron / Tauri when the browser is not enough.</p>
+          <p>Software that installs on a computer when a website is not enough.</p>
           <span class="bento-go">Explore desktop</span>
         </a>
       </div>
@@ -599,29 +599,29 @@ home = head(
 
       <article class="service-band">
         <div>
-          <h3>Web development</h3>
-          <p>High-performance marketing sites and web apps on Next.js, React and Node. Core Web Vitals, schema markup and conversion paths baked in from sprint one.</p>
-          <div class="tags"><span class="tag">Next.js</span><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">SEO-ready</span></div>
-          <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/web-development/">Web development services</a></p>
+          <h3>Website development</h3>
+          <p>Business websites and web apps that load fast, explain your offer clearly, and help visitors contact you.</p>
+          <div class="tags"><span class="tag">Business websites</span><span class="tag">Web apps</span><span class="tag">SEO-ready</span><span class="tag">Lead forms</span></div>
+          <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/web-development/">Website development services</a></p>
         </div>
-        <div class="band-visual"><img src="assets/services/web.jpg" alt="Web development - modern websites and web apps" width="640" height="360" loading="lazy" /></div>
+        <div class="band-visual"><img src="assets/services/web.jpg" alt="Website development - modern websites and web apps" width="640" height="360" loading="lazy" /></div>
       </article>
 
       <article class="service-band">
         <div>
           <h3>Mobile app development</h3>
-          <p>iOS and Android from one Flutter or React Native codebase, or native when the product demands it. Store launch, push, analytics and post-release support.</p>
-          <div class="tags"><span class="tag">Flutter</span><span class="tag">React Native</span><span class="tag">iOS</span><span class="tag">Android</span></div>
+          <p>Apps for Android and iPhone. We help you launch a focused first version, usually in about 8 to 12 weeks, then improve after feedback.</p>
+          <div class="tags"><span class="tag">Android</span><span class="tag">iPhone</span><span class="tag">App store launch</span><span class="tag">Support after launch</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/mobile-app-development/">Mobile app services</a></p>
         </div>
-        <div class="band-visual"><img src="assets/services/mobile.jpg" alt="Mobile app development for Android and iOS" width="640" height="360" loading="lazy" /></div>
+        <div class="band-visual"><img src="assets/services/mobile.jpg" alt="Mobile app development for phones and tablets" width="640" height="360" loading="lazy" /></div>
       </article>
 
       <article class="service-band">
         <div>
           <h3>Custom software</h3>
-          <p>Internal tools, CRMs, dashboards, ERPs and workflow systems tailored to how your team actually works. Full IP handover. No black-box lock-in.</p>
-          <div class="tags"><span class="tag">SaaS</span><span class="tag">ERP</span><span class="tag">APIs</span><span class="tag">Automation</span></div>
+          <p>Internal tools, dashboards and business systems tailored to how your team actually works. You keep full ownership. No lock-in.</p>
+          <div class="tags"><span class="tag">Internal tools</span><span class="tag">Dashboards</span><span class="tag">Team workflows</span><span class="tag">You own it</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/custom-software/">Custom software services</a></p>
         </div>
         <div class="band-visual"><img src="assets/services/custom.jpg" alt="Custom software and business dashboards" width="640" height="360" loading="lazy" /></div>
@@ -629,19 +629,19 @@ home = head(
 
       <article class="service-band">
         <div>
-          <h3>SEO, AEO and GEO</h3>
-          <p>Technical SEO for Google, Answer Engine Optimization for featured answers, and Generative Engine Optimization so ChatGPT, Gemini and Perplexity cite your brand.</p>
-          <div class="tags"><span class="tag">Technical SEO</span><span class="tag">AEO</span><span class="tag">GEO</span><span class="tag">LLM SEO</span></div>
-          <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/seo-aeo-geo/">SEO and GEO services</a></p>
+          <h3>SEO and online visibility</h3>
+          <p>Help people find you on Google, and help AI tools like ChatGPT mention your brand when buyers ask questions.</p>
+          <div class="tags"><span class="tag">Google SEO</span><span class="tag">Content</span><span class="tag">AI search</span><span class="tag">Monthly support</span></div>
+          <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/seo-aeo-geo/">SEO services</a></p>
         </div>
-        <div class="band-visual"><img src="assets/services/seo.jpg" alt="SEO AEO and GEO search visibility" width="640" height="360" loading="lazy" /></div>
+        <div class="band-visual"><img src="assets/services/seo.jpg" alt="SEO and online visibility" width="640" height="360" loading="lazy" /></div>
       </article>
 
       <article class="service-band">
         <div>
-          <h3>Business workflow automation</h3>
-          <p>We design and build workflows that automate how your business runs day to day: leads, follow-ups, approvals, notifications, CRM updates and repetitive ops. Practical automation that saves hours, not experimental AI labs.</p>
-          <div class="tags"><span class="tag">Workflows</span><span class="tag">CRM automation</span><span class="tag">Integrations</span><span class="tag">Ops</span></div>
+          <h3>Workflow automation</h3>
+          <p>Automate day-to-day work: leads, follow-ups, approvals, reminders and status updates. Practical automation that saves hours.</p>
+          <div class="tags"><span class="tag">Leads</span><span class="tag">Follow-ups</span><span class="tag">Approvals</span><span class="tag">Ops</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/ai-automation/">Automation services</a></p>
         </div>
         <div class="band-visual"><img src="assets/services/ai.jpg" alt="Business workflow and process automation" width="640" height="360" loading="lazy" /></div>
@@ -649,9 +649,9 @@ home = head(
 
       <article class="service-band">
         <div>
-          <h3>Desktop applications</h3>
-          <p>Electron and Tauri apps for offline-first tools, hardware integrations, installers, code signing and auto-updates. When the browser is not enough.</p>
-          <div class="tags"><span class="tag">Electron</span><span class="tag">Tauri</span><span class="tag">Offline</span><span class="tag">Windows</span></div>
+          <h3>Desktop apps</h3>
+          <p>Software that installs on a computer for offline work, special devices, or offices where a website is not enough.</p>
+          <div class="tags"><span class="tag">Windows</span><span class="tag">Offline use</span><span class="tag">Installers</span><span class="tag">Updates</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/desktop-apps/">Desktop app services</a></p>
         </div>
         <div class="band-visual"><img src="assets/services/desktop.jpg" alt="Desktop application development" width="640" height="360" loading="lazy" /></div>
@@ -664,10 +664,10 @@ home = head(
       <div class="section-kicker reveal">Proof in motion</div>
       <h2 class="section-title reveal">Numbers we design every engagement around</h2>
       <div class="stats reveal">
-        <div class="stat"><strong data-count="6" data-suffix="+">0</strong><span>Service verticals under one roof</span></div>
-        <div class="stat"><strong data-count="90" data-suffix="+">0</strong><span>PageSpeed targets on web builds</span></div>
-        <div class="stat"><strong data-count="14">0</strong><span>Day average MVP scope cycles</span></div>
-        <div class="stat"><strong data-count="5">0</strong><span>AI answer engines we track for GEO</span></div>
+        <div class="stat"><strong data-count="6" data-suffix="+">0</strong><span>Services under one roof</span></div>
+        <div class="stat"><strong data-count="90" data-suffix="+">0</strong><span>Speed score target on websites</span></div>
+        <div class="stat"><strong data-count="10">0</strong><span>Week average for a first mobile app</span></div>
+        <div class="stat"><strong data-count="24">0</strong><span>Hour reply target on serious briefs</span></div>
       </div>
     </div>
   </section>
@@ -678,7 +678,7 @@ home = head(
       <h2 class="section-title reveal">Where custom software and SEO actually pay back</h2>
       <p class="section-sub reveal">We prioritize verticals where a shipped product plus discoverability creates revenue faster than a brochure site ever will.</p>
       <div class="industry-grid">
-        <article class="industry reveal"><h3>SaaS and startups</h3><p>MVP web apps, Flutter mobile shells, onboarding flows and launch SEO so early users can find you.</p></article>
+        <article class="industry reveal"><h3>Startups and new products</h3><p>First websites, web apps and mobile apps, plus launch SEO so early users can find you.</p></article>
         <article class="industry reveal"><h3>Services and agencies</h3><p>High-converting service sites, lead forms, WhatsApp CTAs and local plus AI-search visibility.</p></article>
         <article class="industry reveal"><h3>Retail and D2C</h3><p>Catalog experiences, internal ops tools and performance landing pages wired for paid and organic.</p></article>
         <article class="industry reveal"><h3>Logistics and field ops</h3><p>Tracking portals, vendor dashboards, offline-capable desktop helpers and mobile workforce apps.</p></article>
@@ -800,15 +800,15 @@ home = head(
         </details>
         <details>
           <summary>How much does custom software development cost in India?</summary>
-          <p>It depends on scope. Focused websites and web MVPs can start in the low lakhs INR. Mobile MVPs and multi-role internal systems cost more when payments, compliance and integrations expand. Read our <a href="blog/custom-software-development-cost-india-2026/">2026 cost guide</a> or ask for a scoped quote.</p>
+          <p>It depends on scope. Business websites can start from ₹50,000. Web apps and mobile apps usually start higher. Read our <a href="blog/custom-software-development-cost-india-2026/">2026 cost guide</a> or ask for a scoped quote.</p>
         </details>
         <details>
           <summary>How is JB different from other India software and digital agencies?</summary>
-          <p>Many competitors sell the same menu: apps, websites, AI and SEO. We differentiate with founder-accessible delivery, desktop capability when needed, and discovery engineered into the product so launch day is not day zero of marketing.</p>
+          <p>Many shops sell the same list: apps, websites and SEO. We stay easy to reach, write the scope before we build, and make sure launch day is not the first day you start thinking about being found online.</p>
         </details>
         <details>
-          <summary>How fast can an MVP ship?</summary>
-          <p>A focused web MVP often lands in 2 to 6 weeks. Mobile MVPs typically take 6 to 12 weeks depending on integrations and store requirements.</p>
+          <summary>How fast can a first version ship?</summary>
+          <p>A focused website or web app often lands in 2 to 6 weeks. A first mobile app typically takes about 8 to 12 weeks, depending on features and store requirements.</p>
         </details>
         <details>
           <summary>Do you work with startups and enterprises?</summary>
@@ -912,46 +912,46 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
 
 service_page(
     "web-development",
-    f"Web Development Company India | Next.js & React | {BRAND}",
-    "Web development that ranks and converts",
-    "JB Software Solutions builds fast, SEO-ready websites and web applications with Next.js, React and Node for startups and growing businesses.",
-    "web development company India, Next.js development, React website, web application development, SEO website development, SaaS frontend",
+    f"Website Development Company India | {BRAND}",
+    "Website development that brings enquiries",
+    "JB Software Solutions builds fast business websites and web apps for startups and growing businesses in India.",
+    "website development company India, web development company, business website, web application development, SEO website development",
     [
-        "Marketing sites and product web apps on Next.js / React",
-        "Performance budgets targeting 90+ PageSpeed where scope allows",
-        "Structured data, clean URLs, sitemap and crawlable HTML",
-        "CMS or headless content workflows when you need editorial control",
-        "Analytics, conversion events and post-launch iteration",
+        "Business websites and product web apps",
+        "Pages that load fast on phone and desktop",
+        "Clear offers, contact forms and basic SEO setup",
+        "Easy ways for your team to update content when needed",
+        "Support after launch so small fixes do not stall",
     ],
     [
-        ("Which stack do you recommend?", "Next.js and React for most marketing and SaaS fronts. We pick Node, Laravel or .NET for backends based on your team and hosting."),
-        ("Can you redesign an existing site?", "Yes. We audit speed, SEO and conversion, then rebuild or iteratively improve without killing rankings."),
+        ("Can you redesign an existing site?", "Yes. We review speed, clarity and enquiry flow, then rebuild or improve step by step without losing what already works."),
+        ("How long does a business website take?", "Many 5 to 12 page sites land in a few weeks once the offer and content are clear."),
     ],
     "services",
     image="web.jpg",
-    image_alt="Web development - modern websites and web apps",
+    image_alt="Website development - modern websites and web apps",
 )
 
 service_page(
     "mobile-app-development",
-    f"Mobile App Development Company | Flutter & React Native | {BRAND}",
-    "Mobile apps for Android and iOS",
-    "Cross-platform Flutter and React Native apps, or native builds, from MVP to store launch with JB Software Solutions.",
-    "mobile app development company India, Flutter app development, React Native, Android app, iOS app, MVP mobile app",
+    f"Mobile App Development Company India | {BRAND}",
+    "Mobile app development for Android and iPhone",
+    "JB Software Solutions builds phone apps for Android and iPhone, from a focused first version through app store launch.",
+    "mobile app development company India, Android app, iPhone app, mobile app development, app store launch",
     [
-        "Flutter or React Native for shared Android and iOS codebases",
-        "Native modules when camera, Bluetooth or performance needs demand it",
-        "Play Store and App Store submission support",
-        "Push notifications, auth, payments and analytics integrations",
-        "Maintenance retainers after launch",
+        "Apps for Android and iPhone",
+        "A focused first version, often around 8 to 12 weeks",
+        "Help publishing to Google Play and the App Store",
+        "Login, payments, notifications and tracking when your brief needs them",
+        "Support after launch so you can improve from real user feedback",
     ],
     [
-        ("Flutter or React Native?", "Flutter for UI-heavy products and strong Android reach. React Native when your web team is already deep in React. We decide after discovery."),
-        ("Do you build MVPs?", "Yes. Scoped MVPs in weeks, not quarters, with a clear path to v1.1."),
+        ("How long does a first app take?", "A focused first version often takes about 8 to 12 weeks. Bigger products take longer, and we say so up front."),
+        ("Do I need both Android and iPhone at once?", "Many teams start with one store, then add the second. We plan that with you during discovery."),
     ],
     "services",
     image="mobile.jpg",
-    image_alt="Mobile app development for Android and iOS",
+    image_alt="Mobile app development for phones and tablets",
 )
 
 service_page(
@@ -1028,20 +1028,20 @@ service_page(
 
 service_page(
     "desktop-apps",
-    f"Desktop App Development | Electron & Tauri | {BRAND}",
-    "Desktop apps when the browser is not enough",
-    "Electron and Tauri desktop software with installers, code signing, offline storage and hardware integrations.",
-    "desktop app development, Electron app development, Tauri, Windows desktop software, offline first app, cross platform desktop",
+    f"Desktop App Development | {BRAND}",
+    "Desktop apps when a website is not enough",
+    "JB Software Solutions builds software that installs on a computer for offline work, special devices, or locked-down office setups.",
+    "desktop app development, Windows desktop software, offline app, computer software development India",
     [
-        "Cross-platform desktop with Electron or Tauri",
-        "Offline-first data with sync when connectivity returns",
-        "Serial / USB / hardware integrations for industrial tools",
-        "Windows and macOS installers with auto-update channels",
-        "Licensing and activation flows when you sell the app",
+        "Apps that install on Windows and Mac",
+        "Works offline, then syncs when the internet is back",
+        "Connect to printers, scanners or other office devices when needed",
+        "Installers and update support",
+        "Licensing options if you sell the software to customers",
     ],
     [
-        ("When should I choose desktop over web?", "Offline, hardware access, heavy local files, or environments where browsers are locked down."),
-        ("Can you wrap our existing web app?", "Often yes. We harden cold start, native menus, signing and updates so it feels like a real desktop citizen."),
+        ("When should I choose a desktop app?", "When people need to work offline, use special devices, handle large local files, or work in places where browsers are limited."),
+        ("Can you turn our website product into a desktop app?", "Often yes. We package it as real installable software with menus, updates and a smoother desktop feel."),
     ],
     "services",
     image="desktop.jpg",
@@ -1180,52 +1180,52 @@ pricing = head(
   <section class="section" style="padding-top:0"><div class="container">
     <div class="price-grid">
       <article class="price-card reveal">
-        <h3>Business website</h3>
+        <h3>Website development</h3>
         <div class="from">From ₹50,000</div>
         <ul>
-          <li>5-12 pages, mobile-first</li>
-          <li>SEO basics, schema, sitemap</li>
-          <li>Contact lead capture</li>
+          <li>Business website, about 5 to 12 pages</li>
+          <li>Works well on phones</li>
+          <li>Contact form and basic SEO setup</li>
         </ul>
         <a class="btn btn-ghost btn-magnet" href="{rel(1)}contact/">Request quote</a>
       </article>
       <article class="price-card is-featured reveal">
-        <h3>Web MVP / SaaS slice</h3>
+        <h3>Web app development</h3>
         <div class="from">From ₹3,00,000</div>
         <ul>
-          <li>Core user journey only</li>
-          <li>Auth, dashboard or workflows</li>
-          <li>Deployed staging + docs</li>
+          <li>First version of your product in the browser</li>
+          <li>Login, dashboard or simple workflows</li>
+          <li>Clear milestones and handover docs</li>
         </ul>
         <a class="btn btn-primary btn-magnet" href="{rel(1)}contact/">Request quote</a>
       </article>
       <article class="price-card reveal">
-        <h3>Mobile app MVP</h3>
+        <h3>Mobile app development</h3>
         <div class="from">From ₹5,00,000</div>
         <ul>
-          <li>Flutter or React Native</li>
-          <li>Android first, iOS as scoped</li>
-          <li>Store submission support</li>
+          <li>First app for Android and/or iPhone</li>
+          <li>Typical timeline around 8 to 12 weeks</li>
+          <li>Help publishing to the app stores</li>
         </ul>
         <a class="btn btn-ghost btn-magnet" href="{rel(1)}contact/">Request quote</a>
       </article>
       <article class="price-card reveal">
-        <h3>Custom internal tool</h3>
+        <h3>Custom software</h3>
         <div class="from">From ₹4,00,000</div>
         <ul>
-          <li>Roles, workflows, reporting</li>
-          <li>Integrations as needed</li>
-          <li>Full IP handover</li>
+          <li>Internal tools for your team</li>
+          <li>Connect to the apps you already use</li>
+          <li>You own the finished work</li>
         </ul>
         <a class="btn btn-ghost btn-magnet" href="{rel(1)}contact/">Request quote</a>
       </article>
       <article class="price-card reveal">
-        <h3>SEO + AEO + GEO</h3>
+        <h3>SEO and visibility</h3>
         <div class="from">From ₹25,000/mo</div>
         <ul>
-          <li>Technical and on-page SEO</li>
-          <li>Content clusters</li>
-          <li>AI citation checks</li>
+          <li>Help people find you on Google</li>
+          <li>Useful content for buyer questions</li>
+          <li>Checks for AI search mentions</li>
         </ul>
         <a class="btn btn-ghost btn-magnet" href="{rel(1)}contact/">Request quote</a>
       </article>
@@ -1234,7 +1234,7 @@ pricing = head(
         <div class="from">From ₹75,000</div>
         <ul>
           <li>Lead and follow-up flows</li>
-          <li>CRM / ops integrations</li>
+          <li>Connect forms, chat and CRM</li>
           <li>Approvals and reminders</li>
         </ul>
         <a class="btn btn-ghost btn-magnet" href="{rel(1)}contact/">Request quote</a>
