@@ -464,11 +464,11 @@ a.nav-cta {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(1.45rem, 2.8vw, 2.15rem);
-  line-height: 1.12;
+  font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+  line-height: 1.15;
   letter-spacing: -0.03em;
-  max-width: 22ch;
-  margin: 0 0 0.7rem;
+  max-width: 24ch;
+  margin: 0 0 0.65rem;
   font-weight: 800;
 }
 
@@ -643,11 +643,11 @@ a.nav-cta {
 
 .manifesto-title {
   font-family: var(--font-display);
-  font-size: clamp(1.55rem, 3.4vw, 2.45rem);
-  line-height: 1.05;
-  letter-spacing: -0.035em;
-  max-width: 16ch;
-  margin: 0 0 1.25rem;
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  max-width: 22ch;
+  margin: 0 0 0.9rem;
   font-weight: 800;
 }
 
@@ -661,8 +661,8 @@ a.nav-cta {
 .manifesto-sub {
   color: var(--muted);
   max-width: 40rem;
-  font-size: 1.05rem;
-  margin: 0 0 2.25rem;
+  font-size: 0.95rem;
+  margin: 0 0 1.5rem;
 }
 
 .manifesto-metrics {
@@ -1140,11 +1140,11 @@ a.nav-cta {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(1.45rem, 3vw, 2.25rem);
+  font-size: clamp(1.25rem, 2.4vw, 1.75rem);
   letter-spacing: -0.03em;
-  line-height: 1.12;
-  margin: 0 0 0.75rem;
-  max-width: 20ch;
+  line-height: 1.18;
+  margin: 0 0 0.65rem;
+  max-width: 22ch;
   position: relative;
 }
 
@@ -1421,8 +1421,8 @@ html.js-ready .band-visual.is-in {
 
 .cta-band h2 {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
-  margin: 0 0 0.35rem;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  margin: 0 0 0.3rem;
   letter-spacing: -0.03em;
 }
 
@@ -1862,8 +1862,8 @@ html.js-ready .band-visual.is-in {
 .service-feature-copy h2 {
   font-family: var(--font-display);
   letter-spacing: -0.03em;
-  margin: 0 0 0.7rem;
-  font-size: clamp(1.2rem, 2vw, 1.55rem);
+  margin: 0 0 0.6rem;
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
 }
 
 .service-feature-copy p {
@@ -2088,11 +2088,11 @@ html.js-ready .band-visual.is-in {
 
 .page-hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.6vw, 2rem);
+  font-size: clamp(1.25rem, 2.2vw, 1.7rem);
   letter-spacing: -0.03em;
-  line-height: 1.15;
-  margin: 0 0 0.7rem;
-  max-width: 24ch;
+  line-height: 1.18;
+  margin: 0 0 0.6rem;
+  max-width: 26ch;
   font-weight: 800;
 }
 
