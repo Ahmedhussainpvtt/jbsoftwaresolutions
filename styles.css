@@ -1665,12 +1665,18 @@ html.js-ready .band-visual.is-in {
   font-weight: 800;
 }
 
-.dock-btn.whatsapp {
+.dock-btn.whatsapp,
+.dock-btn.quote {
   width: 56px;
   min-width: 56px;
+  max-width: 56px;
   height: 56px;
   padding: 0;
   gap: 0;
+  box-sizing: border-box;
+}
+
+.dock-btn.whatsapp {
   background: linear-gradient(145deg, #25d366, #1ebe57) !important;
   border: none;
   color: #041018 !important;
@@ -1683,8 +1689,11 @@ html.js-ready .band-visual.is-in {
   border: none;
   color: #041018 !important;
   -webkit-text-fill-color: #041018 !important;
-  font-size: 0.78rem;
+  font-size: 0.62rem;
   font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1.1;
+  text-align: center;
   box-shadow: 0 14px 40px rgba(61, 255, 122, 0.35);
 }
 
