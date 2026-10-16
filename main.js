@@ -2,6 +2,22 @@
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
+  // Always land at top on refresh / hard load (ignore browser scroll restore + hash jump)
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  const forceTop = () => {
+    if (location.hash) {
+      history.replaceState(null, "", location.pathname + location.search);
+    }
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+  forceTop();
+  window.addEventListener("pageshow", (e) => {
+    if (e.persisted) forceTop();
+  });
+  window.addEventListener("load", forceTop);
+
   const loadScript = (src, ms = 4000) =>
     new Promise((resolve, reject) => {
       if (window.gsap && src.includes("gsap.min.js")) {
@@ -31,7 +47,9 @@
     });
 
   async function boot() {
+    forceTop();
     ensureProgress();
+    initBackToTop();
     splitTitles(document.querySelectorAll(".hero-title, .page-hero h1, .section-title"));
     initNav();
     initHeaderScroll();
@@ -93,6 +111,32 @@
     bar.className = "progress-bar";
     bar.setAttribute("aria-hidden", "true");
     document.body.prepend(bar);
+  }
+
+  function initBackToTop() {
+    if (document.querySelector(".back-to-top")) return;
+    let dock = document.querySelector(".sticky-dock");
+    if (!dock) {
+      dock = document.createElement("div");
+      dock.className = "sticky-dock";
+      dock.setAttribute("aria-label", "Quick actions");
+      document.body.appendChild(dock);
+    }
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "back-to-top";
+    btn.setAttribute("aria-label", "Back to top");
+    btn.innerHTML = '<span aria-hidden="true">↑</span><span class="back-to-top-label">Top</span>';
+    dock.prepend(btn);
+
+    const toggle = () => {
+      btn.classList.toggle("is-visible", window.scrollY > 420);
+    };
+    toggle();
+    window.addEventListener("scroll", toggle, { passive: true });
+    btn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
+    });
   }
 
   function splitTitles(list) {
