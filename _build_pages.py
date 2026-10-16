@@ -13,7 +13,7 @@ SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
 WHATSAPP_PHONE = "919381107468"  # E.164 without +
-ASSET_V = "20261016u"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+ASSET_V = "20261016w"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
 SERVICE_BODIES = service_bodies()
 SERVICE_FEATURES = service_features()
 WA_TEXT = "Hi%20JB%20Software%20Solutions%2C%20I%20want%20to%20discuss%20a%20project."
@@ -870,19 +870,92 @@ def _resolve_feature_img(slug, imgs, key):
     return imgs.get(key, imgs.get("hero", "web-hero.jpg"))
 
 
+# Unique mid-page + closing headings per service (never reuse hero H1)
+SERVICE_SECTION = {
+    "web-development": {
+        "offer_kicker": "Deliverables",
+        "offer_h2": "What ships in a website project",
+        "include_h3": "Pages and launch items",
+        "engage_h3": "Ways to engage us",
+        "cta_h3": "Start a website brief",
+        "closing_kicker": "Pricing signal",
+        "closing_h2": "Website cost, fit and next step",
+        "faq_h2": "Website development FAQ",
+        "cta_h2": "Ready for a site that brings enquiries?",
+        "why": "A site that looks finished but cannot be found or contacted is a liability. We ship enquiry paths, mobile layout and crawlable structure with the build.",
+    },
+    "mobile-app-development": {
+        "offer_kicker": "App scope",
+        "offer_h2": "What a first mobile app includes",
+        "include_h3": "First-version essentials",
+        "engage_h3": "Delivery options",
+        "cta_h3": "Start an app brief",
+        "closing_kicker": "Budget signal",
+        "closing_h2": "App cost, timeline and next step",
+        "faq_h2": "Mobile app development FAQ",
+        "cta_h2": "Ready to scope your first app?",
+        "why": "The fastest path to learning is one user journey on the stores, not a bloated roadmap. We keep the first release honest and demo weekly.",
+    },
+    "custom-software": {
+        "offer_kicker": "Build scope",
+        "offer_h2": "What custom software engagements include",
+        "include_h3": "System building blocks",
+        "engage_h3": "How we contract the work",
+        "cta_h3": "Map your ops brief",
+        "closing_kicker": "Investment signal",
+        "closing_h2": "Custom software cost and fit",
+        "faq_h2": "Custom software FAQ",
+        "cta_h2": "Ready to replace spreadsheet chaos?",
+        "why": "If SaaS forces painful workarounds, custom software pays for itself. We map real roles first, then ship the workflow that removes re-entry and status chasing.",
+    },
+    "seo-aeo-geo": {
+        "offer_kicker": "Visibility scope",
+        "offer_h2": "What SEO, AEO and GEO cover",
+        "include_h3": "Visibility workstream",
+        "engage_h3": "Retainer shapes",
+        "cta_h3": "Start a visibility plan",
+        "closing_kicker": "Retainer signal",
+        "closing_h2": "SEO pricing, fit and next step",
+        "faq_h2": "SEO, AEO and GEO FAQ",
+        "cta_h2": "Ready to get found and cited?",
+        "why": "Rankings still matter. AI answers matter too. We fix technical basics and publish pages that buyers and assistants can both trust.",
+    },
+    "ai-automation": {
+        "offer_kicker": "Automation scope",
+        "offer_h2": "What workflow automation covers",
+        "include_h3": "Flows we connect",
+        "engage_h3": "How we phase flows",
+        "cta_h3": "Start an automation map",
+        "closing_kicker": "Effort signal",
+        "closing_h2": "Automation cost, fit and next step",
+        "faq_h2": "Workflow automation FAQ",
+        "cta_h2": "Ready to stop the copy-paste?",
+        "why": "Most businesses lose hours to copy-paste between forms, CRMs and chat. We automate that path so leads get followed up and ops stay visible.",
+    },
+    "desktop-apps": {
+        "offer_kicker": "Desktop scope",
+        "offer_h2": "What a desktop build includes",
+        "include_h3": "Installable product pieces",
+        "engage_h3": "How we package and ship",
+        "cta_h3": "Start a desktop brief",
+        "closing_kicker": "Scope signal",
+        "closing_h2": "Desktop fit, cost path and next step",
+        "faq_h2": "Desktop app FAQ",
+        "cta_h2": "Ready when the browser is not enough?",
+        "why": "Offline networks, printers, scanners and locked-down offices still need installable software. We build that when a website is the wrong tool.",
+    },
+}
+
+
 def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=None, image="web-hero.jpg", image_alt="", extra_html=""):
     depth = 2
     p = rel(depth)
-    why_text = why or (
-        "Buyers shortlist vendors on Google and inside AI assistants. "
-        "A pretty UI without crawlable structure, schema, speed and proof pages will not get found. "
-        "We build products and the discovery layer together."
-    )
+    sec = SERVICE_SECTION[slug]
+    why_text = why or sec["why"]
     alt = image_alt or h1
     imgs = SERVICE_IMG.get(slug, {"hero": image, "aside": image, "mid": image, "deep": image})
     hero_img = imgs["hero"]
     long_body = (extra_html or SERVICE_BODIES.get(slug, "")).replace("{P}", p)
-    # Images live in feature rows; strip leftover figure placeholders from long copy
     long_body = long_body.replace("{IMG_MID}", "").replace("{IMG_DEEP}", "")
     long_body = re.sub(
         r'<figure class="service-figure">\s*<img[^>]*>\s*</figure>',
@@ -891,10 +964,12 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
         flags=re.I,
     )
 
+    feat_kickers = ("Outcome", "Process", "Strategy", "Coverage")
     feat_rows = []
     for i, feat in enumerate(SERVICE_FEATURES.get(slug, [])):
         img_file = _resolve_feature_img(slug, imgs, feat["img"])
         reverse = " is-reverse" if i % 2 == 1 else ""
+        kicker = feat.get("kicker") or feat_kickers[i % len(feat_kickers)]
         feat_rows.append(f"""
   <section class="section service-feature{reverse}">
     <div class="container service-feature-grid">
@@ -902,7 +977,7 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
         <img src="{p}assets/services/{img_file}" alt="{feat['title']}" width="960" height="640" loading="lazy" />
       </div>
       <div class="service-feature-copy reveal">
-        <div class="section-kicker">How we work</div>
+        <div class="section-kicker">{kicker}</div>
         <h2>{feat['title']}</h2>
         <p>{feat['text']}</p>
       </div>
@@ -937,18 +1012,18 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
   </section>
   <section class="section" style="padding-top:0">
     <div class="container">
-      <div class="section-kicker reveal">What you get</div>
-      <h2 class="section-title reveal">{h1}</h2>
+      <div class="section-kicker reveal">{sec['offer_kicker']}</div>
+      <h2 class="section-title reveal">{sec['offer_h2']}</h2>
       <p class="section-sub reveal">{why_text}</p>
       <div class="service-offer-grid">
         <div class="service-offer reveal">
-          <h3>Included in this service</h3>
+          <h3>{sec['include_h3']}</h3>
           <ul>
             {''.join(f'<li>{b}</li>' for b in bullets)}
           </ul>
         </div>
         <div class="service-offer reveal">
-          <h3>How engagements run</h3>
+          <h3>{sec['engage_h3']}</h3>
           <ul>
             <li>Fixed-scope projects with milestones</li>
             <li>Time and materials for evolving products</li>
@@ -957,7 +1032,7 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
           </ul>
         </div>
         <div class="service-offer service-offer-cta reveal">
-          <h3>Ready to scope this?</h3>
+          <h3>{sec['cta_h3']}</h3>
           <p>Share goals, links and budget range. We reply with fit, timeline and a clear quote path.</p>
           <a class="btn btn-primary btn-magnet" href="{p}contact/">Start a brief</a>
           <a class="btn btn-ghost btn-magnet" href="https://wa.me/{WHATSAPP_PHONE}?text={WA_TEXT}" target="_blank" rel="noopener noreferrer">WhatsApp us</a>
@@ -967,15 +1042,21 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
     </div>
   </section>
 {features_html}
-  <section class="section" id="deep-dive">
-    <div class="container service-body">
-      {long_body}
+  <section class="section service-closing" id="details">
+    <div class="container">
+      <div class="service-closing-head reveal">
+        <div class="section-kicker">{sec['closing_kicker']}</div>
+        <h2 class="section-title">{sec['closing_h2']}</h2>
+      </div>
+      <div class="service-closing-body reveal">
+        {long_body}
+      </div>
     </div>
   </section>
   <section class="section">
     <div class="container">
       <div class="cta-band reveal">
-        <div><h2>Talk through your brief</h2><p>Share goals and constraints. We come back with a clear plan on WhatsApp or the contact form.</p></div>
+        <div><h2>{sec['cta_h2']}</h2><p>Share goals and constraints. We come back with a clear plan on WhatsApp or the contact form.</p></div>
         <div class="cta-actions">
           <a class="btn btn-primary btn-magnet" href="{p}contact/">Contact JB Software Solutions</a>
           <a class="btn btn-ghost btn-magnet" href="https://wa.me/{WHATSAPP_PHONE}?text={WA_TEXT}" target="_blank" rel="noopener noreferrer">WhatsApp me</a>
@@ -985,7 +1066,8 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
   </section>
   <section class="section">
     <div class="container">
-      <h2 class="section-title">FAQ</h2>
+      <div class="section-kicker">FAQ</div>
+      <h2 class="section-title">{sec['faq_h2']}</h2>
       <div class="faq">
         {''.join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q,a in faqs)}
       </div>
@@ -1121,11 +1203,6 @@ service_page(
         ("What tools can you connect?", "Common CRMs, forms, email, sheets, chat tools, payment notifications and custom webhooks. We map your stack in discovery and automate the boring path between systems."),
     ],
     "services",
-    why=(
-        "Most businesses lose hours every week to copy-paste between forms, CRMs, WhatsApp and sheets. "
-        "We map those paths and automate them so leads get followed up, ops stay visible, and your team stops chasing status. "
-        "This is business process automation, not a custom AI research project."
-    ),
     image="ai-hero.jpg",
     image_alt="Business workflow and process automation",
 )

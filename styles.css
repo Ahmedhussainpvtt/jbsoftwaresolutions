@@ -1734,31 +1734,59 @@ html.js-ready .band-visual.is-in {
   align-items: start;
 }
 
-.service-body {
-  max-width: none;
-  width: 100%;
+.service-closing-head {
+  max-width: 36rem;
+  margin: 0 auto 1.75rem;
+  text-align: center;
+}
+
+.service-closing-head .section-title {
+  margin-bottom: 0;
+}
+
+.service-closing-body {
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.service-closing-lead {
+  margin: 0 auto 1.5rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  text-align: center;
+  max-width: 40rem;
+}
+
+.service-closing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+}
+
+.service-closing-card {
+  padding: 1.25rem 1.3rem;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: var(--surface);
   text-align: left;
 }
 
-.service-body h2 {
+.service-closing-card h3 {
+  margin: 0 0 0.55rem;
   font-family: var(--font-display);
   letter-spacing: -0.02em;
-  margin: 2rem 0 0.75rem;
-  max-width: none;
+  font-size: 1.05rem;
 }
 
-.service-body p,
-.service-body li {
+.service-closing-card p {
+  margin: 0;
   color: var(--muted);
-  max-width: none;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-.service-body ul,
-.service-body ol {
-  padding-left: 1.2rem;
-}
-
-.service-body a {
+.service-closing-card a {
   color: var(--blue);
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -2648,7 +2676,8 @@ body::after {
   .service-hero-grid,
   .service-split,
   .service-feature-grid,
-  .service-offer-grid {
+  .service-offer-grid,
+  .service-closing-grid {
     grid-template-columns: 1fr;
   }
   .service-feature.is-reverse .service-feature-grid {
