@@ -12,11 +12,9 @@ ROOT = Path(__file__).resolve().parent
 SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
-WHATSAPP_PHONE = "919381107468"  # E.164 without +
-ASSET_V = "20261016y"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+ASSET_V = "20261016z"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
 SERVICE_BODIES = service_bodies()
 SERVICE_FEATURES = service_features()
-WA_TEXT = "Hi%20JB%20Software%20Solutions%2C%20I%20want%20to%20discuss%20a%20project."
 LEGACY_IMG = {
     "web-development": "web.jpg",
     "mobile-app-development": "mobile.jpg",
@@ -180,14 +178,8 @@ def nav(depth, active=""):
 
 def dock(depth):
     p = rel(depth)
-    wa = f"https://wa.me/{WHATSAPP_PHONE}?text={WA_TEXT}"
     return f"""
 <div class="sticky-dock" aria-label="Quick contact">
-  <a class="dock-btn whatsapp" href="{wa}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp JB Software Solutions">
-    <span class="dock-ico" aria-hidden="true">
-      <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/><path d="M12.04 2C6.5 2 2.01 6.49 2.01 12.03c0 1.77.46 3.5 1.34 5.02L2 22l5.08-1.33A9.98 9.98 0 0 0 12.04 22C17.58 22 22.07 17.51 22.07 11.97 22.07 6.43 17.58 2 12.04 2zm0 18.18c-1.6 0-3.17-.43-4.54-1.24l-.33-.2-3.01.79.8-2.94-.21-.34a8.17 8.17 0 0 1-1.26-4.39c0-4.52 3.68-8.2 8.2-8.2 4.52 0 8.2 3.68 8.2 8.2-.01 4.52-3.69 8.2-8.21 8.2z"/></svg>
-    </span>
-  </a>
   <a class="dock-btn quote" href="{p}contact/" aria-label="Contact us">Contact</a>
 </div>
 """
@@ -743,7 +735,7 @@ home = head(
       <p class="section-sub reveal">We prioritize verticals where a shipped product plus discoverability creates revenue faster than a brochure site ever will.</p>
       <div class="industry-grid">
         <article class="industry reveal"><h3>Startups and new products</h3><p>First websites, web apps and mobile apps, plus launch SEO so early users can find you.</p></article>
-        <article class="industry reveal"><h3>Services and agencies</h3><p>High-converting service sites, lead forms, WhatsApp CTAs and local plus AI-search visibility.</p></article>
+        <article class="industry reveal"><h3>Services and agencies</h3><p>High-converting service sites, lead forms, clear contact paths and local plus search visibility.</p></article>
         <article class="industry reveal"><h3>Retail and D2C</h3><p>Catalog experiences, internal ops tools and performance landing pages wired for paid and organic.</p></article>
         <article class="industry reveal"><h3>Logistics and field ops</h3><p>Tracking portals, vendor dashboards, offline-capable desktop helpers and mobile workforce apps.</p></article>
         <article class="industry reveal"><h3>Education and training</h3><p>Learning portals, admin panels and content structures that rank for course and admission intent.</p></article>
@@ -1036,7 +1028,6 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
           <h3>{sec['cta_h3']}</h3>
           <p>Share goals, links and budget range. We reply with fit, timeline and a clear quote path.</p>
           <a class="btn btn-primary btn-magnet" href="{p}contact/">Start a brief</a>
-          <a class="btn btn-ghost btn-magnet" href="https://wa.me/{WHATSAPP_PHONE}?text={WA_TEXT}" target="_blank" rel="noopener noreferrer">WhatsApp us</a>
           <div class="service-chip-row" style="margin-top:1rem">{other}</div>
         </div>
       </div>
@@ -1057,10 +1048,9 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
   <section class="section">
     <div class="container">
       <div class="cta-band reveal">
-        <div><h2>{sec['cta_h2']}</h2><p>Share goals and constraints. We come back with a clear plan on WhatsApp or the contact form.</p></div>
+        <div><h2>{sec['cta_h2']}</h2><p>Share goals and constraints. We come back with a clear plan on the contact form or email.</p></div>
         <div class="cta-actions">
           <a class="btn btn-primary btn-magnet" href="{p}contact/">Contact JB Software Solutions</a>
-          <a class="btn btn-ghost btn-magnet" href="https://wa.me/{WHATSAPP_PHONE}?text={WA_TEXT}" target="_blank" rel="noopener noreferrer">WhatsApp me</a>
         </div>
       </div>
     </div>
@@ -1879,7 +1869,7 @@ print(f"wrote glossary ({len(GLOSSARY)} terms) + faq ({len(FAQ_TOPICS)} topics, 
 # ---------- PRIVACY + TERMS ----------
 privacy = head(
     f"Privacy Policy | {BRAND}",
-    "How JB Software Solutions collects, uses, stores and protects personal information from our website, contact form, WhatsApp and project work under Indian law including the IT Act and DPDP Act.",
+    "How JB Software Solutions collects, uses, stores and protects personal information from our website, contact form, email and project work under Indian law including the IT Act and DPDP Act.",
     "JB Software Solutions privacy policy, data protection, DPDP, contact form privacy India, website cookies Google Analytics",
     "/privacy/",
     1,
@@ -1895,13 +1885,13 @@ privacy = head(
   <section class="section" style="padding-top:0"><div class="container prose prose-wide">
     <h2>1. Who we are</h2>
     <p>{BRAND} ("we", "us", "our") provides website development, mobile app development, custom software, desktop apps, SEO, AEO, GEO and workflow automation services. Our public website is <a href="{SITE}/">{SITE}/</a>. For privacy questions, email <a href="mailto:{EMAIL}">{EMAIL}</a> or use the <a href="{rel(1)}contact/">contact form</a>.</p>
-    <p>This policy covers visitors and enquirers on our marketing site, people who message us on WhatsApp or email, and (at a high level) how we handle personal data shared with us during a client engagement. A signed statement of work, master services agreement or non-disclosure agreement may add stricter rules for a specific project. Where those documents conflict with this page on project data, the signed document controls for that project.</p>
+    <p>This policy covers visitors and enquirers on our marketing site, people who email us, and (at a high level) how we handle personal data shared with us during a client engagement. A signed statement of work, master services agreement or non-disclosure agreement may add stricter rules for a specific project. Where those documents conflict with this page on project data, the signed document controls for that project.</p>
 
     <h2>2. Scope</h2>
     <p>This policy applies to:</p>
     <ul>
       <li>jbsoftwaresolutions.com and pages we publish under that domain</li>
-      <li>Our contact form, email and WhatsApp business conversations about enquiries</li>
+      <li>Our contact form and email conversations about enquiries</li>
       <li>Analytics and technical logs created when you browse the site</li>
       <li>Personal data you share so we can quote, contract, invoice or deliver services</li>
     </ul>
@@ -1911,7 +1901,7 @@ privacy = head(
     <h3>3.1 Information you give us</h3>
     <ul>
       <li><strong>Contact and enquiry data:</strong> name, email address, company or project name, service interest, budget range, message text, and any files or links you choose to share</li>
-      <li><strong>Communication records:</strong> emails, WhatsApp messages, call notes and meeting notes related to your enquiry or project</li>
+      <li><strong>Communication records:</strong> emails, call notes and meeting notes related to your enquiry or project</li>
       <li><strong>Business and billing data for clients:</strong> billing name, address, GSTIN where needed, bank or UPI details for receiving or sending invoices, and payment references. We do not store full card numbers on our website. Card payments, if used, are handled by the payment partner named in your invoice or agreement</li>
       <li><strong>Project materials:</strong> credentials, content, customer lists, designs, source access and other materials you provide so we can deliver the work. We treat these as confidential under our engagement terms</li>
     </ul>
@@ -1954,7 +1944,6 @@ privacy = head(
     <ul>
       <li><strong>FormSubmit</strong> (formsubmit.co) receives contact-form submissions and emails them to {EMAIL}. Their processing is governed by FormSubmit's terms and privacy practices</li>
       <li><strong>Email providers</strong> that deliver and store business email</li>
-      <li><strong>WhatsApp / Meta</strong> when you choose to message us on WhatsApp. Your chat is also subject to WhatsApp's terms</li>
       <li><strong>Google Analytics / Google</strong> for site analytics as described above</li>
       <li><strong>Hosting and infrastructure</strong> such as GitHub Pages (or a successor host) that serves this static website</li>
       <li><strong>Professional advisers</strong> (for example accountants or lawyers) under confidentiality where needed</li>
@@ -1998,7 +1987,7 @@ privacy = head(
     <p>When we build software for you, you are typically the controller (or equivalent) of your end users' data. You must have a lawful basis and your own privacy notices for that product. We process such data only as needed to deliver the project, under your instructions and our confidentiality terms, unless a separate data processing agreement says otherwise.</p>
 
     <h2>14. Third-party links</h2>
-    <p>Our site may link to GitHub, WhatsApp, Google, FormSubmit and other services. Their privacy practices are their own. Read their policies before sharing data with them.</p>
+    <p>Our site may link to GitHub, Google, FormSubmit and other services. Their privacy practices are their own. Read their policies before sharing data with them.</p>
 
     <h2>15. Changes to this policy</h2>
     <p>We may update this page when our practices, tools or the law change. The "Last updated" date at the top will change. Continued use of the site after an update means you have read the revised notice. For material changes that affect existing clients, we may also notify the primary contact by email where practical.</p>
@@ -2008,7 +1997,6 @@ privacy = head(
     <ul>
       <li><strong>Email:</strong> <a href="mailto:{EMAIL}">{EMAIL}</a></li>
       <li><strong>Contact form:</strong> <a href="{rel(1)}contact/">{SITE}/contact/</a></li>
-      <li><strong>WhatsApp:</strong> the number linked from this website (same business line used for project chats)</li>
     </ul>
     <p>We aim to acknowledge and resolve grievances within 15 working days where reasonably possible. See also our <a href="{rel(1)}terms/">terms and conditions</a>.</p>
   </div></section>
@@ -2034,7 +2022,7 @@ terms = head(
   </div></section>
   <section class="section" style="padding-top:0"><div class="container prose prose-wide">
     <h2>1. Agreement to these terms</h2>
-    <p>By browsing this website, submitting the contact form, messaging us on WhatsApp or email, or engaging {BRAND} for services, you agree to these terms and our <a href="{rel(1)}privacy/">privacy policy</a>. If you do not agree, do not use the site or request services.</p>
+    <p>By browsing this website, submitting the contact form, emailing us, or engaging {BRAND} for services, you agree to these terms and our <a href="{rel(1)}privacy/">privacy policy</a>. If you do not agree, do not use the site or request services.</p>
     <p>If you act for a company, you confirm you are authorised to bind that company. "You" means the individual or the organisation you represent.</p>
 
     <h2>2. Who we are</h2>
@@ -2101,7 +2089,7 @@ terms = head(
 
     <h2>11. Warranties and disclaimers</h2>
     <p>We warrant that we will perform services with reasonable skill and care consistent with a professional software services firm in India. Except for that and any express written warranty in an SOW, the website and services are provided on an "as available" basis.</p>
-    <p>To the fullest extent Indian law allows, we disclaim implied warranties of merchantability, fitness for a particular purpose and non-infringement for marketing-site content and for outcomes that depend on third parties (hosting, stores, search engines, payment networks, WhatsApp, client-supplied data quality).</p>
+    <p>To the fullest extent Indian law allows, we disclaim implied warranties of merchantability, fitness for a particular purpose and non-infringement for marketing-site content and for outcomes that depend on third parties (hosting, stores, search engines, payment networks, client-supplied data quality).</p>
     <p>Browser and device differences, third-party API changes and platform policy changes can affect software after delivery. Support after the warranty or support window in the SOW is chargeable unless included.</p>
 
     <h2>12. Limitation of liability</h2>
@@ -2126,7 +2114,7 @@ terms = head(
     <p>Neither party is liable for delay or failure caused by events beyond reasonable control, including natural disasters, war, epidemics, major infrastructure failure, or changes in law. Obligations resume when the event ends. Either party may end a long-blocked engagement if the event continues beyond 60 days.</p>
 
     <h2>17. Third-party services</h2>
-    <p>The site uses FormSubmit for form delivery, Google Analytics for traffic measurement, Google Fonts for typography, GitHub Pages (or successor hosting) for hosting, and may deep-link to WhatsApp. Your use of those services is also subject to their terms. We are not responsible for outages or policy changes by those providers.</p>
+    <p>The site uses FormSubmit for form delivery, Google Analytics for traffic measurement, Google Fonts for typography, and GitHub Pages (or successor hosting) for hosting. Your use of those services is also subject to their terms. We are not responsible for outages or policy changes by those providers.</p>
 
     <h2>18. Electronic communications</h2>
     <p>You agree that quotes, acceptances, notices and invoices may be sent by email or other electronic means and that such records can form a binding record of agreement under Indian law.</p>

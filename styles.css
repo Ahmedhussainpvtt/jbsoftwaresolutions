@@ -1665,7 +1665,6 @@ html.js-ready .band-visual.is-in {
   font-weight: 800;
 }
 
-.dock-btn.whatsapp,
 .dock-btn.quote {
   width: 56px;
   min-width: 56px;
@@ -1674,14 +1673,6 @@ html.js-ready .band-visual.is-in {
   padding: 0;
   gap: 0;
   box-sizing: border-box;
-}
-
-.dock-btn.whatsapp {
-  background: linear-gradient(145deg, #25d366, #1ebe57) !important;
-  border: none;
-  color: #041018 !important;
-  -webkit-text-fill-color: #041018 !important;
-  box-shadow: 0 14px 36px rgba(37, 211, 102, 0.35);
 }
 
 .dock-btn.quote {
@@ -2051,8 +2042,7 @@ html.js-ready .band-visual.is-in {
   transform: translateY(0);
 }
 
-.sticky-dock .dock-btn.whatsapp { order: 1; }
-.sticky-dock .dock-btn.quote { order: 2; }
+.sticky-dock .dock-btn.quote { order: 1; }
 
 .back-to-top:hover {
   border-color: rgba(61, 255, 122, 0.55);
