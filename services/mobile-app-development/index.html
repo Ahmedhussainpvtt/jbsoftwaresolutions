@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../../styles.css?v=20261016i" />
+  <link rel="stylesheet" href="../../styles.css?v=20261016j" />
   <link rel="icon" href="../../assets/favicon.jpg" type="image/jpeg" />
   <link rel="apple-touch-icon" href="../../assets/logo-mark.png" />
   <meta property="og:type" content="website" />
@@ -124,44 +124,68 @@
     </a>
     <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">Menu</button>
     <ul class="nav-links">
-      <li><a href="../../#work">Work</a></li>
-      <li><a href="../../services/web-development/" class="is-active">Services</a></li>
-      <li><a href="../../services/seo-aeo-geo/">SEO / GEO</a></li>
+      <li class="has-dropdown">
+        <button type="button" class="nav-drop-toggle is-active" aria-expanded="false" aria-haspopup="true">Services <span class="nav-chev" aria-hidden="true"></span></button>
+        <ul class="nav-dropdown" role="menu"><li><a href="../../services/web-development/"><span class="nav-drop-title">Web development</span><span class="nav-drop-desc">Next.js sites and web apps</span></a></li>
+<li><a href="../../services/mobile-app-development/"><span class="nav-drop-title">Mobile apps</span><span class="nav-drop-desc">Flutter and React Native</span></a></li>
+<li><a href="../../services/custom-software/"><span class="nav-drop-title">Custom software</span><span class="nav-drop-desc">CRMs, ERPs, internal tools</span></a></li>
+<li><a href="../../services/seo-aeo-geo/"><span class="nav-drop-title">SEO, AEO and GEO</span><span class="nav-drop-desc">Google plus AI citations</span></a></li>
+<li><a href="../../services/ai-automation/"><span class="nav-drop-title">Workflow automation</span><span class="nav-drop-desc">Ops, CRM and lead flows</span></a></li>
+<li><a href="../../services/desktop-apps/"><span class="nav-drop-title">Desktop apps</span><span class="nav-drop-desc">Electron and Tauri</span></a></li></ul>
+      </li>
       <li><a href="../../pricing/">Pricing</a></li>
       <li><a href="../../about/">About</a></li>
-      <li><a href="../../contact/">Contact</a></li>
       <li><a class="nav-cta btn-magnet" href="../../contact/">Get a quote</a></li>
     </ul>
   </div>
 </header>
 
 <main>
-  <section class="page-hero">
-    <div class="container">
-      <div class="section-kicker">Services</div>
-      <h1>Mobile apps for Android and iOS</h1>
-      <p>Cross-platform Flutter and React Native apps, or native builds, from MVP to store launch with JB Software Solutions.</p>
-      <div class="hero-cta" style="margin-top:1.75rem">
-        <a class="btn btn-primary btn-magnet" href="../../contact/">Get a project quote</a>
-        <a class="btn btn-ghost btn-magnet" href="../../pricing/">View pricing</a>
+  <section class="page-hero service-hero">
+    <div class="container service-hero-grid">
+      <div class="service-hero-copy">
+        <div class="section-kicker">Services</div>
+        <h1>Mobile apps for Android and iOS</h1>
+        <p>Cross-platform Flutter and React Native apps, or native builds, from MVP to store launch with JB Software Solutions.</p>
+        <div class="hero-cta" style="margin-top:1.75rem">
+          <a class="btn btn-primary btn-magnet" href="../../contact/">Get a project quote</a>
+          <a class="btn btn-ghost btn-magnet" href="../../pricing/">View pricing</a>
+        </div>
+      </div>
+      <div class="service-hero-visual reveal">
+        <img src="../../assets/services/mobile.jpg" alt="Mobile app development for Android and iOS" width="960" height="640" loading="eager" />
       </div>
     </div>
   </section>
   <section class="section" style="padding-top:0">
-    <div class="container prose">
-      <h2>What you get</h2>
-      <ul>
-        <li>Flutter or React Native for shared Android and iOS codebases</li><li>Native modules when camera, Bluetooth or performance needs demand it</li><li>Play Store and App Store submission support</li><li>Push notifications, auth, payments and analytics integrations</li><li>Maintenance retainers after launch</li>
-      </ul>
-      <h2>Why this matters in 2026</h2>
-      <p>Buyers shortlist vendors on Google and inside AI assistants. A pretty UI without crawlable structure, schema, speed and proof pages will not get found. We build products and the discovery layer together.</p>
-      <h2>Engagement models</h2>
-      <ul>
-        <li>Fixed-scope projects with milestones</li>
-        <li>Time and materials for evolving products</li>
-        <li>Dedicated pod for ongoing delivery</li>
-        <li>Retainer for SEO, AEO, GEO and growth experiments</li>
-      </ul>
+    <div class="container service-split">
+      <div class="prose">
+        <h2>What you get</h2>
+        <ul>
+          <li>Flutter or React Native for shared Android and iOS codebases</li><li>Native modules when camera, Bluetooth or performance needs demand it</li><li>Play Store and App Store submission support</li><li>Push notifications, auth, payments and analytics integrations</li><li>Maintenance retainers after launch</li>
+        </ul>
+        <h2>Why this matters in 2026</h2>
+        <p>Buyers shortlist vendors on Google and inside AI assistants. A pretty UI without crawlable structure, schema, speed and proof pages will not get found. We build products and the discovery layer together.</p>
+        <h2>Engagement models</h2>
+        <ul>
+          <li>Fixed-scope projects with milestones</li>
+          <li>Time and materials for evolving products</li>
+          <li>Dedicated pod for ongoing delivery</li>
+          <li>Retainer for SEO, AEO, GEO and growth experiments</li>
+        </ul>
+      </div>
+      <aside class="service-aside reveal">
+        <div class="service-aside-card">
+          <img src="../../assets/services/mobile.jpg" alt="" width="640" height="360" loading="lazy" />
+          <h3>Ready to scope this?</h3>
+          <p>Share goals, links and budget range. We reply with fit, timeline and a clear quote path.</p>
+          <a class="btn btn-primary btn-magnet" href="../../contact/">Start a brief</a>
+        </div>
+        <div class="service-aside-card service-aside-list">
+          <h3>All services</h3>
+          <div class="service-chip-row"><a class="service-chip" href="../../services/web-development/">Web development</a><a class="service-chip" href="../../services/custom-software/">Custom software</a><a class="service-chip" href="../../services/seo-aeo-geo/">SEO, AEO and GEO</a><a class="service-chip" href="../../services/ai-automation/">Workflow automation</a><a class="service-chip" href="../../services/desktop-apps/">Desktop apps</a></div>
+        </div>
+      </aside>
     </div>
   </section>
   <section class="section">
@@ -215,7 +239,7 @@
   <a class="dock-btn quote" href="../../contact/" aria-label="Contact us">Contact</a>
 </div>
 
-<script src="../../main.js?v=20261016i" defer></script>
+<script src="../../main.js?v=20261016j" defer></script>
 </body>
 </html>
 

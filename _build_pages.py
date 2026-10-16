@@ -6,7 +6,16 @@ ROOT = Path(__file__).resolve().parent
 SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
-ASSET_V = "20261016i"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+ASSET_V = "20261016j"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+
+SERVICES = [
+    ("web-development", "Web development", "Next.js sites and web apps", "web.jpg"),
+    ("mobile-app-development", "Mobile apps", "Flutter and React Native", "mobile.jpg"),
+    ("custom-software", "Custom software", "CRMs, ERPs, internal tools", "custom.jpg"),
+    ("seo-aeo-geo", "SEO, AEO and GEO", "Google plus AI citations", "seo.jpg"),
+    ("ai-automation", "Workflow automation", "Ops, CRM and lead flows", "ai.jpg"),
+    ("desktop-apps", "Desktop apps", "Electron and Tauri", "desktop.jpg"),
+]
 
 
 def rel(depth: int) -> str:
@@ -95,6 +104,12 @@ def head(title, desc, keywords, path, depth, og_type="website", image="/assets/o
 
 def nav(depth, active=""):
     p = rel(depth)
+    services_on = ' is-active' if active == "services" else ""
+    drop_items = "\n".join(
+        f'<li><a href="{p}services/{slug}/"><span class="nav-drop-title">{label}</span>'
+        f'<span class="nav-drop-desc">{blurb}</span></a></li>'
+        for slug, label, blurb, _img in SERVICES
+    )
     def a(key, href, label):
         cls = ' class="is-active"' if active == key else ""
         return f'<li><a href="{p}{href}"{cls}>{label}</a></li>'
@@ -107,12 +122,12 @@ def nav(depth, active=""):
     </a>
     <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">Menu</button>
     <ul class="nav-links">
-      <li><a href="{p}#work">Work</a></li>
-      {a("services", "services/web-development/", "Services")}
-      {a("seo", "services/seo-aeo-geo/", "SEO / GEO")}
+      <li class="has-dropdown">
+        <button type="button" class="nav-drop-toggle{services_on}" aria-expanded="false" aria-haspopup="true">Services <span class="nav-chev" aria-hidden="true"></span></button>
+        <ul class="nav-dropdown" role="menu">{drop_items}</ul>
+      </li>
       {a("pricing", "pricing/", "Pricing")}
       {a("about", "about/", "About")}
-      {a("contact", "contact/", "Contact")}
       <li><a class="nav-cta btn-magnet" href="{p}contact/">Get a quote</a></li>
     </ul>
   </div>
@@ -812,43 +827,69 @@ home = head(
 write(ROOT / "index.html", home)
 
 
-def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=None):
+def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=None, image="web.jpg", image_alt=""):
     depth = 2
+    p = rel(depth)
     why_text = why or (
         "Buyers shortlist vendors on Google and inside AI assistants. "
         "A pretty UI without crawlable structure, schema, speed and proof pages will not get found. "
         "We build products and the discovery layer together."
     )
+    alt = image_alt or h1
+    other = "".join(
+        f'<a class="service-chip" href="{p}services/{s}/">{lab}</a>'
+        for s, lab, _b, _i in SERVICES
+        if s != slug
+    )
     body = head(title, desc, keywords, f"/services/{slug}/", depth) + f"""
 <body>
 {nav(depth, active)}
 <main>
-  <section class="page-hero">
-    <div class="container">
-      <div class="section-kicker">Services</div>
-      <h1>{h1}</h1>
-      <p>{desc}</p>
-      <div class="hero-cta" style="margin-top:1.75rem">
-        <a class="btn btn-primary btn-magnet" href="{rel(depth)}contact/">Get a project quote</a>
-        <a class="btn btn-ghost btn-magnet" href="{rel(depth)}pricing/">View pricing</a>
+  <section class="page-hero service-hero">
+    <div class="container service-hero-grid">
+      <div class="service-hero-copy">
+        <div class="section-kicker">Services</div>
+        <h1>{h1}</h1>
+        <p>{desc}</p>
+        <div class="hero-cta" style="margin-top:1.75rem">
+          <a class="btn btn-primary btn-magnet" href="{p}contact/">Get a project quote</a>
+          <a class="btn btn-ghost btn-magnet" href="{p}pricing/">View pricing</a>
+        </div>
+      </div>
+      <div class="service-hero-visual reveal">
+        <img src="{p}assets/services/{image}" alt="{alt}" width="960" height="640" loading="eager" />
       </div>
     </div>
   </section>
   <section class="section" style="padding-top:0">
-    <div class="container prose">
-      <h2>What you get</h2>
-      <ul>
-        {''.join(f'<li>{b}</li>' for b in bullets)}
-      </ul>
-      <h2>Why this matters in 2026</h2>
-      <p>{why_text}</p>
-      <h2>Engagement models</h2>
-      <ul>
-        <li>Fixed-scope projects with milestones</li>
-        <li>Time and materials for evolving products</li>
-        <li>Dedicated pod for ongoing delivery</li>
-        <li>Retainer for SEO, AEO, GEO and growth experiments</li>
-      </ul>
+    <div class="container service-split">
+      <div class="prose">
+        <h2>What you get</h2>
+        <ul>
+          {''.join(f'<li>{b}</li>' for b in bullets)}
+        </ul>
+        <h2>Why this matters in 2026</h2>
+        <p>{why_text}</p>
+        <h2>Engagement models</h2>
+        <ul>
+          <li>Fixed-scope projects with milestones</li>
+          <li>Time and materials for evolving products</li>
+          <li>Dedicated pod for ongoing delivery</li>
+          <li>Retainer for SEO, AEO, GEO and growth experiments</li>
+        </ul>
+      </div>
+      <aside class="service-aside reveal">
+        <div class="service-aside-card">
+          <img src="{p}assets/services/{image}" alt="" width="640" height="360" loading="lazy" />
+          <h3>Ready to scope this?</h3>
+          <p>Share goals, links and budget range. We reply with fit, timeline and a clear quote path.</p>
+          <a class="btn btn-primary btn-magnet" href="{p}contact/">Start a brief</a>
+        </div>
+        <div class="service-aside-card service-aside-list">
+          <h3>All services</h3>
+          <div class="service-chip-row">{other}</div>
+        </div>
+      </aside>
     </div>
   </section>
   <section class="section">
@@ -859,7 +900,7 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
       </div>
       <div class="cta-band reveal" style="margin-top:2rem">
         <div><h2>Talk through your brief</h2><p>Share goals and constraints. We come back with a clear plan.</p></div>
-        <a class="btn btn-primary btn-magnet" href="{rel(depth)}contact/">Contact JB Software Solutions</a>
+        <a class="btn btn-primary btn-magnet" href="{p}contact/">Contact JB Software Solutions</a>
       </div>
     </div>
   </section>
@@ -887,6 +928,8 @@ service_page(
         ("Can you redesign an existing site?", "Yes. We audit speed, SEO and conversion, then rebuild or iteratively improve without killing rankings."),
     ],
     "services",
+    image="web.jpg",
+    image_alt="Web development - modern websites and web apps",
 )
 
 service_page(
@@ -907,6 +950,8 @@ service_page(
         ("Do you build MVPs?", "Yes. Scoped MVPs in weeks, not quarters, with a clear path to v1.1."),
     ],
     "services",
+    image="mobile.jpg",
+    image_alt="Mobile app development for Android and iOS",
 )
 
 service_page(
@@ -927,6 +972,8 @@ service_page(
         ("Can you replace spreadsheets?", "That is a common brief. We turn spreadsheet chaos into a proper multi-user system."),
     ],
     "services",
+    image="custom.jpg",
+    image_alt="Custom software and business dashboards",
 )
 
 service_page(
@@ -946,7 +993,9 @@ service_page(
         ("What is GEO?", "Generative Engine Optimization is the practice of structuring your brand's proof and content so AI assistants cite you when answering buyer questions."),
         ("Do you do local SEO?", "Yes. Google Business Profile, local pages and citation hygiene for city-level intent."),
     ],
-    "seo",
+    "services",
+    image="seo.jpg",
+    image_alt="SEO AEO and GEO search visibility",
 )
 
 service_page(
@@ -967,12 +1016,14 @@ service_page(
         ("Will this replace my team?", "No. Automation removes repetitive work so your team focuses on decisions, sales and customer care."),
         ("What tools can you connect?", "Common CRMs, forms, email, sheets, chat tools, payment notifications and custom webhooks. We map your stack in discovery and automate the boring path between systems."),
     ],
-    "ai",
+    "services",
     why=(
         "Most businesses lose hours every week to copy-paste between forms, CRMs, WhatsApp and sheets. "
         "We map those paths and automate them so leads get followed up, ops stay visible, and your team stops chasing status. "
         "This is business process automation, not a custom AI research project."
     ),
+    image="ai.jpg",
+    image_alt="Business workflow and process automation",
 )
 
 service_page(
@@ -993,6 +1044,8 @@ service_page(
         ("Can you wrap our existing web app?", "Often yes. We harden cold start, native menus, signing and updates so it feels like a real desktop citizen."),
     ],
     "services",
+    image="desktop.jpg",
+    image_alt="Desktop application development",
 )
 
 # ---------- ABOUT ----------

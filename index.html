@@ -30,7 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261016i" />
+  <link rel="stylesheet" href="styles.css?v=20261016j" />
   <link rel="icon" href="assets/favicon.jpg" type="image/jpeg" />
   <link rel="apple-touch-icon" href="assets/logo-mark.png" />
   <meta property="og:type" content="website" />
@@ -176,12 +176,17 @@
     </a>
     <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">Menu</button>
     <ul class="nav-links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="services/web-development/">Services</a></li>
-      <li><a href="services/seo-aeo-geo/">SEO / GEO</a></li>
+      <li class="has-dropdown">
+        <button type="button" class="nav-drop-toggle" aria-expanded="false" aria-haspopup="true">Services <span class="nav-chev" aria-hidden="true"></span></button>
+        <ul class="nav-dropdown" role="menu"><li><a href="services/web-development/"><span class="nav-drop-title">Web development</span><span class="nav-drop-desc">Next.js sites and web apps</span></a></li>
+<li><a href="services/mobile-app-development/"><span class="nav-drop-title">Mobile apps</span><span class="nav-drop-desc">Flutter and React Native</span></a></li>
+<li><a href="services/custom-software/"><span class="nav-drop-title">Custom software</span><span class="nav-drop-desc">CRMs, ERPs, internal tools</span></a></li>
+<li><a href="services/seo-aeo-geo/"><span class="nav-drop-title">SEO, AEO and GEO</span><span class="nav-drop-desc">Google plus AI citations</span></a></li>
+<li><a href="services/ai-automation/"><span class="nav-drop-title">Workflow automation</span><span class="nav-drop-desc">Ops, CRM and lead flows</span></a></li>
+<li><a href="services/desktop-apps/"><span class="nav-drop-title">Desktop apps</span><span class="nav-drop-desc">Electron and Tauri</span></a></li></ul>
+      </li>
       <li><a href="pricing/">Pricing</a></li>
       <li><a href="about/">About</a></li>
-      <li><a href="contact/">Contact</a></li>
       <li><a class="nav-cta btn-magnet" href="contact/">Get a quote</a></li>
     </ul>
   </div>
@@ -772,7 +777,7 @@
   <a class="dock-btn quote" href="contact/" aria-label="Contact us">Contact</a>
 </div>
 
-<script src="main.js?v=20261016i" defer></script>
+<script src="main.js?v=20261016j" defer></script>
 </body>
 </html>
 
