@@ -467,7 +467,7 @@ a.nav-cta {
   font-size: clamp(1.85rem, 3.6vw, 2.85rem);
   line-height: 1.08;
   letter-spacing: -0.03em;
-  max-width: 16ch;
+  max-width: 22ch;
   margin: 0 0 0.85rem;
   font-weight: 800;
 }
@@ -2722,7 +2722,7 @@ body::after {
     padding: 2.5rem 0 3rem;
   }
   .hero-title {
-    max-width: 14ch;
+    max-width: none;
   }
   .hero-cta {
     margin-bottom: 0.25rem;
