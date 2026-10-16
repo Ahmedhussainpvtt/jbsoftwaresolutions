@@ -352,17 +352,17 @@ a.nav-cta {
 /* ---------- HERO ---------- */
 .hero {
   position: relative;
-  min-height: calc(100svh - var(--header-h));
+  min-height: 0;
   display: grid;
   align-items: center;
-  padding: 3rem 0 4rem;
+  padding: 2rem 0 2.5rem;
   overflow: clip;
 }
 
 @media (max-height: 760px) {
   .hero {
     min-height: auto;
-    padding: 2.5rem 0 3rem;
+    padding: 1.75rem 0 2rem;
   }
 }
 
@@ -438,7 +438,7 @@ a.nav-cta {
 .hero-layout {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
-  gap: 2rem 2.5rem;
+  gap: 1.35rem 2rem;
   align-items: center;
 }
 
@@ -464,11 +464,11 @@ a.nav-cta {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 3.6vw, 2.85rem);
-  line-height: 1.08;
+  font-size: clamp(1.45rem, 2.8vw, 2.15rem);
+  line-height: 1.12;
   letter-spacing: -0.03em;
   max-width: 22ch;
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.7rem;
   font-weight: 800;
 }
 
@@ -494,8 +494,8 @@ a.nav-cta {
 .hero-sub {
   max-width: 34rem;
   color: var(--muted);
-  font-size: 1rem;
-  margin: 0 0 1.35rem;
+  font-size: 0.95rem;
+  margin: 0 0 1.1rem;
 }
 
 .hero-cta {
@@ -558,11 +558,11 @@ a.nav-cta {
   background: linear-gradient(180deg, rgba(14, 20, 36, 0.92), rgba(7, 10, 20, 0.96));
   border: 1px solid var(--line);
   border-radius: 22px;
-  padding: 1.05rem 1.15rem 1.25rem;
+  padding: 0.9rem 1rem 1.05rem;
   box-shadow: var(--shadow);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.84rem;
-  min-height: 220px;
+  font-size: 0.8rem;
+  min-height: 170px;
   backdrop-filter: blur(10px);
 }
 
@@ -637,13 +637,13 @@ a.nav-cta {
 
 /* ---------- MANIFESTO + WORK RAIL (agency craft) ---------- */
 .manifesto {
-  padding-top: 2.75rem;
-  padding-bottom: 2.75rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .manifesto-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-size: clamp(1.55rem, 3.4vw, 2.45rem);
   line-height: 1.05;
   letter-spacing: -0.035em;
   max-width: 16ch;
@@ -788,9 +788,9 @@ a.nav-cta {
 .work-card h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
   letter-spacing: -0.025em;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .work-challenge,
@@ -965,9 +965,9 @@ a.nav-cta {
 .bento-tile h3 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
   letter-spacing: -0.03em;
-  line-height: 1.15;
+  line-height: 1.2;
 }
 
 .bento-tile p {
@@ -1122,7 +1122,7 @@ a.nav-cta {
 }
 
 .section {
-  padding: 3.25rem 0;
+  padding: 2.5rem 0;
   position: relative;
 }
 
@@ -1140,11 +1140,11 @@ a.nav-cta {
 
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 4.2vw, 3.15rem);
-  letter-spacing: -0.035em;
-  line-height: 1.02;
-  margin: 0 0 0.9rem;
-  max-width: 16ch;
+  font-size: clamp(1.45rem, 3vw, 2.25rem);
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  margin: 0 0 0.75rem;
+  max-width: 20ch;
   position: relative;
 }
 
@@ -1180,8 +1180,8 @@ a.nav-cta {
 
 .service-band h3 {
   font-family: var(--font-display);
-  font-size: clamp(1.45rem, 3vw, 2.05rem);
-  margin: 0 0 0.65rem;
+  font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+  margin: 0 0 0.55rem;
   letter-spacing: -0.025em;
 }
 
@@ -1421,8 +1421,8 @@ html.js-ready .band-visual.is-in {
 
 .cta-band h2 {
   font-family: var(--font-display);
-  font-size: clamp(1.65rem, 3vw, 2.35rem);
-  margin: 0 0 0.4rem;
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  margin: 0 0 0.35rem;
   letter-spacing: -0.03em;
 }
 
@@ -1862,8 +1862,8 @@ html.js-ready .band-visual.is-in {
 .service-feature-copy h2 {
   font-family: var(--font-display);
   letter-spacing: -0.03em;
-  margin: 0 0 0.85rem;
-  font-size: clamp(1.45rem, 2.4vw, 2rem);
+  margin: 0 0 0.7rem;
+  font-size: clamp(1.2rem, 2vw, 1.55rem);
 }
 
 .service-feature-copy p {
@@ -2057,7 +2057,7 @@ html.js-ready .band-visual.is-in {
 /* ---------- PAGE HERO ---------- */
 .page-hero {
   position: relative;
-  padding: 3rem 0 1.75rem;
+  padding: 2.25rem 0 1.35rem;
   overflow: clip;
 }
 
@@ -2088,11 +2088,11 @@ html.js-ready .band-visual.is-in {
 
 .page-hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(1.7rem, 3.4vw, 2.55rem);
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
   letter-spacing: -0.03em;
-  line-height: 1.12;
-  margin: 0 0 0.85rem;
-  max-width: 22ch;
+  line-height: 1.15;
+  margin: 0 0 0.7rem;
+  max-width: 24ch;
   font-weight: 800;
 }
 
@@ -2121,7 +2121,8 @@ html.js-ready .band-visual.is-in {
 .prose h2 {
   font-family: var(--font-display);
   letter-spacing: -0.02em;
-  margin: 2rem 0 0.75rem;
+  margin: 1.6rem 0 0.65rem;
+  font-size: 1.25rem;
 }
 
 .prose p,
@@ -2709,7 +2710,7 @@ body::after {
   }
   .hero {
     min-height: auto;
-    padding: 2.5rem 0 3rem;
+    padding: 1.5rem 0 2rem;
   }
   .hero-title {
     max-width: none;
