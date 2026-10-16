@@ -1666,6 +1666,11 @@ html.js-ready .band-visual.is-in {
 }
 
 .dock-btn.whatsapp {
+  width: 56px;
+  min-width: 56px;
+  height: 56px;
+  padding: 0;
+  gap: 0;
   background: linear-gradient(145deg, #25d366, #1ebe57) !important;
   border: none;
   color: #041018 !important;
