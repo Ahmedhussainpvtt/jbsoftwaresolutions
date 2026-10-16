@@ -1725,6 +1725,127 @@ html.js-ready .band-visual.is-in {
   align-items: start;
 }
 
+.service-body {
+  max-width: none;
+  width: 100%;
+  text-align: left;
+}
+
+.service-body h2 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  margin: 2rem 0 0.75rem;
+  max-width: none;
+}
+
+.service-body p,
+.service-body li {
+  color: var(--muted);
+  max-width: none;
+}
+
+.service-body ul,
+.service-body ol {
+  padding-left: 1.2rem;
+}
+
+.service-body a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.service-offer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.service-offer {
+  padding: 1.25rem 1.35rem;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+}
+
+.service-offer h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  font-size: 1.15rem;
+}
+
+.service-offer p,
+.service-offer li {
+  color: var(--muted);
+  margin: 0;
+}
+
+.service-offer ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.service-offer-cta .btn {
+  justify-self: start;
+}
+
+.service-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.service-feature.is-reverse .service-feature-grid {
+  direction: rtl;
+}
+
+.service-feature.is-reverse .service-feature-grid > * {
+  direction: ltr;
+}
+
+.service-feature-media {
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  background: var(--surface);
+}
+
+.service-feature-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.service-feature-copy .section-kicker {
+  margin-bottom: 0.65rem;
+}
+
+.service-feature-copy h2 {
+  font-family: var(--font-display);
+  letter-spacing: -0.03em;
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+}
+
+.service-feature-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  max-width: none;
+}
+
 .service-aside {
   display: grid;
   gap: 1rem;
@@ -2516,8 +2637,13 @@ body::after {
     inset: 0.35rem 0 0;
   }
   .service-hero-grid,
-  .service-split {
+  .service-split,
+  .service-feature-grid,
+  .service-offer-grid {
     grid-template-columns: 1fr;
+  }
+  .service-feature.is-reverse .service-feature-grid {
+    direction: ltr;
   }
   .service-aside {
     position: static;

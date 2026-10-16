@@ -1,19 +1,30 @@
 # -*- coding: utf-8 -*-
 """Generate JB Software Solutions static site pages."""
 import json
+import re
 from pathlib import Path
 
 from _faq_bank import all_faq_topics, count_faqs
 from _service_bodies import bodies as service_bodies
+from _service_features import features as service_features
 
 ROOT = Path(__file__).resolve().parent
 SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
 WHATSAPP_PHONE = "919381107468"  # E.164 without +
-ASSET_V = "20261016s"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+ASSET_V = "20261016t"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
 SERVICE_BODIES = service_bodies()
+SERVICE_FEATURES = service_features()
 WA_TEXT = "Hi%20JB%20Software%20Solutions%2C%20I%20want%20to%20discuss%20a%20project."
+LEGACY_IMG = {
+    "web-development": "web.jpg",
+    "mobile-app-development": "mobile.jpg",
+    "custom-software": "custom.jpg",
+    "seo-aeo-geo": "seo.jpg",
+    "ai-automation": "ai.jpg",
+    "desktop-apps": "desktop.jpg",
+}
 
 SERVICES = [
     ("web-development", "Website development", "Business sites that get enquiries", "web-hero.jpg"),
@@ -853,6 +864,12 @@ home = head(
 write(ROOT / "index.html", home)
 
 
+def _resolve_feature_img(slug, imgs, key):
+    if key == "legacy":
+        return LEGACY_IMG.get(slug, imgs.get("hero", "web-hero.jpg"))
+    return imgs.get(key, imgs.get("hero", "web-hero.jpg"))
+
+
 def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=None, image="web-hero.jpg", image_alt="", extra_html=""):
     depth = 2
     p = rel(depth)
@@ -864,12 +881,35 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
     alt = image_alt or h1
     imgs = SERVICE_IMG.get(slug, {"hero": image, "aside": image, "mid": image, "deep": image})
     hero_img = imgs["hero"]
-    aside_img = imgs["aside"]
-    mid_img = imgs["mid"]
-    deep_img = imgs["deep"]
     long_body = (extra_html or SERVICE_BODIES.get(slug, "")).replace("{P}", p)
-    long_body = long_body.replace("{IMG_MID}", f"{p}assets/services/{mid_img}")
-    long_body = long_body.replace("{IMG_DEEP}", f"{p}assets/services/{deep_img}")
+    # Images live in feature rows; strip leftover figure placeholders from long copy
+    long_body = long_body.replace("{IMG_MID}", "").replace("{IMG_DEEP}", "")
+    long_body = re.sub(
+        r'<figure class="service-figure">\s*<img[^>]*>\s*</figure>',
+        "",
+        long_body,
+        flags=re.I,
+    )
+
+    feat_rows = []
+    for i, feat in enumerate(SERVICE_FEATURES.get(slug, [])):
+        img_file = _resolve_feature_img(slug, imgs, feat["img"])
+        reverse = " is-reverse" if i % 2 == 1 else ""
+        feat_rows.append(f"""
+  <section class="section service-feature{reverse}">
+    <div class="container service-feature-grid">
+      <div class="service-feature-media reveal">
+        <img src="{p}assets/services/{img_file}" alt="{feat['title']}" width="960" height="640" loading="lazy" />
+      </div>
+      <div class="service-feature-copy reveal">
+        <div class="section-kicker">How we work</div>
+        <h2>{feat['title']}</h2>
+        <p>{feat['text']}</p>
+      </div>
+    </div>
+  </section>""")
+    features_html = "".join(feat_rows)
+
     other = "".join(
         f'<a class="service-chip" href="{p}services/{s}/">{lab}</a>'
         for s, lab, _b, _i in SERVICES
@@ -896,39 +936,39 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
     </div>
   </section>
   <section class="section" style="padding-top:0">
-    <div class="container service-split">
-      <div class="prose">
-        <h2>What you get</h2>
-        <ul>
-          {''.join(f'<li>{b}</li>' for b in bullets)}
-        </ul>
-        <h2>Why this matters in 2026</h2>
-        <p>{why_text}</p>
-        <h2>Engagement models</h2>
-        <ul>
-          <li>Fixed-scope projects with milestones</li>
-          <li>Time and materials for evolving products</li>
-          <li>Dedicated pod for ongoing delivery</li>
-          <li>Retainer for SEO, AEO, GEO and growth experiments</li>
-        </ul>
-      </div>
-      <aside class="service-aside reveal">
-        <div class="service-aside-card">
-          <img src="{p}assets/services/{aside_img}" alt="{alt} - project detail" width="640" height="360" loading="lazy" />
+    <div class="container">
+      <div class="section-kicker reveal">What you get</div>
+      <h2 class="section-title reveal">{h1}</h2>
+      <p class="section-sub reveal">{why_text}</p>
+      <div class="service-offer-grid">
+        <div class="service-offer reveal">
+          <h3>Included in this service</h3>
+          <ul>
+            {''.join(f'<li>{b}</li>' for b in bullets)}
+          </ul>
+        </div>
+        <div class="service-offer reveal">
+          <h3>How engagements run</h3>
+          <ul>
+            <li>Fixed-scope projects with milestones</li>
+            <li>Time and materials for evolving products</li>
+            <li>Dedicated pod for ongoing delivery</li>
+            <li>Retainer for SEO, AEO, GEO and growth experiments</li>
+          </ul>
+        </div>
+        <div class="service-offer service-offer-cta reveal">
           <h3>Ready to scope this?</h3>
           <p>Share goals, links and budget range. We reply with fit, timeline and a clear quote path.</p>
           <a class="btn btn-primary btn-magnet" href="{p}contact/">Start a brief</a>
           <a class="btn btn-ghost btn-magnet" href="https://wa.me/{WHATSAPP_PHONE}?text={WA_TEXT}" target="_blank" rel="noopener noreferrer">WhatsApp us</a>
+          <div class="service-chip-row" style="margin-top:1rem">{other}</div>
         </div>
-        <div class="service-aside-card service-aside-list">
-          <h3>All services</h3>
-          <div class="service-chip-row">{other}</div>
-        </div>
-      </aside>
+      </div>
     </div>
   </section>
+{features_html}
   <section class="section" id="deep-dive">
-    <div class="container prose prose-wide">
+    <div class="container service-body">
       {long_body}
     </div>
   </section>
