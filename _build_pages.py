@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parent
 SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
-ASSET_V = "20261016z"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+ASSET_V = "20261017a"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
 SERVICE_BODIES = service_bodies()
 SERVICE_FEATURES = service_features()
 LEGACY_IMG = {
@@ -61,7 +61,7 @@ def head(title, desc, keywords, path, depth, og_type="website", image="/assets/o
 <html lang="en-IN">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>{title}</title>
   <meta name="description" content="{desc}" />
   <meta name="keywords" content="{keywords}" />

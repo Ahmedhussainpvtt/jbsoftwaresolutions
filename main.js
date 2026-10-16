@@ -114,6 +114,19 @@
     document.body.prepend(bar);
   }
 
+  function syncDockViewportPad(dock) {
+    if (!dock) return;
+    const vv = window.visualViewport;
+    if (!vv) {
+      dock.style.setProperty("--dock-vv-pad", "0px");
+      return;
+    }
+    // When the mobile browser chrome eats the bottom of the layout viewport,
+    // lift the dock so Contact / Top stay fully on screen on first paint.
+    const gap = Math.max(0, Math.round(window.innerHeight - (vv.height + vv.offsetTop)));
+    dock.style.setProperty("--dock-vv-pad", `${gap}px`);
+  }
+
   function initBackToTop() {
     if (document.querySelector(".back-to-top")) return;
     let dock = document.querySelector(".sticky-dock");
@@ -128,16 +141,23 @@
     btn.className = "back-to-top";
     btn.setAttribute("aria-label", "Back to top");
     btn.innerHTML = '<span aria-hidden="true">↑</span><span class="back-to-top-label">Top</span>';
-    // Keep WhatsApp + Contact above; Top sits at the bottom of the stack on scroll
-    dock.appendChild(btn);
+    // Top above Contact (Contact stays nearest the bottom edge)
+    dock.insertBefore(btn, dock.firstChild);
 
     const toggle = () => {
       const show = window.scrollY > 420;
       btn.classList.toggle("is-visible", show);
       dock.classList.toggle("has-top", show);
+      syncDockViewportPad(dock);
     };
     toggle();
+    syncDockViewportPad(dock);
     window.addEventListener("scroll", toggle, { passive: true });
+    window.addEventListener("resize", () => syncDockViewportPad(dock));
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", () => syncDockViewportPad(dock));
+      window.visualViewport.addEventListener("scroll", () => syncDockViewportPad(dock));
+    }
     btn.addEventListener("click", () => {
       window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
     });
