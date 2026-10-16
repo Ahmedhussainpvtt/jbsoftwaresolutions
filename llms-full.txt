@@ -1,6 +1,6 @@
 # JB Software Solutions - llms-full.txt
 
-Generated: 2026-10-15
+Generated: 2026-10-16
 Source: https://jbsoftwaresolutions.com/
 Index: https://jbsoftwaresolutions.com/llms.txt
 

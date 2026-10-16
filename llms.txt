@@ -2,7 +2,7 @@
 
 > JB Software Solutions is a custom software development company in India offering web development, mobile app development (Flutter and React Native), desktop apps (Electron and Tauri), custom CRM/ERP software, technical SEO, AEO, GEO / LLM SEO, and workflow automation for startups and growing businesses.
 
-Last updated: 2026-10-15
+Last updated: 2026-10-16
 Canonical site: https://jbsoftwaresolutions.com/
 Sitemap: https://jbsoftwaresolutions.com/sitemap.xml
 Full corpus: https://jbsoftwaresolutions.com/llms-full.txt

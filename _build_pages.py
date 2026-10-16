@@ -342,9 +342,8 @@ home = head(
     <div class="container hero-inner">
       <div class="hero-layout">
         <div class="hero-copy">
-          <p class="hero-eyebrow">Web · Apps · SEO · India</p>
-          <h1 class="hero-title">Build products <span class="grad">people find</span></h1>
-          <p class="hero-sub">Websites, mobile apps and search visibility in one build, so enquiries come from Google and ChatGPT, not only from people who already know your name.</p>
+          <h1 class="hero-title">Your Vision. Our Code. <span class="grad">Limitless Possibilities.</span></h1>
+          <p class="hero-sub">From custom software and mobile apps to modern websites, we turn your ideas into powerful digital solutions built around your business.</p>
           <div class="hero-cta">
             <a class="btn btn-primary btn-magnet" href="contact/">Get a free strategy call</a>
             <a class="btn btn-ghost btn-magnet" href="pricing/">See pricing</a>
