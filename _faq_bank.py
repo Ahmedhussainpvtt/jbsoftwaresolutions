@@ -586,6 +586,118 @@ def _topics():
             ("Where should I start?", "Fix technical basics, publish clear service pages and FAQs, then expand content clusters."),
         ],
     )
+    add(
+        "web-app-vs-website",
+        "Website vs web app",
+        "Plain explanation of website vs web app so buyers choose the right project.",
+        [
+            ("What is a website?", "A website mostly informs and captures enquiries: home, services, about, contact."),
+            ("What is a web app?", "A web app is a product people log into and use: dashboards, portals, workflows."),
+            ("Which do I need?", "If visitors mainly read and contact you, start with a website. If staff or customers must work inside the product daily, you need a web app."),
+            ("Can a website become a web app later?", "Often yes, if the first build was structured cleanly. We plan for that when useful."),
+            ("Is a landing page a website?", "A landing page is usually one focused campaign page. A business website covers multiple offers and trust pages."),
+        ],
+    )
+    add(
+        "how-long-to-build-an-app",
+        "How long does it take to build an app?",
+        "Realistic timelines for mobile apps and web apps from JB Software Solutions.",
+        [
+            ("How long for a mobile app?", "A focused first mobile app is often about 8 to 12 weeks."),
+            ("How long for a web app first version?", "Many focused web apps land in about 2 to 6 weeks when the first user journey is clear."),
+            ("What slows projects down?", "Unclear decisions, missing content, late payment gateway details and changing scope mid-build."),
+            ("Can you go faster?", "Sometimes, if scope is tiny and decisions are same-day. Speed without clarity usually costs more later."),
+        ],
+    )
+    add(
+        "hire-software-company-india",
+        "How do I hire a software company in India?",
+        "A practical checklist for hiring an India software development company without getting lost in jargon.",
+        [
+            ("What should I send in the first message?", "Goals, links, must-have features, timeline and budget range."),
+            ("What should a good agency send back?", "Fit check, rough approach, timeline and a path to a written quote."),
+            (f"Why choose {BRAND}?", "Small team access, written scope, and build plus visibility under one roof."),
+            ("Fixed price or dedicated team?", "Fixed or phased quotes fit clear builds. Dedicated pods fit ongoing roadmaps."),
+            ("Should I compare only hourly rates?", "No. Compare inclusions, ownership, demos and who you actually talk to."),
+        ],
+    )
+    add(
+        "desktop-app-when-needed",
+        "When do I need a desktop app instead of a website?",
+        "When a desktop app is the right choice for offline work, devices or locked-down offices.",
+        [
+            ("When is a desktop app better?", "Offline work, special devices, heavy local files, or offices where browsers are limited."),
+            ("Can a website become a desktop app?", "Often yes. We can package a product as installable software with updates."),
+            (f"Does {BRAND} build desktop apps?", "Yes. See our desktop app development service for computer-installed software."),
+            ("Windows only or Mac too?", "Windows is the common first target. Mac is available when scoped."),
+        ],
+    )
+    add(
+        "mvp-meaning-for-founders",
+        "What does MVP mean for founders?",
+        "A plain-language FAQ on MVP meaning, scope and launch planning for Indian startups.",
+        [
+            ("What does MVP mean?", "Minimum viable product: the smallest first version that can teach you from real users."),
+            ("What should an MVP include?", "One main journey done well, tracking, and a plan for what comes next."),
+            (f"How does {BRAND} keep MVPs small?", "We cut nice-to-haves, write scope before build, and ship weekly progress."),
+            ("Is MVP the same as a prototype?", "No. A prototype tests ideas. An MVP is a usable product with real users."),
+        ],
+    )
+    add(
+        "who-owns-the-code",
+        "Who owns the code after a software project?",
+        "Clear FAQ on software IP ownership and handover with JB Software Solutions.",
+        [
+            ("Who owns the code?", "For client projects, you own the work we create for you under the contract."),
+            ("What is handed over?", "Source, key assets and docs needed to keep running or extend the product."),
+            ("Are there lock-ins?", "We do not hold your product hostage. Ownership and access are agreed in writing."),
+            ("Do you keep a copy?", "Working copies during delivery are normal. Commercial IP for client work is yours as contracted."),
+        ],
+    )
+    add(
+        "seo-retainer-india",
+        "How much is an SEO retainer in India?",
+        "Monthly SEO and visibility pricing guidance from JB Software Solutions.",
+        [
+            ("How much is SEO per month?", f"At {BRAND}, SEO and visibility retainers often start from ₹25,000 per month."),
+            ("What happens each month?", "Technical fixes, content for buyer questions, and checks on search and AI mentions."),
+            ("Is SEO only for big brands?", "No. Clear service pages and steady content help small India businesses too."),
+            ("Do you guarantee rankings?", "No honest SEO company can. We commit to process, reporting and compounding improvements."),
+        ],
+    )
+    add(
+        "startup-first-product",
+        "What should a startup build first: website, web app or mobile app?",
+        "Help choosing the first digital product for an India startup with limited budget.",
+        [
+            ("When to start with a website?", "When you need trust, clarity and enquiries before a full product."),
+            ("When to start with a web app?", "When users must log in and complete a core workflow online."),
+            ("When to start with a mobile app?", "When the journey is clearly phone-first and store presence matters for your users."),
+            ("Can we start tiny?", "Yes. A focused first slice beats a bloated launch that never ships."),
+        ],
+    )
+    add(
+        "workflow-automation-faq",
+        "What is workflow automation for a business?",
+        "FAQ on business workflow automation: leads, follow-ups, approvals and tool connections.",
+        [
+            ("What is workflow automation?", "Rules and connections that move work between tools without manual copy-paste."),
+            ("What can be automated?", "Lead capture, follow-ups, reminders, approvals, status updates and CRM logging."),
+            ("Will automation replace my team?", "No. It removes repetitive work so people focus on decisions and customers."),
+            ("Where should I automate first?", "The path that loses the most leads or burns the most hours every week."),
+        ],
+    )
+    add(
+        "ai-search-visibility",
+        "How can my business show up in ChatGPT and AI search?",
+        "Practical FAQ on getting cited by AI assistants through clear pages and proof.",
+        [
+            ("How do AI tools decide what to mention?", "They lean on clear, consistent, crawlable facts about who you are and what you offer."),
+            ("What should I publish?", "Service pages, FAQs, glossary definitions, pricing guidance and proof of how you work."),
+            (f"Can {BRAND} help?", "Yes. We build the product and the citation-friendly pages together."),
+            ("Is this the same as paid ads?", "No. This is organic visibility and citation readiness, not ad spend."),
+        ],
+    )
 
     # Programmatic expansions for volume with unique, useful Q&As
     services = [
