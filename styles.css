@@ -653,8 +653,8 @@ a.nav-cta {
 
 /* ---------- MANIFESTO + WORK RAIL (agency craft) ---------- */
 .manifesto {
-  padding-top: 4.5rem;
-  padding-bottom: 4.5rem;
+  padding-top: 2.75rem;
+  padding-bottom: 2.75rem;
 }
 
 .manifesto-title {
@@ -1138,7 +1138,7 @@ a.nav-cta {
 }
 
 .section {
-  padding: 5.75rem 0;
+  padding: 3.25rem 0;
   position: relative;
 }
 
@@ -1178,15 +1178,15 @@ a.nav-cta {
 .section-sub {
   color: var(--muted);
   max-width: 40rem;
-  margin: 0 0 2.5rem;
+  margin: 0 0 1.5rem;
 }
 
 .service-band {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
-  gap: 1.75rem;
+  gap: 1.35rem;
   align-items: center;
-  padding: 2rem 0;
+  padding: 1.35rem 0;
   border-top: 1px solid var(--line);
 }
 
@@ -1584,7 +1584,7 @@ html.js-ready .band-visual.is-in {
 
 .footer {
   border-top: 1px solid var(--line);
-  padding: 3.25rem 0 7rem;
+  padding: 2.5rem 0 6rem;
   color: var(--muted);
   background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.25));
 }
@@ -1866,7 +1866,7 @@ html.js-ready .band-visual.is-in {
 /* ---------- PAGE HERO ---------- */
 .page-hero {
   position: relative;
-  padding: 4.5rem 0 2.75rem;
+  padding: 3rem 0 1.75rem;
   overflow: clip;
 }
 

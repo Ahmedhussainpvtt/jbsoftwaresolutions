@@ -1222,16 +1222,19 @@
 
   function initSectionSpy() {
     const ids = ["work", "capabilities", "services", "pricing-teaser", "market"];
-    const present = ids.filter((id) => document.getElementById(id));
+    const present = ids
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
     if (present.length < 2) return;
+
     const spy = document.createElement("nav");
     spy.className = "section-spy";
     spy.setAttribute("aria-label", "Section navigation");
-    present.forEach((id) => {
+    present.forEach((el) => {
       const a = document.createElement("a");
-      a.href = `#${id}`;
-      a.title = id;
-      a.dataset.spy = id;
+      a.href = `#${el.id}`;
+      a.title = el.id;
+      a.dataset.spy = el.id;
       spy.appendChild(a);
     });
     document.body.appendChild(spy);
@@ -1240,22 +1243,24 @@
     const setActive = (id) => {
       links.forEach((a) => a.classList.toggle("is-active", a.dataset.spy === id));
     };
-    setActive(present[0]);
 
-    if ("IntersectionObserver" in window) {
-      const io = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) setActive(entry.target.id);
-          });
-        },
-        { rootMargin: "-40% 0px -50% 0px", threshold: 0.01 }
-      );
-      present.forEach((id) => {
-        const el = document.getElementById(id);
-        if (el) io.observe(el);
+    const pickActive = () => {
+      const marker = window.innerHeight * 0.35;
+      let current = present[0].id;
+      present.forEach((el) => {
+        const top = el.getBoundingClientRect().top;
+        if (top <= marker) current = el.id;
       });
-    }
+      // Near page bottom: lock to last section
+      const doc = document.documentElement;
+      const nearBottom = window.scrollY + window.innerHeight >= doc.scrollHeight - 80;
+      if (nearBottom) current = present[present.length - 1].id;
+      setActive(current);
+    };
+
+    pickActive();
+    window.addEventListener("scroll", pickActive, { passive: true });
+    window.addEventListener("resize", pickActive);
   }
 
   if (document.readyState === "loading") {
