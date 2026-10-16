@@ -1615,23 +1615,31 @@ html.js-ready .band-visual.is-in {
   z-index: 120;
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   gap: 0.65rem;
-  transition: opacity 0.25s ease, transform 0.3s var(--ease-out), visibility 0.25s;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition: opacity 0.2s ease, transform 0.25s var(--ease-out), visibility 0.2s;
 }
 
 .sticky-dock.is-obscured {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(14px);
+  transform: translateY(10px);
 }
 
 .dock-btn {
-  width: 56px;
+  width: auto;
+  min-width: 56px;
   height: 56px;
+  padding: 0 1rem;
   border-radius: 18px;
-  display: grid;
-  place-items: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
   border: 1px solid var(--line);
   background: var(--glass);
   backdrop-filter: blur(12px);
@@ -1646,10 +1654,26 @@ html.js-ready .band-visual.is-in {
     scale(var(--stretch-x, 1), var(--stretch-y, 1));
 }
 
+.dock-btn .dock-ico {
+  display: grid;
+  place-items: center;
+  line-height: 0;
+}
+
+.dock-btn .dock-label {
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.dock-btn.whatsapp {
+  background: linear-gradient(145deg, #25d366, #1ebe57) !important;
+  border: none;
+  color: #041018 !important;
+  -webkit-text-fill-color: #041018 !important;
+  box-shadow: 0 14px 36px rgba(37, 211, 102, 0.35);
+}
+
 .dock-btn.quote {
-  width: auto;
-  min-width: 56px;
-  padding: 0 1.1rem;
   background: linear-gradient(145deg, #3dff7a, #b8ff4a) !important;
   border: none;
   color: #041018 !important;
@@ -1717,6 +1741,31 @@ html.js-ready .band-visual.is-in {
   border-radius: 14px;
   aspect-ratio: 16 / 10;
   object-fit: cover;
+}
+
+.service-figure {
+  margin: 1.75rem 0;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.service-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.service-deep-visual .service-figure {
+  margin-top: 0;
+}
+
+.prose-wide .service-figure {
+  max-width: 100%;
 }
 
 .service-aside-card h3 {
@@ -1801,7 +1850,7 @@ html.js-ready .band-visual.is-in {
   width: 56px;
   height: 56px;
   border-radius: 18px;
-  display: grid;
+  display: none;
   place-items: center;
   gap: 0;
   border: 1px solid var(--line-strong);
@@ -1817,6 +1866,7 @@ html.js-ready .band-visual.is-in {
   font-family: var(--font-display);
   font-weight: 800;
   line-height: 1;
+  order: 3;
 }
 
 .back-to-top span[aria-hidden="true"] {
@@ -1832,10 +1882,14 @@ html.js-ready .band-visual.is-in {
 }
 
 .back-to-top.is-visible {
+  display: grid;
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
 }
+
+.sticky-dock .dock-btn.whatsapp { order: 1; }
+.sticky-dock .dock-btn.quote { order: 2; }
 
 .back-to-top:hover {
   border-color: rgba(61, 255, 122, 0.55);

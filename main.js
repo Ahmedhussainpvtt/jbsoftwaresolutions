@@ -128,10 +128,13 @@
     btn.className = "back-to-top";
     btn.setAttribute("aria-label", "Back to top");
     btn.innerHTML = '<span aria-hidden="true">↑</span><span class="back-to-top-label">Top</span>';
-    dock.prepend(btn);
+    // Keep WhatsApp + Contact above; Top sits at the bottom of the stack on scroll
+    dock.appendChild(btn);
 
     const toggle = () => {
-      btn.classList.toggle("is-visible", window.scrollY > 420);
+      const show = window.scrollY > 420;
+      btn.classList.toggle("is-visible", show);
+      dock.classList.toggle("has-top", show);
     };
     toggle();
     window.addEventListener("scroll", toggle, { passive: true });
@@ -146,24 +149,32 @@
     dock.dataset.obscureReady = "1";
 
     const CONTENT =
-      "a, button, p, h1, h2, h3, h4, li, label, summary, input, textarea, select, img, .btn, .work-card, .price-card, .bento-tile, .blog-card, .term-card, .faq-topic-card, .seo-chip, .service-chip, .nav-links, .nav-drop-toggle, table, td, th";
+      "a, button, p, h1, h2, h3, h4, li, label, summary, input, textarea, select, img, .btn, .work-card, .price-card, .bento-tile, .blog-card, .term-card, .faq-topic-card, .seo-chip, .service-chip, .nav-links, .nav-drop-toggle, table, td, th, .prose, .faq, details";
 
-    const samplePoints = (rect) => [
-      [rect.left + 12, rect.top + 12],
-      [rect.left + rect.width / 2, rect.top + rect.height / 2],
-      [rect.right - 12, rect.bottom - 12],
-      [rect.left + 12, rect.bottom - 12],
-      [rect.right - 12, rect.top + 12],
-    ];
+    const samplePoints = (rect) => {
+      const pts = [];
+      const pad = 8;
+      const cols = 3;
+      const rows = 4;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const x = rect.left + pad + ((rect.width - pad * 2) * (c + 0.5)) / cols;
+          const y = rect.top + pad + ((rect.height - pad * 2) * (r + 0.5)) / rows;
+          pts.push([x, y]);
+        }
+      }
+      return pts;
+    };
 
     const contentUnderDock = () => {
       const rect = dock.getBoundingClientRect();
+      if (rect.width < 4 || rect.height < 4) return false;
       const prev = dock.style.pointerEvents;
       dock.style.pointerEvents = "none";
       let blocked = false;
       for (const [x, y] of samplePoints(rect)) {
         const el = document.elementFromPoint(x, y);
-        if (el && el.closest(CONTENT)) {
+        if (el && el.closest(CONTENT) && !el.closest(".sticky-dock")) {
           blocked = true;
           break;
         }
@@ -172,25 +183,35 @@
       return blocked;
     };
 
-    const refresh = (e) => {
-      const nearCorner =
-        e &&
-        e.clientX > window.innerWidth - 140 &&
-        e.clientY > window.innerHeight - 180;
+    const pointerOverDockZone = (e) => {
+      if (!e || typeof e.clientX !== "number") return false;
+      const rect = dock.getBoundingClientRect();
+      const pad = 12;
+      return (
+        e.clientX >= rect.left - pad &&
+        e.clientX <= rect.right + pad &&
+        e.clientY >= rect.top - pad &&
+        e.clientY <= rect.bottom + pad
+      );
+    };
 
+    const refresh = (e) => {
       if (e && e.target instanceof Element && e.target.closest(".sticky-dock")) {
         dock.classList.remove("is-obscured");
         return;
       }
 
-      // Hovering real page content away from the dock corner → hide
-      if (e && e.target instanceof Element && e.target.closest(CONTENT) && !nearCorner) {
-        dock.classList.add("is-obscured");
-        return;
-      }
+      // Hide immediately when page text/UI sits under the dock, or when the
+      // pointer is over content that intersects the dock's screen region.
+      const under = contentUnderDock();
+      const hoverClash =
+        e &&
+        pointerOverDockZone(e) &&
+        e.target instanceof Element &&
+        e.target.closest(CONTENT) &&
+        !e.target.closest(".sticky-dock");
 
-      // Content physically sitting under the dock buttons → hide
-      if (contentUnderDock() && !nearCorner) {
+      if (under || hoverClash) {
         dock.classList.add("is-obscured");
         return;
       }

@@ -10,17 +10,28 @@ ROOT = Path(__file__).resolve().parent
 SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
-ASSET_V = "20261016o"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+WHATSAPP_PHONE = "919381107468"  # E.164 without +
+ASSET_V = "20261016p"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
 SERVICE_BODIES = service_bodies()
+WA_TEXT = "Hi%20JB%20Software%20Solutions%2C%20I%20want%20to%20discuss%20a%20project."
 
 SERVICES = [
-    ("web-development", "Website development", "Business sites that get enquiries", "web.jpg"),
-    ("mobile-app-development", "Mobile app development", "Apps for phones and tablets", "mobile.jpg"),
-    ("custom-software", "Custom software", "Tools built for your team", "custom.jpg"),
-    ("seo-aeo-geo", "SEO and online visibility", "Get found on Google and AI search", "seo.jpg"),
-    ("ai-automation", "Workflow automation", "Cut repetitive daily work", "ai.jpg"),
-    ("desktop-apps", "Desktop apps", "Software that runs on a computer", "desktop.jpg"),
+    ("web-development", "Website development", "Business sites that get enquiries", "web-hero.jpg"),
+    ("mobile-app-development", "Mobile app development", "Apps for phones and tablets", "mobile-hero.jpg"),
+    ("custom-software", "Custom software", "Tools built for your team", "custom-hero.jpg"),
+    ("seo-aeo-geo", "SEO and online visibility", "Get found on Google and AI search", "seo-hero.jpg"),
+    ("ai-automation", "Workflow automation", "Cut repetitive daily work", "ai-hero.jpg"),
+    ("desktop-apps", "Desktop apps", "Software that runs on a computer", "desktop-hero.jpg"),
 ]
+
+SERVICE_IMG = {
+    "web-development": {"hero": "web-hero.jpg", "aside": "web-aside.jpg", "mid": "web-mid.jpg", "deep": "web-deep.jpg"},
+    "mobile-app-development": {"hero": "mobile-hero.jpg", "aside": "mobile-aside.jpg", "mid": "mobile-mid.jpg", "deep": "mobile-deep.jpg"},
+    "custom-software": {"hero": "custom-hero.jpg", "aside": "custom-aside.jpg", "mid": "custom-mid.jpg", "deep": "custom-deep.jpg"},
+    "seo-aeo-geo": {"hero": "seo-hero.jpg", "aside": "seo-aside.jpg", "mid": "seo-mid.jpg", "deep": "seo-deep.jpg"},
+    "ai-automation": {"hero": "ai-hero.jpg", "aside": "ai-aside.jpg", "mid": "ai-mid.jpg", "deep": "ai-deep.jpg"},
+    "desktop-apps": {"hero": "desktop-hero.jpg", "aside": "desktop-aside.jpg", "mid": "desktop-mid.jpg", "deep": "desktop-deep.jpg"},
+}
 
 RESOURCES = [
     ("blog/", "Blog", "Guides on software, apps and getting found online"),
@@ -158,8 +169,15 @@ def nav(depth, active=""):
 
 def dock(depth):
     p = rel(depth)
+    wa = f"https://wa.me/{WHATSAPP_PHONE}?text={WA_TEXT}"
     return f"""
 <div class="sticky-dock" aria-label="Quick contact">
+  <a class="dock-btn whatsapp" href="{wa}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp JB Software Solutions">
+    <span class="dock-ico" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M17.47 14.38c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.2 2.1 3.2 5.08 4.48.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/><path d="M12.04 2C6.5 2 2.01 6.49 2.01 12.03c0 1.77.46 3.5 1.34 5.02L2 22l5.08-1.33A9.98 9.98 0 0 0 12.04 22C17.58 22 22.07 17.51 22.07 11.97 22.07 6.43 17.58 2 12.04 2zm0 18.18c-1.6 0-3.17-.43-4.54-1.24l-.33-.2-3.01.79.8-2.94-.21-.34a8.17 8.17 0 0 1-1.26-4.39c0-4.52 3.68-8.2 8.2-8.2 4.52 0 8.2 3.68 8.2 8.2-.01 4.52-3.69 8.2-8.21 8.2z"/></svg>
+    </span>
+    <span class="dock-label">WhatsApp</span>
+  </a>
   <a class="dock-btn quote" href="{p}contact/" aria-label="Contact us">Contact</a>
 </div>
 """
@@ -639,7 +657,7 @@ home = head(
           <div class="tags"><span class="tag">Business websites</span><span class="tag">Web apps</span><span class="tag">SEO-ready</span><span class="tag">Lead forms</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/web-development/">Website development services</a></p>
         </div>
-        <div class="band-visual"><img src="assets/services/web.jpg" alt="Website development - modern websites and web apps" width="640" height="360" loading="lazy" /></div>
+        <div class="band-visual"><img src="assets/services/web-aside.jpg" alt="Website development - modern websites and web apps" width="640" height="360" loading="lazy" /></div>
       </article>
 
       <article class="service-band">
@@ -649,7 +667,7 @@ home = head(
           <div class="tags"><span class="tag">Android</span><span class="tag">iPhone</span><span class="tag">App store launch</span><span class="tag">Support after launch</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/mobile-app-development/">Mobile app services</a></p>
         </div>
-        <div class="band-visual"><img src="assets/services/mobile.jpg" alt="Mobile app development for phones and tablets" width="640" height="360" loading="lazy" /></div>
+        <div class="band-visual"><img src="assets/services/mobile-aside.jpg" alt="Mobile app development for phones and tablets" width="640" height="360" loading="lazy" /></div>
       </article>
 
       <article class="service-band">
@@ -659,7 +677,7 @@ home = head(
           <div class="tags"><span class="tag">Internal tools</span><span class="tag">Dashboards</span><span class="tag">Team workflows</span><span class="tag">You own it</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/custom-software/">Custom software services</a></p>
         </div>
-        <div class="band-visual"><img src="assets/services/custom.jpg" alt="Custom software and business dashboards" width="640" height="360" loading="lazy" /></div>
+        <div class="band-visual"><img src="assets/services/custom-aside.jpg" alt="Custom software and business dashboards" width="640" height="360" loading="lazy" /></div>
       </article>
 
       <article class="service-band">
@@ -669,7 +687,7 @@ home = head(
           <div class="tags"><span class="tag">Google SEO</span><span class="tag">Content</span><span class="tag">AI search</span><span class="tag">Monthly support</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/seo-aeo-geo/">SEO services</a></p>
         </div>
-        <div class="band-visual"><img src="assets/services/seo.jpg" alt="SEO and online visibility" width="640" height="360" loading="lazy" /></div>
+        <div class="band-visual"><img src="assets/services/seo-aside.jpg" alt="SEO and online visibility" width="640" height="360" loading="lazy" /></div>
       </article>
 
       <article class="service-band">
@@ -679,7 +697,7 @@ home = head(
           <div class="tags"><span class="tag">Leads</span><span class="tag">Follow-ups</span><span class="tag">Approvals</span><span class="tag">Ops</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/ai-automation/">Automation services</a></p>
         </div>
-        <div class="band-visual"><img src="assets/services/ai.jpg" alt="Business workflow and process automation" width="640" height="360" loading="lazy" /></div>
+        <div class="band-visual"><img src="assets/services/ai-aside.jpg" alt="Business workflow and process automation" width="640" height="360" loading="lazy" /></div>
       </article>
 
       <article class="service-band">
@@ -689,7 +707,7 @@ home = head(
           <div class="tags"><span class="tag">Windows</span><span class="tag">Offline use</span><span class="tag">Installers</span><span class="tag">Updates</span></div>
           <p style="margin-top:1rem"><a class="btn btn-ghost btn-magnet" href="services/desktop-apps/">Desktop app services</a></p>
         </div>
-        <div class="band-visual"><img src="assets/services/desktop.jpg" alt="Desktop application development" width="640" height="360" loading="lazy" /></div>
+        <div class="band-visual"><img src="assets/services/desktop-aside.jpg" alt="Desktop application development" width="640" height="360" loading="lazy" /></div>
       </article>
     </div>
   </section>
@@ -836,7 +854,7 @@ home = head(
 write(ROOT / "index.html", home)
 
 
-def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=None, image="web.jpg", image_alt="", extra_html=""):
+def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=None, image="web-hero.jpg", image_alt="", extra_html=""):
     depth = 2
     p = rel(depth)
     why_text = why or (
@@ -845,7 +863,14 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
         "We build products and the discovery layer together."
     )
     alt = image_alt or h1
-    long_body = extra_html or SERVICE_BODIES.get(slug, "")
+    imgs = SERVICE_IMG.get(slug, {"hero": image, "aside": image, "mid": image, "deep": image})
+    hero_img = imgs["hero"]
+    aside_img = imgs["aside"]
+    mid_img = imgs["mid"]
+    deep_img = imgs["deep"]
+    long_body = (extra_html or SERVICE_BODIES.get(slug, "")).replace("{P}", p)
+    long_body = long_body.replace("{IMG_MID}", f"{p}assets/services/{mid_img}")
+    long_body = long_body.replace("{IMG_DEEP}", f"{p}assets/services/{deep_img}")
     other = "".join(
         f'<a class="service-chip" href="{p}services/{s}/">{lab}</a>'
         for s, lab, _b, _i in SERVICES
@@ -867,7 +892,7 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
         </div>
       </div>
       <div class="service-hero-visual reveal">
-        <img src="{p}assets/services/{image}" alt="{alt}" width="960" height="640" loading="eager" />
+        <img src="{p}assets/services/{hero_img}" alt="{alt}" width="960" height="640" loading="eager" />
       </div>
     </div>
   </section>
@@ -890,10 +915,11 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
       </div>
       <aside class="service-aside reveal">
         <div class="service-aside-card">
-          <img src="{p}assets/services/{image}" alt="" width="640" height="360" loading="lazy" />
+          <img src="{p}assets/services/{aside_img}" alt="{alt} - project detail" width="640" height="360" loading="lazy" />
           <h3>Ready to scope this?</h3>
           <p>Share goals, links and budget range. We reply with fit, timeline and a clear quote path.</p>
           <a class="btn btn-primary btn-magnet" href="{p}contact/">Start a brief</a>
+          <a class="btn btn-ghost btn-magnet" href="https://wa.me/{WHATSAPP_PHONE}?text={WA_TEXT}" target="_blank" rel="noopener noreferrer">WhatsApp us</a>
         </div>
         <div class="service-aside-card service-aside-list">
           <h3>All services</h3>
@@ -909,15 +935,22 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
   </section>
   <section class="section">
     <div class="container">
+      <div class="cta-band reveal">
+        <div><h2>Talk through your brief</h2><p>Share goals and constraints. We come back with a clear plan on WhatsApp or the contact form.</p></div>
+        <div class="cta-actions">
+          <a class="btn btn-primary btn-magnet" href="{p}contact/">Contact JB Software Solutions</a>
+          <a class="btn btn-ghost btn-magnet" href="https://wa.me/{WHATSAPP_PHONE}?text={WA_TEXT}" target="_blank" rel="noopener noreferrer">WhatsApp me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
       <h2 class="section-title">FAQ</h2>
       <div class="faq">
         {''.join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q,a in faqs)}
       </div>
       <p class="section-note" style="margin-top:1.25rem">More indexed answers: <a href="{p}faq/">FAQ hub</a>.</p>
-      <div class="cta-band reveal" style="margin-top:2rem">
-        <div><h2>Talk through your brief</h2><p>Share goals and constraints. We come back with a clear plan.</p></div>
-        <a class="btn btn-primary btn-magnet" href="{p}contact/">Contact JB Software Solutions</a>
-      </div>
     </div>
   </section>
 </main>
@@ -948,7 +981,7 @@ service_page(
         ("Do you write website content?", "We guide structure and headlines. Final business claims stay with you unless content is scoped in."),
     ],
     "services",
-    image="web.jpg",
+    image="web-hero.jpg",
     image_alt="Website development - modern websites and web apps",
 )
 
@@ -974,7 +1007,7 @@ service_page(
         ("Do you build apps for internal staff only?", "Yes. Internal mobile tools for field teams are a common brief."),
     ],
     "services",
-    image="mobile.jpg",
+    image="mobile-hero.jpg",
     image_alt="Mobile app development for phones and tablets",
 )
 
@@ -1000,7 +1033,7 @@ service_page(
         ("Can you integrate WhatsApp and payments?", "Yes, when those integrations are listed in the written scope."),
     ],
     "services",
-    image="custom.jpg",
+    image="custom-hero.jpg",
     image_alt="Custom software and business dashboards",
 )
 
@@ -1026,7 +1059,7 @@ service_page(
         ("Can SEO help if my website is weak?", "Often the site itself is the bottleneck. We may recommend a website rebuild alongside SEO."),
     ],
     "services",
-    image="seo.jpg",
+    image="seo-hero.jpg",
     image_alt="SEO AEO and GEO search visibility",
 )
 
@@ -1054,7 +1087,7 @@ service_page(
         "We map those paths and automate them so leads get followed up, ops stay visible, and your team stops chasing status. "
         "This is business process automation, not a custom AI research project."
     ),
-    image="ai.jpg",
+    image="ai-hero.jpg",
     image_alt="Business workflow and process automation",
 )
 
@@ -1076,7 +1109,7 @@ service_page(
         ("Can you turn our website product into a desktop app?", "Often yes. We package it as real installable software with menus, updates and a smoother desktop feel."),
     ],
     "services",
-    image="desktop.jpg",
+    image="desktop-hero.jpg",
     image_alt="Desktop application development",
 )
 
