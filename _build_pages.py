@@ -11,7 +11,7 @@ SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
 WHATSAPP_PHONE = "919381107468"  # E.164 without +
-ASSET_V = "20261016q"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+ASSET_V = "20261016r"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
 SERVICE_BODIES = service_bodies()
 WA_TEXT = "Hi%20JB%20Software%20Solutions%2C%20I%20want%20to%20discuss%20a%20project."
 
@@ -330,9 +330,9 @@ home = head(
     <div class="container hero-inner">
       <div class="hero-layout">
         <div class="hero-copy">
-          <p class="hero-eyebrow">Custom software development company in India</p>
-          <h1 class="hero-title">Custom software that <span class="grad">gets you found</span></h1>
-          <p class="hero-sub">Websites, mobile apps, SEO and workflow automation built so buyers find you on Google and in ChatGPT, not just a pretty portfolio that sits offline.</p>
+          <p class="hero-eyebrow">Web · Apps · SEO · India</p>
+          <h1 class="hero-title">Build products <span class="grad">people find</span></h1>
+          <p class="hero-sub">Websites, mobile apps and search visibility in one build, so enquiries come from Google and ChatGPT, not only from people who already know your name.</p>
           <div class="hero-cta">
             <a class="btn btn-primary btn-magnet" href="contact/">Get a free strategy call</a>
             <a class="btn btn-ghost btn-magnet" href="pricing/">See pricing</a>
