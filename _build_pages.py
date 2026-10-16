@@ -1,12 +1,17 @@
 # -*- coding: utf-8 -*-
 """Generate JB Software Solutions static site pages."""
+import json
 from pathlib import Path
+
+from _faq_bank import all_faq_topics, count_faqs
+from _service_bodies import bodies as service_bodies
 
 ROOT = Path(__file__).resolve().parent
 SITE = "https://jbsoftwaresolutions.com"
 BRAND = "JB Software Solutions"
 EMAIL = "info@jbsoftwaresolutions.com"
-ASSET_V = "20261016n"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+ASSET_V = "20261016o"  # bump when styles.css / main.js change (GitHub Pages CDN cache)
+SERVICE_BODIES = service_bodies()
 
 SERVICES = [
     ("web-development", "Website development", "Business sites that get enquiries", "web.jpg"),
@@ -211,12 +216,14 @@ def write(path: Path, content: str):
 
 
 KW_HOME = (
-    "custom software development company India, web development company India, "
-    "mobile app development company, Flutter app development, React Native development, "
-    "SEO company India, AEO services, GEO services, generative engine optimization, "
-    "LLM SEO, ChatGPT SEO, AI Overviews SEO, workflow automation agency India, "
-    "desktop app Electron, Next.js development, SaaS development, ERP software, "
-    "hire software developers India, digital agency India, JB Software Solutions"
+    "custom software development company India, custom software development services, "
+    "website development company India, web development company, web application development company, "
+    "mobile app development company India, Android app development, iPhone app development, "
+    "SEO company India, technical SEO services, AEO services, GEO services, generative engine optimization, "
+    "LLM SEO, ChatGPT SEO, hire developers India, hire software development company India, "
+    "business workflow automation, CRM automation, desktop app development, "
+    "SaaS product development, custom CRM development, ERP software development, "
+    "software outsourcing company, custom software development cost India, JB Software Solutions"
 )
 
 # ---------- HOME ----------
@@ -229,8 +236,8 @@ home_lines = [
     "> ready. tell us what you want shipped.",
 ]
 home = head(
-    f"{BRAND} | Custom Software Development, Mobile Apps, Websites, SEO, AEO, GEO",
-    "JB Software Solutions is a custom software development company in India for web apps, Flutter mobile apps, desktop software, SEO, AEO, GEO and workflow automation. Get found on Google and cited in ChatGPT.",
+    f"{BRAND} | Custom Software Development Company India | Websites, Mobile Apps, SEO",
+    "JB Software Solutions is a custom software development company in India for website development, mobile app development, web apps, desktop software, SEO, AEO, GEO and business workflow automation. Hire developers in India who ship products that get found on Google and cited in ChatGPT.",
     KW_HOME,
     "/",
     0,
@@ -305,9 +312,9 @@ home = head(
     <div class="container hero-inner">
       <div class="hero-layout">
         <div class="hero-copy">
-          <p class="hero-eyebrow">{BRAND}</p>
-          <h1 class="hero-title">Custom software that <span class="grad">gets found</span></h1>
-          <p class="hero-sub">JB Software Solutions builds websites, mobile apps, custom software, desktop tools, SEO and workflow automation. Products that bring enquiries, then get found on Google and inside ChatGPT, Gemini and Perplexity.</p>
+          <p class="hero-eyebrow">Software development company in India</p>
+          <h1 class="hero-title">{BRAND}: custom software that <span class="grad">gets found</span></h1>
+          <p class="hero-sub">Hire a website development company, mobile app development company and custom software team in one place. {BRAND} builds websites, web apps, Android and iPhone apps, desktop tools, SEO, AEO, GEO and business workflow automation so your product brings enquiries and gets found on Google, ChatGPT, Gemini and Perplexity.</p>
           <div class="hero-cta">
             <a class="btn btn-primary btn-magnet" href="contact/">Get a free strategy call</a>
             <a class="btn btn-ghost btn-magnet" href="pricing/">See pricing</a>
@@ -331,10 +338,12 @@ home = head(
 
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>Website development</span><span>Mobile app development</span><span>Custom software</span>
-      <span>Desktop apps</span><span>SEO</span><span>Online visibility</span>
-      <span>Workflow automation</span><span>Business tools</span><span>India teams</span>
-      <span>Google search</span><span>ChatGPT citations</span><span>Clear pricing</span>
+      <span>Custom software development company India</span><span>Website development company</span>
+      <span>Mobile app development company</span><span>Web application development</span>
+      <span>SEO company India</span><span>AEO and GEO</span>
+      <span>Hire developers India</span><span>Business workflow automation</span>
+      <span>Desktop app development</span><span>Software outsourcing India</span>
+      <span>SaaS product development</span><span>CRM and ERP software</span>
     </div>
   </div>
 
@@ -538,24 +547,35 @@ home = head(
       <p class="section-sub reveal">These are the queries founders and operators actually type, and the pages we built to answer them without doorway spam.</p>
       <div class="seo-cloud reveal">
         <a class="seo-chip" href="services/custom-software/">custom software development company India</a>
+        <a class="seo-chip" href="services/custom-software/">custom software development services</a>
+        <a class="seo-chip" href="services/custom-software/">bespoke software development</a>
+        <a class="seo-chip" href="services/web-development/">website development company India</a>
         <a class="seo-chip" href="services/web-development/">web development company</a>
-        <a class="seo-chip" href="services/mobile-app-development/">mobile app development company</a>
-        <a class="seo-chip" href="services/mobile-app-development/">Flutter app development</a>
-        <a class="seo-chip" href="services/mobile-app-development/">React Native development</a>
+        <a class="seo-chip" href="services/web-development/">web application development company</a>
+        <a class="seo-chip" href="services/web-development/">lead generation website</a>
+        <a class="seo-chip" href="services/mobile-app-development/">mobile app development company India</a>
+        <a class="seo-chip" href="services/mobile-app-development/">Android app development</a>
+        <a class="seo-chip" href="services/mobile-app-development/">iPhone app development</a>
         <a class="seo-chip" href="services/seo-aeo-geo/">SEO company India</a>
+        <a class="seo-chip" href="services/seo-aeo-geo/">technical SEO services</a>
         <a class="seo-chip" href="services/seo-aeo-geo/">GEO generative engine optimization</a>
         <a class="seo-chip" href="services/seo-aeo-geo/">AEO answer engine optimization</a>
         <a class="seo-chip" href="services/seo-aeo-geo/">ChatGPT SEO</a>
         <a class="seo-chip" href="services/seo-aeo-geo/">LLM SEO</a>
         <a class="seo-chip" href="services/ai-automation/">business workflow automation</a>
-        <a class="seo-chip" href="services/ai-automation/">AI business automation</a>
-        <a class="seo-chip" href="services/desktop-apps/">Electron desktop app development</a>
-        <a class="seo-chip" href="services/web-development/">Next.js development</a>
-        <a class="seo-chip" href="services/custom-software/">SaaS MVP development</a>
-        <a class="seo-chip" href="services/custom-software/">ERP and CRM software</a>
-        <a class="seo-chip" href="blog/custom-software-development-cost-india-2026/">software development cost India</a>
-        <a class="seo-chip" href="blog/what-is-geo-aeo-llm-seo-2026/">what is GEO</a>
+        <a class="seo-chip" href="services/ai-automation/">CRM automation</a>
+        <a class="seo-chip" href="services/ai-automation/">AI business automation India</a>
+        <a class="seo-chip" href="services/desktop-apps/">desktop app development</a>
+        <a class="seo-chip" href="services/custom-software/">SaaS product development</a>
+        <a class="seo-chip" href="services/custom-software/">custom CRM development</a>
+        <a class="seo-chip" href="services/custom-software/">ERP software development</a>
+        <a class="seo-chip" href="services/custom-software/">software outsourcing company</a>
+        <a class="seo-chip" href="faq/custom-software-cost-india/">custom software development cost India</a>
+        <a class="seo-chip" href="faq/website-development-cost-india/">website development cost India</a>
+        <a class="seo-chip" href="faq/mobile-app-development-cost-india/">mobile app development cost India</a>
+        <a class="seo-chip" href="faq/seo-aeo-geo-explained/">what is GEO and AEO</a>
         <a class="seo-chip" href="contact/">hire developers India</a>
+        <a class="seo-chip" href="contact/">hire software development company India</a>
       </div>
     </div>
   </section>
@@ -563,8 +583,8 @@ home = head(
   <section class="section" id="capabilities">
     <div class="container">
       <div class="section-kicker reveal">Capabilities</div>
-      <h2 class="section-title reveal">What we can build for you</h2>
-      <p class="section-sub reveal">Simple offers. Clear outcomes. Priced for Indian startups and growing businesses.</p>
+      <h2 class="section-title reveal">Website, mobile app and custom software development services</h2>
+      <p class="section-sub reveal">As a software development company in India, we ship website development, mobile app development, custom CRM and ERP tools, desktop apps, SEO and business workflow automation. Clear outcomes. Transparent starting prices.</p>
       <div class="bento" id="bento">
         <a class="bento-tile bento-lg reveal" href="services/web-development/">
           <span class="bento-num">01</span>
@@ -734,40 +754,6 @@ home = head(
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="section-kicker reveal">Blog</div>
-      <h2 class="section-title reveal">Field notes from the build floor</h2>
-      <p class="section-sub reveal">Practical guides on GEO, custom software cost in India, and choosing Flutter vs React Native for MVPs.</p>
-      <div class="blog-grid">
-        <a class="blog-card reveal" href="blog/what-is-geo-aeo-llm-seo-2026/">
-          <img src="assets/blog/geo-aeo-2026.jpg" alt="GEO AEO and LLM SEO illustrated neural network" width="640" height="360" loading="lazy" />
-          <div class="body">
-            <time datetime="2026-10-15">15 Oct 2026</time>
-            <h3>What is GEO, AEO and LLM SEO in 2026?</h3>
-            <p>Why Google rankings alone are not enough when buyers ask ChatGPT and Perplexity first.</p>
-          </div>
-        </a>
-        <a class="blog-card reveal" href="blog/custom-software-development-cost-india-2026/">
-          <img src="assets/blog/custom-software-cost.jpg" alt="Custom software development cost India" width="640" height="360" loading="lazy" />
-          <div class="body">
-            <time datetime="2026-10-15">15 Oct 2026</time>
-            <h3>Custom software development cost in India 2026</h3>
-            <p>Real ranges for MVPs, internal tools and multi-platform builds, plus what actually moves the price.</p>
-          </div>
-        </a>
-        <a class="blog-card reveal" href="blog/flutter-vs-react-native-mvp-india-2026/">
-          <img src="assets/blog/flutter-rn-mvp.jpg" alt="Flutter vs React Native for MVP" width="640" height="360" loading="lazy" />
-          <div class="body">
-            <time datetime="2026-10-15">15 Oct 2026</time>
-            <h3>Flutter vs React Native for an India MVP</h3>
-            <p>A practical choose-framework guide for startups that need Android and iOS without burning runway.</p>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
   <section class="section" id="audience">
     <div class="container prose-wide">
       <div class="section-kicker reveal">Who hires us</div>
@@ -815,7 +801,7 @@ home = head(
         </details>
         <details>
           <summary>How much does custom software development cost in India?</summary>
-          <p>It depends on scope. Business websites can start from ₹50,000. Web apps and mobile apps usually start higher. Read our <a href="blog/custom-software-development-cost-india-2026/">2026 cost guide</a> or ask for a scoped quote.</p>
+          <p>It depends on scope. Business website development often starts from ₹50,000. Custom software and web apps often start from a few lakhs. Mobile app development often starts from ₹5,00,000. See our <a href="faq/custom-software-cost-india/">cost FAQs</a> or ask for a scoped quote.</p>
         </details>
         <details>
           <summary>How is JB different from other India software and digital agencies?</summary>
@@ -826,12 +812,20 @@ home = head(
           <p>A focused website or web app often lands in 2 to 6 weeks. A first mobile app typically takes about 8 to 12 weeks, depending on features and store requirements.</p>
         </details>
         <details>
+          <summary>Can I hire developers in India through JB for a dedicated pod?</summary>
+          <p>Yes. Fixed projects and dedicated pods are both available. Start with a written scope so capacity matches a real roadmap.</p>
+        </details>
+        <details>
+          <summary>Do you offer website development and SEO together?</summary>
+          <p>Yes. As a website development company and SEO company under one roof, we can ship the site and the discovery plan together so rankings are not an afterthought.</p>
+        </details>
+        <details>
           <summary>Do you work with startups and enterprises?</summary>
           <p>Both. Engagements can be fixed-scope projects, dedicated pods, or ongoing retainers for SEO, GEO and product iteration.</p>
         </details>
         <details>
           <summary>Is the website indexed for search and AI crawlers?</summary>
-          <p>Yes. Pages include canonical URLs, sitemap.xml, robots.txt, llms.txt, structured data and crawlable HTML so Google and AI systems can discover and cite our services.</p>
+          <p>Yes. Pages include canonical URLs, sitemap.xml, robots.txt, llms.txt, structured data and crawlable HTML so Google and AI systems can discover and cite our services. Browse the full <a href="faq/">FAQ hub</a> for 300+ indexed answers.</p>
         </details>
       </div>
     </div>
@@ -842,7 +836,7 @@ home = head(
 write(ROOT / "index.html", home)
 
 
-def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=None, image="web.jpg", image_alt=""):
+def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=None, image="web.jpg", image_alt="", extra_html=""):
     depth = 2
     p = rel(depth)
     why_text = why or (
@@ -851,6 +845,7 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
         "We build products and the discovery layer together."
     )
     alt = image_alt or h1
+    long_body = extra_html or SERVICE_BODIES.get(slug, "")
     other = "".join(
         f'<a class="service-chip" href="{p}services/{s}/">{lab}</a>'
         for s, lab, _b, _i in SERVICES
@@ -907,12 +902,18 @@ def service_page(slug, title, h1, desc, keywords, bullets, faqs, active, why=Non
       </aside>
     </div>
   </section>
+  <section class="section" id="deep-dive">
+    <div class="container prose prose-wide">
+      {long_body}
+    </div>
+  </section>
   <section class="section">
     <div class="container">
       <h2 class="section-title">FAQ</h2>
       <div class="faq">
         {''.join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q,a in faqs)}
       </div>
+      <p class="section-note" style="margin-top:1.25rem">More indexed answers: <a href="{p}faq/">FAQ hub</a>.</p>
       <div class="cta-band reveal" style="margin-top:2rem">
         <div><h2>Talk through your brief</h2><p>Share goals and constraints. We come back with a clear plan.</p></div>
         <a class="btn btn-primary btn-magnet" href="{p}contact/">Contact JB Software Solutions</a>
@@ -941,6 +942,10 @@ service_page(
     [
         ("Can you redesign an existing site?", "Yes. We review speed, clarity and enquiry flow, then rebuild or improve step by step without losing what already works."),
         ("How long does a business website take?", "Many 5 to 12 page sites land in a few weeks once the offer and content are clear."),
+        ("How much does website development cost in India?", "Business websites often start from ₹50,000. Page count, custom design and integrations change the quote."),
+        ("Do you build SEO-friendly websites?", "Yes. Crawlable pages, sensible URLs, sitemap path and room for schema are part of the build."),
+        ("Will I own the website?", "Yes. You keep domain, hosting accounts and the work we create for you."),
+        ("Do you write website content?", "We guide structure and headlines. Final business claims stay with you unless content is scoped in."),
     ],
     "services",
     image="web.jpg",
@@ -963,6 +968,10 @@ service_page(
     [
         ("How long does a first app take?", "A focused first version often takes about 8 to 12 weeks. Bigger products take longer, and we say so up front."),
         ("Do I need both Android and iPhone at once?", "Many teams start with one store, then add the second. We plan that with you during discovery."),
+        ("How much does mobile app development cost in India?", "Focused first apps often start from ₹5,00,000. Payments, maps, chat and multi-role features increase cost."),
+        ("Do you publish to Google Play and the App Store?", "Yes. Store listing support can be included in the project scope."),
+        ("Will I own the app code?", "Yes. Client projects include IP handover for the work we create for you."),
+        ("Do you build apps for internal staff only?", "Yes. Internal mobile tools for field teams are a common brief."),
     ],
     "services",
     image="mobile.jpg",
@@ -985,6 +994,10 @@ service_page(
     [
         ("Who owns the code?", "You do. Contracts include IP assignment for work we create for you."),
         ("Can you replace spreadsheets?", "That is a common brief. We turn spreadsheet chaos into a proper multi-user system."),
+        ("How much does custom software cost in India?", "Focused internal tools often start from ₹4,00,000. Multi-department platforms are phased."),
+        ("Custom software vs ready-made SaaS?", "Buy SaaS when it fits most of your process. Build custom when off-the-shelf tools force painful workarounds."),
+        ("Do you build custom CRM and ERP modules?", "Yes. CRM pipelines, order flows, inventory and approval modules are common requests."),
+        ("Can you integrate WhatsApp and payments?", "Yes, when those integrations are listed in the written scope."),
     ],
     "services",
     image="custom.jpg",
@@ -1007,6 +1020,10 @@ service_page(
     [
         ("What is GEO?", "Generative Engine Optimization is the practice of structuring your brand's proof and content so AI assistants cite you when answering buyer questions."),
         ("Do you do local SEO?", "Yes. Google Business Profile, local pages and citation hygiene for city-level intent."),
+        ("How much is an SEO retainer in India?", "Visibility retainers often start from ₹25,000 per month, depending on site size and competition."),
+        ("What is AEO?", "Answer Engine Optimization helps your content show up as a short answer when search systems display direct answers."),
+        ("Do you only write blogs for SEO?", "No. We prioritise technical fixes, service pages, FAQs and proof pages that match commercial intent."),
+        ("Can SEO help if my website is weak?", "Often the site itself is the bottleneck. We may recommend a website rebuild alongside SEO."),
     ],
     "services",
     image="seo.jpg",
@@ -1279,10 +1296,10 @@ thanks = head(
   <section class="page-hero"><div class="container">
     <div class="section-kicker">Received</div>
     <h1>Thanks. Your brief is with us.</h1>
-    <p>We reply within 24 hours on business days with fit, next steps and a path to a written quote. Meanwhile, skim pricing or the blog.</p>
+    <p>We reply within 24 hours on business days with fit, next steps and a path to a written quote. Meanwhile, skim pricing or the FAQ hub.</p>
     <div class="hero-cta" style="margin-top:1.5rem">
       <a class="btn btn-primary btn-magnet" href="{rel(1)}pricing/">View pricing</a>
-      <a class="btn btn-ghost btn-magnet" href="{rel(1)}blog/">Read the blog</a>
+      <a class="btn btn-ghost btn-magnet" href="{rel(1)}faq/">Browse FAQs</a>
     </div>
   </div></section>
 </main>
@@ -1480,7 +1497,6 @@ for post in posts:
     write(ROOT / "blog" / post["slug"] / "index.html", html)
 
 # posts.json
-import json
 posts_json = [
     {
         "slug": p["slug"],
@@ -1529,159 +1545,7 @@ GLOSSARY = [
     ("retainer", "Retainer", "A monthly engagement for ongoing work like SEO or product updates.", "A retainer keeps improvements moving after launch. {BRAND} offers retainers for SEO, visibility and product iteration."),
 ]
 
-FAQ_TOPICS = [
-    {
-        "slug": "website-development-cost-india",
-        "title": "How much does website development cost in India?",
-        "desc": "Straight pricing guidance for business website development in India from JB Software Solutions.",
-        "qs": [
-            ("How much does a business website cost in India?", "At {BRAND}, business website development often starts from ₹50,000 for a focused multi-page site. Exact cost depends on pages, content readiness and special features."),
-            ("What is included in a typical website project?", "Clear page structure, mobile-friendly design, contact form, basic SEO setup and a launch checklist. Larger sites and web apps cost more."),
-            ("How long does website development take?", "Many 5 to 12 page business sites finish in a few weeks once content and decisions are ready."),
-        ],
-    },
-    {
-        "slug": "mobile-app-development-cost-india",
-        "title": "How much does mobile app development cost in India?",
-        "desc": "Simple cost ranges for mobile app development in India, without unnecessary jargon.",
-        "qs": [
-            ("How much does a first mobile app cost in India?", "At {BRAND}, mobile app development often starts from ₹5,00,000 for a focused first version. Payments, maps, chat and multi-role features raise the quote."),
-            ("How long does a first mobile app take?", "A focused first app often takes about 8 to 12 weeks. Bigger products take longer and we say so before build starts."),
-            ("Do I need Android and iPhone together?", "Not always. Many teams launch on one store first. We plan the path with you during discovery."),
-        ],
-    },
-    {
-        "slug": "custom-software-cost-india",
-        "title": "How much does custom software cost in India?",
-        "desc": "What drives custom software pricing in India and how JB Software Solutions quotes fixed or phased work.",
-        "qs": [
-            ("How much does custom software cost?", "Custom internal tools at {BRAND} often start from ₹4,00,000. Price follows roles, workflows, integrations and reporting needs."),
-            ("Fixed price or monthly?", "We prefer written fixed or phased quotes for clear builds. Retainers fit ongoing SEO or product updates."),
-            ("Who owns the software?", "You do. Contracts include handover of the work we create for you."),
-        ],
-    },
-    {
-        "slug": "web-app-vs-website",
-        "title": "What is the difference between a website and a web app?",
-        "desc": "Plain explanation of website vs web app so buyers choose the right project with JB Software Solutions.",
-        "qs": [
-            ("What is a website?", "A website mostly informs and captures enquiries: home, services, about, contact."),
-            ("What is a web app?", "A web app is a product people log into and use: dashboards, portals, workflows."),
-            ("Which do I need?", "If visitors mainly read and contact you, start with a website. If staff or customers must work inside the product daily, you need a web app."),
-        ],
-    },
-    {
-        "slug": "seo-aeo-geo-explained",
-        "title": "What are SEO, AEO and GEO?",
-        "desc": "Simple definitions of SEO, AEO and GEO for Indian businesses that want to get found online and in AI answers.",
-        "qs": [
-            ("What is SEO?", "SEO helps people find you on Google through better pages, speed and content."),
-            ("What is AEO?", "AEO helps your content show up as a short answer when search systems display direct answers."),
-            ("What is GEO?", "GEO helps AI assistants like ChatGPT mention your brand when buyers ask questions."),
-            ("Does {BRAND} offer all three?", "Yes. We treat SEO, AEO and GEO as one visibility practice tied to the product you ship."),
-        ],
-    },
-    {
-        "slug": "how-long-to-build-an-app",
-        "title": "How long does it take to build an app?",
-        "desc": "Realistic timelines for mobile apps and web apps from JB Software Solutions.",
-        "qs": [
-            ("How long for a mobile app?", "A focused first mobile app is often about 8 to 12 weeks."),
-            ("How long for a web app first version?", "Many focused web apps land in about 2 to 6 weeks when the first user journey is clear."),
-            ("What slows projects down?", "Unclear decisions, missing content, late payment gateway details and changing scope mid-build."),
-        ],
-    },
-    {
-        "slug": "hire-software-company-india",
-        "title": "How do I hire a software company in India?",
-        "desc": "A practical checklist for hiring an India software development company without getting lost in jargon.",
-        "qs": [
-            ("What should I send in the first message?", "Goals, links, must-have features, timeline and budget range."),
-            ("What should a good agency send back?", "Fit check, rough approach, timeline and a path to a written quote."),
-            ("Why choose {BRAND}?", "Small team access, written scope, and build plus visibility under one roof."),
-        ],
-    },
-    {
-        "slug": "workflow-automation-faq",
-        "title": "What is workflow automation for a business?",
-        "desc": "FAQ on business workflow automation: leads, follow-ups, approvals and tool connections.",
-        "qs": [
-            ("What is workflow automation?", "Rules and connections that move work between tools without manual copy-paste."),
-            ("What can be automated?", "Lead capture, follow-ups, reminders, approvals, status updates and CRM logging."),
-            ("Will automation replace my team?", "No. It removes repetitive work so people focus on decisions and customers."),
-        ],
-    },
-    {
-        "slug": "desktop-app-when-needed",
-        "title": "When do I need a desktop app instead of a website?",
-        "desc": "When a desktop app is the right choice for offline work, devices or locked-down offices.",
-        "qs": [
-            ("When is a desktop app better?", "Offline work, special devices, heavy local files, or offices where browsers are limited."),
-            ("Can a website become a desktop app?", "Often yes. We can package a product as installable software with updates."),
-            ("Does {BRAND} build desktop apps?", "Yes. See our desktop app development service for computer-installed software."),
-        ],
-    },
-    {
-        "slug": "mvp-meaning-for-founders",
-        "title": "What does MVP mean for founders?",
-        "desc": "A plain-language FAQ on MVP meaning, scope and launch planning for Indian startups.",
-        "qs": [
-            ("What does MVP mean?", "Minimum viable product: the smallest first version that can teach you from real users."),
-            ("What should an MVP include?", "One main journey done well, tracking, and a plan for what comes next."),
-            ("How does {BRAND} keep MVPs small?", "We cut nice-to-haves, write scope before build, and ship weekly progress."),
-        ],
-    },
-    {
-        "slug": "who-owns-the-code",
-        "title": "Who owns the code after a software project?",
-        "desc": "Clear FAQ on software IP ownership and handover with JB Software Solutions.",
-        "qs": [
-            ("Who owns the code?", "For client projects, you own the work we create for you under the contract."),
-            ("What is handed over?", "Source, key assets and docs needed to keep running or extend the product."),
-            ("Are there lock-ins?", "We do not hold your product hostage. Ownership and access are agreed in writing."),
-        ],
-    },
-    {
-        "slug": "seo-retainer-india",
-        "title": "How much is an SEO retainer in India?",
-        "desc": "Monthly SEO and visibility pricing guidance from JB Software Solutions.",
-        "qs": [
-            ("How much is SEO per month?", "At {BRAND}, SEO and visibility retainers often start from ₹25,000 per month."),
-            ("What happens each month?", "Technical fixes, content for buyer questions, and checks on search and AI mentions."),
-            ("Is SEO only for big brands?", "No. Clear service pages and steady content help small India businesses too."),
-        ],
-    },
-    {
-        "slug": "startup-first-product",
-        "title": "What should a startup build first: website, web app or mobile app?",
-        "desc": "Help choosing the first digital product for an India startup with limited budget.",
-        "qs": [
-            ("When to start with a website?", "When you need trust, clarity and enquiries before a full product."),
-            ("When to start with a web app?", "When users must log in and complete a core workflow online."),
-            ("When to start with a mobile app?", "When the journey is clearly phone-first and store presence matters for your users."),
-        ],
-    },
-    {
-        "slug": "contact-jb-software-solutions",
-        "title": "How do I contact JB Software Solutions?",
-        "desc": "How to request a quote from JB Software Solutions and what happens next.",
-        "qs": [
-            ("How do I contact {BRAND}?", "Use the contact form on jbsoftwaresolutions.com/contact/ or email {EMAIL}."),
-            ("How fast do you reply?", "We aim to reply within 24 hours on business days for serious briefs."),
-            ("Do you offer a free strategy call?", "Yes. Share goals and constraints and we discuss fit before you pay."),
-        ],
-    },
-    {
-        "slug": "ai-search-visibility",
-        "title": "How can my business show up in ChatGPT and AI search?",
-        "desc": "Practical FAQ on getting cited by AI assistants through clear pages and proof.",
-        "qs": [
-            ("How do AI tools decide what to mention?", "They lean on clear, consistent, crawlable facts about who you are and what you offer."),
-            ("What should I publish?", "Service pages, FAQs, glossary definitions, pricing guidance and proof of how you work."),
-            ("Can {BRAND} help?", "Yes. We build the product and the citation-friendly pages together."),
-        ],
-    },
-]
+FAQ_TOPICS = all_faq_topics()
 
 
 def faq_schema(questions):
@@ -1791,17 +1655,18 @@ for slug, title, short, long_tpl in GLOSSARY:
     write(ROOT / "glossary" / slug / "index.html", page)
 
 # FAQ index
+FAQ_Q_COUNT = count_faqs()
 faq_cards = "\n".join(
     f'<a class="faq-topic-card reveal" href="{t["slug"]}/"><strong>{t["title"]}</strong><span>{t["desc"]}</span></a>'
     for t in FAQ_TOPICS
 )
 all_home_qs = []
 for t in FAQ_TOPICS:
-    all_home_qs.extend(t["qs"][:1])
+    all_home_qs.extend(t["qs"][:2])
 faq_index = head(
-    f"FAQ | Software, Apps, SEO and Pricing Answers | {BRAND}",
-    "Frequently asked questions about website development, mobile apps, custom software, SEO, GEO and hiring JB Software Solutions in India.",
-    "software development FAQ India, website cost FAQ, mobile app cost FAQ, SEO FAQ, hire software company India",
+    f"FAQ | {FAQ_Q_COUNT}+ Software, Apps, SEO and Pricing Answers | {BRAND}",
+    f"Frequently asked questions about website development, mobile apps, custom software, SEO, GEO and hiring JB Software Solutions in India. {FAQ_Q_COUNT}+ indexed answers across {len(FAQ_TOPICS)} topic pages.",
+    "software development FAQ India, website cost FAQ, mobile app cost FAQ, SEO FAQ, hire software company India, custom software development company India FAQ",
     "/faq/",
     1,
     extra_jsonld=faq_schema(all_home_qs),
@@ -1812,7 +1677,7 @@ faq_index = head(
   <section class="page-hero"><div class="container">
     <div class="section-kicker">Resources</div>
     <h1>FAQ hub for buyers and AI systems</h1>
-    <p>Direct answers to the questions founders ask before hiring a software company. Each topic page includes structured FAQ data for Google and AI assistants.</p>
+    <p>{FAQ_Q_COUNT}+ direct answers across {len(FAQ_TOPICS)} indexed topic pages. Each page includes FAQPage schema so Google and AI assistants can cite {BRAND} accurately.</p>
   </div></section>
   <section class="section" style="padding-top:0"><div class="container">
     <div class="faq-topic-grid">{faq_cards}</div>
@@ -1858,7 +1723,7 @@ for topic in FAQ_TOPICS:
 """
     write(ROOT / "faq" / topic["slug"] / "index.html", page)
 
-print(f"wrote glossary ({len(GLOSSARY)} terms) + faq ({len(FAQ_TOPICS)} topics)")
+print(f"wrote glossary ({len(GLOSSARY)} terms) + faq ({len(FAQ_TOPICS)} topics, {FAQ_Q_COUNT} Q&As)")
 
 # Crawl files (sitemap.xml, robots.txt, llms.txt) are owned by the SEO pipeline:
 #   npm run seo  → seo-build.js
