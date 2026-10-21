@@ -1,34 +1,20 @@
-﻿# JB Software Solutions
+# JB Software Solutions (production)
 
-Static marketing site for [jbsoftwaresolutions.com](https://jbsoftwaresolutions.com/).
+React + Vite + Framer Motion site for [jbsoftwaresolutions.com](https://jbsoftwaresolutions.com/).
 
-## SEO pipeline (same as Easy Peeze / Kharch Log)
-
-Every push regenerates crawl artifacts before git:
-
-1. `seo-build.js` + `seo.config.js` → page meta / canonical / OG / JSON-LD + `sitemap.xml` + `robots.txt` (+ `sitemaps.xml` / `robot.txt` aliases)
-2. `generate-llms-txt.py` → `llms.txt` + `llms-full.txt` + `LLM.txt`
-
-```bash
-npm run seo          # meta + sitemap + robots
-npm run llms         # llms.txt corpus from sitemap
-npm run build        # pages + seo + llms
-npm run push         # full gate then git push to main / Pages
-```
-
-Or:
+## Deploy
 
 ```powershell
-.\push-jb-website.ps1 -Message "Your message"
+npm install
+npm run push
 ```
 
-## Contact
+- **main** = React source
+- **gh-pages** = built site (GitHub Pages + custom domain)
+- **backup/static-seo-20261021** = previous static HTML SEO site
 
-- Email: info@jbsoftwaresolutions.com
-- Public site routes visitors to the contact form (no phone listed)
+## Local
 
-## Local preview
-
-```bash
-npx --yes serve .
+```powershell
+npm run dev
 ```
