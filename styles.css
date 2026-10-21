@@ -2623,6 +2623,95 @@ body::after {
   to { background-position: 100% 50%; }
 }
 
+/* Staging-parity motion (desktop). SEO HTML stays static crawlable. */
+.aurora {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.aurora-beam {
+  position: absolute;
+  width: 55vw;
+  height: 70vh;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.32;
+  mix-blend-mode: screen;
+}
+
+.aurora-a {
+  top: -10%;
+  left: -5%;
+  background: rgba(61, 255, 122, 0.28);
+}
+
+.aurora-b {
+  top: 20%;
+  right: -15%;
+  background: rgba(58, 208, 255, 0.25);
+}
+
+.aurora-c {
+  bottom: -20%;
+  left: 25%;
+  width: 70vw;
+  background: rgba(255, 154, 31, 0.18);
+}
+
+.morph-blob {
+  position: absolute;
+  width: min(520px, 55vw);
+  height: min(520px, 55vw);
+  right: -4%;
+  top: 8%;
+  opacity: 0.5;
+  filter: blur(2px);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+
+.scroll-marquees {
+  display: grid;
+  gap: 0.35rem;
+  overflow: hidden;
+}
+
+.marquee-reverse {
+  opacity: 0.72;
+}
+
+.marquee-reverse .marquee-track span {
+  font-size: 0.82em;
+}
+
+main,
+.site-header,
+.footer,
+.sticky-dock {
+  position: relative;
+  z-index: 1;
+}
+
+.site-header {
+  z-index: 50;
+}
+
+.sticky-dock {
+  z-index: 60;
+}
+
+@media (max-width: 899px), (hover: none), (pointer: coarse) {
+  .aurora,
+  .morph-blob,
+  .marquee-reverse {
+    display: none !important;
+  }
+}
+
 @media (max-width: 960px) {
   .nav-toggle { display: grid; place-items: center; }
   .nav-links {

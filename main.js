@@ -94,7 +94,10 @@
       initWorkRail();
       initManifesto();
       initBento();
-      if (finePointer) {
+      initTextScramble();
+      if (finePointer && window.matchMedia("(min-width: 900px)").matches) {
+        initAurora();
+        initMorphBlob();
         initCursorSystem();
       }
     } else {
@@ -616,10 +619,32 @@
   }
 
   function initMarquee() {
+    const host = document.querySelector(".marquee");
     const track = document.querySelector(".marquee-track");
     if (!track || track.dataset.cloned) return;
     track.innerHTML = track.innerHTML + track.innerHTML;
     track.dataset.cloned = "1";
+    // Dual reverse ticker on desktop only (keeps mobile lighter)
+    if (
+      host &&
+      !reduced &&
+      finePointer &&
+      window.matchMedia("(min-width: 900px)").matches &&
+      !host.parentElement?.classList.contains("scroll-marquees")
+    ) {
+      const wrap = document.createElement("div");
+      wrap.className = "scroll-marquees";
+      host.parentNode.insertBefore(wrap, host);
+      wrap.appendChild(host);
+      const rev = host.cloneNode(true);
+      rev.classList.add("marquee-reverse");
+      const revTrack = rev.querySelector(".marquee-track");
+      if (revTrack) {
+        revTrack.style.animationDirection = "reverse";
+        revTrack.style.animationDuration = "40s";
+      }
+      wrap.appendChild(rev);
+    }
   }
 
   function initMarqueeGlow() {
@@ -638,7 +663,7 @@
   function initTiltCards() {
     if (!finePointer || !window.gsap) return;
     const cards = document.querySelectorAll(
-      ".engage-card, .price-card, .blog-card, .stat, .process-steps article, .outcome, .industry, .work-card"
+      ".engage-card, .price-card, .blog-card, .stat, .process-steps article, .outcome, .industry, .work-card, .bento-tile, .faq-topic-card, .term-card, .trust-strip article"
     );
     cards.forEach((card) => {
       card.classList.add("tilt-card");
@@ -1107,22 +1132,100 @@
   }
 
   function initButtonShine() {
-    document.querySelectorAll(".btn-primary, .dock-btn.quote").forEach((btn) => {
-      btn.classList.add("has-shine");
+    document
+      .querySelectorAll(".btn-primary, .dock-btn.quote, .work-card, .price-card, .bento-tile, .faq-topic-card, .term-card")
+      .forEach((btn) => {
+        btn.classList.add("has-shine");
+      });
+  }
+
+  function initAurora() {
+    if (document.querySelector(".aurora")) return;
+    const el = document.createElement("div");
+    el.className = "aurora";
+    el.setAttribute("aria-hidden", "true");
+    el.innerHTML =
+      '<span class="aurora-beam aurora-a"></span><span class="aurora-beam aurora-b"></span><span class="aurora-beam aurora-c"></span>';
+    document.body.prepend(el);
+    if (!window.gsap) return;
+    gsap.to(".aurora-a", { x: "18%", rotate: 10, duration: 18, yoyo: true, repeat: -1, ease: "sine.inOut" });
+    gsap.to(".aurora-b", { x: "-20%", rotate: -8, duration: 22, yoyo: true, repeat: -1, ease: "sine.inOut" });
+    gsap.to(".aurora-c", { y: "12%", duration: 16, yoyo: true, repeat: -1, ease: "sine.inOut" });
+  }
+
+  function initMorphBlob() {
+    const bg = document.querySelector(".hero-bg");
+    if (!bg || bg.querySelector(".morph-blob")) return;
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("class", "morph-blob");
+    svg.setAttribute("viewBox", "0 0 600 600");
+    svg.setAttribute("aria-hidden", "true");
+    svg.innerHTML =
+      '<defs><linearGradient id="blobGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3dff7a" stop-opacity="0.45"/><stop offset="50%" stop-color="#3ad0ff" stop-opacity="0.35"/><stop offset="100%" stop-color="#ff9a1f" stop-opacity="0.3"/></linearGradient></defs><path fill="url(#blobGrad)" d="M320,80 C430,90 520,180 530,290 C540,410 450,520 320,540 C190,560 80,460 70,320 C60,190 180,70 320,80 Z"/>';
+    bg.appendChild(svg);
+    if (!window.gsap) return;
+    const path = svg.querySelector("path");
+    const shapes = [
+      "M320,80 C430,90 520,180 530,290 C540,410 450,520 320,540 C190,560 80,460 70,320 C60,190 180,70 320,80 Z",
+      "M300,60 C450,70 560,200 540,330 C520,470 390,560 260,540 C130,520 50,390 70,250 C90,110 180,50 300,60 Z",
+      "M340,90 C460,120 510,240 500,360 C490,480 370,550 240,520 C110,490 70,350 100,220 C130,90 230,60 340,90 Z",
+    ];
+    gsap.to(svg, { rotate: 18, duration: 28, yoyo: true, repeat: -1, ease: "sine.inOut" });
+    const tl = gsap.timeline({ repeat: -1 });
+    shapes.forEach((d, i) => {
+      tl.to(path, { attr: { d }, duration: 4.5, ease: "sine.inOut" }, i === 0 ? 0 : "+=0");
+    });
+  }
+
+  function initTextScramble() {
+    const glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*";
+    const targets = document.querySelectorAll(".section-kicker");
+    if (!targets.length || !window.gsap || !window.ScrollTrigger) return;
+    targets.forEach((el) => {
+      if (el.dataset.scramble === "1") return;
+      el.dataset.scramble = "1";
+      const original = (el.textContent || "").trim();
+      if (!original || original.length > 28) return;
+      ScrollTrigger.create({
+        trigger: el,
+        start: "top 90%",
+        once: true,
+        onEnter: () => {
+          let frame = 0;
+          const total = Math.max(14, original.length * 2);
+          const tick = () => {
+            frame += 1;
+            const progress = frame / total;
+            el.textContent = original
+              .split("")
+              .map((ch, i) => {
+                if (ch === " " || ch === ".") return ch;
+                if (i / original.length < progress) return original[i];
+                return glyphs[(Math.random() * glyphs.length) | 0];
+              })
+              .join("");
+            if (frame < total) requestAnimationFrame(tick);
+            else el.textContent = original;
+          };
+          requestAnimationFrame(tick);
+        },
+      });
     });
   }
 
   function initHeroFloaters() {
     const bg = document.querySelector(".hero-bg");
     if (!bg || bg.querySelector(".hero-floater")) return;
-    for (let i = 0; i < 6; i++) {
+    const count = finePointer && window.matchMedia("(min-width: 900px)").matches ? 14 : 6;
+    const colors = ["#3dff7a", "#3ad0ff", "#ffe566", "#ff9a1f", "#1a5cff", "#3dff7a"];
+    for (let i = 0; i < count; i++) {
       const f = document.createElement("span");
       f.className = "hero-floater";
-      f.style.setProperty("--x", `${10 + i * 14}%`);
-      f.style.setProperty("--y", `${18 + ((i * 17) % 60)}%`);
-      f.style.setProperty("--d", `${6 + i * 1.4}s`);
+      f.style.setProperty("--x", `${8 + ((i * 13) % 84)}%`);
+      f.style.setProperty("--y", `${12 + ((i * 17) % 70)}%`);
+      f.style.setProperty("--d", `${6 + (i % 7) * 1.2}s`);
       f.style.setProperty("--s", `${8 + (i % 3) * 6}px`);
-      f.style.background = ["#3dff7a", "#3ad0ff", "#ffe566", "#ff9a1f", "#1a5cff", "#3dff7a"][i];
+      f.style.background = colors[i % colors.length];
       bg.appendChild(f);
     }
     if (!window.gsap || !window.ScrollTrigger) return;
