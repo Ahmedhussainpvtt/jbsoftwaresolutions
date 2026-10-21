@@ -352,17 +352,17 @@ a.nav-cta {
 /* ---------- HERO ---------- */
 .hero {
   position: relative;
-  min-height: 0;
+  min-height: calc(100svh - var(--header-h));
   display: grid;
   align-items: center;
-  padding: 2rem 0 2.5rem;
+  padding: 3.5rem 0 4rem;
   overflow: clip;
 }
 
 @media (max-height: 760px) {
   .hero {
-    min-height: auto;
-    padding: 1.75rem 0 2rem;
+    min-height: calc(100svh - var(--header-h));
+    padding: 2.5rem 0 3rem;
   }
 }
 
@@ -464,11 +464,11 @@ a.nav-cta {
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 2.4vw, 1.85rem);
-  line-height: 1.15;
+  font-size: clamp(1.75rem, 4.2vw, 3.15rem);
+  line-height: 1.12;
   letter-spacing: -0.03em;
-  max-width: 24ch;
-  margin: 0 0 0.65rem;
+  max-width: 18ch;
+  margin: 0 0 1rem;
   font-weight: 800;
 }
 
@@ -492,10 +492,10 @@ a.nav-cta {
 }
 
 .hero-sub {
-  max-width: 34rem;
+  max-width: 36rem;
   color: var(--muted);
-  font-size: 0.95rem;
-  margin: 0 0 1.1rem;
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  margin: 0 0 1.5rem;
 }
 
 .hero-cta {
@@ -562,7 +562,7 @@ a.nav-cta {
   box-shadow: var(--shadow);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.8rem;
-  min-height: 170px;
+  min-height: 240px;
   backdrop-filter: blur(10px);
 }
 
@@ -2798,11 +2798,12 @@ main,
     grid-template-columns: 1fr;
   }
   .hero {
-    min-height: auto;
-    padding: 1.5rem 0 2rem;
+    min-height: calc(100svh - var(--header-h));
+    padding: 2.75rem 0 3.25rem;
   }
   .hero-title {
     max-width: none;
+    font-size: clamp(1.65rem, 7.5vw, 2.45rem);
   }
   .hero-cta {
     margin-bottom: 0.25rem;
