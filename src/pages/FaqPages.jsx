@@ -1,18 +1,13 @@
-import { useEffect } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Reveal from '../components/Reveal'
 import MagneticButton from '../components/MagneticButton'
 import faqData from '../data/faqTopics.js'
 import { BRAND } from '../data/site'
-import { fadeUp, scaleIn, stagger } from '../motion'
+import { scaleIn, stagger } from '../motion'
 
 export function FaqHub() {
   const { count, topicCount, topics, preview } = faqData
-
-  useEffect(() => {
-    document.title = `FAQ | ${count}+ Software, Apps, SEO and Pricing Answers | ${BRAND}`
-  }, [count])
 
   return (
     <>
@@ -65,11 +60,6 @@ export function FaqHub() {
 export function FaqTopic() {
   const { slug } = useParams()
   const topic = faqData.topics.find((t) => t.slug === slug)
-
-  useEffect(() => {
-    if (topic) document.title = `${topic.title} | FAQ | ${BRAND}`
-  }, [topic])
-
   if (!topic) return <Navigate to="/faq" replace />
 
   return (

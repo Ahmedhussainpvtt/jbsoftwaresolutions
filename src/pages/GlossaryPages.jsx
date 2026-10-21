@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Reveal from '../components/Reveal'
@@ -8,10 +7,6 @@ import { BRAND } from '../data/site'
 import { scaleIn, stagger } from '../motion'
 
 export function GlossaryHub() {
-  useEffect(() => {
-    document.title = `Glossary | Software, Apps, SEO and Automation Terms | ${BRAND}`
-  }, [])
-
   return (
     <>
       <section className="page-hero">
@@ -56,11 +51,6 @@ export function GlossaryTerm() {
   const { slug } = useParams()
   const term = glossaryTerms.find((t) => t.slug === slug)
   const related = glossaryTerms.filter((t) => t.slug !== slug).slice(0, 8)
-
-  useEffect(() => {
-    if (term) document.title = `${term.title} | Glossary | ${BRAND}`
-  }, [term])
-
   if (!term) return <Navigate to="/glossary" replace />
 
   return (

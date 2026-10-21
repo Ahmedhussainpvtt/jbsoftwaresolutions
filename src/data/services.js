@@ -1,4 +1,4 @@
-import { BRAND } from './site'
+import { BRAND } from './site.js'
 
 const FEAT_KICKERS = ['Outcome', 'Process', 'Strategy', 'Coverage']
 

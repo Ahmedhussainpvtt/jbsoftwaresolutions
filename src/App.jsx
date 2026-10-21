@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Routes, Route, useLocation, Navigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Header from './components/Header'
@@ -8,6 +9,7 @@ import ScrollProgress from './components/ScrollProgress'
 import ScrollToTop from './components/ScrollToTop'
 import PageCurtain from './components/PageCurtain'
 import Aurora from './components/Aurora'
+import Seo from './seo/Seo'
 import Home from './pages/Home'
 import ServicePage from './pages/ServicePage'
 import {
@@ -36,8 +38,13 @@ function ServiceRoute() {
 export default function App() {
   const location = useLocation()
 
+  useEffect(() => {
+    document.querySelectorAll('[data-seo-static]').forEach((el) => el.remove())
+  }, [location.pathname])
+
   return (
     <>
+      <Seo />
       <ScrollToTop />
       <ScrollProgress />
       <CursorSystem />
