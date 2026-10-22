@@ -65,6 +65,17 @@ export default function ContactForm() {
     }
   }, [])
 
+  // Read the token directly too; the button must not depend only on the widget callbacks.
+  useEffect(() => {
+    if (!RECAPTCHA_SITE_KEY) return undefined
+    const id = setInterval(() => {
+      if (widgetId.current === null || !window.grecaptcha?.getResponse) return
+      const has = !!window.grecaptcha.getResponse(widgetId.current)
+      setCaptchaOk((prev) => (prev === has ? prev : has))
+    }, 400)
+    return () => clearInterval(id)
+  }, [])
+
   const resetCaptcha = () => {
     if (!RECAPTCHA_SITE_KEY) return
     setCaptchaOk(false)
@@ -79,8 +90,6 @@ export default function ContactForm() {
     e.preventDefault()
     if (sending) return
     const fd = new FormData(formRef.current)
-    if (String(fd.get('_honey') || '').trim()) return
-
     const name = String(fd.get('name') || '').trim()
     const email = String(fd.get('email') || '').trim()
     const message = String(fd.get('message') || '').trim()
@@ -125,7 +134,6 @@ export default function ContactForm() {
 
   return (
     <form className="form" ref={formRef} onSubmit={onSubmit} noValidate>
-      <input className="honey" type="text" name="_honey" tabIndex={-1} autoComplete="off" aria-hidden="true" />
       <label>
         Name
         <input name="name" required maxLength={80} autoComplete="name" placeholder="Your name" />
@@ -165,6 +173,9 @@ export default function ContactForm() {
         <textarea name="message" required maxLength={4000} placeholder="Goals, timeline, links, must-haves" />
       </label>
       {RECAPTCHA_SITE_KEY && <div ref={captchaRef} className="form-captcha" />}
+      {RECAPTCHA_SITE_KEY && !captchaOk && !sending && (
+        <p className="form-hint">Tick &quot;I&apos;m not a robot&quot; to enable the button.</p>
+      )}
       <p className="form-legal">
         By sending this form you agree to our <Link to="/privacy">privacy policy</Link> and{' '}
         <Link to="/terms">terms</Link>.

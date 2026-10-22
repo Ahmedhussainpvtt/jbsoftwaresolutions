@@ -2463,6 +2463,12 @@ html.js-ready .band-visual.is-in {
   min-height: 78px;
 }
 
+.form-hint {
+  margin: -0.35rem 0 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
 .glow-orb {
   position: absolute;
   width: 280px;
