@@ -2453,7 +2453,9 @@ html.js-ready .band-visual.is-in {
 }
 
 .form .btn[disabled] {
-  opacity: 0.6;
+  opacity: 0.45;
+  filter: grayscale(0.85);
+  box-shadow: none;
   cursor: not-allowed;
 }
 
