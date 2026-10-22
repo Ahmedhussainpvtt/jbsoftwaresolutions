@@ -2432,6 +2432,35 @@ html.js-ready .band-visual.is-in {
   resize: vertical;
 }
 
+.form-status {
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.form-status.is-ok {
+  color: var(--green);
+  background: rgba(61, 255, 122, 0.08);
+  border: 1px solid rgba(61, 255, 122, 0.25);
+}
+
+.form-status.is-error {
+  color: #ff8a8a;
+  background: rgba(255, 90, 90, 0.08);
+  border: 1px solid rgba(255, 90, 90, 0.28);
+}
+
+.form .btn[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-captcha {
+  min-height: 78px;
+}
+
 .glow-orb {
   position: absolute;
   width: 280px;

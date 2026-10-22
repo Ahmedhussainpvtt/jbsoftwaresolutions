@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Reveal from '../components/Reveal'
 import MagneticButton from '../components/MagneticButton'
+import ContactForm from '../components/ContactForm'
 import { EMAIL } from '../data/site'
 import { stagger, scaleIn, fadeUp } from '../motion'
 import privacyHtml from '../data/privacyHtml.js'
@@ -237,71 +238,13 @@ export function Contact() {
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container contact-grid">
           <Reveal variants={fadeUp}>
-            <form className="form" action={`https://formsubmit.co/${EMAIL}`} method="POST">
-              <input type="hidden" name="_next" value="https://jbsoftwaresolutions.com/thank-you/" />
-              <input type="hidden" name="_subject" value="New lead - JB Software Solutions" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
-              <input
-                className="honey"
-                type="text"
-                name="_honey"
-                tabIndex={-1}
-                autoComplete="off"
-                aria-hidden="true"
-              />
-              <label>
-                Name
-                <input name="name" required placeholder="Your name" />
-              </label>
-              <label>
-                Email
-                <input type="email" name="email" required placeholder="you@company.com" />
-              </label>
-              <label>
-                Company / project name
-                <input name="company" placeholder="Optional" />
-              </label>
-              <label>
-                Service
-                <select name="service">
-                  <option>Web development</option>
-                  <option>Mobile app</option>
-                  <option>Custom software</option>
-                  <option>SEO / AEO / GEO</option>
-                  <option>Workflow / business automation</option>
-                  <option>Desktop app</option>
-                  <option>Not sure yet</option>
-                </select>
-              </label>
-              <label>
-                Budget range
-                <select name="budget">
-                  <option>Under ₹1 lakh</option>
-                  <option>₹1-5 lakh</option>
-                  <option>₹5-15 lakh</option>
-                  <option>₹15 lakh+</option>
-                  <option>Not sure yet</option>
-                </select>
-              </label>
-              <label>
-                Project details
-                <textarea name="message" required placeholder="Goals, timeline, links, must-haves" />
-              </label>
-              <p className="form-legal">
-                By sending this form you agree to our <Link to="/privacy">privacy policy</Link> and{' '}
-                <Link to="/terms">terms</Link>.
-              </p>
-              <button className="btn btn-primary" type="submit">
-                Get my quote
-              </button>
-            </form>
+            <ContactForm />
           </Reveal>
           <div className="prose">
             <Reveal as="h2">How we reply</Reveal>
             <Reveal as="p">
-              This form emails the JB team directly and sends you to a confirmation page. Prefer
-              email? Write <a href={`mailto:${EMAIL}`}>{EMAIL}</a> with your brief.
+              This form emails the JB team directly and confirms on this page once it is sent.
+              Prefer email? Write <a href={`mailto:${EMAIL}`}>{EMAIL}</a> with your brief.
             </Reveal>
             <Reveal as="h2">What happens next</Reveal>
             <ul>
