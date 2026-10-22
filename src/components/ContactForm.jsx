@@ -4,10 +4,26 @@ import { EMAIL } from '../data/site'
 
 // FormSubmit address or the hashed alias FormSubmit emails after activation.
 const FORMSUBMIT_TO = EMAIL
-// Must list jbsoftwaresolutions.com in the reCAPTCHA admin console, or the widget errors out.
-const RECAPTCHA_SITE_KEY = ''
+// Same Easy Peeze API as easypeeze.com/contact. It routes JB-origin posts to info@.
+const CONTACT_API = 'https://easypeeze-tools-j6dbitzprq-el.a.run.app/contact'
+// Shared Easy Peeze key (project ahmedhussianpvt). jbsoftwaresolutions.com must stay in its allowed domains.
+const RECAPTCHA_SITE_KEY = '6Lf-LsEtAAAAAKGPRWhI5GDDjIYNOa_hWohbAJ9c'
 const SITE = 'JB Software Solutions'
 const SOURCE = 'jbsoftwaresolutions.com/contact'
+
+async function postJson(url, body) {
+  try {
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(body),
+    })
+    const json = await res.json().catch(() => null)
+    return { httpOk: res.ok, json }
+  } catch {
+    return { httpOk: false, json: null }
+  }
+}
 
 function loadRecaptcha() {
   if (window.grecaptcha?.render) return Promise.resolve()
@@ -86,28 +102,29 @@ export default function ContactForm() {
 
     setSending(true)
     setStatus({ error: false, text: 'Sending...' })
+    const mailPayload = {
+      name,
+      email,
+      company: String(fd.get('company') || '').trim(),
+      service: fd.get('service'),
+      budget: fd.get('budget'),
+      message,
+      _subject: `${name} - New lead on ${SITE}`,
+      _template: 'table',
+      _captcha: 'false',
+      _replyto: email,
+      source: SOURCE,
+    }
     try {
-      const res = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(FORMSUBMIT_TO)}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          name,
-          email,
-          company: String(fd.get('company') || '').trim(),
-          service: fd.get('service'),
-          budget: fd.get('budget'),
-          message,
-          _subject: `${name} - New lead on ${SITE}`,
-          _template: 'table',
-          _captcha: 'false',
-          _replyto: email,
-          source: SOURCE,
-          ...(token ? { 'g-recaptcha-response': token } : {}),
-        }),
-      })
-      const json = await res.json().catch(() => null)
-      const ok = res.ok && json && (json.success === true || json.success === 'true')
-      if (!ok) throw new Error((json && json.message) || `Could not send. Email ${EMAIL} instead.`)
+      const [mail, api] = await Promise.all([
+        postJson(`https://formsubmit.co/ajax/${encodeURIComponent(FORMSUBMIT_TO)}`, mailPayload),
+        postJson(CONTACT_API, { ...mailPayload, 'g-recaptcha-response': token }),
+      ])
+      const mailOk = mail.httpOk && (mail.json?.success === true || mail.json?.success === 'true')
+      const apiOk = api.httpOk && api.json?.ok === true && api.json?.emailQueued === true
+      if (!mailOk && !apiOk) {
+        throw new Error(mail.json?.message || api.json?.error || `Could not send. Email ${EMAIL} instead.`)
+      }
       formRef.current.reset()
       setStatus({ error: false, text: 'Thanks - your brief was sent. We reply within 24 hours on business days.' })
     } catch (err) {
