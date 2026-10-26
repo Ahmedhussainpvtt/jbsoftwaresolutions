@@ -3,7 +3,7 @@ import useMotionTier from '../hooks/useMotionTier'
 const ALL = Array.from({ length: 18 }, (_, i) => ({
   id: i,
   left: `${(i * 17 + 7) % 94}%`,
-  top: `${(i * 23 + 11) % 88}%`,
+  top: `${(i * 23 + 11) % 88}svh`,
   size: 3 + (i % 5),
   dur: 4.5 + (i % 7) * 0.7,
   delay: (i % 9) * 0.35,

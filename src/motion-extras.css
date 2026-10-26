@@ -476,6 +476,19 @@ main {
 .hero-stage .ai-terminal {
   animation: hero-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) 200ms backwards;
 }
+/* Hero decor is sized/placed in viewport units, not hero %, so a text reflow
+   (late web font, wrapping) never moves these large layers (CLS). */
+.hero-mesh {
+  inset: auto;
+  top: -20svh;
+  left: -20vw;
+  width: 140vw;
+  height: 140svh;
+}
+.hero-orb-a { top: 10svh; }
+.hero-orb-b { bottom: auto; top: calc(92svh - 300px); }
+.hero-orb-c { top: 55svh; }
+
 /* Decorative loops on the compositor (CSS) instead of per-frame JS.
    Individual transform properties compose with framer's inline transform. */
 .hero-grid {
