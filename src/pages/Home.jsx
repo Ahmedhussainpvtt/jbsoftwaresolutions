@@ -34,7 +34,6 @@ import {
   scaleIn,
   stagger,
   cardHover,
-  glowPulse,
 } from '../motion'
 
 const chips = [
@@ -93,91 +92,43 @@ export default function Home() {
         }}
       >
         <motion.div className="hero-bg" aria-hidden="true" style={{ y: meshY, opacity: heroOpacity }}>
-          <motion.div
-            className="hero-mesh"
-            style={{ x: smx, y: smy }}
-            animate={reduce ? undefined : { rotate: [0, 24, -8, 0], scale: [1, 1.12, 1.04, 1] }}
-            transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
-          />
-          <motion.div
-            className="hero-grid"
-            animate={reduce ? undefined : { backgroundPosition: ['0px 0px', '64px 64px'] }}
-            transition={{ duration: 12, repeat: Infinity, ease: 'linear' }}
-          />
-          <motion.div
-            className="hero-orb hero-orb-a"
-            style={{ x: orbAx, y: orbAy }}
-            animate={reduce ? undefined : { scale: [1, 1.15, 0.95, 1] }}
-            transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
-          />
-          <motion.div
-            className="hero-orb hero-orb-b"
-            animate={reduce ? undefined : { x: [0, -40, 35, 0], y: [0, 45, -20, 0], scale: [1, 0.9, 1.2, 1] }}
-            transition={{ duration: 13, repeat: Infinity, ease: 'easeInOut' }}
-          />
-          <motion.div
-            className="hero-orb hero-orb-c"
-            animate={reduce ? undefined : { x: [0, 30, -20, 0], y: [0, 20, -35, 0], opacity: [0.25, 0.5, 0.3, 0.25] }}
-            transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-          />
+          <motion.div className="hero-mesh" style={{ x: smx, y: smy }} />
+          <div className="hero-grid" />
+          <motion.div className="hero-orb hero-orb-a" style={{ x: orbAx, y: orbAy }} />
+          <div className="hero-orb hero-orb-b" />
+          <div className="hero-orb hero-orb-c" />
           <FloatingBits />
           <MorphBlob />
         </motion.div>
         <div className="container hero-inner">
           <div className="hero-layout">
-            <motion.div
-              className="hero-copy"
-              style={{ y: copyY }}
-              variants={stagger(0.14)}
-              initial="hidden"
-              animate="show"
-            >
+            <motion.div className="hero-copy" style={{ y: copyY }}>
               <HeroTitle />
-              <motion.p className="hero-sub" variants={fadeUp}>
+              <p className="hero-sub hero-in" style={{ '--d': '120ms' }}>
                 From custom software and mobile apps to modern websites, we turn your ideas into
                 powerful digital solutions built around your business.
-              </motion.p>
-              <motion.div className="hero-cta" variants={fadeUp}>
+              </p>
+              <div className="hero-cta hero-in" style={{ '--d': '220ms' }}>
                 <MagneticButton to="/contact" className="btn btn-primary">
                   Get a free strategy call
                 </MagneticButton>
                 <MagneticButton to="/pricing" className="btn btn-ghost">
                   See pricing
                 </MagneticButton>
-              </motion.div>
+              </div>
             </motion.div>
             <motion.div className="hero-stage" style={{ y: stageY }}>
               <div className="ai-proof">
                 <Terminal />
-                <motion.div
-                  className="pixel-row"
-                  aria-hidden="true"
-                  initial="hidden"
-                  animate="show"
-                  variants={stagger(0.07)}
-                >
+                <div className="pixel-row" aria-hidden="true">
                   {Array.from({ length: 6 }).map((_, i) => (
-                    <motion.span
+                    <span
                       key={i}
-                      className="pixel"
-                      variants={scaleIn}
-                      animate={
-                        reduce
-                          ? undefined
-                          : {
-                              opacity: [0.25, 1, 0.25],
-                              scale: [1, 1.25, 1],
-                              boxShadow: [
-                                '0 0 0 rgba(61,255,122,0)',
-                                '0 0 16px rgba(61,255,122,0.7)',
-                                '0 0 0 rgba(61,255,122,0)',
-                              ],
-                            }
-                      }
-                      transition={{ duration: 1.8 + i * 0.18, repeat: Infinity, delay: i * 0.12 }}
+                      className="pixel pixel-pulse"
+                      style={{ '--pd': `${1.8 + i * 0.18}s`, '--pdl': `${i * 0.12}s` }}
                     />
                   ))}
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -351,7 +302,6 @@ export default function Home() {
             max={7}
             layout
             whileHover={{ scale: 1.03, y: -6 }}
-            {...(reduce ? {} : glowPulse)}
           >
             <div className="work-meta">
               <span>04</span>
@@ -543,7 +493,6 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ type: 'spring', stiffness: 160, damping: 18 }}
             whileHover={reduce ? undefined : { scale: 1.015, y: -4 }}
-            {...(reduce ? {} : glowPulse)}
           >
             <div>
               <h2>Ready to build something people can find?</h2>

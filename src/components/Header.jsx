@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { SERVICES, RESOURCES, asset } from '../data/site'
+import { isFirstLoad } from '../firstLoad'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -27,14 +28,14 @@ export default function Header() {
   return (
     <motion.header
       className={`site-header${scrolled ? ' is-scrolled' : ''}`}
-      initial={{ y: -80, opacity: 0 }}
+      initial={isFirstLoad() ? false : { y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="container nav">
         <a className="logo" href={homeHref}>
           <motion.img
-            src={asset('logo-mark.png')}
+            src={asset('logo-mark-96.webp')}
             width="44"
             height="44"
             alt="JB Software Solutions logo"

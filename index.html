@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en-IN">
+<html lang="en-IN" class="first-load">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#05070f" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -23,9 +23,16 @@
     <meta name="twitter:title" content="JB Software Solutions | Custom Software Development, Mobile Apps, Websites, SEO, AEO, GEO" />
     <meta name="twitter:description" content="JB Software Solutions builds custom software, mobile apps, websites, SEO, AEO and GEO for startups and growing businesses in India and worldwide." />
     <meta name="twitter:image" content="https://jbsoftwaresolutions.com/assets/og-image.jpg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" href="/fonts/syne.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      html.first-load:not(.app-hydrated) #root [style*="opacity:0"]:not([aria-hidden="true"]):not([aria-hidden="true"] *),
+      [data-keep-visible] { opacity: 1 !important; transform: none !important; filter: none !important; }
+      @font-face { font-family: 'Syne Fallback'; src: local('Arial'), local('ArialMT'), local('Roboto'); ascent-override: 93.933%; descent-override: 27.926%; line-gap-override: 0%; size-adjust: 98.4745%; }
+      @font-face { font-family: 'Figtree Fallback'; src: local('Arial'), local('ArialMT'), local('Roboto'); ascent-override: 94.3231%; descent-override: 24.8219%; line-gap-override: 0%; size-adjust: 100.7176%; }
+      @font-face { font-family: 'Figtree'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/fonts/figtree.woff2) format('woff2'); unicode-range: U+0020-007E, U+00A0, U+00A9, U+00AE, U+00B7, U+00D7, U+2013-2014, U+2018-2019, U+201C-201D, U+2022, U+2026, U+20B9, U+2122, U+2192; }
+      @font-face { font-family: 'Syne'; font-style: normal; font-weight: 600 800; font-display: swap; src: url(/fonts/syne.woff2) format('woff2'); unicode-range: U+0020-007E, U+00A0, U+00A9, U+00AE, U+00B7, U+00D7, U+2013-2014, U+2018-2019, U+201C-201D, U+2022, U+2026, U+20B9, U+2122, U+2192; }
+    </style>
   </head>
   <body>
     <div id="root"></div>

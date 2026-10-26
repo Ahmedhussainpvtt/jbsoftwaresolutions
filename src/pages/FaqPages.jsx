@@ -1,6 +1,7 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Reveal from '../components/Reveal'
+import PageHero from '../components/PageHero'
 import MagneticButton from '../components/MagneticButton'
 import faqData from '../data/faqTopics.js'
 import { BRAND } from '../data/site'
@@ -11,7 +12,7 @@ export function FaqHub() {
 
   return (
     <>
-      <section className="page-hero">
+      <PageHero>
         <div className="container">
           <Reveal className="section-kicker">Resources</Reveal>
           <Reveal as="h1">FAQs</Reveal>
@@ -20,7 +21,7 @@ export function FaqHub() {
             pricing and how we work.
           </Reveal>
         </div>
-      </section>
+      </PageHero>
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <motion.div
@@ -64,7 +65,7 @@ export function FaqTopic() {
 
   return (
     <>
-      <section className="page-hero">
+      <PageHero>
         <div className="container">
           <Reveal className="section-kicker">
             <Link to="/faq">FAQ</Link>
@@ -72,7 +73,7 @@ export function FaqTopic() {
           <Reveal as="h1">{topic.title}</Reveal>
           <Reveal as="p">{topic.desc}</Reveal>
         </div>
-      </section>
+      </PageHero>
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <div className="faq">

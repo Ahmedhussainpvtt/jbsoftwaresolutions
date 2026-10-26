@@ -110,3 +110,13 @@ export function asset(path) {
   const base = import.meta.env.BASE_URL || '/'
   return `${base}assets/${path}`.replace(/\/{2,}/g, '/').replace(':/', '://')
 }
+
+const SERVICE_IMG_WIDTHS = [480, 768, 1152]
+
+export function serviceImg(file) {
+  const name = file.replace(/\.(jpe?g|png)$/i, '')
+  return {
+    src: asset(`services/${name}-768.webp`),
+    srcSet: SERVICE_IMG_WIDTHS.map((w) => `${asset(`services/${name}-${w}.webp`)} ${w}w`).join(', '),
+  }
+}

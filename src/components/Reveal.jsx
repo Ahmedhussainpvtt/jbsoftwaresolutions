@@ -1,5 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import { fadeUp } from '../motion'
+import { isFirstLoad } from '../firstLoad'
+import { useInHero } from './PageHero'
 
 const TAGS = {
   div: motion.div,
@@ -43,6 +45,7 @@ export default function Reveal({
   ...rest
 }) {
   const reduce = useReducedMotion()
+  const inHero = useInHero()
   const Tag = TAGS[as] || motion.div
 
   if (reduce) {
@@ -58,7 +61,7 @@ export default function Reveal({
     <Tag
       className={className}
       variants={variants}
-      initial="hidden"
+      initial={inHero && isFirstLoad() ? false : 'hidden'}
       whileInView="show"
       viewport={{ once, amount, margin: '0px 0px -10% 0px' }}
       transition={{ delay }}

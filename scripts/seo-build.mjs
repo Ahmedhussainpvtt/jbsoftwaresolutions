@@ -11,11 +11,34 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const dist = join(root, 'dist')
 
 const { allSeoRoutes, metaForPath } = await import(pathToFileURL(join(root, 'src/seo/pageMeta.js')).href)
+const ssrEntry = join(root, 'dist-ssr', 'entry-server.js')
+const { render, preloadAll } = existsSync(ssrEntry) ? await import(pathToFileURL(ssrEntry).href) : { render: null }
+if (preloadAll) await preloadAll()
 
 const SITE = 'https://jbsoftwaresolutions.com'
-const template = readFileSync(join(dist, 'index.html'), 'utf8')
+const template = optimizeShell(readFileSync(join(dist, 'index.html'), 'utf8'))
 
-function inject(html, meta) {
+// Inline the stylesheet (one fewer render-blocking request) and start the app
+// bundle after `load`, so the prerendered HTML paints without competing for bandwidth.
+function optimizeShell(html) {
+  let out = html.replace(/<link rel="stylesheet"[^>]*href="([^"]+\.css)"[^>]*>/g, (_, href) => {
+    const css = readFileSync(join(dist, href.replace(/^\//, '')), 'utf8')
+    return `<style>${css.replace(/<\/style/gi, '<\\/style')}</style>`
+  })
+  const preloads = []
+  out = out.replace(/<link rel="modulepreload"[^>]*href="([^"]+)"[^>]*>\s*/g, (_, href) => {
+    preloads.push(href)
+    return ''
+  })
+  out = out.replace(/<script type="module" crossorigin src="([^"]+)"><\/script>/, (_, src) => {
+    const deps = JSON.stringify(preloads)
+    const loader = `(function(){var started=0;function go(){if(started++)return;${deps}.forEach(function(h){var l=document.createElement('link');l.rel='modulepreload';l.href=h;document.head.appendChild(l)});var s=document.createElement('script');s.type='module';s.crossOrigin='';s.src='${src}';document.head.appendChild(s)}function afterPaint(){try{new PerformanceObserver(function(l){if(l.getEntriesByName('first-contentful-paint').length)setTimeout(go,0)}).observe({type:'paint',buffered:true})}catch(e){go()}setTimeout(go,3000)}if(document.readyState==='complete')afterPaint();else addEventListener('load',afterPaint)})()`
+    return `<script>${loader}</script>`
+  })
+  return out
+}
+
+function inject(html, meta, appHtml = '') {
   let out = html
 
   // Replace core head tags
@@ -58,7 +81,7 @@ function inject(html, meta) {
 
   const crawl = `<section id="seo-static" data-seo-static="1">${meta.crawlHtml || ''}</section>`
   if (out.includes('id="root"')) {
-    out = out.replace(/<div id="root"><\/div>/, `<div id="root"></div>\n    ${crawl}`)
+    out = out.replace(/<div id="root"><\/div>/, () => `<div id="root">${appHtml}</div>\n    ${crawl}`)
   } else {
     out = out.replace('</body>', `    ${crawl}\n  </body>`)
   }
@@ -84,13 +107,14 @@ const routes = allSeoRoutes()
 let written = 0
 for (const route of routes) {
   const meta = metaForPath(route)
-  const html = inject(template, meta)
+  const appHtml = render ? render(route === '/' ? '/' : `${route.replace(/\/$/, '')}/`) : ''
+  const html = inject(template, meta, appHtml)
   writeFileSync(outPathFor(route), html, 'utf8')
   written += 1
 }
 
-// SPA fallback
-copyFileSync(join(dist, 'index.html'), join(dist, '404.html'))
+// SPA fallback: no prerendered markup, the client renders whatever route it lands on
+writeFileSync(join(dist, '404.html'), inject(template, metaForPath('/')), 'utf8')
 
 // Sitemap
 const today = new Date().toISOString().slice(0, 10)

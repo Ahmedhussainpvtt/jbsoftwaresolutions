@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { TERM_LINES } from '../data/site'
+import { isFirstLoad } from '../firstLoad'
 
 export default function Terminal() {
   const [count, setCount] = useState(0)
@@ -15,7 +16,7 @@ export default function Terminal() {
   return (
     <motion.div
       className="ai-terminal"
-      initial={{ opacity: 0, y: 56, rotateX: 18, scale: 0.9 }}
+      initial={isFirstLoad() ? false : { opacity: 0, y: 56, rotateX: 18, scale: 0.9 }}
       animate={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
       transition={{ delay: 0.28, duration: 0.95, ease: [0.16, 1, 0.3, 1] }}
       whileHover={
@@ -33,37 +34,27 @@ export default function Terminal() {
     >
       <div className="bar">
         {['#ff5f57', '#febc2e', '#28c840'].map((c, i) => (
-          <motion.span
-            key={c}
-            className="dot"
-            style={{ background: c }}
-            animate={reduce ? undefined : { scale: [1, 1.25, 1] }}
-            transition={{ duration: 1.6, delay: i * 0.2, repeat: Infinity }}
-          />
+          <span key={c} className="dot" style={{ background: c, '--dot-delay': `${i * 0.2}s` }} />
         ))}
       </div>
       <div className="term-out">
-        <AnimatePresence>
-          {TERM_LINES.slice(0, count).map((line, i) => (
-            <motion.div
-              key={line}
-              initial={{ opacity: 0, x: -18, filter: 'blur(4px)' }}
-              animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 0.4, delay: 0.02 * i }}
-              style={{ marginBottom: 6 }}
-            >
-              {line}
-            </motion.div>
-          ))}
-        </AnimatePresence>
-        {count < TERM_LINES.length && (
-          <motion.span
-            animate={{ opacity: [1, 0.12, 1] }}
-            transition={{ duration: 0.75, repeat: Infinity }}
+        {TERM_LINES.map((line, i) => (
+          <motion.div
+            key={line}
+            initial={false}
+            animate={
+              i < count
+                ? { opacity: 1, x: 0, filter: 'blur(0px)' }
+                : { opacity: 0, x: -18, filter: 'blur(4px)' }
+            }
+            transition={{ duration: 0.4 }}
+            style={{ marginBottom: 6 }}
+            aria-hidden={i < count ? undefined : true}
           >
-            _
-          </motion.span>
-        )}
+            {line}
+          </motion.div>
+        ))}
+        <span className={`term-cursor${count < TERM_LINES.length ? '' : ' is-done'}`}>_</span>
       </div>
     </motion.div>
   )

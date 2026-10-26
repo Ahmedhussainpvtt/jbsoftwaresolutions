@@ -1,23 +1,32 @@
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Reveal from '../components/Reveal'
 import MagneticButton from '../components/MagneticButton'
 import { getService } from '../data/services'
-import { asset } from '../data/site'
+import { serviceImg } from '../data/site'
+import PageHero from '../components/PageHero'
+import { isFirstLoad } from '../firstLoad'
 import { fadeUp, fadeLeft, fadeRight, scaleIn, stagger } from '../motion'
+
+export function ServiceRoute() {
+  const { slug } = useParams()
+  const clean = (slug || '').replace(/\/$/, '')
+  if (!getService(clean)) return <Navigate to="/" replace />
+  return <ServicePage slug={clean} />
+}
 
 export default function ServicePage({ slug }) {
   const s = getService(slug)
   if (!s) {
     return (
-      <section className="page-hero">
+      <PageHero>
         <div className="container">
           <Reveal as="h1">Service not found</Reveal>
           <MagneticButton to="/" className="btn btn-primary">
             Go home
           </MagneticButton>
         </div>
-      </section>
+      </PageHero>
     )
   }
 
@@ -25,12 +34,12 @@ export default function ServicePage({ slug }) {
 
   return (
     <>
-      <section className="page-hero service-hero">
+      <PageHero className="service-hero">
         <div className="container service-hero-grid">
           <motion.div
             className="service-hero-copy"
             variants={stagger(0.12)}
-            initial="hidden"
+            initial={isFirstLoad() ? false : 'hidden'}
             animate="show"
           >
             <motion.div className="section-kicker" variants={fadeUp}>
@@ -49,21 +58,23 @@ export default function ServicePage({ slug }) {
           </motion.div>
           <motion.div
             className="service-hero-visual"
-            initial={{ opacity: 0, x: 48, scale: 0.94 }}
+            initial={isFirstLoad() ? false : { opacity: 0, x: 48, scale: 0.94 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
             whileHover={{ scale: 1.02, y: -6 }}
           >
             <img
-              src={asset(`services/${s.imgs.hero}`)}
+              {...serviceImg(s.imgs.hero)}
+              sizes="(max-width: 900px) 92vw, 560px"
               alt={s.imageAlt}
               width="960"
               height="640"
               loading="eager"
+              fetchPriority="high"
             />
           </motion.div>
         </div>
-      </section>
+      </PageHero>
 
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
@@ -130,7 +141,8 @@ export default function ServicePage({ slug }) {
               variants={i % 2 === 1 ? fadeRight : fadeLeft}
             >
               <motion.img
-                src={asset(`services/${feat.image}`)}
+                {...serviceImg(feat.image)}
+                sizes="(max-width: 900px) 92vw, 540px"
                 alt={feat.title}
                 width="960"
                 height="640"

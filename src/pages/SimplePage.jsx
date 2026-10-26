@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Reveal from '../components/Reveal'
+import PageHero from '../components/PageHero'
 import MagneticButton from '../components/MagneticButton'
 import ContactForm from '../components/ContactForm'
 import { EMAIL } from '../data/site'
@@ -89,7 +90,7 @@ function HtmlPage({ html }) {
 export function About() {
   return (
     <>
-      <section className="page-hero">
+      <PageHero>
         <div className="container">
           <Reveal className="section-kicker">About</Reveal>
           <Reveal as="h1">A small agency that fights for your outcome</Reveal>
@@ -106,7 +107,7 @@ export function About() {
             </MagneticButton>
           </div>
         </div>
-      </section>
+      </PageHero>
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container prose">
           <Reveal as="h2">We are small on purpose</Reveal>
@@ -154,7 +155,7 @@ export function About() {
 export function Pricing() {
   return (
     <>
-      <section className="page-hero">
+      <PageHero>
         <div className="container">
           <Reveal className="section-kicker">Pricing</Reveal>
           <Reveal as="h1">Starting prices, not mystery quotes</Reveal>
@@ -171,9 +172,10 @@ export function Pricing() {
             </MagneticButton>
           </div>
         </div>
-      </section>
+      </PageHero>
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
+          <h2 className="sr-only">Starting prices by service</h2>
           <motion.div
             className="price-grid"
             variants={stagger(0.08)}
@@ -225,7 +227,7 @@ export function Pricing() {
 export function Contact() {
   return (
     <>
-      <section className="page-hero">
+      <PageHero>
         <div className="container">
           <Reveal className="section-kicker">Contact</Reveal>
           <Reveal as="h1">Get a scoped quote</Reveal>
@@ -234,7 +236,7 @@ export function Contact() {
             and next steps. No phone tag. No spam.
           </Reveal>
         </div>
-      </section>
+      </PageHero>
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container contact-grid">
           <Reveal variants={fadeUp}>
@@ -268,7 +270,7 @@ export function Contact() {
 
 export function BlogHub() {
   return (
-    <section className="page-hero">
+    <PageHero>
       <div className="container">
         <Reveal className="section-kicker">Resources</Reveal>
         <Reveal as="h1">Blog</Reveal>
@@ -277,7 +279,7 @@ export function BlogHub() {
           Back home
         </MagneticButton>
       </div>
-    </section>
+    </PageHero>
   )
 }
 
@@ -291,7 +293,7 @@ export function Terms() {
 
 export function NotFound() {
   return (
-    <section className="page-hero">
+    <PageHero>
       <div className="container">
         <Reveal className="section-kicker">Error</Reveal>
         <Reveal as="h1">Page not found</Reveal>
@@ -299,6 +301,6 @@ export function NotFound() {
           Go home
         </MagneticButton>
       </div>
-    </section>
+    </PageHero>
   )
 }

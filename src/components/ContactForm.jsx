@@ -44,9 +44,12 @@ export default function ContactForm() {
   const [captchaOk, setCaptchaOk] = useState(!RECAPTCHA_SITE_KEY)
   const [sending, setSending] = useState(false)
   const [status, setStatus] = useState(null)
+  // Google's script is heavy; fetch it once the visitor starts using the form.
+  const [wantCaptcha, setWantCaptcha] = useState(false)
+  const engage = () => setWantCaptcha(true)
 
   useEffect(() => {
-    if (!RECAPTCHA_SITE_KEY) return undefined
+    if (!RECAPTCHA_SITE_KEY || !wantCaptcha) return undefined
     let cancelled = false
     loadRecaptcha()
       .then(() => {
@@ -63,7 +66,7 @@ export default function ContactForm() {
     return () => {
       cancelled = true
     }
-  }, [])
+  }, [wantCaptcha])
 
   // Read the token directly too; the button must not depend only on the widget callbacks.
   useEffect(() => {
@@ -133,7 +136,15 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="form" ref={formRef} onSubmit={onSubmit} noValidate>
+    <form
+      className="form"
+      ref={formRef}
+      onSubmit={onSubmit}
+      onFocus={engage}
+      onPointerDown={engage}
+      onKeyDown={engage}
+      noValidate
+    >
       <label>
         Name
         <input name="name" required maxLength={80} autoComplete="name" placeholder="Your name" />

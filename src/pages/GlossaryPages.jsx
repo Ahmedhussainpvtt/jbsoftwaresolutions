@@ -1,6 +1,7 @@
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import Reveal from '../components/Reveal'
+import PageHero from '../components/PageHero'
 import MagneticButton from '../components/MagneticButton'
 import glossaryTerms from '../data/glossaryTerms.js'
 import { BRAND } from '../data/site'
@@ -9,7 +10,7 @@ import { scaleIn, stagger } from '../motion'
 export function GlossaryHub() {
   return (
     <>
-      <section className="page-hero">
+      <PageHero>
         <div className="container">
           <Reveal className="section-kicker">Resources</Reveal>
           <Reveal as="h1">Glossary</Reveal>
@@ -18,7 +19,7 @@ export function GlossaryHub() {
             India.
           </Reveal>
         </div>
-      </section>
+      </PageHero>
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
           <motion.div
@@ -55,7 +56,7 @@ export function GlossaryTerm() {
 
   return (
     <>
-      <section className="page-hero">
+      <PageHero>
         <div className="container">
           <Reveal className="section-kicker">
             <Link to="/glossary">Glossary</Link>
@@ -63,7 +64,7 @@ export function GlossaryTerm() {
           <Reveal as="h1">{term.title}</Reveal>
           <Reveal as="p">{term.short}</Reveal>
         </div>
-      </section>
+      </PageHero>
       <section className="section" style={{ paddingTop: 0 }}>
         <div className="container prose">
           <h2>Definition</h2>

@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion'
 import useMotionTier from '../hooks/useMotionTier'
 
 export default function ScrollMarquee({ items }) {
@@ -19,29 +18,25 @@ export default function ScrollMarquee({ items }) {
   return (
     <div className="scroll-marquees" aria-hidden="true">
       <div className="marquee marquee-scroll">
-        <motion.div
+        <div
           className="marquee-track"
-          style={{ display: 'flex', width: 'max-content', gap: '2.5rem' }}
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: tier === 'lite' ? 40 : 28, repeat: Infinity, ease: 'linear' }}
+          style={{ display: 'flex', width: 'max-content', gap: '2.5rem', animationDuration: tier === 'lite' ? '40s' : '28s' }}
         >
           {doubled.map((t, i) => (
             <span key={`a-${t}-${i}`}>{t}</span>
           ))}
-        </motion.div>
+        </div>
       </div>
       {tier === 'full' && (
         <div className="marquee marquee-scroll marquee-reverse">
-          <motion.div
+          <div
             className="marquee-track"
-            style={{ display: 'flex', width: 'max-content', gap: '2.5rem' }}
-            animate={{ x: ['-50%', '0%'] }}
-            transition={{ duration: 38, repeat: Infinity, ease: 'linear' }}
+            style={{ display: 'flex', width: 'max-content', gap: '2.5rem', animationDuration: '38s', animationDirection: 'reverse' }}
           >
             {doubled.map((t, i) => (
               <span key={`b-${t}-${i}`}>{t}</span>
             ))}
-          </motion.div>
+          </div>
         </div>
       )}
     </div>

@@ -18,8 +18,8 @@
   --glass: rgba(8, 12, 22, 0.72);
   --radius: 20px;
   --shadow: 0 28px 90px rgba(0, 0, 0, 0.5);
-  --font-display: "Syne", system-ui, sans-serif;
-  --font-body: "Figtree", system-ui, sans-serif;
+  --font-display: "Syne", "Syne Fallback", system-ui, sans-serif;
+  --font-body: "Figtree", "Figtree Fallback", system-ui, sans-serif;
   --max: 1160px;
   --header-h: 78px;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -2425,6 +2425,20 @@ html.js-ready .band-visual.is-in {
 
 .form-legal a {
   color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .form textarea {
