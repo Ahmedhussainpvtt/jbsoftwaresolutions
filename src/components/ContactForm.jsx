@@ -56,7 +56,7 @@ export default function ContactForm() {
         if (cancelled || !captchaRef.current || widgetId.current !== null) return
         widgetId.current = window.grecaptcha.render(captchaRef.current, {
           sitekey: RECAPTCHA_SITE_KEY,
-          theme: 'dark',
+          theme: document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light',
           callback: () => setCaptchaOk(true),
           'expired-callback': () => setCaptchaOk(false),
           'error-callback': () => setCaptchaOk(false),

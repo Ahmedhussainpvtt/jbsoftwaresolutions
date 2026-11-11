@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
+import { BOOKING_URL } from '../data/site'
+import CalendarIcon from './CalendarIcon'
 
 export default function Dock() {
   const [showTop, setShowTop] = useState(false)
@@ -40,7 +42,7 @@ export default function Dock() {
         {showTop && (
           <motion.button
             type="button"
-            className="back-to-top is-visible"
+            className="back-to-top is-visible dock-float"
             aria-label="Back to top"
             initial={{ opacity: 0, y: 12, scale: 0.85 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -48,14 +50,31 @@ export default function Dock() {
             whileHover={{ y: -3 }}
             whileTap={{ scale: 0.94 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            style={{ display: 'grid' }}
+            style={{ display: 'grid', '--float-delay': '0.9s' }}
           >
             <span aria-hidden="true">↑</span>
-            <span className="back-to-top-label">Top</span>
+            <span className="back-to-top-label">Back to top</span>
           </motion.button>
         )}
       </AnimatePresence>
-      <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.94 }}>
+      <motion.div
+        className="dock-float"
+        style={{ '--float-delay': '0.45s' }}
+        whileHover={{ scale: 1.06 }}
+        whileTap={{ scale: 0.94 }}
+      >
+        <a
+          className="dock-btn book"
+          href={BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Book a free call"
+        >
+          <CalendarIcon />
+          <span>Book a call</span>
+        </a>
+      </motion.div>
+      <motion.div className="dock-float" whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.94 }}>
         <Link className="dock-btn quote" to="/contact" aria-label="Contact us">
           Contact
         </Link>

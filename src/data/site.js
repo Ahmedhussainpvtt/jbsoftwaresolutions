@@ -1,6 +1,13 @@
 export const BRAND = 'JB Software Solutions'
 export const EMAIL = 'info@jbsoftwaresolutions.com'
 export const SITE = 'https://jbsoftwaresolutions.com'
+export const BOOKING_URL = 'https://calendly.com/jbsoftwaresolutions/30min'
+export const TAGLINE = 'Technology built around your idea.'
+export const LOCATION = 'Hyderabad, Telangana, India'
+export const SOCIALS = [
+  { id: 'linkedin', label: 'LinkedIn', href: 'https://www.linkedin.com/company/jbsoftwaresolutions' },
+  { id: 'instagram', label: 'Instagram', href: 'https://instagram.com/jbsoftwaresolutions' },
+]
 
 export const SERVICES = [
   { slug: 'web-development', title: 'Website development', desc: 'Business sites that get enquiries', img: 'web-hero.jpg' },
@@ -85,14 +92,14 @@ export const WORK = [
 ]
 
 export const PRICES = [
-  { title: 'Website development', from: 'From ₹50,000', text: 'Business websites built to get enquiries and show up on Google.' },
-  { title: 'Web apps and mobile apps', from: 'From ₹3,00,000', text: 'Web app development, mobile app development and internal business tools with clear milestones.', featured: true },
-  { title: 'SEO and visibility', from: 'From ₹25,000/mo', text: 'Monthly work so people can find you on Google and AI search tools.' },
+  { title: 'Website development', text: 'Business websites built to get enquiries and show up on Google.' },
+  { title: 'Web apps and mobile apps', text: 'Web app development, mobile app development and internal business tools with clear milestones.', featured: true },
+  { title: 'SEO and visibility', text: 'Monthly work so people can find you on Google and AI search tools.' },
 ]
 
 export const HOME_FAQS = [
   { q: 'What does JB Software Solutions do?', a: 'We build custom software, websites, mobile apps and desktop apps, and grow them with SEO, AEO, GEO and workflow automation.' },
-  { q: 'How much does a project cost?', a: 'Business websites often start from ₹50,000. Custom software and web apps from a few lakhs. Mobile apps often from ₹5,00,000. Ask for a scoped quote.' },
+  { q: 'How much does a project cost?', a: 'Book a call for pricing. Ask for a scoped quote.' },
   { q: 'Do you offer SEO and visibility?', a: 'Yes. Technical SEO for Google plus AEO and GEO so your brand shows up in answer-style results.' },
   { q: 'Who owns the code?', a: 'You do. Source and assets are handed over after payment for that scope.' },
 ]

@@ -24,7 +24,7 @@ export default function TiltCard({
   const gy = useMotionValue(50)
   const srx = useSpring(rx, { stiffness: 220, damping: 22 })
   const sry = useSpring(ry, { stiffness: 220, damping: 22 })
-  const glareBg = useMotionTemplate`radial-gradient(420px circle at ${gx}% ${gy}%, rgba(61,255,122,0.22), transparent 55%)`
+  const glareBg = useMotionTemplate`radial-gradient(420px circle at ${gx}% ${gy}%, rgba(0, 196, 154,0.22), transparent 55%)`
 
   const onMove = (e) => {
     if (!fancy || !ref.current) return

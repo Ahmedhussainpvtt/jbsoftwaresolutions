@@ -3,6 +3,7 @@ import { Link, NavLink, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { SERVICES, RESOURCES, asset } from '../data/site'
 import { isFirstLoad } from '../firstLoad'
+import ThemeSwitch from './ThemeSwitch'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -46,6 +47,7 @@ export default function Header() {
             JB Software<em>Solutions</em>
           </span>
         </a>
+        <ThemeSwitch />
         <button
           className="nav-toggle"
           type="button"
@@ -141,11 +143,6 @@ export default function Header() {
           </li>
           <li>
             <NavLink to="/about">About</NavLink>
-          </li>
-          <li>
-            <NavLink className="nav-cta" to="/contact">
-              Get a quote
-            </NavLink>
           </li>
         </ul>
       </div>

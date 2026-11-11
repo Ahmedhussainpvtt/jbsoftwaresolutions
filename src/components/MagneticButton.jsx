@@ -7,6 +7,7 @@ const MotionLink = motion.create(Link)
 export default function MagneticButton({
   to,
   href,
+  external = false,
   children,
   className = 'btn btn-primary',
   strength = 0.42,
@@ -42,7 +43,7 @@ export default function MagneticButton({
       ? undefined
       : {
           scale: 1.07,
-          boxShadow: '0 12px 40px rgba(61, 255, 122, 0.35)',
+          boxShadow: '0 12px 40px rgba(0, 196, 154, 0.35)',
         },
     whileTap: { scale: 0.94 },
   }
@@ -56,7 +57,11 @@ export default function MagneticButton({
   }
   if (href) {
     return (
-      <motion.a href={href} {...shared}>
+      <motion.a
+        href={href}
+        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        {...shared}
+      >
         {children}
       </motion.a>
     )

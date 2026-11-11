@@ -26,7 +26,7 @@ export default function Terminal() {
               y: -10,
               rotateX: -2,
               rotateY: 3,
-              boxShadow: '0 28px 60px rgba(58, 208, 255, 0.28)',
+              boxShadow: '0 28px 60px rgba(0, 133, 255, 0.28)',
               transition: { type: 'spring', stiffness: 260, damping: 16 },
             }
       }

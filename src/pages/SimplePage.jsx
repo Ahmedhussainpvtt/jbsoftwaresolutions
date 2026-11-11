@@ -5,7 +5,8 @@ import Reveal from '../components/Reveal'
 import PageHero from '../components/PageHero'
 import MagneticButton from '../components/MagneticButton'
 import ContactForm from '../components/ContactForm'
-import { EMAIL } from '../data/site'
+import CalendarIcon from '../components/CalendarIcon'
+import { EMAIL, BOOKING_URL } from '../data/site'
 import { stagger, scaleIn, fadeUp } from '../motion'
 import privacyHtml from '../data/privacyHtml.js'
 import termsHtml from '../data/termsHtml.js'
@@ -13,7 +14,6 @@ import termsHtml from '../data/termsHtml.js'
 const PRICE_CARDS = [
   {
     title: 'Website development',
-    from: 'From ₹50,000',
     items: [
       'Business website, about 5 to 12 pages',
       'Works well on phones',
@@ -22,7 +22,6 @@ const PRICE_CARDS = [
   },
   {
     title: 'Web app development',
-    from: 'From ₹3,00,000',
     featured: true,
     items: [
       'First version of your product in the browser',
@@ -32,7 +31,6 @@ const PRICE_CARDS = [
   },
   {
     title: 'Mobile app development',
-    from: 'From ₹5,00,000',
     items: [
       'First app for Android and/or iPhone',
       'Typical timeline around 8 to 12 weeks',
@@ -41,7 +39,6 @@ const PRICE_CARDS = [
   },
   {
     title: 'Custom software',
-    from: 'From ₹4,00,000',
     items: [
       'Internal tools for your team',
       'Connect to the apps you already use',
@@ -50,7 +47,6 @@ const PRICE_CARDS = [
   },
   {
     title: 'SEO and visibility',
-    from: 'From ₹25,000/mo',
     items: [
       'Help people find you on Google',
       'Useful content for buyer questions',
@@ -59,7 +55,6 @@ const PRICE_CARDS = [
   },
   {
     title: 'Workflow automation',
-    from: 'From ₹75,000',
     items: [
       'Lead and follow-up flows',
       'Connect forms, chat and CRM',
@@ -191,17 +186,18 @@ export function Pricing() {
                 whileHover={{ y: -10, scale: 1.02 }}
               >
                 <h3>{p.title}</h3>
-                <div className="from">{p.from}</div>
                 <ul>
                   {p.items.map((item) => (
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
                 <MagneticButton
-                  to="/contact"
+                  href={BOOKING_URL}
+                  external
                   className={`btn ${p.featured ? 'btn-primary' : 'btn-ghost'}`}
                 >
-                  Request quote
+                  <CalendarIcon size={16} />
+                  Book a call for pricing
                 </MagneticButton>
               </motion.article>
             ))}

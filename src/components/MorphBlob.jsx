@@ -15,9 +15,9 @@ export default function MorphBlob() {
     >
       <defs>
         <linearGradient id="blobGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#3dff7a" stopOpacity="0.45" />
-          <stop offset="50%" stopColor="#3ad0ff" stopOpacity="0.35" />
-          <stop offset="100%" stopColor="#ff9a1f" stopOpacity="0.3" />
+          <stop offset="0%" stopColor="#00C49A" stopOpacity="0.45" />
+          <stop offset="50%" stopColor="#0085FF" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#FFC107" stopOpacity="0.3" />
         </linearGradient>
       </defs>
       <motion.path

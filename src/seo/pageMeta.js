@@ -1,4 +1,4 @@
-import { BRAND, SITE, SERVICES } from '../data/site.js'
+import { BRAND, SITE, SERVICES, SOCIALS, TAGLINE } from '../data/site.js'
 import faqData from '../data/faqTopics.js'
 import glossaryTerms from '../data/glossaryTerms.js'
 import { getService, SERVICE_SLUGS } from '../data/services.js'
@@ -21,8 +21,18 @@ export function orgGraph(pageUrl, title, desc) {
         url: `${SITE}/`,
         logo: `${SITE}/assets/logo-mark.png`,
         email: 'info@jbsoftwaresolutions.com',
+        slogan: TAGLINE,
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Hyderabad',
+          addressRegion: 'Telangana',
+          addressCountry: 'IN',
+        },
         areaServed: 'IN',
-        sameAs: ['https://github.com/Ahmedhussainpvtt/jbsoftwaresolutions'],
+        sameAs: [
+          ...SOCIALS.map((s) => s.href),
+          'https://github.com/Ahmedhussainpvtt/jbsoftwaresolutions',
+        ],
       },
       {
         '@type': 'WebSite',

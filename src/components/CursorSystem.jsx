@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 const TAIL_N = 10
-const SPARK_COLORS = ['#3dff7a', '#3ad0ff', '#ffe566', '#ff9a1f']
+const SPARK_COLORS = ['#00C49A', '#0085FF', '#00A2FF', '#FFC107']
 const HOT_SEL =
   'a, button, .btn, .dock-btn, summary, .blog-card, .seo-chip, .nav-links a, .bento-tile, .work-card, .price-card, .service-chip, .magnetic'
 
@@ -54,17 +54,17 @@ export default function CursorSystem() {
 
     const loop = () => {
       if (!alive) return
-      cx += (mx - cx) * 0.42
-      cy += (my - cy) * 0.42
-      rx += (mx - rx) * 0.18
-      ry += (my - ry) * 0.18
+      cx += (mx - cx) * 0.75
+      cy += (my - cy) * 0.75
+      rx += (mx - rx) * 0.38
+      ry += (my - ry) * 0.38
       core.style.transform = `translate3d(${cx}px, ${cy}px, 0)`
       ring.style.transform = `translate3d(${rx}px, ${ry}px, 0)`
 
       let px = rx
       let py = ry
       tails.forEach((node, i) => {
-        const ease = 0.28 - i * 0.018
+        const ease = 0.5 - i * 0.025
         node.x += (px - node.x) * ease
         node.y += (py - node.y) * ease
         node.el.style.transform = `translate3d(${node.x}px, ${node.y}px, 0)`

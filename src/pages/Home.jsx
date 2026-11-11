@@ -11,6 +11,7 @@ import {
 } from 'framer-motion'
 import Reveal from '../components/Reveal'
 import MagneticButton from '../components/MagneticButton'
+import CalendarIcon from '../components/CalendarIcon'
 import Terminal from '../components/Terminal'
 import HeroTitle from '../components/HeroTitle'
 import FloatingBits from '../components/FloatingBits'
@@ -26,6 +27,7 @@ import {
   PRICES,
   SERVICES,
   HOME_FAQS,
+  BOOKING_URL,
 } from '../data/site'
 import {
   fadeUp,
@@ -109,7 +111,8 @@ export default function Home() {
                 powerful digital solutions built around your business.
               </p>
               <div className="hero-cta hero-in" style={{ '--d': '220ms' }}>
-                <MagneticButton to="/contact" className="btn btn-primary">
+                <MagneticButton href={BOOKING_URL} external className="btn btn-primary btn-call">
+                  <CalendarIcon />
                   Get a free strategy call
                 </MagneticButton>
                 <MagneticButton to="/pricing" className="btn btn-ghost">
@@ -378,7 +381,10 @@ export default function Home() {
                 whileHover={reduce ? undefined : { y: -14, scale: 1.04 }}
               >
                 <h3>{p.title}</h3>
-                <div className="from">{p.from}</div>
+                <MagneticButton href={BOOKING_URL} external className="btn btn-primary price-call">
+                  <CalendarIcon size={16} />
+                  Book a call for pricing
+                </MagneticButton>
                 <p>{p.text}</p>
               </TiltCard>
             ))}

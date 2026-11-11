@@ -9,7 +9,7 @@ export default {
       "qs": [
         [
           "How much does website development cost in India?",
-          "At JB Software Solutions, business website development often starts from ₹50,000 for a focused multi-page site. Custom web apps and e-commerce cost more."
+          "Book a call for pricing. Custom web apps and e-commerce cost more than a focused multi-page site."
         ],
         [
           "What is included in a website development package?",
@@ -68,7 +68,7 @@ export default {
         ],
         [
           "How much does web app development cost in India?",
-          "Focused first versions at JB Software Solutions often start from ₹3,00,000. Multi-role products and integrations raise the quote."
+          "Book a call for pricing. Multi-role products and integrations raise the quote."
         ],
         [
           "How long does a web app MVP take?",
@@ -111,7 +111,7 @@ export default {
       "qs": [
         [
           "How much does mobile app development cost in India?",
-          "At JB Software Solutions, a focused first app often starts from ₹5,00,000. Payments, maps, chat and multi-role features increase cost."
+          "Book a call for pricing. Payments, maps, chat and multi-role features increase cost."
         ],
         [
           "How long does mobile app development take?",
@@ -170,7 +170,7 @@ export default {
         ],
         [
           "How much does custom software development cost in India?",
-          "Internal tools often start from ₹4,00,000. Price follows roles, workflows, integrations and reporting."
+          "Book a call for pricing. Price follows roles, workflows, integrations and reporting."
         ],
         [
           "Custom software vs ready-made SaaS?",
@@ -225,7 +225,7 @@ export default {
         ],
         [
           "How much is an SEO retainer in India?",
-          "Our SEO and visibility retainers often start from ₹25,000 per month."
+          "Book a call for pricing on SEO and visibility retainers."
         ],
         [
           "What is AEO?",
@@ -280,7 +280,7 @@ export default {
         ],
         [
           "How much does workflow automation cost?",
-          "Projects at JB Software Solutions often start from ₹75,000 depending on systems and rules."
+          "Book a call for pricing. Cost depends on systems and rules."
         ],
         [
           "What can be automated first?",
@@ -421,7 +421,7 @@ export default {
         ],
         [
           "How much does a SaaS MVP cost in India?",
-          "Focused slices often start in the low-to-mid lakhs INR depending on roles and billing needs."
+          "Book a call for pricing. Cost depends on roles and billing needs."
         ],
         [
           "How long does a SaaS MVP take?",
@@ -1405,7 +1405,7 @@ export default {
       "qs": [
         [
           "How much does custom software cost in India?",
-          "Focused internal tools at JB Software Solutions often start from ₹4,00,000. Price follows roles, workflows, integrations and reporting."
+          "Book a call for pricing. Price follows roles, workflows, integrations and reporting."
         ],
         [
           "Fixed price or monthly?",
@@ -1613,7 +1613,7 @@ export default {
       "qs": [
         [
           "How much is SEO per month?",
-          "At JB Software Solutions, SEO and visibility retainers often start from ₹25,000 per month."
+          "Book a call for pricing on SEO and visibility retainers."
         ],
         [
           "What happens each month?",
@@ -1709,7 +1709,7 @@ export default {
         ],
         [
           "What is a starting price for website development company India?",
-          "Starting points begin around ₹50,000. Final quotes follow discovery."
+          "Book a call for pricing. Final quotes follow discovery."
         ],
         [
           "Do you offer website development for startups?",
@@ -1740,7 +1740,7 @@ export default {
         ],
         [
           "What is a starting price for web application development?",
-          "Starting points begin around ₹3,00,000. Final quotes follow discovery."
+          "Book a call for pricing. Final quotes follow discovery."
         ],
         [
           "Do you offer web app development for startups?",
@@ -1771,7 +1771,7 @@ export default {
         ],
         [
           "What is a starting price for mobile app development company India?",
-          "Starting points begin around ₹5,00,000. Final quotes follow discovery."
+          "Book a call for pricing. Final quotes follow discovery."
         ],
         [
           "Do you offer mobile app development for startups?",
@@ -1802,7 +1802,7 @@ export default {
         ],
         [
           "What is a starting price for custom software development company India?",
-          "Starting points begin around ₹4,00,000. Final quotes follow discovery."
+          "Book a call for pricing. Final quotes follow discovery."
         ],
         [
           "Do you offer custom software for startups?",
@@ -1833,7 +1833,7 @@ export default {
         ],
         [
           "What is a starting price for SEO company India?",
-          "Starting points begin around ₹25,000/mo. Final quotes follow discovery."
+          "Book a call for pricing. Final quotes follow discovery."
         ],
         [
           "Do you offer SEO services for startups?",
@@ -1864,7 +1864,7 @@ export default {
         ],
         [
           "What is a starting price for business workflow automation?",
-          "Starting points begin around ₹75,000. Final quotes follow discovery."
+          "Book a call for pricing. Final quotes follow discovery."
         ],
         [
           "Do you offer workflow automation for startups?",
@@ -1895,7 +1895,7 @@ export default {
         ],
         [
           "What is a starting price for desktop app development?",
-          "Starting points begin around scoped quote. Final quotes follow discovery."
+          "Book a call for pricing. Final quotes follow discovery."
         ],
         [
           "Do you offer desktop apps for startups?",
@@ -1919,7 +1919,7 @@ export default {
   "preview": [
     [
       "How much does website development cost in India?",
-      "At JB Software Solutions, business website development often starts from ₹50,000 for a focused multi-page site. Custom web apps and e-commerce cost more."
+      "Book a call for pricing. Custom web apps and e-commerce cost more than a focused multi-page site."
     ],
     [
       "What is included in a website development package?",
@@ -1931,11 +1931,11 @@ export default {
     ],
     [
       "How much does web app development cost in India?",
-      "Focused first versions at JB Software Solutions often start from ₹3,00,000. Multi-role products and integrations raise the quote."
+      "Book a call for pricing. Multi-role products and integrations raise the quote."
     ],
     [
       "How much does mobile app development cost in India?",
-      "At JB Software Solutions, a focused first app often starts from ₹5,00,000. Payments, maps, chat and multi-role features increase cost."
+      "Book a call for pricing. Payments, maps, chat and multi-role features increase cost."
     ],
     [
       "How long does mobile app development take?",
@@ -1947,7 +1947,7 @@ export default {
     ],
     [
       "How much does custom software development cost in India?",
-      "Internal tools often start from ₹4,00,000. Price follows roles, workflows, integrations and reporting."
+      "Book a call for pricing. Price follows roles, workflows, integrations and reporting."
     ],
     [
       "What does an SEO company in India do?",
@@ -1955,7 +1955,7 @@ export default {
     ],
     [
       "How much is an SEO retainer in India?",
-      "Our SEO and visibility retainers often start from ₹25,000 per month."
+      "Book a call for pricing on SEO and visibility retainers."
     ],
     [
       "What is workflow automation?",
@@ -1963,7 +1963,7 @@ export default {
     ],
     [
       "How much does workflow automation cost?",
-      "Projects at JB Software Solutions often start from ₹75,000 depending on systems and rules."
+      "Book a call for pricing. Cost depends on systems and rules."
     ],
     [
       "When do I need a desktop app?",
@@ -1987,7 +1987,7 @@ export default {
     ],
     [
       "How much does a SaaS MVP cost in India?",
-      "Focused slices often start in the low-to-mid lakhs INR depending on roles and billing needs."
+      "Book a call for pricing. Cost depends on roles and billing needs."
     ],
     [
       "Do you build custom CRM software?",
@@ -2207,7 +2207,7 @@ export default {
     ],
     [
       "How much does custom software cost in India?",
-      "Focused internal tools at JB Software Solutions often start from ₹4,00,000. Price follows roles, workflows, integrations and reporting."
+      "Book a call for pricing. Price follows roles, workflows, integrations and reporting."
     ],
     [
       "Fixed price or monthly?",
@@ -2271,7 +2271,7 @@ export default {
     ],
     [
       "How much is SEO per month?",
-      "At JB Software Solutions, SEO and visibility retainers often start from ₹25,000 per month."
+      "Book a call for pricing on SEO and visibility retainers."
     ],
     [
       "What happens each month?",
@@ -2307,7 +2307,7 @@ export default {
     ],
     [
       "What is a starting price for website development company India?",
-      "Starting points begin around ₹50,000. Final quotes follow discovery."
+      "Book a call for pricing. Final quotes follow discovery."
     ],
     [
       "Why hire JB Software Solutions for web app development?",
@@ -2315,7 +2315,7 @@ export default {
     ],
     [
       "What is a starting price for web application development?",
-      "Starting points begin around ₹3,00,000. Final quotes follow discovery."
+      "Book a call for pricing. Final quotes follow discovery."
     ],
     [
       "Why hire JB Software Solutions for mobile app development?",
@@ -2323,7 +2323,7 @@ export default {
     ],
     [
       "What is a starting price for mobile app development company India?",
-      "Starting points begin around ₹5,00,000. Final quotes follow discovery."
+      "Book a call for pricing. Final quotes follow discovery."
     ],
     [
       "Why hire JB Software Solutions for custom software?",
@@ -2331,7 +2331,7 @@ export default {
     ],
     [
       "What is a starting price for custom software development company India?",
-      "Starting points begin around ₹4,00,000. Final quotes follow discovery."
+      "Book a call for pricing. Final quotes follow discovery."
     ],
     [
       "Why hire JB Software Solutions for SEO services?",
@@ -2339,7 +2339,7 @@ export default {
     ],
     [
       "What is a starting price for SEO company India?",
-      "Starting points begin around ₹25,000/mo. Final quotes follow discovery."
+      "Book a call for pricing. Final quotes follow discovery."
     ],
     [
       "Why hire JB Software Solutions for workflow automation?",
@@ -2347,7 +2347,7 @@ export default {
     ],
     [
       "What is a starting price for business workflow automation?",
-      "Starting points begin around ₹75,000. Final quotes follow discovery."
+      "Book a call for pricing. Final quotes follow discovery."
     ],
     [
       "Why hire JB Software Solutions for desktop apps?",
@@ -2355,7 +2355,7 @@ export default {
     ],
     [
       "What is a starting price for desktop app development?",
-      "Starting points begin around scoped quote. Final quotes follow discovery."
+      "Book a call for pricing. Final quotes follow discovery."
     ]
   ]
 }

@@ -3,7 +3,8 @@ import { motion } from 'framer-motion'
 import Reveal from '../components/Reveal'
 import MagneticButton from '../components/MagneticButton'
 import { getService } from '../data/services'
-import { serviceImg } from '../data/site'
+import { serviceImg, BOOKING_URL } from '../data/site'
+import CalendarIcon from '../components/CalendarIcon'
 import PageHero from '../components/PageHero'
 import { isFirstLoad } from '../firstLoad'
 import { fadeUp, fadeLeft, fadeRight, scaleIn, stagger } from '../motion'
@@ -182,6 +183,10 @@ export default function ServicePage({ slug }) {
             >
               <motion.article className="service-closing-card" variants={scaleIn} whileHover={{ y: -8 }}>
                 <h3>Cost and timeline</h3>
+                <MagneticButton href={BOOKING_URL} external className="btn btn-primary price-call">
+                  <CalendarIcon size={16} />
+                  Book a call for pricing
+                </MagneticButton>
                 <p>{s.closing.cost}</p>
               </motion.article>
               <motion.article className="service-closing-card" variants={scaleIn} whileHover={{ y: -8 }}>

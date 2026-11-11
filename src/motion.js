@@ -116,10 +116,10 @@ export const cardHover = {
 export const glowPulse = {
   animate: {
     boxShadow: [
-      '0 14px 40px rgba(61, 255, 122, 0.28)',
-      '0 22px 70px rgba(58, 208, 255, 0.55)',
-      '0 18px 50px rgba(255, 154, 31, 0.35)',
-      '0 14px 40px rgba(61, 255, 122, 0.28)',
+      '0 14px 40px rgba(0, 196, 154, 0.28)',
+      '0 22px 70px rgba(0, 133, 255, 0.55)',
+      '0 18px 50px rgba(255, 193, 7, 0.35)',
+      '0 14px 40px rgba(0, 196, 154, 0.28)',
     ],
     transition: { duration: 3.2, repeat: Infinity, ease: 'easeInOut' },
   },
